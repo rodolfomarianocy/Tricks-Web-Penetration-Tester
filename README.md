@@ -3,8 +3,6 @@
 
 ## WAF
 
-
-
 ### Manual Detection:
 
 -> Cookies
@@ -37,7 +35,8 @@ Tool:
 
 https://www.silisoftware.com/tools/ipconverter.php
 
-wafw00f 
+
+### TOOL's wafw00f 
 
 https://github.com/EnableSecurity/wafw00f
 
