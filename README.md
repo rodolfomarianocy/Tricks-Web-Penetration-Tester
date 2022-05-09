@@ -127,7 +127,7 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 
 bypass_lfi.txt
 
-#### Others:
+### Others:
 
 Wordlist for SQL Injection - Bypass
 
