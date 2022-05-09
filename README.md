@@ -98,8 +98,6 @@ http://dean.edwards.name/packer/
 Examples:
 wordlist_xss.txt
 
-data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=
-
 XSS Keylogger
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
 
