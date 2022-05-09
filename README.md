@@ -3,17 +3,7 @@
 
 ## WAF
 
-wafw00f 
 
-https://github.com/EnableSecurity/wafw00f
-
-nmap --script=http-waf-fingerprint
-
-https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
-
-imperva-detect
-
-https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
 ### Manual Detection:
 
@@ -46,6 +36,18 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 Tool:
 
 https://www.silisoftware.com/tools/ipconverter.php
+
+wafw00f 
+
+https://github.com/EnableSecurity/wafw00f
+
+nmap --script=http-waf-fingerprint
+
+https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
+
+imperva-detect
+
+https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
 #### Others:
 
