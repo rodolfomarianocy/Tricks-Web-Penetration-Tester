@@ -81,29 +81,36 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS
 ## JavaScript Encoding and Compressor:
 
 -> jjencode
+
 https://utf-8.jp/public/jjencode.html
 
 -> aaencode
+
 https://utf-8.jp/public/aaencode.html
 
 -> jsfuck
+
 https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
 
 -> Minifying
+
 https://developers.google.com/closure/compiler/
 
 -> Packer 
+
 http://dean.edwards.name/packer/
 
 Examples:
 wordlist_xss.txt
 
 XSS Keylogger
+
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
 
 https://github.com/hadynz/xss-keylogger
 
 XSS Mutation
+
 http://www.businessinfo.co.uk/labs/mxss/
 
 ### Examples of mutation:
