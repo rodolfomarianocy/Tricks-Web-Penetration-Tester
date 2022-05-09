@@ -49,7 +49,7 @@ imperva-detect
 
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
-#### Others:
+### Others:
 
 https://github.com/0xInfection/Awesome-WAF
 
