@@ -53,7 +53,7 @@ https://github.com/0xInfection/Awesome-WAF
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation)
 
-##Protection XSS
+## Protection XSS
 
 -> XSS Auditor and XSS Filter
 
@@ -76,7 +76,7 @@ https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xs
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
 
-##JavaScript Encoding and Compressor:
+## JavaScript Encoding and Compressor:
 
 -> jjencode
 https://utf-8.jp/public/jjencode.html
