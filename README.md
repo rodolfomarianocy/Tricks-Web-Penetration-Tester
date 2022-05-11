@@ -119,10 +119,10 @@ http://www.businessinfo.co.uk/labs/mxss/
 mutation_xss.txt
 
 PHP Obfuscation Techniques:
-Arithmetic Operators
-$§ = 'a';
+-> Arithmetic Operators
+$§ = 'b';
 $§++;
-//b
+//c
 
 $§ = 'z'
 $§++;
@@ -145,6 +145,13 @@ $a ^ $b
 ~ $a
 $a << $b
 $a >> $b
+
+Mix
+echo "t\x72\x69\143\153s"
+x72 hex = r
+x69 hex i
+143 octal = c
+153 octal = k
 
 ## Local File Inclusion - LFI
 
