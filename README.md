@@ -180,7 +180,7 @@ $b ="ck";
 
 echo "T$a[0]$a[1]$b[0]$b[1]s";
 
-Variable Variables
+### Variable Variables
 
 $a = "T";
 
@@ -192,7 +192,7 @@ echo $a.$T.$ri;
 
 //Tricks
 
-### Php Obfuscation:
+### PHP Obfuscation:
 
 -> phponalpha
 
@@ -200,7 +200,7 @@ echo $a.$T.$ri;
 
 https://hackvertor.co.uk/public
 
-###Php Obfuscation - base64+gzdeflate
+### PHP Obfuscation - base64+gzdeflate
 
 obufscation.php
 
