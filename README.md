@@ -118,6 +118,32 @@ http://www.businessinfo.co.uk/labs/mxss/
 
 mutation_xss.txt
 
+PHP Obfuscation Techniques:
+Arithmetic Operators
+$§ = 'a';
+$§++;
+//b
+
+$§ = 'z'
+$§++;
+//aa
+
+$§ = 'A';
+$§++;
+//B
+
+$§ = 'a1';
+$§++;
+//a2
+
+Bitwise Operators
+https://www.php.net/manual/en/language.operators.bitwise.php
+Ex:
+$a & $b
+$a | $b	
+$a ^ $b
+~ $a
+
 ## Local File Inclusion - LFI
 
 ### LFI - files for fuzzing
