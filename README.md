@@ -114,10 +114,6 @@ XSS Mutation
 
 http://www.businessinfo.co.uk/labs/mxss/
 
-### Examples of mutation:
-
-mutation_xss.txt
-
 ## PHP Obfuscation Techniques:
 -> Arithmetic Operators
 $§ = 'b';
