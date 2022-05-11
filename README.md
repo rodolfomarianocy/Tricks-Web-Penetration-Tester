@@ -118,7 +118,7 @@ http://www.businessinfo.co.uk/labs/mxss/
 
 mutation_xss.txt
 
-PHP Obfuscation Techniques:
+## PHP Obfuscation Techniques:
 -> Arithmetic Operators
 $§ = 'b';
 $§++;
@@ -136,7 +136,7 @@ $§ = 'a1';
 $§++;
 //a2
 
-Bitwise Operators
+### Bitwise Operators
 https://www.php.net/manual/en/language.operators.bitwise.php
 Ex:
 $a & $b
@@ -146,12 +146,27 @@ $a ^ $b
 $a << $b
 $a >> $b
 
-Mix
+### Mix - Hex + Octal
 echo "t\x72\x69\143\153s"
 x72 hex = r
 x69 hex i
 143 octal = c
 153 octal = k
+
+### Variable Parsing
+
+$a = "ri";
+$b ="ck";
+echo "T$a[0]$a[1]$b[0]$b[1]s";
+
+### Php Obfuscation:
+
+-> phponalpha
+-> phponalpha2
+https://hackvertor.co.uk/public
+
+###Php Obfuscation - base64+gzdeflate
+obufscation.php
 
 ## Local File Inclusion - LFI
 
