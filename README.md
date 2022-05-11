@@ -197,7 +197,8 @@ echo $a.$T.$ri;
 #### PHP Non-Alphanumeric 
 
 $_="{"; #XOR char
-echo $_=($_^"<").($_^">").($_^"/"); #XOR = GET
+
+echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 
 //GET
 
