@@ -115,6 +115,7 @@ XSS Mutation
 http://www.businessinfo.co.uk/labs/mxss/
 
 ## PHP Obfuscation Techniques:
+
 -> Arithmetic Operators
 $§ = 'b';
 $§++;
@@ -208,7 +209,6 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 
 https://hackvertor.co.uk/public
 
-
 ### PHP Obfuscation - base64+gzdeflate
 
 obufscation.php
@@ -241,4 +241,4 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 
 Wordlists for SQLI e XPath - Authentication Bypass:
 
-https://github.com/payloadbox/sql-injection-payload-list/blob/master/Intruder/exploit/Auth_Bypass.txt
+https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
