@@ -192,13 +192,25 @@ echo $a.$T.$ri;
 
 //Tricks
 
-### PHP Obfuscation:
+### PHP Obfuscation
+
+#### PHP Non-Alphanumeric 
+
+$_="{"; #XOR char
+echo $_=($_^"<").($_^">").($_^"/"); #XOR = GET
+
+//GET
+
+https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
+
+#### Tools
 
 -> phponalpha
 
 -> phponalpha2
 
 https://hackvertor.co.uk/public
+
 
 ### PHP Obfuscation - base64+gzdeflate
 
