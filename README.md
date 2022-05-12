@@ -77,7 +77,6 @@ https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xs
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
-
 ## JavaScript Encoding and Compressor:
 
 -> jjencode
@@ -102,7 +101,7 @@ http://dean.edwards.name/packer/
 
 Examples:
 
-wordlist_xss.txt
+xss.txt
 
 XSS Keylogger
 
@@ -117,8 +116,11 @@ http://www.businessinfo.co.uk/labs/mxss/
 ## PHP Obfuscation Techniques:
 
 -> Arithmetic Operators
+
 $§ = 'b';
+
 $§++;
+
 //c
 
 $§ = 'z'
@@ -193,7 +195,7 @@ echo $a.$T.$ri;
 
 #### PHP Non-Alphanumeric 
 
-$_="{"; #XOR char
+$\_="{"; #XOR char
 
 echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 
