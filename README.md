@@ -227,7 +227,7 @@ Wordlist LFI - Windows:
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
-##Deserialization
+## Insecure Deserialization 
 
 ### PHP Deserialization
 
@@ -267,13 +267,15 @@ Ex:
 -> NetDataContractSerializer
 -> XML Serialization
   
-### Most common places to find serialized data
+#### Most common places to find serialized data
 -> VIEWSTATE
   
 -> .NET remoting services
   
-### Tool
+#### Tool
 -> ysoserial
+
+### Java Deserialization
   
 https://github.com/pwntester/ysoserial.net/
   
