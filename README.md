@@ -265,6 +265,16 @@ Ex:
 -> NetDataContractSerializer
 -> XML Serialization
   
+### Most common places to find serialized data
+-> VIEWSTATE
+  
+-> .NET remoting services
+  
+### Tool
+-> ysoserial
+  
+https://github.com/pwntester/ysoserial.net/
+  
 ### Payloads for bypass
 
 bypass_lfi.txt
