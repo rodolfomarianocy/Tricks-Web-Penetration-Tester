@@ -247,14 +247,14 @@ unserialize()
 
 #### Properties
 
-Public <s>
+Public \<s>
 
 Ex:
 
 Protected \0 * \0
 Ex:
 
-Private \0 <s> \0
+Private \0 \<s> \0
 Ex:
  
 ### .NET Deserialization
