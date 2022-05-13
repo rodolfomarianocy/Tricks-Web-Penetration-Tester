@@ -227,6 +227,16 @@ Wordlist LFI - Windows:
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
+### PHP Deserialization
+
+Magic Methods
+
+__construct()
+
+__destruct()
+
+__wakUp()
+
 ### Payloads for bypass
 
 bypass_lfi.txt
