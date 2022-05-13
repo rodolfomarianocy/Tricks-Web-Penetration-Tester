@@ -231,7 +231,13 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 
 ### PHP Deserialization
 
-Magic Methods:
+#### Method Serialization:
+
+serialize()
+
+unserialize()
+
+#### Magic Methods:
 
 -> __construct()
 
@@ -239,6 +245,26 @@ Magic Methods:
 
 -> __wakUp()
 
+#### Properties
+
+Public <s>
+
+Ex:
+
+Protected \0 * \0
+Ex:
+
+Private \0 <s> \0
+Ex:
+ 
+### .NET Deserialization
+
+#### Methods Serialization:
+-> Binary Formatter
+-> DataContractSerializer
+-> NetDataContractSerializer
+-> XML Serialization
+  
 ### Payloads for bypass
 
 bypass_lfi.txt
