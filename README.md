@@ -245,7 +245,7 @@ unserialize()
 
 -> __wakUp()
 
-#### Properties
+#### Class Properties
 
 Public \<s>
 
@@ -268,14 +268,25 @@ Ex:
 -> XML Serialization
   
 #### Most common places to find serialized data
+
 -> VIEWSTATE
   
 -> .NET remoting services
   
 #### Tool
+
 -> ysoserial
 
 ### Java Deserialization
+
+#### Identify
+
+-> import java.io.serializable;
+
+-> binary with ac ed 00 05;
+
+-> base64 starts with RO0AB in web applications.
+
   
 https://github.com/pwntester/ysoserial.net/
   
