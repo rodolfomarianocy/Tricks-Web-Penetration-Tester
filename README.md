@@ -262,9 +262,13 @@ Ex:
 ### .NET Deserialization
 
 #### Methods Serialization:
+
 -> Binary Formatter
+
 -> DataContractSerializer
+
 -> NetDataContractSerializer
+
 -> XML Serialization
   
 #### Most common places to find serialized data
