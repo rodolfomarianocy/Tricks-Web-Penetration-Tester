@@ -293,11 +293,11 @@ https://github.com/pwntester/ysoserial.net
 
 #### Identify
 
--> import java.io.serializable;
+-> import java.io.serializable
 
--> binary with ac ed 00 05;
+-> binary with ac ed 00 05
 
--> base64 starts with RO0AB in web applications.
+-> base64 starts with RO0AB in web applications
 
 ### Tool
 
