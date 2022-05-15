@@ -309,13 +309,12 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
 
 #### Bad Sign
 
-ClassNot FoundException
+-> ClassNot FoundException;
 
-Good Sign
+-> Good Sign;
 
-java.io.IOException 
+-> java.io.IOException.
 
-  
 ### Payloads for bypass
 
 bypass_lfi.txt
