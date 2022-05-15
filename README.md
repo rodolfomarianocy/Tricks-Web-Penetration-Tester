@@ -192,8 +192,6 @@ echo $a.$T.$ri;
 
 //Tricks
 
-### PHP Obfuscation
-
 #### PHP Non-Alphanumeric 
 
 $\_="{"; #XOR char
@@ -215,6 +213,13 @@ https://hackvertor.co.uk/public
 ### PHP Obfuscation - base64+gzdeflate
 
 obufscation.php
+
+### PHP others tricks
+
+[ eval () execute a chain whose variable $ HTTP_USER_AGENT is so just
+change your header in PHP code ]
+
+https://www.exploit-db.com/papers/13694
 
 ## Local File Inclusion - LFI
 
@@ -275,12 +280,14 @@ Ex:
 #### Most common places to find serialized data
 
 -> VIEWSTATE
-  
+    
 -> .NET remoting services
   
 #### Tool
 
 -> ysoserial
+
+https://github.com/pwntester/ysoserial.net
 
 ### Java Deserialization
 
@@ -292,8 +299,13 @@ Ex:
 
 -> base64 starts with RO0AB in web applications.
 
-  
-https://github.com/pwntester/ysoserial.net/
+### Tool
+
+https://github.com/frohoff/ysoserial
+
+https://github.com/NickstaDB/SerializationDumper
+
+https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
   
 ### Payloads for bypass
 
