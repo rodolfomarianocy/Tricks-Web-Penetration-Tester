@@ -306,6 +306,15 @@ https://github.com/frohoff/ysoserial
 https://github.com/NickstaDB/SerializationDumper
 
 https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
+
+#### Bad Sign
+
+ClassNot FoundException
+
+Good Sign
+
+java.io.IOException 
+
   
 ### Payloads for bypass
 
