@@ -312,8 +312,6 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
 
 -> java.io.IOException
 
-
-
 ## SQLI and XPATH:
 
 Wordlist for SQL Injection - Bypass
@@ -324,7 +322,7 @@ Doc for SQL Injection - Bypass
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
 
-Wordlists for SQLI e XPath - Authentication Bypass:
+Wordlists for SQLI e XPath - Authentication Bypass
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
 
@@ -332,14 +330,14 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 
 ### LFI - files for fuzzing
 
-Wordlist LFI - Linux:
+Wordlist LFI - Linux
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
 
-Wordlist LFI - Windows:
+Wordlist LFI - Windows
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
-### Payloads for bypass
+### Payloads for bypass:
 
 -> bypass_lfi.txt
