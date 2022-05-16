@@ -221,7 +221,7 @@ change your header in PHP code ]
 
 https://www.exploit-db.com/papers/13694
 
-### Type Juggling
+## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
 
