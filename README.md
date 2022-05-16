@@ -234,7 +234,10 @@ Wordlist LFI - Windows:
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
 ## Insecure Deserialization 
+## Types
+#### Binary
 
+#### human readable
 ### PHP Deserialization
 
 #### Method Serialization:
