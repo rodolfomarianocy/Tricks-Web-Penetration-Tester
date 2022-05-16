@@ -312,11 +312,9 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
 
 -> java.io.IOException
 
-### Payloads for bypass
 
--> bypass_lfi.txt
 
-### Others:
+## SQLI and XPATH:
 
 Wordlist for SQL Injection - Bypass
 
@@ -341,3 +339,7 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 Wordlist LFI - Windows:
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
+
+### Payloads for bypass
+
+-> bypass_lfi.txt
