@@ -221,23 +221,17 @@ change your header in PHP code ]
 
 https://www.exploit-db.com/papers/13694
 
-## Local File Inclusion - LFI
+### Type Juggling
 
-### LFI - files for fuzzing
-
-Wordlist LFI - Linux:
-
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
-
-Wordlist LFI - Windows:
-
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
+https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
 
 ## Insecure Deserialization 
-## Types
-#### Binary
 
-#### human readable
+#### Types
+
+-> Binary
+-> human readable
+
 ### PHP Deserialization
 
 #### Method Serialization:
@@ -335,3 +329,15 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 Wordlists for SQLI e XPath - Authentication Bypass:
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
+
+## Local File Inclusion - LFI
+
+### LFI - files for fuzzing
+
+Wordlist LFI - Linux:
+
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
+
+Wordlist LFI - Windows:
+
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
