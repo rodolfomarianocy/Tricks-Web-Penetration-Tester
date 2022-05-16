@@ -166,7 +166,7 @@ echo "t\x72\x69\143\153s"
 
 x72 hex = r
 
-x69 hex i
+x69 hex = i
 
 143 octal = c
 
