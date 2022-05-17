@@ -316,6 +316,8 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
 
 ### Tools
 
+https://github.com/clarketm/s3recon
+
 ## SQLI and XPATH:
 
 Wordlist for SQL Injection - Bypass
