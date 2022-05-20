@@ -37,7 +37,7 @@ Tool:
 
 https://www.silisoftware.com/tools/ipconverter.php
 
-## TOOL's:
+### Tools:
 
 wafw00f 
 
@@ -51,15 +51,17 @@ imperva-detect
 
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
-### Others:
+#### Others:
 
 https://github.com/0xInfection/Awesome-WAF
 
-## Cross-Site Scripting (Reflected, Stored, DOM, Mutation)
+## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
-## Protection XSS
+### Protection XSS
 
 -> XSS Auditor and XSS Filter
+
+https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md
 
 https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
 
@@ -70,8 +72,6 @@ https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge
 https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/X-XSS-Protection
 
 -> Wordlists for XSS Bypass
-
-https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md
 
 https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst
 
@@ -200,7 +200,7 @@ echo $a.$T.$ri;
 
 //Tricks
 
-#### PHP Non-Alphanumeric 
+### PHP Non-Alphanumeric 
 
 $\_="{"; #XOR char
 
@@ -210,7 +210,7 @@ echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
-#### Tools
+### Tools
 
 -> phponalpha
 
@@ -222,31 +222,29 @@ https://hackvertor.co.uk/public
 
 obufscation.php
 
-### PHP others tricks
+## Type Juggling
+
+https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
+
+### PHP - others tricks
 
 [ eval () execute a chain whose variable $ HTTP_USER_AGENT is so just
 change your header in PHP code ]
 
 https://www.exploit-db.com/papers/13694
 
-## Type Juggling
-
-https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
-
 ## Insecure Deserialization 
-
-#### Types
 
 -> Binary
 -> human readable
 
 ### PHP Deserialization
 
-#### Method Serialization:
+#### PHP - Method Serialization:
 
-serialize()
+-> serialize()
 
-unserialize()
+-> unserialize()
 
 #### Magic Methods:
 
@@ -290,8 +288,6 @@ Ex:
   
 #### Tool
 
--> ysoserial
-
 https://github.com/pwntester/ysoserial.net
 
 ### Java Deserialization
@@ -304,7 +300,7 @@ https://github.com/pwntester/ysoserial.net
 
 -> base64 starts with RO0AB in web applications
 
-### Tool
+### Tools
 
 https://github.com/frohoff/ysoserial
 
@@ -316,7 +312,7 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
 
 -> ClassNot FoundException
 
-### Good Sign
+#### Good Sign
 
 -> java.io.IOException
 
@@ -336,15 +332,15 @@ https://github.com/clarketm/s3recon
 
 ## SQLI and XPATH:
 
-Wordlist for SQL Injection - Bypass
+### Wordlist for SQL Injection - Bypass
 
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
 
-Doc for SQL Injection - Bypass
+### Doc for SQL Injection - Bypass
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
 
-Wordlists for SQLI e XPath - Authentication Bypass
+### Wordlists for SQLI e XPath - Authentication Bypass
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
 
@@ -352,11 +348,11 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 
 ### LFI - files for fuzzing
 
-Wordlist LFI - Linux
+### Wordlist LFI - Linux
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
 
-Wordlist LFI - Windows
+### Wordlist LFI - Windows
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
