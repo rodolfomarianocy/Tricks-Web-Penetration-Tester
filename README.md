@@ -24,6 +24,7 @@
 ## Host Obfuscation
 
 #### Types:
+
 -> DWORD
   
 -> OCTAL 
