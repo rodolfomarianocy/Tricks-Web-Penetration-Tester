@@ -78,6 +78,24 @@ https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xs
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
+Examples:
+
+xss.txt
+
+### XSS Keylogger
+
+https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
+
+https://github.com/hadynz/xss-keylogger
+
+### XSS Mutation
+
+http://www.businessinfo.co.uk/labs/mxss/
+
+### XSS Poliglote
+https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
+
+
 ## JavaScript Encoding and Compressor:
 
 -> jjencode
@@ -100,19 +118,6 @@ https://developers.google.com/closure/compiler/
 
 http://dean.edwards.name/packer/
 
-Examples:
-
-xss.txt
-
-XSS Keylogger
-
-https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
-
-https://github.com/hadynz/xss-keylogger
-
-XSS Mutation
-
-http://www.businessinfo.co.uk/labs/mxss/
 
 ## PHP Obfuscation Techniques:
 
