@@ -96,8 +96,8 @@ https://github.com/hadynz/xss-keylogger
 http://www.businessinfo.co.uk/labs/mxss/
 
 ### XSS Poliglote
-https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
+https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ## JavaScript Encoding and Compressor:
 
