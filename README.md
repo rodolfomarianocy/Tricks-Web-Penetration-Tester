@@ -236,6 +236,7 @@ https://www.exploit-db.com/papers/13694
 ## Insecure Deserialization 
 
 -> Binary
+
 -> human readable
 
 ### PHP Deserialization
