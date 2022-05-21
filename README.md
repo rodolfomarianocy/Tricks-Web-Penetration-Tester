@@ -323,7 +323,7 @@ http://169.254.169.254/latest/meta-data
 
 http://169.254.169.254/latest/api/token
 
-### Srverless Injection
+### Serverless Injection
 
 echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
   
