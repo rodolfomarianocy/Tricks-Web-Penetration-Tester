@@ -331,7 +331,7 @@ echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
 
 https://github.com/clarketm/s3recon
 
-## SQLI and XPATH:
+## SQLI and XPATH
 
 ### Wordlist for SQL Injection - Bypass
 
