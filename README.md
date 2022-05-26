@@ -1,6 +1,6 @@
 # Tricks - Web Penetration Tester
 
-- [x] In Construction... (40%)
+- [x] In Construction... (30%)
 
 ## WAF
 
