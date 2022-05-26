@@ -8,13 +8,9 @@
 
 -> Cookies
 
--> Server Cloaking
-
 -> Response Codes
 
--> Drop Action
-
--> Pre-Built-In Rul3es
+-> Rules
 
 ### Response code WAF'S
 
@@ -22,23 +18,7 @@
 
 -> AQTRONIX WebKnight -> 999 No hacking
 
-## Host Obfuscation
-
-#### Types:
-
--> DWORD
-  
--> OCTAL 
-  
--> HEX
-  
--> HYBRID
-
-Tool:
-
-https://www.silisoftware.com/tools/ipconverter.php
-
-### Tools:
+### Tool
 
 wafw00f 
 
@@ -55,6 +35,23 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 #### Others:
 
 https://github.com/0xInfection/Awesome-WAF
+
+## Host Obfuscation
+
+#### Types
+
+-> DWORD
+  
+-> OCTAL 
+  
+-> HEX
+  
+-> HYBRID
+
+### Tool
+
+https://www.silisoftware.com/tools/ipconverter.php
+
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
@@ -491,6 +488,10 @@ burp intruder -> payloads.out in file parameter.
 ## Insecure - Machine Key for RCE 
 
 https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md
+  
+https://github.com/pwntester/ysoserial.net
+  
+https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
   
 ### Wordlist for SQL Injection - Bypass
 
