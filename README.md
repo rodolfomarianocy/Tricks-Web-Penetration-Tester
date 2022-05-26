@@ -488,6 +488,10 @@ https://site.com/index.php?file=oktest&hash=hash
 
 burp intruder -> payloads.out in file parameter.  
   
+## Insecure - Machine Key for RCE 
+
+https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md
+  
 ### Wordlist for SQL Injection - Bypass
 
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
