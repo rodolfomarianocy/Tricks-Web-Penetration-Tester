@@ -188,6 +188,8 @@ var name="here";
   
 </div>
   
+</script>
+  
 -> ;alert(1);//
 
 #### Event Attributes
@@ -439,11 +441,6 @@ echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
 https://github.com/clarketm/s3recon
   
 ## XPATH
-  
-### Identify
-  -> Auth Bypass
-  -> Error
-  ->
   
 error()
 
