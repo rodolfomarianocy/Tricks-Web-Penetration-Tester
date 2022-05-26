@@ -8,13 +8,9 @@
 
 -> Cookies
 
--> Server Cloaking
-
 -> Response Codes
 
--> Drop Action
-
--> Pre-Built-In Rul3es
+-> rules in configuration
 
 ### Response code WAF'S
 
@@ -102,7 +98,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ### Regex blacklist filtering
 
-(on\w+\s*=)
+## (on\w+\s*=)
 
 <svc/onload=alert(1)>
 
@@ -112,7 +108,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
   
 <svg id=\`x\`onload=alert(1)>
   
-(?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
+## (?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
   
 <svg onload%09=alert(1)>
   
@@ -459,10 +455,8 @@ https://xcat.readthedocs.io/en/latest/
 ### Wordlists for SQLI e XPath - Authentication Bypass
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
-  
-## SQLI and XPATH
 
-### Wordlist for SQL Injection - Bypass
+### Wordlist for SQL Injection
 
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
 
@@ -472,19 +466,21 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 
 ## Local File Inclusion - LFI
 
-### LFI - files for fuzzing
+### LFI - wordlists for fuzzing
 
-### Wordlist LFI - Linux
+-> LFI - Linux
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
 
-### Wordlist LFI - Windows
+-> LFI - Windows
 
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
 ### Payloads for bypass:
 
 -> bypass_lfi.txt
+  
+## Others wordlists
   
 ### Wordlist for parameter fuzzing
   
