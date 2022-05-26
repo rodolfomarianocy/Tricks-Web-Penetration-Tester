@@ -205,7 +205,7 @@ Okay!
 Dom Based
   
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href='"+ok+"'>ok</a>";
-
+  </script>
 -> javascript:alert(1)
 
 ## JavaScript Encoding and Compressor:
