@@ -16,7 +16,7 @@
 
 -> Pre-Built-In Rul3es
 
-### Response code WA
+### Response code WAF'S
 
 -> mod_security -> 406 Not Acceptable
 
