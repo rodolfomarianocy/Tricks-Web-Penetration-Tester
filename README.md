@@ -1,6 +1,6 @@
 # Tricks - Web Penetration Tester
 
-- [x] In Construction... (40%)
+- [x] In Construction... (50%)
 
 ## WAF
 
@@ -12,7 +12,7 @@
 
 -> Rules
 
-### Response code WAF'S
+### Response - Status code WAF'S
 
 -> mod_security -> 406 Not Acceptable
 
