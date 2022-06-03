@@ -492,7 +492,8 @@ https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserializa
 https://github.com/pwntester/ysoserial.net
   
 https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
-  ## Local File Inclusion - LFI
+
+## Local File Inclusion - LFI
 
 ### LFI - files for fuzzing
 
