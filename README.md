@@ -370,16 +370,24 @@ https://www.exploit-db.com/papers/13694
 #### Class Properties
 
 Public \<s>
-
+ 
 Ex:
 
+O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}
+  
 Protected \0 * \0
 
 Ex:
 
+O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
+
 Private \0 \<s> \0
 
 Ex:
+  
+#### Trick Bypass
+
+a:
  
 ### .NET Deserialization
 
