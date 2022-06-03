@@ -52,7 +52,6 @@ https://github.com/0xInfection/Awesome-WAF
 
 https://www.silisoftware.com/tools/ipconverter.php
 
-
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
 ### Protection XSS
@@ -379,15 +378,19 @@ Protected \0 * \0
 
 Ex:
 
-O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
+O:4:"Okay":1:{s:11:"' . "\0" . '*' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
 
 Private \0 \<s> \0
 
 Ex:
   
+O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
+
+example/class.php
+  
 #### Trick Bypass
 
-a:
+
  
 ### .NET Deserialization
 
@@ -540,3 +543,7 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 ## NOSQL Injection
   
 https://book.hacktricks.xyz/pentesting-web/nosql-injection
+  
+## Graphql Introspection
+
+https://ivangoncharov.github.io/graphql-voyager/
