@@ -1,0 +1,10 @@
+<html>
+	<body>
+		<form action="" method="POST">
+		<input name="code" value="" type="hidden" />
+		</form>
+	</body>
+	<script>
+		document.forms[0].submit();
+	</script>
+</html>
