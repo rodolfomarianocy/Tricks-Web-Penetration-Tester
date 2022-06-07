@@ -1,6 +1,7 @@
 # Tricks - Web Penetration Tester
 
 - [x] In Construction... (60%)
+
 ## WAF
 
 ### Manual Detection:
@@ -10,6 +11,122 @@
 -> Response Codes
 
 -> Rules
+
+## Host Obfuscation
+
+#### Types
+
+-> DWORD
+  
+-> OCTAL 
+  
+-> HEX
+  
+-> HYBRID
+
+### Tool
+
+https://www.silisoftware.com/tools/ipconverter.php
+
+## PHP Obfuscation Techniques:
+
+-> Arithmetic Operators
+
+$§ = 'b';
+
+$§++;
+
+//c
+
+$§ = 'z'
+
+$§++;
+
+//aa
+
+$§ = 'A';
+
+$§++;
+
+//B
+
+$§ = 'a1';
+
+$§++;
+
+//a2
+
+### Bitwise Operators
+
+https://www.php.net/manual/en/language.operators.bitwise.php
+
+Ex:
+
+$a & $b
+
+$a | $b	
+
+$a ^ $b
+
+~ $a
+
+$a << $b
+
+$a >> $b
+
+### Mix - Hex + Octal
+
+echo "t\x72\x69\143\153s"
+
+x72 hex = r
+
+x69 hex = i
+
+143 octal = c
+
+153 octal = k
+
+### Variable Parsing
+
+$a = "ri";
+
+$b ="ck";
+
+echo "T$a[0]$a[1]$b[0]$b[1]s";
+
+### Variable Variables
+
+$a = "T";
+
+$$a = "ri";
+
+$$$a = "cks";
+
+echo $a.$T.$ri;
+
+//Tricks
+
+### PHP Non-Alphanumeric 
+
+$\_="{"; #XOR char
+
+echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
+
+//GET
+
+https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
+
+### Tools
+
+-> phponalpha
+
+-> phponalpha2
+
+https://hackvertor.co.uk/public
+
+### PHP Obfuscation - base64+gzdeflate
+
+/codes/obufscation.php
 
 ### Response - Status code WAF'S
 
@@ -34,22 +151,6 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 #### Others:
 
 https://github.com/0xInfection/Awesome-WAF
-
-## Host Obfuscation
-
-#### Types
-
--> DWORD
-  
--> OCTAL 
-  
--> HEX
-  
--> HYBRID
-
-### Tool
-
-https://www.silisoftware.com/tools/ipconverter.php
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
@@ -227,106 +328,6 @@ https://developers.google.com/closure/compiler/
 
 http://dean.edwards.name/packer/
 
-## PHP Obfuscation Techniques:
-
--> Arithmetic Operators
-
-$§ = 'b';
-
-$§++;
-
-//c
-
-$§ = 'z'
-
-$§++;
-
-//aa
-
-$§ = 'A';
-
-$§++;
-
-//B
-
-$§ = 'a1';
-
-$§++;
-
-//a2
-
-### Bitwise Operators
-
-https://www.php.net/manual/en/language.operators.bitwise.php
-
-Ex:
-
-$a & $b
-
-$a | $b	
-
-$a ^ $b
-
-~ $a
-
-$a << $b
-
-$a >> $b
-
-### Mix - Hex + Octal
-
-echo "t\x72\x69\143\153s"
-
-x72 hex = r
-
-x69 hex = i
-
-143 octal = c
-
-153 octal = k
-
-### Variable Parsing
-
-$a = "ri";
-
-$b ="ck";
-
-echo "T$a[0]$a[1]$b[0]$b[1]s";
-
-### Variable Variables
-
-$a = "T";
-
-$$a = "ri";
-
-$$$a = "cks";
-
-echo $a.$T.$ri;
-
-//Tricks
-
-### PHP Non-Alphanumeric 
-
-$\_="{"; #XOR char
-
-echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
-
-//GET
-
-https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
-
-### Tools
-
--> phponalpha
-
--> phponalpha2
-
-https://hackvertor.co.uk/public
-
-### PHP Obfuscation - base64+gzdeflate
-
-obufscation.php
-
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
@@ -380,7 +381,7 @@ Ex:
   
 O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
 
-example/class.php
+codes/deserialization_php/class.php
   
 #### Trick Bypass
 
