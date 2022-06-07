@@ -134,17 +134,17 @@ https://hackvertor.co.uk/public
 
 -> AQTRONIX WebKnight -> 999 No hacking
 
-### Tool
+### Tool's
 
-wafw00f 
+-> wafw00f 
 
 https://github.com/EnableSecurity/wafw00f
 
-nmap --script=http-waf-fingerprint
+-> nmap --script=http-waf-fingerprint
 
 https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
-imperva-detect
+-> imperva-detect
 
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
