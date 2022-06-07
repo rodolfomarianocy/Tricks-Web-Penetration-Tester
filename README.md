@@ -608,3 +608,7 @@ https://github.com/tarunkant/Gopherus
 ### Doc for SSRF - bhack
 
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
+  
+## CRLF Injection
+  
+/%0d%0aheader
