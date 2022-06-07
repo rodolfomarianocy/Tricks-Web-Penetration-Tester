@@ -586,3 +586,25 @@ ${{3*3}}
 #### Doc for SSTI	
 
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+  
+## SSRF - Protocol Smuggling
+
+-> HTTP-Based(Elastic, CouchDB, Mongodb, docker),etc.
+
+-> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.
+
+curl "gopher://localhost:port"
+
+### Tool's
+
+Gopher Protocol
+
+https://datatracker.ietf.org/doc/html/rfc1436
+
+Gopherus
+
+https://github.com/tarunkant/Gopherus
+
+### Doc for SSRF - bhack
+
+https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
