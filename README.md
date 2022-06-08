@@ -611,4 +611,7 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
   
 ## CRLF Injection
   
-/%0d%%0aLocation
+/%0D%%0ALocation
+
+## XXE OOB
+<
