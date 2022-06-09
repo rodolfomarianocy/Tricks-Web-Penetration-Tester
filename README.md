@@ -562,6 +562,12 @@ https://book.hacktricks.xyz/pentesting-web/nosql-injection
 
 https://ivangoncharov.github.io/graphql-voyager/
   
+### CSRF
+
+codes/csrf/csrf_common.html
+codes/csrf/csrf_json.html
+codes/csrf/csrf_json_xhr.html
+  
 ### SSTI
 
 #### Identify
