@@ -672,7 +672,11 @@ codes/xxe_oob/evil.dtd
   
 %remote;
   
-## Others tool's
+## Others tool's and things
+  
+### ImageTragik
+
+codes/rce/tragik.jpg
 
 ### Search across a half million git repos
   
