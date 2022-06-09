@@ -148,7 +148,7 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
-#### Others:
+#### Others
 
 https://github.com/0xInfection/Awesome-WAF
 
