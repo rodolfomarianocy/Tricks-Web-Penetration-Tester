@@ -671,5 +671,9 @@ codes/xxe_oob/evil.dtd
 ## Others tool's
 
 ### Search across a half million git repos
-
+  
 https://grep.app
+  
+### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
+  
+https://gchq.github.io/CyberChef/
