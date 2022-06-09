@@ -562,7 +562,7 @@ https://book.hacktricks.xyz/pentesting-web/nosql-injection
 
 https://ivangoncharov.github.io/graphql-voyager/
   
-### CSRF
+## CSRF
 
 codes/csrf/csrf_common.html
   
@@ -570,9 +570,9 @@ codes/csrf/csrf_json.html
   
 codes/csrf/csrf_json_xhr.html
   
-### SSTI
+## SSTI
 
-#### Identify
+### Identify
 
 -> Jinja2 orTwig
   
@@ -596,13 +596,13 @@ ${{3*3}}
   
 3*3
 
-#### Java Expression Language
+### Java Expression Language
 
 {{T(java.lang.Runtime).getRuntime().exec('id')}}
 
 ''.class.forName('java.lang.Runtime').getRuntime().exec('id')
   
-#### Doc for SSTI	
+### Doc for SSTI	
 
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
   
@@ -616,11 +616,11 @@ curl "gopher://localhost:port"
 
 ### Tool's
 
-Gopher Protocol
+-> Gopher Protocol
 
 https://datatracker.ietf.org/doc/html/rfc1436
 
-Gopherus
+-> Gopherus
 
 https://github.com/tarunkant/Gopherus
   
