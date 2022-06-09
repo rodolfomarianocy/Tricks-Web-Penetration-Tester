@@ -632,7 +632,7 @@ codes/ssrf_protocol_smuggling/memcached.py
   
 -> stats items
   
--> cachedump slash_number 10
+-> cachedump s 10
   
 -> get item item
   
