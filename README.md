@@ -703,3 +703,8 @@ https://grep.app
 ### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
   
 https://gchq.github.io/CyberChef/
+  
+
+### List of file signatures
+  
+https://en.wikipedia.org/wiki/List_of_file_signatures
