@@ -686,6 +686,10 @@ codes/xxe_oob/evil.dtd
   
 %remote;
   
+## XSLT Server Side Injection
+  
+https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
+  
 ## Others tool's and things
   
 ### ImageTragik
