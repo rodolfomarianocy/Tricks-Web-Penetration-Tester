@@ -1,6 +1,6 @@
 # Tricks - Web Penetration Tester
 
-- [x] In Construction... (80%)
+- [x] In Construction... (85%)
 
 ## WAF
 
@@ -581,7 +581,9 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 codes/sqli_second_order/sqlitwo.php
 
-### SQL Injection Out-Of-Band
+### SQL Injection Out-Of-Band, etc
+
+https://book.hacktricks.xyz/pentesting-web/sql-injection
   
 ### Tamper's SQLMAP
   
