@@ -589,6 +589,16 @@ codes/csrf/csrf_json.html
   
 codes/csrf/csrf_json_xhr.html
   
+codes/csrf/csrfx.html
+
+codes/csrf/csrfx_token_bypass.html
+
+### Analyze the token and perform brute-force
+
+burp intruder -> sequencer -> Token Location Within Response -> Start live capture -> save tokens
+
+cat tokens.txt | uniq -c | nl 
+  
 ## SSTI
 
 ### Identify
@@ -707,7 +717,6 @@ https://grep.app
   
 https://gchq.github.io/CyberChef/
   
-
 ### List of file signatures
   
 https://en.wikipedia.org/wiki/List_of_file_signatures
