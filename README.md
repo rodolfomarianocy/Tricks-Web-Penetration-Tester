@@ -8,7 +8,9 @@
 
 -> Cookies
 
--> Response Codes
+-> Response messages
+
+-> HTTP status Code's
 
 -> Rules
 
