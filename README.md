@@ -702,3 +702,9 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
 ### Regex 
   
 https://regex101.com/
+  
+### Decode for JS
+  
+### Encode for SQL Injection in Json
+  
+https://dencode.com/string/unicode-escape
