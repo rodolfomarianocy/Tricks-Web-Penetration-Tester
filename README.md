@@ -680,38 +680,11 @@ codes/xxe_oob/evil.dtd
 ## XSLT Server Side Injection
   
 https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
-  
-## Others tool's and things
-  
-### ImageTragik
 
-codes/rce/tragik.jpg
-
-### Search across a half million git repos
-  
-https://grep.app
-  
-### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
-  
-https://gchq.github.io/CyberChef/
-  
-### List of file signatures
-  
-https://en.wikipedia.org/wiki/List_of_file_signatures
-
-### Regex 
-  
-https://regex101.com/
-  
-### Decode for JS
-  
-### Encode for SQL Injection in Json
-  
-https://dencode.com/string/unicode-escape
-  
 ## Prototype Pollution
 
 ### Client Side
+  
 https://github.com/BlackFan/client-side-prototype-pollution
   
 ### Server Side
@@ -743,4 +716,32 @@ https://nodejs.org/api/process.html
     ]
   
   }
+  
+## Others tool's and things
+  
+### ImageTragik
+
+codes/rce/tragik.jpg
+
+### Search across a half million git repos
+  
+https://grep.app
+  
+### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
+  
+https://gchq.github.io/CyberChef/
+  
+### List of file signatures
+  
+https://en.wikipedia.org/wiki/List_of_file_signatures
+
+### Regex 
+  
+https://regex101.com/
+  
+### Decode for JS
+  
+### Encode for SQL Injection in Json
+  
+https://dencode.com/string/unicode-escape
   
