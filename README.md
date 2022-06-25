@@ -716,9 +716,9 @@ https://github.com/BlackFan/client-side-prototype-pollution
   
 ### Server Side
 
--> exec.exec in req body with lodash
- 
-application/json
+-> exec.exec in req body with lodash - application/json
+  
+https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
 
 "__proto__":{
   
@@ -726,9 +726,9 @@ application/json
   
 }
   
-exec.fork in req body with lodash
+-> exec.fork in req body with lodash - application/json
   
-application/json
+https://nodejs.org/api/process.html
   
 "__proto__":{
   
@@ -743,3 +743,4 @@ application/json
     ]
   
   }
+  
