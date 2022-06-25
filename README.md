@@ -50,6 +50,10 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
+-> bypass to find real ip in CloudFlare:
+
+https://github.com/zidansec/CloudPeler
+
 #### Others
 
 https://github.com/0xInfection/Awesome-WAF
