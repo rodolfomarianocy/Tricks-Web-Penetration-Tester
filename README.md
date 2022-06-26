@@ -565,15 +565,13 @@ https://ivangoncharov.github.io/graphql-voyager/
   
 ## CSRF
 
-codes/csrf/csrf_common.html
+codes/csrf/csrf.html
   
 codes/csrf/csrf_json.html
   
 codes/csrf/csrf_json_xhr.html
   
-codes/csrf/csrfx.html
-
-codes/csrf/csrfx_token_bypass.html
+codes/csrf/csrf_token_bypass.html
 
 ### Analyze the token and perform brute-force
 
@@ -624,6 +622,12 @@ https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 -> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.
 
 curl "gopher://localhost:port"
+
+### Scripts
+
+codes/ssrf_protocol_smuggling/memcached.py
+
+codes/ssrf_protocol_smuggling/zabbix.py
 
 ### Tool's
 
