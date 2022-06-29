@@ -747,8 +747,10 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
   
 https://regex101.com/
   
-### Decode for JS
+### Decode
   
+https://malwaredecoder.com/
+
 ### Encode for SQL Injection in Json
   
 https://dencode.com/string/unicode-escape
