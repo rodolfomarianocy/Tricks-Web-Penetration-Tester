@@ -770,3 +770,7 @@ https://webhook.site/#!/b3d5ed21-b58d-4a77-b19d-b7cdc2eeadc0
 ### Reverse Shell
   
 https://www.revshells.com/
+ 
+### Api Security
+
+https://platform.42crunch.com/
