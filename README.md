@@ -755,3 +755,6 @@ https://malwaredecoder.com/
   
 https://dencode.com/string/unicode-escape
   
+### Wildcard DNS
+
+https://nip.io/
