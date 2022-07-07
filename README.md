@@ -466,6 +466,10 @@ https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserializa
 https://github.com/pwntester/ysoserial.net
   
 https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
+  
+### Others Docs
+
+https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
 
 ## Local File Inclusion - LFI
 
