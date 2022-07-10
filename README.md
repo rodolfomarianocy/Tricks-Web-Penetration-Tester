@@ -587,7 +587,7 @@ cat tokens.txt | uniq -c | nl
 
 ### Identify
 
--> Jinja2 orTwig
+-> Jinja2 or Twig
   
 {{3*3}}
 
@@ -595,11 +595,11 @@ cat tokens.txt | uniq -c | nl
   
 {3*3}
 
-ERB(Ruby)
+-> ERB(Ruby)
   
 <%= 7*7 %>
 
-FreeMarker
+-> FreeMarker
   
 #{3*3}
 
