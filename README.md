@@ -335,6 +335,10 @@ codes/deserialization/example.php
 
 a:2:{s:8:"anything";o:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}}
   
+### Others 
+
+/code/xxe/token_hmac_sha1.php
+
 ### .NET Deserialization
 
 #### Methods Serialization:
