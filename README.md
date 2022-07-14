@@ -417,7 +417,9 @@ java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections 
   
 ### Python Deserialization
 
-#### Tool
+#### Pickle
+  
+/codes/deserialization/python/py_pickle.py
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
   
@@ -589,11 +591,19 @@ https://ivangoncharov.github.io/graphql-voyager/
 
 codes/csrf/csrf.html
   
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
+  
 codes/csrf/csrf_json.html
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json.html
   
 codes/csrf/csrf_json_xhr.html
   
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json_xhr.html
+  
 codes/csrf/csrf_token_bypass.html
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_token_bypass.html
 
 ### Analyze the token and perform brute-force
 
