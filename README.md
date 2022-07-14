@@ -1,19 +1,13 @@
 # Tricks - Web Penetration Tester
 
-- [x] In Construction... (85%)
-
+- [x] In Construction...
 
 ### Detect WAF
 
--> 
--> roles
--> Response - status code WAF'S
-
-ex: 
-
-mod_security -> 406 Not Acceptable
-
-AQTRONIX WebKnight -> 999 No hacking
+-> Cookies
+-> HTTP response messages
+-> Rules
+-> HTTP status code
 
 ### Tool's
 
