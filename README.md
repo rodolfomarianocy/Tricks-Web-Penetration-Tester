@@ -440,6 +440,8 @@ echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
 ### Tools
 
 https://github.com/clarketm/s3recon
+ 
+https://github.com/RhinoSecurityLabs/pacu
   
 ## XPATH
   
