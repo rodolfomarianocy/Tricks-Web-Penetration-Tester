@@ -5,8 +5,11 @@
 ### Detect WAF
 
 -> Cookies
+
 -> HTTP response messages
+
 -> Rules
+
 -> HTTP status code
 
 ### Tool's
