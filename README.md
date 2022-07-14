@@ -333,7 +333,7 @@ https://github.com/ambionics/phpggc
   
 ### Others 
 
-/codes/deserialization/php/token_hmac_sha1.php
+codes/deserialization/php/token_hmac_sha1.php
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
@@ -421,7 +421,7 @@ java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections 
 
 #### Pickle
   
-/codes/deserialization/python/py_pickle.py
+codes/deserialization/python/py_pickle.py
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
   
@@ -583,11 +583,11 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
   
 ### Others
   
-/codes/sqli/time-based/sqli.py
+codes/sqli/time-based/sqli.py
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
   
-/codes/sqli/tampers/second-order.py
+codes/sqli/tampers/second-order.py
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
   
