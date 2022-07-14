@@ -604,7 +604,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 codes/csrf/csrf_token_bypass.html
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_token_bypass.html
-
+  
 ### Analyze the token and perform brute-force
 
 burp intruder -> sequencer -> Token Location Within Response -> Start live capture -> save tokens
