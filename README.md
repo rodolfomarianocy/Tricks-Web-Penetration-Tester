@@ -590,7 +590,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 /codes/sqli/tampers/second-order.py
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
-
+  
 ## NOSQL Injection
   
 https://book.hacktricks.xyz/pentesting-web/nosql-injection
