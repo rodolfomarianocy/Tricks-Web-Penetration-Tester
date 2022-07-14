@@ -254,19 +254,7 @@ Dom Based
 
 ## JavaScript Encoding and Compressor:
 
--> jjencode
-
-https://utf-8.jp/public/jjencode.html
-
--> aaencode
-
-https://utf-8.jp/public/aaencode.html
-
--> jsfuck
-
-https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
-
--> Minifying
+-> jjencode, aaencode, jsfuck, Minifying
 
 https://developers.google.com/closure/compiler/
 
@@ -289,7 +277,7 @@ https://www.exploit-db.com/papers/13694
 
 -> Binary
 
--> human readable
+-> Human-readable
 
 ### PHP Deserialization
 
