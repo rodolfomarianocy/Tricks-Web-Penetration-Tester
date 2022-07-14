@@ -2,6 +2,8 @@
 
 - [x] In Construction...
 
+## WAF
+
 ### Detect WAF
 
 -> Cookies
