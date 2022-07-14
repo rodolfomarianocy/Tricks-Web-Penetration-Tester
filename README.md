@@ -319,13 +319,21 @@ O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
 
 codes/deserialization/example.php
   
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/example.php
+  
 #### Trick Bypass
 
 a:2:{s:8:"anything";o:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}}
+
+### Tool
+
+https://github.com/ambionics/phpggc
   
 ### Others 
 
 /codes/deserialization/php/token_hmac_sha1.php
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
 ### .NET Deserialization
 
@@ -377,7 +385,11 @@ https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payload
   
 codes/deserialization/java/gserial.sh
   
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/gserial.sh
+  
 codes/deserialization/java/payload.txt
+
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/payloads.txt
   
 while read payload; 
   
