@@ -4,7 +4,7 @@
 
 ## WAF
 
-### Detect WAF
+### Detection
 
 -> Cookies
 
