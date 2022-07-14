@@ -94,6 +94,8 @@ https://hackvertor.co.uk/public
 
 codes/obufscation/obfuscation.php
 
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
+
 # Online PHP Executor
 
 "3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."
