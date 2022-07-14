@@ -2,18 +2,6 @@
 
 - [x] In Construction... (85%)
 
-## WAF
-
-### Manual Detection:
-
--> Cookies
-
--> Response messages
-
--> HTTP status Code's
-
--> Rules
-
 ## Host Obfuscation
 
 #### Types
