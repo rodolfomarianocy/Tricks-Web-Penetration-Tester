@@ -2,27 +2,18 @@
 
 - [x] In Construction... (85%)
 
-## Host Obfuscation
 
-#### Types
+### Detect WAF
 
--> DWORD
-  
--> OCTAL 
-  
--> HEX
-  
--> HYBRID
+-> 
+-> roles
+-> Response - status code WAF'S
 
-### Tool
+ex: 
 
-https://www.silisoftware.com/tools/ipconverter.php
+mod_security -> 406 Not Acceptable
 
-### Response - Status code WAF'S
-
--> mod_security -> 406 Not Acceptable
-
--> AQTRONIX WebKnight -> 999 No hacking
+AQTRONIX WebKnight -> 999 No hacking
 
 ### Tool's
 
@@ -45,6 +36,22 @@ https://github.com/zidansec/CloudPeler
 #### Others
 
 https://github.com/0xInfection/Awesome-WAF
+
+## Host Obfuscation
+
+#### Types
+
+-> DWORD
+  
+-> OCTAL 
+  
+-> HEX
+  
+-> HYBRID
+
+### Tool
+
+https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques:
 
