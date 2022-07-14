@@ -588,8 +588,9 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
   
 /codes/sqli/tampers/second-order.py
-  
-  
+
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
+
 ## NOSQL Injection
   
 https://book.hacktricks.xyz/pentesting-web/nosql-injection
