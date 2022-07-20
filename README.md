@@ -8,11 +8,11 @@
 
 -> Cookies
 
--> HTTP response messages
+-> HTTP Response Messages
 
 -> Rules
 
--> HTTP status code
+-> HTTP Status Code
 
 ### Tool's
 
