@@ -563,6 +563,10 @@ codes/sqli/second_order/script.php
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
 
+#### Study
+
+https://tryhackme.com/room/sqlilab
+
 ### SQL Injection Out-Of-Band, etc
 
 https://book.hacktricks.xyz/pentesting-web/sql-injection
