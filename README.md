@@ -426,8 +426,10 @@ codes/deserialization/python/py_pickle.py
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
 
 ### YAML Deserialization
-
+  
 codes/deserialization/exploit.yaml
+
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/yaml/exploit.yaml
   
 ## Cloud
 
