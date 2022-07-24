@@ -701,7 +701,7 @@ https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 
 -> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.
 
-curl "gopher://localhost:port"
+gopher://127.0.0.1:port/_
 
 ### Scripts
 
@@ -731,9 +731,11 @@ codes/ssrf_protocol_smuggling/memcached.py
   
 -> get \<item>
   
-### Doc for SSRF - bhack
+### Docs for SSRF
 
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
+
+https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
   
 ## CRLF Injection
   
