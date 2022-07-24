@@ -713,8 +713,6 @@ codes/ssrf_protocol_smuggling/zabbix.py
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/zabbix.py
 
-Webshell redis
-
 ### Tool's
 
 -> Gopherus
