@@ -891,10 +891,8 @@ https://github.com/oppsec/juumla
 
 https://github.com/SamJoan/droopescan
 
-## RECON * PLUS *
-  
-
-  
+## RECON * BONUS *
+    
 ## Others tool's and things
   
 ### ImageTragik
