@@ -891,8 +891,18 @@ https://github.com/oppsec/juumla
 
 https://github.com/SamJoan/droopescan
 
-## RECON * BONUS *
-    
+## FUZZING DEFAULT SUBDOMAIN
+  
+### DNS
+
+ffuf -u https://FUZZ.site.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt
+
+### VHOST
+  
+ffuf  -u http://academy.htb:PORT/ -H 'Host: FUZZ.academy.htb' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt
+
+## WEB RECON*BONUS
+  
 ## Others tool's and things
   
 ### ImageTragik
