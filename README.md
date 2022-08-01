@@ -907,15 +907,15 @@ ffuf -u https://FUZZ.site.com -w /usr/share/seclists/Discovery/DNS/subdomains-to
   
 ffuf  -u http://site.com -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
 
-### FUZZING EXTENSIONS FIL
+### Fuzzing File Extension
   
-ffuf -u http://site.com -
+ffuf -u http://site.com -w web-extensions.txt 
 
-### FUZZING PARAMTER GET
+### Fuzzing Parameter GET
 
 ffuf -u "http://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx  
   
-### FUZZING PARAMTER POST
+### Fuzzing Parameter POST
   
 ffuf -u "http://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
 
