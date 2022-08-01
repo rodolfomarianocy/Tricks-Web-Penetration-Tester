@@ -901,23 +901,23 @@ https://github.com/SamJoan/droopescan
   
 ### DNS
 
-ffuf -u https://FUZZ.site.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 
 ### VHOST
   
-ffuf  -u http://site.com -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
+ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
 
 ### Fuzzing File Extension
   
-ffuf -u http://site.com -w web-extensions.txt 
+ffuf -u "https://site.com/indexFUZZ" -w web-extensions.txt -fs xxx
 
 ### Fuzzing Parameter GET
 
-ffuf -u "http://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx  
+ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx  
   
 ### Fuzzing Parameter POST
   
-ffuf -u "http://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
+ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
 
 ## Web Recon (+)
   
