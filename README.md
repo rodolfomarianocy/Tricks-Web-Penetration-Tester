@@ -94,11 +94,9 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 https://3v4l.org/
 
-### Tools
+### PHP Obfuscation Decoders 
 
--> phponalpha
-
--> phponalpha2
+https://malwaredecoder.com/
 
 https://hackvertor.co.uk/public
 
