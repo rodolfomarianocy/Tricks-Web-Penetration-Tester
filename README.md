@@ -921,7 +921,7 @@ ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: appl
 
 ## Web Recon (+)
   
-## Others tool's and things
+### Other tools and things
   
 ### ImageTragik
 
