@@ -891,7 +891,7 @@ https://github.com/oppsec/juumla
 
 https://github.com/SamJoan/droopescan
 
-## FUZZING DEFAULT SUBDOMAIN
+## Fuzzing (+)
   
 ### DNS
 
@@ -901,7 +901,13 @@ ffuf -u https://FUZZ.site.com -w /usr/share/seclists/Discovery/DNS/subdomains-to
   
 ffuf  -u http://site.com -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
 
-## WEB RECON*BONUS
+### FUZZING EXTENSIONS FIL
+
+### FUZZING PARAMTER GET
+
+### FUZZING PARAMTER POST
+
+## Web Recon (+)
   
 ## Others tool's and things
   
