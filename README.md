@@ -264,6 +264,8 @@ Dom Based
   
 https://malwaredecoder.com/
 
+## XSS - Cookie Hijacking
+  
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
