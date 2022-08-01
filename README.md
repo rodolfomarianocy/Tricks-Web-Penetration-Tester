@@ -14,7 +14,7 @@
 
 -> HTTP Status Code
 
-### Tool's
+### Tools
 
 -> wafw00f 
 
