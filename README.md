@@ -914,6 +914,7 @@ ffuf -u http://site.com -
 ### FUZZING PARAMTER GET
 
 ffuf -u "http://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx  
+  
 ### FUZZING PARAMTER POST
   
 ffuf -u "http://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
