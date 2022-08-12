@@ -557,6 +557,10 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 /etc/passwd%00.php
 
+-> Removing .php
+  
+https://site.com/index.php?file=index.p.phphp
+  
 #### LFI + File Upload
 
 -> gif
@@ -1005,7 +1009,7 @@ https://github.com/oppsec/juumla
 
 https://github.com/SamJoan/droopescan
 
-## Fuzzing (+)
+## Fuzzing (+) 
   
 ### DNS
 
