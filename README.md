@@ -1029,6 +1029,84 @@ ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: appl
 
 ## Web Recon (+)
   
+### One Line Commands
+
+#### Parameters Discovery
+
+python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt
+
+echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt
+
+### Other Steps
+
+#### 1 - Subdomain Discovery
+
+1.1-> sublist3r
+
+subslit3r -d site.com -o sublist3r_subdomains.txt
+
+1.2-> ctfr
+
+python ctfr.py -d site.com -o ctfr_subdomains.txt
+
+1.3-> Merge sublist3r+ctfr
+
+cat sublist3r_subdomains.txt ctfr_subdomains.txt > merge_subdomains.txt
+
+1.4-> Filter and Status Check
+
+cat merge_subdomains.txt | sort | uniq | grep -v "*" | httpx -o checked_subdomains.txt
+
+#### 2 - URL Discovery - Fetches known URLs
+
+2.1 -> gau
+
+cat checked_subdomains.txt | gau > gau_urls.txt
+
+2.2 -> Filter and Status Check
+
+cat gau_urls.txt | gf xss | httpx -o checked_urls.txt
+
+#### 3 - Parameter Discovery
+
+3.1 -> gau+gf+uro+httpx
+
+cat gau_urls.txt | gf xss | uro | httpx -fc 404 -o parameters_gau.txt 
+
+3.2 -> paramspider + uro + httpx
+
+cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d 
+
+cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt
+
+#### 4 - Files Discovery
+
+4.1 -> gau+grep+httpx
+
+cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt
+
+-> Used Tools
+
+https://github.com/aboul3la/Sublist3r.git
+
+https://github.com/UnaPibaGeek/ctfr
+
+https://github.com/devanshbatham/ParamSpider
+
+https://github.com/projectdiscovery/httpx
+
+https://github.com/tomnomnom/gf
+
+#### Other Tools
+
+-> Project Discovery (Subdomain Discovery)
+
+https://chaos.projectdiscovery.io/#/
+
+-> aquatone (Tool for visual inspection of websites)
+
+https://github.com/michenriksen/aquatone
+  
 ### Other tools and things
   
 ### ImageTragik
