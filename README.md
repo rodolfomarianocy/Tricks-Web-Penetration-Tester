@@ -468,7 +468,15 @@ https://xcat.readthedocs.io/en/latest/
 ### Wordlists for SQLI e XPath - Authentication Bypass
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
-  
+
+## LDAP Injection
+
+objectClass=*
+
+https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html
+
+cn=user&disp=description
+
 ## Padding Oracle Attack
   
 ### Identify
