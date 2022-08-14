@@ -481,9 +481,9 @@ https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html
   
 https://book.hacktricks.xyz/pentesting-web/ldap-injection
 
-## Attacking oAuth
+## Attacking OAuth
  
-### Workflow OAuth Authorization code grant type
+### Workflow OAuth Authorization Code Grant Type
 
 1- 
   
@@ -515,19 +515,17 @@ POST /token HTTP/1.1
   
 Host: oauth.server.com
 
-client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code=<code>
+client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code= \<code>
   
 Vulnerability Brute-Force the Client Secret
 
-->
-  
 POST /token
   
 content-type: application/x-www-form-urlencoded
   
 host: site.com
   
-client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
+client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code= \<code>
   
 4-
   
