@@ -703,15 +703,12 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 
 ### Payloads for bypass:
 
--> bypass_lfi.txt
-  
+-> bypass_lfi.txt  
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/bypass_lfi.txt
+
 ### Wordlist for parameter fuzzing
   
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt
-  
-### Wordlist for subdomain fuzzing
-  
-https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 ## SQL Injection
   
@@ -1036,12 +1033,16 @@ https://github.com/oppsec/juumla
 https://github.com/SamJoan/droopescan
 
 ## Fuzzing (+) 
+
+### Wordlist for subdomain fuzzing
   
-### DNS
+https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
+
+### Fuzzing Subdomain - DNS
 
 `ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt`
 
-### VHOST
+### Fuzzing Subdomain - VHOST
   
 `ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx`
 
