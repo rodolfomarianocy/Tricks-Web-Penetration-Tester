@@ -95,7 +95,7 @@ https://hackvertor.co.uk/public
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
-### Protection XSS
+### XSS Protection
 
 -> XSS Auditor and XSS Filter  
 https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
