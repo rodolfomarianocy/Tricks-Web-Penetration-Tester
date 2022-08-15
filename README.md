@@ -1117,15 +1117,11 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 -> Used Tools
 
-https://github.com/aboul3la/Sublist3r.git
-
-https://github.com/UnaPibaGeek/ctfr
-
-https://github.com/devanshbatham/ParamSpider
-
-https://github.com/projectdiscovery/httpx
-
-https://github.com/tomnomnom/gf
+https://github.com/aboul3la/Sublist3r.git  
+https://github.com/UnaPibaGeek/ctfr  
+https://github.com/devanshbatham/ParamSpider  
+https://github.com/projectdiscovery/httpx  
+https://github.com/tomnomnom/gf  
 
 #### Other Tools
 
