@@ -16,20 +16,16 @@
 
 ### Tools
 
--> wafw00f 
-
+-> wafw00f  
 https://github.com/EnableSecurity/wafw00f
 
--> nmap --script=http-waf-fingerprint
-
+-> nmap --script=http-waf-fingerprint  
 https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
--> imperva-detect
-
+-> imperva-detect  
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
--> bypass to find real ip in CloudFlare:
-
+-> bypass to find real ip in CloudFlare:  
 https://github.com/zidansec/CloudPeler
 
 #### Others
