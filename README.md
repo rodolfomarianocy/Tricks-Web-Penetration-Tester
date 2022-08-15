@@ -166,7 +166,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
   
 -> unescape
 
-Ex:
+Examples:
  
 -> decode URI + unescape method  
 `decodeURI(/alert(%22xss%22)/.source)`  
@@ -285,21 +285,17 @@ https://www.exploit-db.com/papers/13694
 
 #### Class Properties
 
+Examples:
+
 Public \<s>
  
-Ex:
-
 `O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}`
   
 Protected \0 * \0
 
-Ex:
-
 `O:4:"Okay":1:{s:11:"' . "\0" . '*' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
 
 Private \0 \<s> \0
-
-Ex:
   
 `O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
   
