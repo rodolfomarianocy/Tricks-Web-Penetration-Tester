@@ -503,8 +503,8 @@ Vulnerability Forced OAuth profile linking
 	</script>
 </html>
 ```  
-/codes/csrf/csrf_oauth.html
-  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_oauth.html
+
 Vulnerability Code Stealing
 
 -> Open Redirect (redirect_uri)
