@@ -1039,7 +1039,7 @@ https://github.com/SamJoan/droopescan
 
 #### Parameters Discovery
 
-`python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`
+`python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`  
 
 `echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt`
 
