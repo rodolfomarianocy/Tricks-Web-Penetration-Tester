@@ -868,13 +868,9 @@ gopher://127.0.0.1:port/_
 
 -> memcached.py   
 
-->  
-`stats items`
   
-->  
-`stats cachedump <slab class> <number of items to dump>`
-  
-->  
+`stats items`    
+`stats cachedump <slab class> <number of items to dump>`  
 `get <item>`
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/memcached.py 
