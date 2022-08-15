@@ -441,7 +441,7 @@ https://github.com/RhinoSecurityLabs/pacu
 `* and doc('http://hacker.site/')`  
 `* and doc('http://hacker.site/', name(/*) ))`  
   
-### Tools
+### Tool
   
 https://xcat.readthedocs.io/en/latest/
   
