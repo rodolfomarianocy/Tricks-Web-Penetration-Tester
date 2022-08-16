@@ -903,7 +903,9 @@ https://github.com/tarunkant/Gopherus
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
 
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
-  
+
+## Null Origin Exploitati
+
 ## CRLF Injection
   
 `/%0d%0aLocation:attacker`
