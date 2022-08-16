@@ -913,6 +913,8 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: null  
 Access-Control-Allow-Credentials: true
 ```
+
+-> nullorigin.html  
 ```
 <html><head>
 <script>
