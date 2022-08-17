@@ -923,6 +923,14 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
+## Insecure RMI
+
+### Tool 
+https://github.com/siberas/sjet  
+
+-> Need
+http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar  
+
 ## Null Origin Exploitation
 
 -> Identify - Response 
