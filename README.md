@@ -1062,6 +1062,17 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ## XSLT Server Side Injection
   
+### Identify  
+-> Transformation Service  
+-> XSLT engine  
+
+### Exploit 
+-> ok.xsl
+```
+
+
+detect.xsl
+
 https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
 
 ## Prototype Pollution
