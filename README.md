@@ -451,6 +451,10 @@ aws ec2 describe-instances
 ```
 aws eks list-clusters --region us-eas-1
 aws eks describe-cluster --name <name_cluster> --region us-eas-1
+aws eks update-kubeconfig --region us-east-1 --name <name_cluster>
+./kubectl get pods
+./kubectl describe pods <name_pods>
+
 ```
 ### Tools
 
