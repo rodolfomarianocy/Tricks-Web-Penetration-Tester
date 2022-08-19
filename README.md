@@ -440,11 +440,18 @@ export AWS_ACCESS_KEY_ID=<access_key_id>
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
 export AWS_SESSION_TOKEN=<session_token> 
 
+aws sts get-caller-identity
 aws iam get-user
 aws s3 ls
 aws ec2 describe-instances
 ```
 
+### EKS
+
+```
+aws eks list-clusters --region us-eas-1
+aws eks describe-cluster --name <name_cluster> --region us-eas-1
+```
 ### Tools
 
 https://github.com/clarketm/s3recon  
