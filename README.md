@@ -609,7 +609,11 @@ https://github.com/iagox86/hash_extender
 
 2-  
 burp intruder -> payloads.out in file parameter.  
-  
+
+## MD5 Collision and others
+
+https://github.com/JohnHammond/ctf-katana#php
+
 ## Insecure - Machine Key for RCE 
 
 https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md  
