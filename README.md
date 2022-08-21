@@ -832,7 +832,11 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
   
 ## NOSQL Injection
-  
+
+-> Bypass Auth
+username=test&password=test
+
+username=admin&password[$ne]=admin
 https://book.hacktricks.xyz/pentesting-web/nosql-injection
   
 ## Graphql Introspection
