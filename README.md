@@ -435,6 +435,10 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 
+-> Models
+http://<BUCKETNAME>.s3.amazonaws.com/  
+or  
+http://s3.amazonaws.com/<BUCKETNAME>/  
 ```
 export AWS_ACCESS_KEY_ID=<access_key_id>  
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
@@ -442,10 +446,20 @@ export AWS_SESSION_TOKEN=<session_token>
 
 aws sts get-caller-identity
 aws iam get-user
-aws s3 ls
+aws s3 ls s3://<bucket> --no-sign-request
 aws ec2 describe-instances
 ```
+```
+aws --configure --profile myprofile  
+aws sts get-access-key-info --access-key-id AKIA...    
+aws sts get-caller-identity --profile myprofile  
+aws ec2 describe-instances  --profile myprofile
 
+```
+```
+aws secretsmanager list-secrets --profile myprofile --region=us-est-1
+aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-est-1  
+```
 ### EKS
 
 ```
