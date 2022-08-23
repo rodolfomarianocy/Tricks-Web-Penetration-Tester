@@ -1255,7 +1255,8 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 3.2 -> paramspider + uro + httpx
 
-`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`  
+`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`
+
 `cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt`
 
 #### 4 - Files Discovery
