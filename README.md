@@ -816,7 +816,8 @@ def cmd():
 if __name__ == "__main__":
 	app.run()
 ```
-
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/wshell.py
+	
 ### Webshell infecting views.js -> nodejs
 ```
 const express = require('express')
