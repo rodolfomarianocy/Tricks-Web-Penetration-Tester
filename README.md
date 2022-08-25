@@ -557,7 +557,7 @@ Vulnerability Code Stealing
 POST /token HTTP/1.1
 Host: oauth.server.com
 
-client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code= \<code>
+client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code=<code>
 ```
 Vulnerability Brute-Force the Client Secret
 
@@ -566,7 +566,7 @@ POST /token
 Host: site.com
 Content-Type: application/x-www-form-urlencoded  
 
-client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code= \<code>
+client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
 ```  
 4-
 ```  
