@@ -66,7 +66,8 @@ https://www.silisoftware.com/tools/ipconverter.php
 //Tricks
 
 ### PHP Non-Alphanumeric 
-`$\_="{"; #XOR char`  
+`$\_="{"; #XOR char`
+
 `echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
 //GET  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
