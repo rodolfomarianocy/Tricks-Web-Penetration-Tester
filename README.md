@@ -56,25 +56,19 @@ https://www.silisoftware.com/tools/ipconverter.php
 //Tricks
 
 ### Variable Parsing
-
 `$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s"; `
 
 //Tricks
 
 ### Variable Variables
-
 `$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;`
 
 //Tricks
 
 ### PHP Non-Alphanumeric 
-
-`$\_="{"; #XOR char`
-
-`echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`
-
-//GET
-
+`$\_="{"; #XOR char`  
+`echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
+//GET  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
 ### PHP Obfuscation - base64+gzdeflate
