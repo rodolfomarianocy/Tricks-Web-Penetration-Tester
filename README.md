@@ -500,7 +500,7 @@ or
 ### LDAP Query
 `nmap -p 389,636 --script ldap-* 192.168.191.132`  
 or  
-`ldapsearch -x -H ldap://ip -D "cn=<cn,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts`  
+`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts`  
 `ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>`  
 https://github.com/dinigalab/ldapsearch
 
