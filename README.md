@@ -43,8 +43,7 @@ https://github.com/0xInfection/Awesome-WAF
   
 -> HYBRID
 
-### Tool
-
+### Tool  
 https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques:
