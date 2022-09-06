@@ -451,7 +451,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 
--> Models
+-> Models  
 `http://<BUCKETNAME>.s3.amazonaws.com/`
 or  
 `http://s3.amazonaws.com/<BUCKETNAME>/`
