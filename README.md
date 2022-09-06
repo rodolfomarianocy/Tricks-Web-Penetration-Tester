@@ -452,9 +452,9 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 
 -> Models
-http://<BUCKETNAME>.s3.amazonaws.com/  
+`http://<BUCKETNAME>.s3.amazonaws.com/`
 or  
-http://s3.amazonaws.com/<BUCKETNAME>/  
+`http://s3.amazonaws.com/<BUCKETNAME>/`
 ```
 export AWS_ACCESS_KEY_ID=<access_key_id>   
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
