@@ -27,14 +27,14 @@ https://github.com/0xInfection/Awesome-WAF
 
 <img height="400em" src="https://user-images.githubusercontent.com/54555784/188947375-6cb16b30-369c-4831-b783-47565623827b.png" />
 e.g. (127.0.0.1)  
--> Octal 
-0177.0000.0000.0001
+-> Octal  
+0177.0000.0000.0001  
 -> Hex  
-0x7F000001
+0x7F000001  
 -> Integer  
-2130706433
--> Hybrid
-0177.0.0x00.0001
+2130706433  
+-> Hybrid  
+0177.0.0x00.0001  
 
 -> Online tool    
 https://www.silisoftware.com/tools/ipconverter.php
