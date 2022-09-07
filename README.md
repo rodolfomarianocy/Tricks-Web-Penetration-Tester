@@ -1251,11 +1251,20 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 `ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`
 
 ## Web Recon (+)
-  
+### Recon in ASN  
+-> asnpepper  
+`python asnpepper.py -o <org> -O output.txt`  
+-> masscan  
+`masscan -iL cidrs.txt -oG output.txt — rate 10000 -p 80, 443, 8080`  
+or  
+`python asnpepper.py -o <org> --test-port 80,443 --threads 2000`  
+
+->  
+https://bgp.he.net/  
+https://github.com/rodolfomarianocy/asnpepper  
+https://github.com/robertdavidgraham/masscan  
 ### One Line Commands
-
 #### Parameters Discovery
-
 `python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`  
 `echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt`
 
