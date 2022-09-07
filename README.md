@@ -2,7 +2,9 @@
 
 [x] In construction...
 
-## WAF
+## What WAF does the application have?
+
+<img style="text-align:center"  height="180em" src="https://user-images.githubusercontent.com/54555784/188940369-41ab688c-15ff-41cf-ba44-95c0534753c9.png" />
 
 ### Detection
 
