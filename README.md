@@ -4,7 +4,7 @@
 
 ## What WAF does the application have?
 
-<img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188940369-41ab688c-15ff-41cf-ba44-95c0534753c9.png" />
+<img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188947350-9db998e1-be3e-4112-80b5-600476476dc5.png" />
 
 ### Tools
 
@@ -25,9 +25,18 @@ https://github.com/0xInfection/Awesome-WAF
 
 ## Host Obfuscation
 
-<img height="400em" src="https://user-images.githubusercontent.com/54555784/188944843-6cebbc3d-ace8-4c79-923c-4de8e18fbb64.png" />
+<img height="400em" src="https://user-images.githubusercontent.com/54555784/188947375-6cb16b30-369c-4831-b783-47565623827b.png" />
+e.g. (127.0.0.1)  
+-> Octal 
+0177.0000.0000.0001
+-> Hex  
+0x7F000001
+-> Integer  
+2130706433
+-> Hybrid
+0177.0.0x00.0001
 
-### Tool  
+-> Online tool    
 https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques:
