@@ -4,7 +4,7 @@
 
 ## What WAF does the application have?
 
-<img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188949745-3630a23f-c4ec-4b45-bd5a-bdf988be5425.png](https://user-images.githubusercontent.com/54555784/188949814-620ca01b-79aa-4896-b05a-a50fe2c25804.png" />
+<img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188949883-8a158a63-58fc-4257-a424-101169d3bf4a.png" />
 
 ### Tools
 
