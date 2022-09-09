@@ -3,7 +3,6 @@
 [x] In construction...
 
 ## What WAF does the application have?
-
 <img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188950014-db9eae26-8801-4f68-a673-01f0d7af5c15.png" />
 
 ### Tools
