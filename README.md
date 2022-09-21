@@ -254,7 +254,7 @@ Add execution sink:
 ```
   
 ->  
-`;alert(1);//`
+`";alert(1);//`
 
 #### Event Attributes
 
