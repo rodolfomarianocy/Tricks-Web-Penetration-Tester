@@ -258,7 +258,7 @@ Add execution sink:
 
 #### Event Attributes
 
-`<button onclick="reserve(here);">Okay!</button>`
+`<button onclick="here;">Okay!</button>`
 
 ->  
 `alert(1)`
