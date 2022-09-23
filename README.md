@@ -49,9 +49,7 @@ https://www.silisoftware.com/tools/ipconverter.php
 `$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s"; `#Tricks
 
 ### Variable Variables
-`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;`
-
-//Tricks
+`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;`#Tricks
 
 ### PHP Non-Alphanumeric 
 `$\_="{"; #XOR char`
