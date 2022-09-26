@@ -43,13 +43,13 @@ https://www.silisoftware.com/tools/ipconverter.php
 
 ### Mix - Hex + Octal
 
-`echo "T\x72\x69\143\153s";`#Tricks
+`echo "T\x72\x69\143\153s";#Tricks`
 
 ### Variable Parsing
-`$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s"; `#Tricks
+`$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";#Tricks`
 
 ### Variable Variables
-`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;`#Tricks
+`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;#Tricks`
 
 ### PHP Non-Alphanumeric 
 `$\_="{"; #XOR char`
