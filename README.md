@@ -499,7 +499,7 @@ aws s3 ls s3://<bucket> --no-sign-request
 aws ec2 describe-instances
 ```
 ```
-aws --configure --profile myprofile  
+aws configure --profile myprofile  
 aws sts get-access-key-info --access-key-id AKIA...    
 aws sts get-caller-identity --profile myprofile  
 aws ec2 describe-instances  --profile myprofile
