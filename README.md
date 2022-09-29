@@ -495,6 +495,7 @@ export AWS_SESSION_TOKEN=<session_token>
 
 aws sts get-caller-identity  
 aws iam get-user  
+aws sts get-session-token
 aws s3 ls s3://<bucket> --no-sign-request  
 aws ec2 describe-instances
 ```
@@ -506,13 +507,13 @@ aws ec2 describe-instances  --profile myprofile
 
 ```
 ```
-aws secretsmanager list-secrets --profile myprofile --region=us-est-1  
-aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-est-1
+aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
+aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
 ```
 ### EKS
 
 ```
-aws eks list-clusters --region us-eas-1  
+aws eks list-clusters --region us-east-1  
 aws eks describe-cluster --name <name_cluster> --region us-eas-1  
 aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
 ./kubectl get pods  
