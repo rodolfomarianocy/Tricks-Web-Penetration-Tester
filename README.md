@@ -16,6 +16,7 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
 ### Finding the direct IP address of a server
+
 -> IP History  
 https://www.iphistory.ch/en/  
 
@@ -24,6 +25,8 @@ https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 
 -> Bypass to find real IP in CloudFlare  
 https://github.com/zidansec/CloudPeler  
+
+### Bypass using cipher not supported by WAF
 
 -> Other Doc    
 https://github.com/0xInfection/Awesome-WAF
