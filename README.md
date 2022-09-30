@@ -91,12 +91,21 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 https://3v4l.org/  
 
-
 ### PHP Obfuscation Decoders 
 
 https://malwaredecoder.com/  
 https://hackvertor.co.uk/public
 
+### Spoofing Internal IP in Request Header
+
+```
+X-Originating-IP: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-Host: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Client-IP: 127.0.0.1
+```
 ### Reverse Shell Obfuscator
 e.g.  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
@@ -273,17 +282,17 @@ Dom Based
 
 ### JavaScript Encoding and Compressor:
 
--> jjencode
+-> jjencode  
+https://utf-8.jp/public/jjencode.html   
+-> aaencode  
+https://utf-8.jp/public/aaencode.html  
+-> jsfuck  
+http://www.jsfuck.com/  
 
--> aaencode
+-> XCharsJS
+https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html  
 
--> jsfuck
-
--> Minifying
-
--> Packer
-
-### Decoder - Obfuscation (PHP and Javascript Decoder)
+### Decoder - Obfuscation (Javascript Decoder and PHP)
   
 https://malwaredecoder.com/
 
