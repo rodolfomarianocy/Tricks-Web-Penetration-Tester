@@ -5,8 +5,7 @@
 ## What WAF does the application have?
 <img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188950014-db9eae26-8801-4f68-a673-01f0d7af5c15.png" />
 
-### Tools
-
+### Tools - Detection WAF
 -> wafw00f  
 https://github.com/EnableSecurity/wafw00f
 
@@ -16,10 +15,17 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 -> imperva-detect  
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
--> bypass to find real ip in CloudFlare  
-https://github.com/zidansec/CloudPeler
+### Finding the direct IP address of a server
+-> IP History  
+https://www.iphistory.ch/en/  
 
--> Others  
+-> DNS History  
+https://github.com/vincentcox/bypass-firewalls-by-DNS-history
+
+-> Bypass to find real IP in CloudFlare  
+https://github.com/zidansec/CloudPeler  
+
+-> Other Doc    
 https://github.com/0xInfection/Awesome-WAF
 
 ## Host Obfuscation
@@ -235,7 +241,7 @@ https://checkserp.com/encode/unicode/
 http://www.unit-conversion.info/texttools/octal/  
 http://www.unit-conversion.info/texttools/hexadecimal/  
 
-### Others Examples
+### Other Examples
 #### HTML Tag
 
 ```
@@ -363,7 +369,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 https://github.com/ambionics/phpggc
   
-### Others
+### Other
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
@@ -557,7 +563,7 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 or  
 `https://site.com/admin.php?username=admin)(userPassword=*))%00&password=blabla`  
 
--> Others
+-> Other
 
 `https://site.com/item?objectClass=*`  
 `(&(sn=administrator)(password=*))`  
@@ -837,7 +843,7 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 
 `'/\*!UnIoN/\*\*/SeLeCt/\*\*/\*/1,GroUp_ConCat(nAmE),3,4/\*\*/FrOm/\*\*/users; -- -`
 
-#### Others Techniques:
+#### Other Techniques:
 
 -> urlencode (example:%20 instead of space);
   
@@ -926,7 +932,7 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
   
-### Others
+### Other
   
 -> sqli.py  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
@@ -988,7 +994,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 `#{3*3}`
 
--> Others 
+-> Other  
     
 `${3*3}`
   
