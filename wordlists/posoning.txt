@@ -1,0 +1,6 @@
+/var/mail/mail.log
+/var/log/apache2/access.log
+/var/log/nginx/access.log
+/var/log/auth.log
+/var/log/sshd.log
+/var/log/vsftpd.log
