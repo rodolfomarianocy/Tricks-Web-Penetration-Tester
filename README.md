@@ -283,7 +283,7 @@ Dom Based
 ->  
 `javascript:alert(1)`
 
-### JavaScript Encoding and Compressor:
+### JavaScript Encoding
 
 -> jjencode  
 https://utf-8.jp/public/jjencode.html   
@@ -291,8 +291,7 @@ https://utf-8.jp/public/jjencode.html
 https://utf-8.jp/public/aaencode.html  
 -> jsfuck  
 http://www.jsfuck.com/  
-
--> XCharsJS
+-> Xchars.js  
 https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html  
 
 ### Decoder - Obfuscation (Javascript Decoder and PHP)
