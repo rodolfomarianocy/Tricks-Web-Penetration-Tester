@@ -1102,9 +1102,11 @@ xhr.send(null);
 ## Elasticsearch - API
 
 -> Extract info  
+```
 http://10.10.57.49:9200/_cat/indices?v  
 http://10.10.57.49:9200/<indice>  
 http://10.10.57.49:9200/_search?pretty=true&q=pass  
+```
 
 ## XXE
 
