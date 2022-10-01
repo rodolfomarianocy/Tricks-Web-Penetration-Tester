@@ -509,7 +509,7 @@ aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --r
 
 ```
 aws eks list-clusters --region us-east-1  
-aws eks describe-cluster --name <name_cluster> --region us-eas-1  
+aws eks describe-cluster --name <name_cluster> --region us-east-1  
 aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
 ./kubectl get pods  
 ./kubectl describe pods <name_pods>  
