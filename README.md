@@ -1334,10 +1334,10 @@ https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 or  
 `python asnpepper.py -o <org> --test-port 80,443 --threads 2000`  
 
-->  
 https://bgp.he.net/  
 https://github.com/rodolfomarianocy/asnpepper  
 https://github.com/robertdavidgraham/masscan  
+
 ### One Line Commands
 #### Parameters Discovery
 `python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`  
