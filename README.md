@@ -1032,9 +1032,13 @@ e.g.
 e.g.  
 `http://[::]`
 
-#### Wordlist bypass localhost  
+#### Wordlist localhost Bypass
 
-### Bypass localhost wordlist
+#### Wordlist meta-data Bypass
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_meta_bypass.txt  
+
+### Wordlist localhost Bypass
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_local_bypass.txt
 
 ### Protocol Smuggling
 
