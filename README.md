@@ -783,7 +783,7 @@ https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/bur
 
 ## SQL Injection
   
-### WAF BYPASS
+### WAF and Filter Bypass
 
 #### Query default:
 
