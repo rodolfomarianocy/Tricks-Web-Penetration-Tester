@@ -996,12 +996,12 @@ https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 
 ### Bypass in Filters
 -> Host obfuscation (hex, octa, integer)  
-e.g.
-`http://0177.0.0.1`
-`http://0x7F.0.0.1`
-`http://2130706433`
+e.g.  
+`http://0177.0.0.1`  
+`http://0x7F.0.0.1`  
+`http://2130706433`  
 
--> rare address  
+-> Rare address  
 e.g.  
 ```
 http://0/  
@@ -1016,7 +1016,7 @@ http://127.2.0.2
 e.g.  
 `http://%31%32%37%2e%30%2e%30%2e%31`
 
--> using bash variables  
+-> Bash variables  
 e.g.  
 `http://evil.$site.com`
 
@@ -1024,15 +1024,15 @@ e.g.
 e.g.  
 `http:/site.com@127.0.0.1`
 
--> domain redirection  
+-> Domain redirection  
 e.g.  
 `http://localtest.me`
 
--> using [::]  
+-> Using [::]  
 e.g.  
 `http://[::]`
 
--> Wordlist bypass localhost  
+#### Wordlist bypass localhost  
 
 ### Bypass localhost wordlist
 
