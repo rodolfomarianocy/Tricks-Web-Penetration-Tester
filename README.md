@@ -207,8 +207,7 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 `<sCR<script>iPt>alert(1)</SCr</script>IPt>`
 
 ### Scaping Quote
-### Methods
-  
+#### Methods
 -> String.fromCharCode()  
 -> unescape  
 
