@@ -474,7 +474,7 @@ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
 -> Models s3  
 `http://<BUCKETNAME>.s3.amazonaws.com/`  
 or  
-`http://s3.amazonaws.com/<BUCKETNAME>/`
+`http://s3.amazonaws.com/<BUCKETNAME>/`  
 -> Recon  
 ```
 export AWS_ACCESS_KEY_ID=<access_key_id>   
