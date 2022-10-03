@@ -528,8 +528,8 @@ https://github.com/RhinoSecurityLabs/pacu
 https://xcat.readthedocs.io/en/latest/
   
 ### Wordlists for SQLI e XPath - Authentication Bypass
-
-https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt
+https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt  
+https://pastebin.com/raw/rKpsMp0g  
 
 ## LDAP query and LDAP Injection
 
