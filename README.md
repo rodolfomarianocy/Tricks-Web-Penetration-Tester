@@ -298,7 +298,7 @@ https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html
 
 https://malwaredecoder.com/  
 
-## XSS - Session Hijacking
+### XSS - Session Hijacking
 
 -> Examples
   
