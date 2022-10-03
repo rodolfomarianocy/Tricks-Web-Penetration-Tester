@@ -311,12 +311,6 @@ https://malwaredecoder.com/
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
 https://github.com/JohnHammond/ctf-katana#php
 
-### PHP - others tricks
-
-[ eval () execute a chain whose variable $ HTTP_USER_AGENT is so just
-change your header in PHP code ]  
-https://www.exploit-db.com/papers/13694
-
 ## Insecure Deserialization 
 -> Binary  
 -> Human-Readable  
