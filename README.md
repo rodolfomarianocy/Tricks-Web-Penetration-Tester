@@ -27,8 +27,10 @@ https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 https://github.com/zidansec/CloudPeler  
 
 ### Bypass using cipher not supported by WAF
-`python abuse-ssl-bypass-waf.py -thread 4 -target <target>`  
-`curl --ciphers <cipher> -G <target> -d <payload>`  
+```
+python abuse-ssl-bypass-waf.py -thread 4 -target <target>  
+curl --ciphers <cipher> -G <target> -d <payload>
+```
 https://github.com/LandGrey/abuse-ssl-bypass-waf  
 
 -> Other Doc    
