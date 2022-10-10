@@ -984,9 +984,11 @@ https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
 ### Bypass in Filters
 -> Host obfuscation (hex, octa, integer)  
 e.g.  
-`http://0177.0.0.1`  
-`http://0x7F.0.0.1`  
-`http://2130706433`  
+``
+http://0177.0.0.1  
+http://0x7F.0.0.1 
+http://2130706433
+```   
 
 -> Rare address  
 e.g.  
