@@ -1412,6 +1412,13 @@ https://www.youtube.com/watch?v=2-im6aL6PkI
 ![12](https://user-images.githubusercontent.com/54555784/199234677-dce5513b-ebdf-46f0-8167-9134f28c2e64.png)
 ![13](https://user-images.githubusercontent.com/54555784/199234729-5055681c-8841-4f41-b072-dea537f9ba16.png)
 
+References:  
+https://elearnsecurity.com/product/ewptxv2-certification/
+https://ine.com/learning/courses/web-application-penetration-testing-e-xtreme
+https://rodolfomarianocy.medium.com/overview-ewptx-5a9d78414c7a
+https://crowsec.com.br/
+https://portswigger.net/web-security/all-labs
+
 ### Other tools and things
 #### ImageTragik
 codes/others/tragik.jpg  
