@@ -672,6 +672,9 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/word
 -> poisoning.txt  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/posoning.txt  
 
+
+## Path Normalization
+
 ## SQL Injection
 ### WAF and Filter Bypass
 #### Query default:
