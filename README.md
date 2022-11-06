@@ -1337,17 +1337,17 @@ https://github.com/rodolfomarianocy/hackshell
 
 ### CMS
 #### Wordpress
--> Tool  
+-> wpscan    
 `wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
-#### Joomla!
--> Tool  
+#### Joomla
+-> juumla  
 `python main.py -u <target>`
 https://github.com/oppsec/juumla
 
 #### Drupal
--> Tool  
+-> droopescan  
 `droopescan scan drupal -u <target> -t 32`
 https://github.com/SamJoan/droopescan
 
@@ -1386,28 +1386,34 @@ https://github.com/robertdavidgraham/masscan
 -> Parameters Discovery  
 `python paramspider.py -d stripe.com | uro | httpx -fc 404 -silent | anew spider_parameters.txt && echo stripe.com | gau | gf xss | uro |  httpx -fc 404 -silent | anew gau_parameters.txt`
 
-### Steps - Recon Web
+### Steps - Web Recon
 #### 1 - Subdomain Discovery
-1.1 -> sublist3r+sort|uniq+httpx+anew
+1.1 -> sublist3r+sort|uniq+httpx+anew  
 `subslit3r -d site.com | sort | uniq | httpx -silent | anew subdomains.txt`
 
-1.2 -> subfinder+sort|uniq+httpx+anew
+1.2 -> subfinder+sort|uniq+httpx+anew  
 `subfinder -d site.com  | sort | uniq | httpx -silent | anew subdomains.txt`
 
 1.3 -> crt+jq+grep+httpx+anew  
 `curl "https://crt.sh/?q=$1&output=json" | jq -r '.[].name_value' | grep -v "*" | httpx -silent | anew subdomains.txt`
 
 #### 2 - Parameter Discovery
-2.1 -> gau+gf+uro+httpx+anew
+2.1 -> gau+gf+uro+httpx+anew  
 `cat subdomains.txt | gau | gf xss | uro | httpx -silent | anew parameters.txt`
 
-2.2 -> paramspider + uro + httpx
+2.2 -> paramspider + uro + httpx  
 `cat subdomains.txt | xargs -n 1 python paramspider.py -d |httpx -silent | gf xss | uro | anew parameters.txt`  
 
-#### 3 - Files Discovery
-3.1 -> gau+grep+httpx
-`cat subdomains.txt | grep "\.js" | httpx -fc 404 -o js_files.txt`  
+#### 3 - JS files
+3.1 -> gau+grep+httpx  
+`cat subdomains.txt | grep "\.js" | httpx -fc 404 -silent -o js_files.txt`  
+or
+`cat subdomains.txt | gau | subjs`
 
+#### 4 - Discover endpoints and their parameters in JS files
+`python linkfinder.py -i https://example.com/1.js -o results.html`
+
+python linkfinder.py -i
 -> Used Tools
 https://github.com/projectdiscovery/subfinder  
 https://github.com/aboul3la/Sublist3r  
@@ -1416,13 +1422,14 @@ https://github.com/s0md3v/uro
 https://github.com/projectdiscovery/httpx  
 https://github.com/tomnomnom/gf  
 https://github.com/stedolan/jq  
+https://github.com/lc/subjs  
+https://github.com/GerbenJavado/LinkFinder  
 
 #### Other Tools
 -> Project Discovery (Subdomain Discovery)  
-https://chaos.projectdiscovery.io/#/
-
+https://chaos.projectdiscovery.io/#/  
 -> aquatone (Tool for visual inspection of websites)  
-https://github.com/michenriksen/aquatone
+https://github.com/michenriksen/aquatone  
 
 ### Certifications
 #### elearn Web Application Penetration Tester eXtreme - eWPTX
