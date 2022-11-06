@@ -165,7 +165,6 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ```  
 
 ### Keyword Based in Filter
- 
 #### Alert Blocked - Bypass
   
 ```
@@ -204,7 +203,6 @@ Add execution sink:
 `<img src=x onerror="setInterval('\x61lert(1)')"/>`  
 -> mix  (uni, hex, octa)  
 `<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>`  
-
 https://checkserp.com/encode/unicode/  
 http://www.unit-conversion.info/texttools/octal/  
 http://www.unit-conversion.info/texttools/hexadecimal/  
@@ -270,7 +268,6 @@ https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html
 https://malwaredecoder.com/  
 
 ### XSS - Session Hijacking
-
 -> Examples
   
 ```
@@ -301,7 +298,6 @@ https://github.com/JohnHammond/ctf-katana#php
 #### Class Properties
 
 Examples:
-
 Public \<s>  
 `O:4:"Okay":1:{s:8:"filepath";s:11:"/tmp/ok.txt";}`
   
@@ -675,6 +671,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
+
 ## SQL Injection
 ### WAF and Filter Bypass
 #### Query default:
@@ -749,6 +746,10 @@ https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/
 ### Doc for SQL Injection - Bypass  
 https://github.com/OWASP/www-community/blob/master/pages/attacks/SQL_Injection_Bypassing_WAF.md
 
+### Templates - Nuclei
+https://raw.githubusercontent.com/geeknik/the-nuclei-templates/main/error-based-sql-injection.yaml
+https://raw.githubusercontent.com/panch0r3d/nuclei-templates/master/header_sqli.yaml
+https://raw.githubusercontent.com/ghsec/ghsec-jaeles-signatures/master/time-sqli.yaml
 
 ## NOSQL Injection
 -> Auth bypass  
