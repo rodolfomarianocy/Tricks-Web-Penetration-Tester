@@ -1,6 +1,11 @@
 X-Originating-IP: 127.0.0.1
 X-Forwarded-For: 127.0.0.1
+Forwarded-For: 127.0.0.1
+Forwarded-For-Ip: 127.0.0.1
 X-Forwarded-Host: 127.0.0.1
 X-Remote-IP: 127.0.0.1
 X-Remote-Addr: 127.0.0.1
 X-Client-IP: 127.0.0.1
+Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+X-Custom-IP-Authorization: 127.0.0.1
