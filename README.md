@@ -6,6 +6,7 @@
 ### Tools - WAF Detection
 -> wafw00f  
 https://github.com/EnableSecurity/wafw00ff
+
 -> nmap <ip> --script=http-waf-fingerprint  
 https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 
@@ -729,14 +730,18 @@ https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/fuzzi
 https://raw.githubusercontent.com/CharanRayudu/Custom-Nuclei-Templates/main/dir-traversal.yaml
 
 ### Wordlists
--> burp-parameter-names.txt - Wordlist for parameter fuzzing
+-> burp-parameter-names.txt - Wordlist for parameter fuzzing  
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt  
+	
 -> Wordlist LFI - Linux  
 https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt  
+	
 -> Wordlist LFI - Windows  
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt  
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt 
+	
 -> bypass_lfi.txt  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt  
+	
 -> poisoning.txt  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/posoning.txt  
 
@@ -969,6 +974,59 @@ headi -url http://site.com/admin.php
 https://github.com/mlcsec/headi
 
 ## Request Smuggling
+### CL.TE - Content-Length X Transfer-Encoding
+CL.TE: The frontend uses the Content-Length header and the backend server uses the Transfer-Encoding header  
+e.g.  
+```
+POST / HTTP/1.1
+Host: site.com
+Content-Length: 11
+Transfer-Encoding: chunked
+	
+0
+
+ATTACK
+```
+1. Front-End use Content-Length of 11;  
+2. back-end divides into 2 blocks to process.  
+First block: 0  
+Second block: Attack that will be processed in another request  
+	
+### TE.CL - Transfer-Encoding X Content-Length
+TE.CL: The frontend uses the Transfer-Encoding header and the backend server uses the Content-Length header  
+e.g.  
+```
+POST / HTTP/1.1
+Host: site.com
+Content-Length: 3
+Transfer-Encoding: chunked
+
+6
+ATTACK
+0
+```
+1. Front-End use Transfer-Encoding of 6 bytes and processes the request in two blocks:  
+First block: Attack  
+second block 0  
+And that request is forwarded to the backend server.  
+2. Back-End use and process Content-Length header of 3 bytes, and the remainder starting with ATTACK are not processed and the backend server will handle it on the next request.  
+	
+### TE.TE - Transfer-Encoding X Transfer-Encoding
+The frontend and backend support Transfer-Encoding, but it is possible to induce a non-processing on one of the servers through the obfuscating of the header.
+e.g.  
+```
+Transfer-Encoding: xchunked
+Transfer-Encoding : chunked
+Transfer-Encoding:[tab]chunked
+Transfer-Encoding: x
+[space]Transfer-Encoding: chunked
+Transfer-Encoding[space]: chunked
+X: X[\n]Transfer-Encoding: chunked
+Transfer-Encoding
+: chunked
+```
+	
+### Tool	
 ```
 python3 smuggler.py -u <URL>
 ```
@@ -977,9 +1035,18 @@ https://github.com/defparam/smuggler
 -> Study  
 https://portswigger.net/web-security/request-smuggling  
 
+## Open Redirect
+#### Open Redirect to XSS
+e.g.  
+```
+javascript:alert(1)
+```
+	
+### Nuclei Template
+https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/vulnerabilities/generic/open-redirect.yaml
+	
 ## Server-Side Template Injection - SSTI
 ### Identify
-
 -> Jinja2 or Twig  
 ```
 {{3*3}}
@@ -1408,14 +1475,14 @@ https://github.com/dolevf/graphw00f
 https://graphql.security/
 
 ## JSON Web Tokens - JWT Attacks
--> Structure  
+-> Structure with jwt.io - decoder  
 https://jwt.io/  
 	
 `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
 	
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 (HEADER)  
-eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ (PAYLOAD)  
-SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (Signature)
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 (Header)`  
+`eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ (Payload)`  
+`SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (Signature)`  
 	
 ### JWT None Attack
 1. Change signature algorithm in the header to none  
@@ -1424,7 +1491,6 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (Signature)
 3. Leave the Signature part of the JWT empty and put a period in the token  
 	
 ### JWT Decoder
-https://jwt.io/  
 -> jwt-decoder.py  
 ```
 python3 jwt-decoder.py "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.4pOAm1W4SHUoOgSrc8D-J1YqLEv9ypAApz27nfYP5L4"
@@ -1626,7 +1692,7 @@ https://raw.githubusercontent.com/emadshanab/SAP-wordlist/main/SAP-wordlist.txt
 #### Others
 https://github.com/shipcod3/mySapAdventures
 
-ServiceNow
+### ServiceNow
 -> Brute-Force in KB00<here>  
 ```
 https://company.service-now.com/kb_view_customer.do?sysparm_article=KB00xxxxx
@@ -1640,7 +1706,7 @@ https://github.com/H0j3n/EzpzSharepoint
 ### Wordpress
 -> wpscan  
 ```
-wpscan --url http://site.com/wordpress --api-token <your_token> --enumarate vp --plugins-detection aggressive
+wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate vp --plugins-detection aggressive
 ```  
 https://wpscan.com/wordpress-security-scanner
 
