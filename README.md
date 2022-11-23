@@ -1121,13 +1121,18 @@ http://127.2.0.2
 e.g.  
 `http://%31%32%37%2e%30%2e%30%2e%31`
 
+-> Enclosed alphanumerics  
+```
+http://⑯⑨。②⑤④。⑯⑨｡②⑤④
+http://①②⑦。①
+```
 -> Bash variables  
 e.g.  
 `http://evil.$site.com`
 
 -> Bypass of whitelist  
 e.g.  
-`http:/site.com@127.0.0.1`
+`http://site.com@127.0.0.1`
 
 -> Domain redirection  
 e.g.  
@@ -1136,8 +1141,6 @@ e.g.
 -> Using [::]  
 e.g.  
 `http://[::]`
-
-#### Wordlist localhost Bypass
 
 #### Wordlist meta-data Bypass
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_meta_bypass.txt  
