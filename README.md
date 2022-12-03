@@ -89,6 +89,21 @@ echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 ```  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
+### PHP Obfuscation 
+-> PHP Obfuscator Online - Bypass AV  
+https://www.gaijin.at/en/tools/php-obfuscator#result
+
+-> base64+gzdeflate
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
+
+## Online PHP Executor
+"3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."  
+https://3v4l.org/  
+
+### PHP Obfuscation - Decoders 
+https://malwaredecoder.com/  
+https://hackvertor.co.uk/public  
+
 ## PHP Bypass - disable_functions
 ### Functions
 
@@ -116,19 +131,6 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 ```
 <?php file_get_contents($_GET['ok']);?>
 ```
-
-### PHP Obfuscation - base64+gzdeflate
-
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
-
-## Online PHP Executor
-"3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."  
-https://3v4l.org/  
-
-### PHP Obfuscation Decoders 
-https://malwaredecoder.com/  
-https://hackvertor.co.uk/public  
-
 ## Spoofing Internal IP in Request Header
 
 ```
