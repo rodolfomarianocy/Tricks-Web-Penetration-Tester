@@ -1738,7 +1738,7 @@ https://github.com/H0j3n/EzpzSharepoint
 ### Wordpress
 -> wpscan  
 ```
-wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate vp --plugins-detection aggressive
+wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate u vp --plugins-detection aggressive
 ```  
 https://wpscan.com/wordpress-security-scanner
 
