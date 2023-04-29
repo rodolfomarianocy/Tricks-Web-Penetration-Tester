@@ -156,7 +156,7 @@ https://github.com/devploit/dontgo403
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
 1-> Identify the language and frameworks used  
-2-> Identify entry points (parameters, inputs, responses reflecting values you can control, etc).  
+2-> Identify entry points (parameters, inputs, responses reflecting values you can control, etc)   
 3-> Check how this is reflected in the response via source code preview or browser developer tools  
 4-> Check the allowed special characters  
 ```
