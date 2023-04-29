@@ -155,6 +155,15 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 https://github.com/devploit/dontgo403
 
 ## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
+1-> Identify the language and frameworks used  
+2-> Identify entry points (parameters, inputs, responses reflecting values you can control, etc).  
+3-> Check how this is reflected in the response via source code preview or browser developer tools  
+4-> Check the allowed special characters  
+```
+< > ' " { } ;
+```
+5-> Detect if there are filters or blockages and modify as needed to make it work
+
 ### XSS Protection
 -> XSS Auditor and XSS Filter  
 https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
