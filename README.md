@@ -1910,7 +1910,7 @@ ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-
 
 ### Fuzzing Subdomain - VHOST
 ```
-ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-11000.txt -fs xxx
+ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -fs xxx
 ```
 
 ### Fuzzing File Extension
