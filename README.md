@@ -1,6 +1,13 @@
 # Tricks - Web Penetration Tester
 [x] In construction...
-## What WAF does the application have?
+## Topics
+
+- [WAF Detection](#waf-detection)
+- [Host Obfuscation](#host-obfuscation)
+- [PHP Obfuscation Techniques](#php-obfuscation-techniques)
+
+## WAF Detection
+### What WAF does the application have?
 <img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188950014-db9eae26-8801-4f68-a673-01f0d7af5c15.png" />
 
 ### Tools - WAF Detection
@@ -33,8 +40,8 @@ https://github.com/zidansec/CloudPeler
 ```
 python cloudflair.py myvulnerable.site
 ```
+https://github.com/christophetd/CloudFlair 
 
-https://github.com/christophetd/CloudFlair  
 -> Discover CloudFlare WordPress IP  
 https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
 
@@ -65,7 +72,7 @@ e.g. (127.0.0.1)
 -> Online tool    
 https://www.silisoftware.com/tools/ipconverter.php
 
-## PHP Obfuscation Techniques:
+## PHP Obfuscation Techniques
 ### Mix - Hex + Octal
 ```
 echo "T\x72\x69\143\153s";#Tricks
@@ -90,14 +97,14 @@ echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 ```  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
-### PHP Obfuscation 
+### Automated PHP Obfuscation
 -> PHP Obfuscator Online - Bypass AV  
 https://www.gaijin.at/en/tools/php-obfuscator#result
 
 -> base64+gzdeflate
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
 
-## Online PHP Executor
+### Online PHP Executor
 "3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."  
 https://3v4l.org/  
 
@@ -853,7 +860,9 @@ SELECT LOAD_FILE('/etc/passwd')
 ```
 'UNION SELECT 1,name,3,4 from users; -- -
 ```
-
+#### UNHEX - hexadecimal
+```
+```
 #### Add comment /* */ for space bypass
 ```
 'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -
