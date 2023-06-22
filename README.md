@@ -4,7 +4,6 @@
 	<img height=500 src="https://github.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/assets/54555784/fa9f6972-3251-4744-9058-88f45b89cd07" />
 </p>
 <h2 align="center"> [x] In construction...</h2>
-![d4ef5d017416b0a4e5b0c81548eaef96]()
 
 ## Topics
 - [WAF Detection](#waf-detection)
