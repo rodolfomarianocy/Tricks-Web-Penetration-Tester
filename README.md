@@ -27,8 +27,6 @@
 - [ClickJacking](#clickjacking)
 - [Host Header Injection](#host-header-injection)
 - [HTTP Request Smuggling](#http-request-smuggling)
-- [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
-- [ClickJacking](#clickjacking)
 - [Open Redirect](#open-redirect)
 - [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
 - [Server-Side Request Forgery (SSRF)](#server-side-request-forgery-ssrf)
