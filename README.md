@@ -66,22 +66,36 @@ https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva
 -> IP History  
 https://www.iphistory.ch/en/  
 
--> DNS History  
-```
-bash bypass-firewalls-by-DNS-history.sh -d site.com
-```
-https://github.com/vincentcox/bypass-firewalls-by-DNS-history
+#### DNS History  
+-> virustotal
+https://www.virustotal.com/gui/domain/<domain>/relations
+
+-> censys
+https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=<domain>
 
 -> Bypass to find real IP in CloudFlare - CrimeFlare  
 ```
 ./crimeflare.php exemple.com
 ```
 https://github.com/zidansec/CloudPeler  
+
 -> CloudFlair is a tool to find origin servers of websites protected by CloudFlare who are publicly exposed and don't restrict network access to the CloudFlare IP ranges as they should.  
 ```
 python cloudflair.py myvulnerable.site
 ```
 https://github.com/christophetd/CloudFlair 
+
+-> cloudfail
+```
+python3 cloudfail.py --target <domain>
+```
+https://github.com/m0rtem/CloudFail
+
+-> bypass-firewalls-by-DNS-history.sh
+```
+bash bypass-firewalls-by-DNS-history.sh -d site.com
+```
+https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 
 -> Discover CloudFlare WordPress IP  
 https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
