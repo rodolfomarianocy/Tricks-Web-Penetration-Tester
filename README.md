@@ -1421,7 +1421,10 @@ export AWS_ACCESS_KEY_ID=<access_key_id>
 export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
 export AWS_SESSION_TOKEN=<session_token>  
 ```
-
+-> Test obtaining the configured identity information
+```
+aws sts get-caller-identity
+```
 -> Performing enumeration and exploration in the cloud environment
 ```
 In construction
