@@ -40,6 +40,7 @@
 - [JWT Attacks](#jwt-attacks)
 - [Attacking OAuth](#attacking-oauth)
 - [Padding Oracle Attack](#padding-oracle-attack)
+- [Race Condition](#race-condition)
 - [Content Management System (CMS)](#content-management-system-cms)
 - [Third-party Software: ITSM, ITSO, ITBM](#third-party-software-itsm-itso-itbm)
 - [Some payloads for webshells and revshells](#some-payloads-for-webshells-and-revshells)
@@ -1948,6 +1949,13 @@ https://github.com/frohoff/ysoserial
 python shiro_exp.py site.com/home.jsp cookie payload.class
 ```  
 https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py  
+
+## Race Condition
+-> Burp Suite - race condition test using Send group in parallel  
+https://portswigger.net/burp/documentation/desktop/tools/repeater/send-group
+
+-> Burp Suite - Extensions-> Turbo Intruder-> Send to Turbo Intruder -> select examples/race-single-packer-attack.py  
+https://portswigger.net/web-security/race-conditions
 
 ## Content Management System (CMS)
 ### Wordpress
