@@ -1954,7 +1954,7 @@ https://github.com/wuppp/shiro_rce_exp/blob/master/shiro_exp.py
 -> Burp Suite - race condition test using Send group in parallel  
 https://portswigger.net/burp/documentation/desktop/tools/repeater/send-group
 
--> Burp Suite - Extensions-> Turbo Intruder-> Send to Turbo Intruder -> select examples/race-single-packer-attack.py  
+-> Burp Suite - Extensions -> Turbo Intruder-> Send to Turbo Intruder -> select examples/race-single-packer-attack.py  
 https://portswigger.net/web-security/race-conditions
 
 ## Content Management System (CMS)
