@@ -72,29 +72,33 @@ This type of bypass is only viable when there is no restriction on origin traffi
 
 You can try to find out the IP of the backend server using the following tools:
 
-#### IP History  
-https://www.iphistory.ch/en/  
-
-#### DNS History  
--> virustotal
-https://www.virustotal.com/gui/domain/<domain>/relations
+#### DNS History - Identify histories of previous DNS resolutions or services associated with the domain.
 
 -> censys
 https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=<domain>
 
--> Bypass to find real IP in CloudFlare - CrimeFlare  
-```
-./crimeflare.php exemple.com
-```
-https://github.com/zidansec/CloudPeler  
+-> virustotal
+https://www.virustotal.com/gui/domain/<domain>/relations
 
--> CloudFlair is a tool to find origin servers of websites protected by CloudFlare who are publicly exposed and don't restrict network access to the CloudFlare IP ranges as they should.  
+-> shodan
+https://www.shodan.io/search?query=<domain>
+
+-> IP History  
+https://www.iphistory.ch/en/  
+
+-> CloudFlair - Find the origin server IP of websites protected by CloudFlare WAF
 ```
 python cloudflair.py myvulnerable.site
 ```
 https://github.com/christophetd/CloudFlair 
 
--> cloudfail
+-> CrimeFlare - Find the origin server IP of websites protected by CloudFlare WAF
+```
+./crimeflare.php exemple.com
+```
+https://github.com/zidansec/CloudPeler  
+
+-> CloudFail - Find the origin server IP of websites protected by CloudFlare WAF
 ```
 python3 cloudfail.py --target <domain>
 ```
@@ -108,6 +112,8 @@ https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 
 -> Discover CloudFlare WordPress IP  
 https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
+
+-> Reverse DNS lookup: It may also be useful to check DNS records to identify subdomains or services associated with the server's real IP. Techniques such as Zone Transfer (when misconfigured) can expose sensitive addresses (tools like nslookup, dig and host can be useful)
 
 ### Bypass using cipher not supported by WAF
 ```
