@@ -70,7 +70,9 @@ Bypassing a Web Application Firewall (WAF) is a technique often used to carry ou
 
 This type of bypass is only viable when there is no restriction on origin traffic, that is, when the backend server is not configured to accept connections exclusively through the WAF.
 
--> IP History  
+You can try to find out the IP of the backend server using the following tools:
+
+#### IP History  
 https://www.iphistory.ch/en/  
 
 #### DNS History  
