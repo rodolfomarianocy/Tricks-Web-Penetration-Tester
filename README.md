@@ -44,7 +44,6 @@
 - [Content Management System (CMS)](#content-management-system-cms)
 - [Third-party Software: ITSM, ITSO, ITBM](#third-party-software-itsm-itso-itbm)
 - [Some payloads for webshells and revshells](#some-payloads-for-webshells-and-revshells)
-- [Cloud (+)](#cloud-)
 - [Recon (+)](#recon-)
 - [Certifications (+)](#certifications-)
 
@@ -75,13 +74,13 @@ You can try to find out the IP of the backend server using the following tools:
 #### DNS History - Identify histories of previous DNS resolutions or services associated with the domain.
 
 -> censys
-https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=<domain>
+https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=example.com
 
 -> virustotal
-https://www.virustotal.com/gui/domain/<domain>/relations
+https://www.virustotal.com/gui/domain/example.com/relations
 
 -> shodan
-https://www.shodan.io/search?query=<domain>
+https://www.shodan.io/search?query=example.com
 
 -> IP History  
 https://www.iphistory.ch/en/  
