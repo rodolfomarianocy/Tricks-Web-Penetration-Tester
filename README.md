@@ -53,6 +53,8 @@
 <img class="center" height="450em" src="https://user-images.githubusercontent.com/54555784/188950014-db9eae26-8801-4f68-a673-01f0d7af5c15.png" />
 
 ### Tools - WAF Detection
+One of the first steps during reconnaissance is to discover the security controls that exist in the application. Knowing whether there is a WAF filtering and blocking is important to try to bypass it and be effective in your attacks. Here are some tools that help in the possible detection of a WAF:  
+
 -> wafw00f  
 https://github.com/EnableSecurity/wafw00ff
 
