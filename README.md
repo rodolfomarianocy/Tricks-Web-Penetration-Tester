@@ -64,8 +64,12 @@ https://nmap.org/nsedoc/scripts/http-waf-fingerprint.html
 -> imperva-detect  
 https://raw.githubusercontent.com/vmfae-iscteiulpt/imperva-detect/master/imperva-detect.sh
 
+## WAF bypass
 ### Finding the direct IP address of a server
-	
+Bypassing a Web Application Firewall (WAF) is a technique often used to carry out direct attacks on the origin server, bypassing the security measures implemented by the WAF. One of the most common initial steps is to identify the direct IP address of the server hosting the application and include it in the /etc/hosts file, associating it with the application domain. In this way, the WAF is bypassed, allowing direct communication with the backend server.
+
+This type of bypass is only viable when there is no restriction on origin traffic, that is, when the backend server is not configured to accept connections exclusively through the WAF.
+
 -> IP History  
 https://www.iphistory.ch/en/  
 
