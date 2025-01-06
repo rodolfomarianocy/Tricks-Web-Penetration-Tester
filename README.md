@@ -73,13 +73,13 @@ You can try to find out the IP of the backend server using the following tools:
 
 #### DNS History - Identify histories of previous DNS resolutions or services associated with the domain.
 
--> censys
+-> censys  
 https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=example.com
 
--> virustotal
+-> virustotal  
 https://www.virustotal.com/gui/domain/example.com/relations
 
--> shodan
+-> shodan  
 https://www.shodan.io/search?query=example.com
 
 -> IP History  
