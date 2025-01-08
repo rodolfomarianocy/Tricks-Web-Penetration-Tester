@@ -234,11 +234,11 @@ https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge
 https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/X-XSS-Protection
 
 -> Wordlists for XSS Bypass  
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/xss_bypass.txt  
 https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst  
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Bypass-Strings-BruteLogic.txt  
+https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/XSS%20Injection/Intruders/BRUTELOGIC-XSS-STRINGS.txt
 https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt  
-https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/XSS-Cheat-Sheet-PortSwigger.txt
 
 ### XSS Keylogger
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
