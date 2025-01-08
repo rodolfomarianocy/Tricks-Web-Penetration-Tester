@@ -126,6 +126,7 @@ https://github.com/LandGrey/abuse-ssl-bypass-waf
 https://github.com/0xInfection/Awesome-WAF
 
 ## Host Obfuscation
+The host obfuscation technique involves changing the host to another format, such as Integer, Octadecimal, and Hexadecimal. This technique can be useful in several scenarios, such as to bypass "mitigations" based on host blacklists.
 
 <img height="400em" src="https://user-images.githubusercontent.com/54555784/188947375-6cb16b30-369c-4831-b783-47565623827b.png" />
 
