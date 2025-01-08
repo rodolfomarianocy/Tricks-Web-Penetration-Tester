@@ -115,6 +115,7 @@ https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
 -> Reverse DNS lookup: It may also be useful to check DNS records to identify subdomains or services associated with the server's real IP. Techniques such as Zone Transfer (when misconfigured) can expose sensitive addresses (tools like nslookup, dig and host can be useful)
 
 ### Bypass using cipher not supported by WAF
+This bypass consists of finding SSL/TLS ciphers that the WAF cannot decrypt and that the server can decrypt, thus inhibiting the action of the WAF.
 ```
 python abuse-ssl-bypass-waf.py -thread 4 -target <target>  
 curl --ciphers <cipher> -G <target> -d <payload>
