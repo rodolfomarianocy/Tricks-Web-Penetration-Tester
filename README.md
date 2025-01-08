@@ -374,7 +374,7 @@ http://www.jsfuck.com/
 -> Xchars.js  
 https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html  
 
-### Decoder - Obfuscation (Javascript Decoder and PHP)
+### Deobfuscation Javascript and PHP - Decoder
 https://malwaredecoder.com/  
 
 ### XSS to LFI
