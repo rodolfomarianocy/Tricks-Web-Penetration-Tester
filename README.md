@@ -169,6 +169,8 @@ echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
 ### Automated PHP Obfuscation
+Obfuscation techniques in PHP consist of making PHP code less readable/understandable, which can help evade signature-based controls and, in some cases, even be useful for bypassing the detection of malicious files by poorly configured EDR solutions.
+
 -> PHP Obfuscator Online - Bypass AV  
 https://www.gaijin.at/en/tools/php-obfuscator#result
 
@@ -184,6 +186,7 @@ https://malwaredecoder.com/
 https://hackvertor.co.uk/public  
 
 ## PHP Bypass - disable_functions
+Some PHP applications use the direct disable_functions option, which can be used to disable functions configured in the php.ini file. In this scenario, trying to carry out malicious actions with different functions can be of great value. Below are some of the functions that can be used:
 
 ### Functions
 
