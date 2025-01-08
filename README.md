@@ -144,6 +144,8 @@ e.g. (127.0.0.1)
 https://www.silisoftware.com/tools/ipconverter.php
 
 ## PHP Obfuscation Techniques
+Obfuscation techniques in PHP consist of making PHP code less readable/understandable, which can help evade signature-based controls and, in some cases, even be useful for bypassing the detection of malicious files by poorly configured EDR solutions.
+
 ### Mix - Hex + Octal
 ```
 echo "T\x72\x69\143\153s";#Tricks
@@ -169,7 +171,6 @@ echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
 
 ### Automated PHP Obfuscation
-Obfuscation techniques in PHP consist of making PHP code less readable/understandable, which can help evade signature-based controls and, in some cases, even be useful for bypassing the detection of malicious files by poorly configured EDR solutions.
 
 -> PHP Obfuscator Online - Bypass AV  
 https://www.gaijin.at/en/tools/php-obfuscator#result
