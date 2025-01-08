@@ -178,7 +178,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 "3v4l.org (leetspeak for eval) is an online shell that allows you to run your code on my server. I compiled more than 250 different PHP versions (every version released since 4.3.0) for you to run online."  
 https://3v4l.org/  
 
-### PHP Obfuscation - Decoders 
+### PHP Deobfuscation - Decoders 
 https://malwaredecoder.com/  
 https://hackvertor.co.uk/public  
 
