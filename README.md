@@ -242,7 +242,7 @@ https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/
 https://github.com/hadynz/xss-keylogger
 
 ### XSS Mutation
-https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss
+https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss  
 http://www.businessinfo.co.uk/labs/mxss/
 
 ### XSS Poliglote
