@@ -245,8 +245,9 @@ https://github.com/hadynz/xss-keylogger
 https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss  
 http://www.businessinfo.co.uk/labs/mxss/
 
-### XSS Poliglote
-https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
+### XSS Polyglot
+https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot  
+https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 
 ### Regex Blacklist Filtering
 -> Filter blocking on - Bypass  
