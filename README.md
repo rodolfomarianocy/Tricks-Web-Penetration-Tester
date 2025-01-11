@@ -409,12 +409,13 @@ https://github.com/KathanP19/Gxss
 https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
 
 ## Git Exposed
+### git-dumper
 ```
 git-dumper http://site.com/.git .
 ```
 https://github.com/arthaud/git-dumper
 
-### Tools
+### GitTools
 https://github.com/internetwache/GitTools
 
 ## Broken Access Control
