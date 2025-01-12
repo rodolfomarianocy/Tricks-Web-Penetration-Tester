@@ -419,7 +419,7 @@ https://github.com/arthaud/git-dumper
 https://github.com/internetwache/GitTools
 
 ## IDOR (Insecure Direct Object References)
-1. Search for IDs (or any direct reference to an object) in routes and request parameters in order to attempt to obtain data from other users  
+1. Search for IDs (or any direct reference to an object) in routes and parameters of a request, to try to obtain data from other users
 2. In many cases you will want to have two accounts to cross-test  
 4. In some specific cases changing the request method (GET, POST, PUT, DELETE, PATCH…) may help  
 4. Sometimes an IDOR may exist in old versions of an API that are still active (/api/v1/ /api/v2/ /api/v3/), the fuzzing process can help with this  
