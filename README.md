@@ -418,14 +418,13 @@ https://github.com/arthaud/git-dumper
 ### GitTools
 https://github.com/internetwache/GitTools
 
-## Broken Access Control
-### IDOR (Insecure Direct Object References)
-1. Search listing of Id's in requests and in case you don't find create at least two accounts and analysis requests involving ID's  
-2. Identify access controls in the application  
-3. Change the request method (GET, POST, PUT, DELETE, PATCH…)  
-4. Search old versions of API's /api/v1/ /api/v2/ /api/v3/  
-5. Try sending a (*) instead of the ID, especially at search points  
-6. Brute-force IDs depending on context and predictability 
+## IDOR (Insecure Direct Object References)
+1. Search for IDs (or any direct reference to an object) in routes and request parameters  
+2. For this test, in many cases you will want to have two accounts to cross-test  
+3. Identify access controls in the application  
+4. In some specific cases changing the request method (GET, POST, PUT, DELETE, PATCH…) may help  
+4. Sometimes an IDOR may exist in old versions of an API that are still active (/api/v1/ /api/v2/ /api/v3/), the fuzzing process can help with this.  
+5. Performing a brute force attack can be useful depending on the context and predictability
 	
 ### IDOR + Parameter Pollution
 #### HTTP Parameter Pollution
