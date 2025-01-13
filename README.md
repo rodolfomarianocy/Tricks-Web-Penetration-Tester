@@ -418,49 +418,55 @@ https://github.com/arthaud/git-dumper
 ### GitTools
 https://github.com/internetwache/GitTools
 
-## IDOR (Insecure Direct Object References)
+## Broken Access Control
+### IDOR (Insecure Direct Object References)
 1. Search for IDs (or any direct reference to an object) in routes and parameters of a request, to try to obtain data from other users
 2. In many cases you will want to have two accounts to cross-test  
 4. In some specific cases changing the request method (GET, POST, PUT, DELETE, PATCH…) may help  
 4. Sometimes an IDOR may exist in old versions of an API that are still active (/api/v1/ /api/v2/ /api/v3/), the fuzzing process can help with this  
 5. Performing a brute force attack can be useful depending on the context and predictability
 	
-### IDOR + Parameter Pollution
-#### HTTP Parameter Pollution
+#### IDOR + Parameter Pollution
+##### HTTP Parameter Pollution
 ```
 GET /api/v1/messages?id=<Another_User_ID> # unauthourized
 GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> # authorized
 GET /api/v1/messages?id[]=<Your_User_ID>&id[]=<Another_User_ID>
 ```
 	
-#### Json Parameter Pollution
+##### Json Parameter Pollution
 ```
 POST /api/v1/messages
 {"user_id":<You_user_id>,"user_id":<Anoher_User_id>} 
 ```
+
 -> with a JSON Object
 ```
 POST /api/v1/messages
 {"user_id":{"user_id":<Anoher_User_id>}} 
 ```
+
 -> with array  
 ```
 {"user_id":001} #Unauthorized
 {"user_id":[001]} #Authorized
 ```
-#### Random Case
-GET /admin/profile #Unauthorized
-GET /ADMIN/profile #Authorized
 
-### UUIDv1
-https://caon.io/docs/exploitation/other/uuid/  
+#### UUIDv1
+https://caon.io/exploitation/vulnerability/other/uuid/
 https://github.com/felipecaon/uuidv1gen
 
 #### Others
 -> add .json if in ruby
 ```
-/user/1029 # Unauthorized
-/user/1029.json # Authorized
+GET /user/1029 # Unauthorized
+GET /user/1029.json # Authorized
+```
+
+-> Random Case
+```
+GET /admin/profile #Unauthorized
+GET /ADMIN/profile #Authorized
 ```
 
 ### Spoofing Internal IP in Request Header
