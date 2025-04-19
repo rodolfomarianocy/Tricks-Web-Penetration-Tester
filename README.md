@@ -179,7 +179,6 @@ https://3v4l.org/
 
 ### PHP Deobfuscation - Decoders 
 https://malwaredecoder.com/  
-https://hackvertor.co.uk/public  
 
 ## PHP Bypass - disable_functions
 Some PHP applications use the direct disable_functions option, which can be used to disable functions configured in the php.ini file. In this scenario, trying to carry out malicious actions with different functions can be of great value. Below are some of the functions that can be used:
