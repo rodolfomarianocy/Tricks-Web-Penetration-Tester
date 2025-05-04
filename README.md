@@ -69,7 +69,6 @@ Bypassing a Web Application Firewall (WAF) is a technique often used to carry ou
 This type of bypass is only viable when there is no restriction on origin traffic, that is, when the backend server is not configured to accept connections exclusively through the WAF.
 
 You can try to find out the IP of the backend server using the following tools:
-
 #### DNS History - Identify histories of previous DNS resolutions or services associated with the domain.
 
 -> censys  
@@ -269,6 +268,7 @@ Below are some examples of DOM-based XSS, where malicious code is dynamically ma
 ```js
 <script>var q = location.search.replace("?q=", "");domE1.innerHTML = "<a href=\'"+q+"\'>Click here</a>";</script>
 ```
+
 -> Payload
 ```js
 ?q=javascript:alert(1)
