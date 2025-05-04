@@ -8,7 +8,7 @@
 - [WAF Detection](#waf-detection)
 - [Host Obfuscation](#host-obfuscation)
 - [PHP Obfuscation Techniques](#php-obfuscation-techniques)
-- [PHP Bypass - disable_functions](#php-bypass---disable_functions)
+- [PHP Alternatives - disable_functions](#php-alternatives---disable_functions)
 - [Cross-Site Scripting](#cross-site-scripting)
 - [Git Exposed](#git-exposed)
 - [Broken Access Control](#broken-access-control)
@@ -180,7 +180,7 @@ https://3v4l.org/
 ### PHP Deobfuscation - Decoders 
 https://malwaredecoder.com/  
 
-## PHP Bypass - disable_functions
+## PHP Alternatives - disable_functions
 Some PHP applications use the direct disable_functions option, which can be used to disable functions configured in the php.ini file. In this scenario, trying to carry out malicious actions with different functions can be of great value. Below are some of the functions that can be used:
 
 ### Functions
