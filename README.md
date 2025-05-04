@@ -329,22 +329,6 @@ https://www.vaadata.com/blog/content-security-policy-bypass-techniques-and-secur
 https://www.cobalt.io/blog/csp-and-bypasses  
 https://portswigger.net/research/using-form-hijacking-to-bypass-csp
 
-### Cheat Sheets
-https://portswigger.net/web-security/cross-site-scripting/cheat-sheet  
-https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
-
-### XSS Keylogger
-https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
-https://github.com/hadynz/xss-keylogger
-
-### XSS Mutation
-https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss  
-http://www.businessinfo.co.uk/labs/mxss/
-
-### XSS Polyglot
-https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot  
-https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
-
 ### Obfuscation with Execution Sinks for Bypass
 #### Eval 
 -> Execute JS code contained in a string directly  
@@ -410,10 +394,16 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 <img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
 ```
 
-##### Converters
-- https://checkserp.com/encode/unicode/  
+### Other bypass techniques
+-> unicode  
+```html
+<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
+```
+
+### Converters - octal, hexadecimal, unicode
 - http://www.unit-conversion.info/texttools/octal/  
-- http://www.unit-conversion.info/texttools/hexadecimal/  
+- http://www.unit-conversion.info/texttools/hexadecimal/
+- https://checkserp.com/encode/unicode/  
 
 ### Regex Blacklist Filtering
 Sometimes you can find a filter being applied as sanitization to mitigate Cross-Site Scripting (XSS), in this case there are ways to bypass this protection:  
@@ -455,13 +445,29 @@ eval(unescape("%61%6c%65%72%74%28%27%58%53%53%27%29"))
 ```js
 eval(decodeURI(/alert(%22xss%22)/.source))
 eval(decodeURIComponent(/alert(%22xss%22)/.source))
-```  
- 
-### Other bypass techniques
--> unicode  
-```html
-<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
 ```
+
+### Cheat Sheets
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet  
+https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
+
+### XSS Keylogger
+An XSS keylogger is a malicious script injected into pages vulnerable to Cross-Site Scripting (XSS), with the aim of capturing victims' keystrokes. By intercepting keyboard events in the browser, the attacker can record passwords, messages and other sensitive data.
+-> Useful Links  
+https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
+https://github.com/hadynz/xss-keylogger
+
+### XSS Mutation
+Mutation XSS is a type of XSS that exploits the process of "cleaning" and reinterpreting HTML by the browser. Even after content is filtered by mechanisms like DOMPurify, it can suffer internal mutations that reactivate malicious payloads. This attack is particularly effective against filters based solely on input analysis, without considering browser behavior.  
+-> Useful Links  
+https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss  
+http://www.businessinfo.co.uk/labs/mxss/
+
+### XSS Polyglot
+An XSS Polyglot is a malicious payload built to work in several execution contexts simultaneously (HTML, JavaScript, attributes, etc.). This technique allows for filter evasion and consistent payload execution across multiple scenarios, making it a powerful tool for discovering and exploiting XSS vulnerabilities, as demonstrated in real-world attacks on large platforms.  
+-> Useful Links  
+https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot  
+https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 
 ### Bypass Wordlists for XSS
 https://raw.githubusercontent.com/rodolfomarianocy/Tricks-Web-Penetration-Tester/main/wordlists/xss_bypass.txt  
