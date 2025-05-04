@@ -313,7 +313,7 @@ Below are some examples of DOM-based XSS, where malicious code is dynamically ma
 ?user=javascript:alert(1)
 ```
 
-### XSS Auditor and XSS Filter
+### XSS Auditor, XSS Filter, X-XSS-Protection and Content-Security-Policy
 XSS Auditor and XSS Filter were security mechanisms implemented in Google Chrome, Internet Explorer, and of Microsoft Edge to mitigate Cross-Site Scripting (XSS) attacks. The XSS Auditor, present in Chrome until its discontinuation, analyzed the content reflected in HTTP responses and blocked potentially malicious snippets of code before they were executed. The XSS Filter, used in Internet Explorer, inspected the DOM and input data for typical XSS patterns. Both were useful initially, but had limitations and could be worked around, as well as causing false positives. The X-XSS-Protection header allowed controlling these protections, activating or deactivating the mechanism according to the server configuration. Microsoft Edge also supported this feature in its earlier versions, but it was eventually removed in favor of more robust security mechanisms. Currently, these filters are only relevant for older browsers, such as Internet Explorer, older versions of Chrome, and legacy versions of Microsoft Edge, as modern browsers no longer use these technologies. 
 
 Today, with the obsolescence of these mechanisms, secure coding practices are adopted, such as input validation and sanitization, output encoding, and the use of the Content-Security-Policy (CSP) security header.
@@ -336,12 +336,12 @@ https://portswigger.net/research/using-form-hijacking-to-bypass-csp
 #### setInterval
 -> Executes JS code contained in a string repeatedly after an interval.  
 -> e.g. setInterval("alert('xss')", 1000);  
--> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
+-> If the delay argument is omitted, it will be treated as undefined and the browser will use a minimum delay (~4ms to 10ms)
 
 #### setTimeout 
 -> Executes JS code contained in a string once after a delay.  
--> e.g. setTimeout("alert('xss')", 1000);
--> If the delay argument is missing, it executes immediately  
+-> e.g. setTimeout("alert('xss')", 1000);  
+-> If the delay argument is omitted, it will be treated as undefined and the browser will use a minimum delay (~4ms to 10ms)
 
 #### Examples of using execution sinks with obfuscation
 -> eval + octal  
